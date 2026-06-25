@@ -1,0 +1,39 @@
+{
+  // MiKTeX has no Perl, so latexmk (LaTeX Workshop's default) cannot run.
+  // Define Perl-free tools and recipes that call pdflatex/bibtex directly.
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex*2 (no bibtex)",
+      "tools": ["pdflatex", "pdflatex"]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex*2 (use once you add \\cite commands)",
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  // Keep build artifacts (.aux, .log, .bbl, ...) tidy; the PDF stays put.
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot",
+    "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo",
+    "*.gls", "*.fls", "*.fdb_latexmk", "*.synctex.gz"
+  ]
+}
