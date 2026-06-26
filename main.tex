@@ -262,7 +262,7 @@ The canonical transformation has thus cleanly separated the total COM motion \em
 
 \subsection{Setup}
 
-With Eckart's frame fixed by the \emph{nuclei},
+With Eckart's frame~\cite{eckart1935} fixed by the \emph{nuclei},
 
 \begin{equation}
 \mathbf{R}_j'=\mathbf{S}(\phi,\theta,\chi)\,\bar{\mathbf{R}}_j(Q),\qquad \mathbf{r}_i'=\mathbf{S}(\phi,\theta,\chi)\,\bar{\mathbf{r}}_i. \tag{3.1}
@@ -271,7 +271,7 @@ The Eckart conditions $\sum_j M_j\bar{\mathbf{R}}_j=0$ and $\sum_j M_j\bar{\math
 \begin{equation}
 \bar{\mathbf{R}}_j(Q) = \bar{\mathbf{R}}_j^{\mathrm{eq}} + \frac{1}{\sqrt{M_j}}\sum_{b}\mathbf{l}_{jb}\,Q_b , \tag{3.1a}
 \end{equation}
-with mass-weighted normal-mode vectors $\mathbf{l}_{jb}$ obeying orthonormality and the Eckart (Sayvetz) conditions
+with mass-weighted normal-mode vectors $\mathbf{l}_{jb}$ obeying orthonormality and the Eckart (Sayvetz) conditions~\cite{eckart1935,sayvetz1939}
 \begin{equation}
 \sum_j \mathbf{l}_{ja}\!\cdot\!\mathbf{l}_{jb}=\delta_{ab},\qquad
 \sum_j\sqrt{M_j}\,\mathbf{l}_{jb}=0,\qquad
@@ -453,7 +453,7 @@ with $\boldsymbol{\pi}$ the \textbf{field-free vibrational angular momentum}. Su
 \boldsymbol{\omega}=\boldsymbol{\mu}\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr),\qquad
 \boxed{\;\boldsymbol{\mu}\equiv(\mathbf{I}')^{-1}=\bigl(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}\bigr)^{-1},\;} \tag{3.20}
 \end{equation}
-the \textbf{Watson reciprocal-inertia tensor}. The rotation--vibration coupling is now carried by the modified inertia $\mathbf{I}'$ and the uniform shift $\mathbf{J}\to\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}$ --- with no Wilson $G$-matrix.
+the \textbf{Watson reciprocal-inertia tensor}~\cite{watson1968}. The rotation--vibration coupling is now carried by the modified inertia $\mathbf{I}'$ and the uniform shift $\mathbf{J}\to\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}$ --- with no Wilson $G$-matrix.
 
 \subsection{Hamiltonian in canonical variables}
 
@@ -523,17 +523,17 @@ $$
 +\tfrac12\boldsymbol{\pi}^{T}\boldsymbol{\mu}\boldsymbol{\pi}+\tfrac12\mathbf{L}_{\mathrm{elec}}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}.
 $$
 
-All couplings in (3.22):
+All couplings in (3.22), referred to the standard analyses~\cite{watson1968,bunkerjensen}:
 \begin{enumerate}
     \item \textbf{Pure rotation, anisotropic top:} $\tfrac12\mathbf{J}^T\boldsymbol{\mu}(Q)\mathbf{J}$ --- $Q$-dependent moments of inertia (rot–vib coupling through inertia).
-    \item \textbf{Rot–vib Coriolis:} $-\mathbf{J}^T\boldsymbol{\mu}\boldsymbol{\pi}$.
-    \item \textbf{Rot–electron Coriolis:} $-\mathbf{J}^T\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$ --- the kinetic source of $\Lambda$-doubling, Renner–Teller, spin–rotation analogues.
-    \item \textbf{Vib–electron angular coupling:} $\boldsymbol{\pi}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$ --- exact non-adiabatic angular coupling intrinsic to BF embedding.
+    \item \textbf{Rot–vib Coriolis}~\cite{wilson1955}: $-\mathbf{J}^T\boldsymbol{\mu}\boldsymbol{\pi}$.
+    \item \textbf{Rot–electron Coriolis:} $-\mathbf{J}^T\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$ --- the kinetic source of $\Lambda$-doubling~\cite{mullikenchristy1931,vanvleck1951}, Renner–Teller~\cite{renner1934}, and spin–rotation~\cite{curl1965} analogues.
+    \item \textbf{Vib–electron angular coupling:} $\boldsymbol{\pi}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$ --- exact non-adiabatic angular coupling intrinsic to BF embedding~\cite{bornoppenheimer1927,bornhuang1954,littlejohn1997}.
     \item \textbf{Quadratic vibrational angular momentum:} $\tfrac12\boldsymbol{\pi}^{T}\boldsymbol{\mu}\boldsymbol{\pi}$.
     \item \textbf{Quadratic electronic angular momentum:} $\tfrac12\mathbf{L}_{\mathrm{elec}}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$.
     \item \textbf{Pure vibrational kinetic:} $\tfrac12\sum_{b}P_b^2$.
     \item \textbf{Electronic kinetic:} $\sum_i\bar{\mathbf{p}}_i^{\,2}/(2m_e)$.
-    \item \textbf{Mass-polarization, diagonal:} $\sum_i\bar{\mathbf{p}}_i^{\,2}/(2M_N)$ --- modifies effective electron mass.
+    \item \textbf{Mass-polarization, diagonal:} $\sum_i\bar{\mathbf{p}}_i^{\,2}/(2M_N)$ --- modifies effective electron mass~\cite{bornoppenheimer1927,bunkerjensen}.
     \item \textbf{Mass-polarization, off-diagonal (two-electron):} $\sum_{i<l}\bar{\mathbf{p}}_i\!\cdot\!\bar{\mathbf{p}}_l/M_N$.
     \item \textbf{Coulomb:} $V_{NN}(Q)+V_{Ne}(Q,\{\bar{\mathbf{r}}_i\})+V_{ee}(\{\bar{\mathbf{r}}_i\})$. All Euler-angle independent.
 \end{enumerate}
@@ -562,7 +562,7 @@ The natural Hilbert space is $L^{2}(\mathcal{C},\sqrt{|g|}\,d^{n}q)$, where the 
 \begin{equation}
 \boxed{\;\hat T \;=\; -\frac{\hbar^{2}}{2}\,\frac{1}{\sqrt{|g|}}\,\partial_A\!\bigl(\sqrt{|g|}\,g^{AB}\,\partial_B\bigr).\;} \tag{4.3}
 \end{equation}
-This is the \emph{Podolsky prescription}. Equivalently, one may write $\hat\pi_A = -i\hbar(\partial_A + \tfrac12\partial_A\ln\sqrt{|g|})$ and then take $\hat T = \tfrac12\hat\pi_A g^{AB}\hat\pi_B$ in symmetric (Weyl-type) ordering; the two prescriptions coincide up to terms absorbed into the volume element.
+This is the \emph{Podolsky prescription}~\cite{podolsky1928}. Equivalently, one may write $\hat\pi_A = -i\hbar(\partial_A + \tfrac12\partial_A\ln\sqrt{|g|})$ and then take $\hat T = \tfrac12\hat\pi_A g^{AB}\hat\pi_B$ in symmetric (Weyl-type) ordering; the two prescriptions coincide up to terms absorbed into the volume element.
 
 For our problem, only the Euler-angle and $Q_b$ sectors are curvilinear; the BF Cartesian electronic sector retains the standard $\hat{\bar{\mathbf{p}}}_i = -i\hbar\nabla_{\bar{\mathbf{r}}_i}$ on $L^{2}(\mathbb{R}^{3N_{\mathrm{elec}}},d^{3N_{\mathrm{elec}}}\bar{\mathbf{r}})$.
 
@@ -638,7 +638,7 @@ Since $\epsilon_{\alpha\beta\nu}+\epsilon_{\alpha\nu\beta}+\epsilon_{\nu\beta\al
 \begin{equation}
 \boxed{\;[\hat J_{\alpha}^{\mathrm{BF}},\hat J_{\beta}^{\mathrm{BF}}]\;=\;-i\hbar\,\epsilon_{\alpha\beta\gamma}\,\hat J_{\gamma}^{\mathrm{BF}}.\;} \tag{4.7}
 \end{equation}
-This is the famous \textbf{anomalous commutator} for BF angular momentum (Klein, Van Vleck, 1929; reviewed in Bunker--Jensen).
+This is the famous \textbf{anomalous commutator} for BF angular momentum~\cite{klein1929,vanvleck1951}, reviewed in Bunker--Jensen~\cite{bunkerjensen}.
 
 In contrast, BF electronic angular momentum is built intrinsically from BF Cartesian electron operators:
 \begin{equation}
@@ -762,7 +762,7 @@ The \emph{exact} molecular wavefunction $|\Psi\rangle \in L^{2}(\mathcal{C},d\mu
 \begin{equation}
 |\Psi\rangle \;=\; \sum_n |\chi_n\rangle \otimes |\phi_n(Q)\rangle, \qquad \chi_n(\Omega,Q) \;\equiv\; \langle\phi_n(Q)|\Psi\rangle_e, \tag{4.18}
 \end{equation}
-where $\Omega=(\phi,\theta,\chi)$, the electronic inner product is taken at fixed $Q$, and $\chi_n$ are the \textbf{nuclear coefficient functions}. The expansion (4.18) is \textbf{exact}, not an ansatz: it follows from the completeness (4.17) at each $Q$, with the only subtlety being that the basis $|\phi_n(Q)\rangle$ varies parametrically. There is \emph{no} simple tensor factorization $\mathcal{H}_{\mathrm{molecule}} = \mathcal{H}_N \otimes \mathcal{H}_e$ because of this parametric dependence; the Born--Huang expansion is the rigorous replacement.
+where $\Omega=(\phi,\theta,\chi)$, the electronic inner product is taken at fixed $Q$, and $\chi_n$ are the \textbf{nuclear coefficient functions}. The expansion (4.18) is \textbf{exact}, not an ansatz: it follows from the completeness (4.17) at each $Q$, with the only subtlety being that the basis $|\phi_n(Q)\rangle$ varies parametrically. There is \emph{no} simple tensor factorization $\mathcal{H}_{\mathrm{molecule}} = \mathcal{H}_N \otimes \mathcal{H}_e$ because of this parametric dependence; the Born--Huang expansion~\cite{bornhuang1954} is the rigorous replacement.
 
 \subsubsection{Coupled-channel equations}
 
@@ -1380,14 +1380,14 @@ rewrites every $\partial_b\ln\gamma$ and $\partial_b\boldsymbol\mu$ appearing in
 \begin{equation}
 \boxed{\;\hat U\;=\;U_{\mathrm{rot}}+U_{\mathrm{vib}}+U_{\mathrm{Cor}}\;=\;-\frac{\hbar^2}{8}\sum_{\alpha=1}^{3}\mu_{\alpha\alpha}(Q)\;}\tag{B.8}
 \end{equation}
-of (4.11). This reproduces Watson's reduction [J.~K.~G.~Watson, \emph{Mol.\ Phys.}\ \textbf{15}, 479 (1968)]. The cancellation is special to rectilinear normal coordinates: for general curvilinear $Q_b$ the residue (B.6) does \emph{not} collapse to the trace, leaving the additional vibrational extrapotential terms anticipated in Section 4.1. The electronic sector contributes nothing to $\hat U$, since $\boldsymbol\mu$, $\gamma$, and $\boldsymbol\sigma$ depend on $Q$ alone.
+of (4.11). This reproduces Watson's reduction~\cite{watson1968}. The cancellation is special to rectilinear normal coordinates: for general curvilinear $Q_b$ the residue (B.6) does \emph{not} collapse to the trace, leaving the additional vibrational extrapotential terms anticipated in Section 4.1. The electronic sector contributes nothing to $\hat U$, since $\boldsymbol\mu$, $\gamma$, and $\boldsymbol\sigma$ depend on $Q$ alone.
 
 % ------------------------------------------------------------------------------
 % Reference and Cited Works
 % ------------------------------------------------------------------------------
 
 \bibliographystyle{IEEEtran}
-\bibliography{References.bib}
+\bibliography{References}
 
 % ------------------------------------------------------------------------------
 
