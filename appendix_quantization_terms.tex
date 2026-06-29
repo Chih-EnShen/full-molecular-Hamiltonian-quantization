@@ -1,0 +1,175 @@
+\subsection*{Appendix B: Term-by-term quantization of the rovibrational kernel}
+
+Section~4 quantizes the classical Hamiltonian (3.22). All of the nontrivial operator-ordering work lives in one place --- the \textbf{rovibrational kernel}
+\begin{equation}
+T_{\mathrm{rovib}}=\tfrac12\sum_{\alpha\beta}A_\alpha\,\mu_{\alpha\beta}(Q)\,A_\beta,\qquad
+A_\alpha\equiv J_\alpha-L_{\mathrm{elec},\alpha}-\pi_\alpha . \tag{B.1}
+\end{equation}
+This appendix expands the product $\hat A_\alpha\mu_{\alpha\beta}\hat A_\beta$ into its nine pieces and quantizes each one, writing down \emph{every} algebraic step. For each term we ask two questions: (i) what is the correct \emph{Hermitian} ordering of the operators, and (ii) what is its explicit \emph{differential-operator} form once $\hat\pi_\alpha$ is written out. Repeated Cartesian indices $\alpha,\beta,\gamma\in\{1,2,3\}$ and repeated mode indices $a,b,c$ are summed.
+
+\subsubsection*{B.1\quad Two rules and a toolkit}
+
+\textbf{Rule 1 (conjugate of a product).} For any two operators, $(\hat X\hat Y)^{\dagger}=\hat Y^{\dagger}\hat X^{\dagger}$ --- the order \emph{reverses}. A real function $f(Q)$ and the basic momenta are each individually Hermitian,
+\begin{equation*}
+f^{\dagger}=f,\qquad \hat P_b^{\dagger}=\hat P_b,\qquad \hat J_\alpha^{\dagger}=\hat J_\alpha,\qquad \hat L_\alpha^{\dagger}=\hat L_\alpha ,
+\end{equation*}
+and an operator $\hat O$ is \emph{Hermitian} (a legitimate piece of a kinetic-energy operator) when $\hat O^{\dagger}=\hat O$.
+
+\textbf{Rule 2 (sliding operators past each other).} $\hat X\hat Y=\hat Y\hat X+[\hat X,\hat Y]$. We use this to move a momentum to the other side of a $Q$-dependent function, picking up the commutator as a correction.
+
+\textbf{Toolkit.} The three momenta live in three separate ``sectors'': $\hat J_\alpha$ acts on the Euler angles $\Omega$, $\hat L_\alpha\equiv\hat L_{\mathrm{elec},\alpha}$ on the electron coordinates $\bar{\mathbf r}_i$, and $\hat P_b=-i\hbar\,\partial_{Q_b}$ on the normal coordinates $Q$. \emph{Operators from different sectors commute.} Explicitly [(4.7)--(4.9)]:
+\begin{align}
+&[\hat J_\alpha,\hat J_\beta]=-i\hbar\,\epsilon_{\alpha\beta\gamma}\hat J_\gamma,\qquad
+[\hat L_\alpha,\hat L_\beta]=+i\hbar\,\epsilon_{\alpha\beta\gamma}\hat L_\gamma,\qquad
+[\hat J_\alpha,\hat L_\beta]=0, \tag{B.2}\\[2pt]
+&[\hat J_\alpha,f(Q)]=0,\quad [\hat L_\alpha,f(Q)]=0,\quad [\hat J_\alpha,\hat P_b]=0,\quad [\hat L_\alpha,\hat P_b]=0, \tag{B.3}\\[2pt]
+&[\hat P_b,f(Q)]=-i\hbar\,\partial_{Q_b}f
+\;\;\Longrightarrow\;\;
+[\hat P_b,\mu_{\alpha\beta}]=-i\hbar\,\partial_b\mu_{\alpha\beta},\quad
+[\hat P_b,\sigma_{c\alpha}]=-i\hbar\,\zeta^{\alpha}_{bc}. \tag{B.4}
+\end{align}
+The last line uses the vibrational angular momentum of (3.17a)--(3.20a),
+\begin{equation*}
+\hat\pi_\alpha=\sum_b\sigma_{b\alpha}(Q)\,\hat P_b,\qquad
+\sigma_{b\alpha}=\sum_a\zeta^{\alpha}_{ab}\,Q_a,\qquad
+\zeta^{\alpha}_{ab}=\Bigl(\textstyle\sum_j\mathbf l_{ja}\times\mathbf l_{jb}\Bigr)_\alpha ,
+\end{equation*}
+which is \emph{linear} in $Q$ with \emph{constant} coefficients $\zeta^{\alpha}_{ab}$, so $\partial_{Q_b}\sigma_{c\alpha}=\zeta^{\alpha}_{bc}$. Because the cross product is antisymmetric, $\zeta^{\alpha}_{ab}=-\zeta^{\alpha}_{ba}$, and therefore
+\begin{equation}
+\zeta^{\alpha}_{bb}=0,\qquad \sum_b\partial_{Q_b}\sigma_{b\alpha}=\sum_b\zeta^{\alpha}_{bb}=0 . \tag{B.5}
+\end{equation}
+Finally, $\mu_{\alpha\beta}(Q)=\mu_{\beta\alpha}(Q)$ is a \emph{symmetric}, real function of $Q$ alone.
+
+\textbf{$\hat\pi_\alpha$ is Hermitian.} This one fact is used again and again below. By Rule~1, then Rule~2 with (B.4), then (B.5):
+\begin{equation}
+\hat\pi_\alpha^{\dagger}=\Bigl(\sum_b\sigma_{b\alpha}\hat P_b\Bigr)^{\!\dagger}
+=\sum_b\hat P_b\,\sigma_{b\alpha}
+=\sum_b\bigl(\sigma_{b\alpha}\hat P_b+[\hat P_b,\sigma_{b\alpha}]\bigr)
+=\hat\pi_\alpha-i\hbar\sum_b\zeta^{\alpha}_{bb}
+=\hat\pi_\alpha . \tag{B.6}
+\end{equation}
+Had $\sum_b\zeta^{\alpha}_{bb}$ been nonzero, $\hat\pi_\alpha$ would have needed an explicit symmetrization; the antisymmetry of $\zeta$ spares us.
+
+\subsubsection*{B.2\quad The nine terms}
+
+Substitute $\hat A_\alpha=\hat J_\alpha-\hat L_\alpha-\hat\pi_\alpha$ into $\hat A_\alpha\mu_{\alpha\beta}\hat A_\beta$ and multiply out, \emph{keeping the operator order} (the factors need not commute):
+\begin{align}
+\hat A_\alpha\mu_{\alpha\beta}\hat A_\beta
+=\;&\underbrace{\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta}_{\text{(T1)}}
++\underbrace{\hat L_\alpha\mu_{\alpha\beta}\hat L_\beta}_{\text{(T2)}}
++\underbrace{\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta}_{\text{(T3)}}\nonumber\\
+&-\underbrace{\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta+\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr)}_{\text{(T4) rotation--electron}}
+-\underbrace{\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr)}_{\text{(T5) rotation--vibration}}\nonumber\\
+&+\underbrace{\bigl(\hat L_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat L_\beta\bigr)}_{\text{(T6) vibration--electron}} . \tag{B.7}
+\end{align}
+The three diagonal terms (T1)--(T3) come with the factor $\tfrac12$ of (B.1); each cross-coupling (T4)--(T6) collects the two equal classical contributions $X\mu Y$ and $Y\mu X$, which is why it appears as a symmetric \emph{sum} of orderings. We treat them one at a time.
+
+\subsubsection*{B.3\quad Diagonal terms}
+
+\paragraph{(T1)\ \ $\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta$.}
+\emph{Is it Hermitian?} Apply Rule~1 ($\mu$ real, $\hat J$ Hermitian), then relabel the dummy indices $\alpha\leftrightarrow\beta$, then use $\mu_{\beta\alpha}=\mu_{\alpha\beta}$:
+\begin{equation*}
+\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr)^{\dagger}
+=\hat J_\beta\,\mu_{\alpha\beta}\,\hat J_\alpha
+=\hat J_\alpha\,\mu_{\beta\alpha}\,\hat J_\beta
+=\hat J_\alpha\,\mu_{\alpha\beta}\,\hat J_\beta .
+\end{equation*}
+So (T1) is Hermitian exactly as written. \emph{Ordering / extra term?} Since $\mu$ is a function of $Q$ only, it commutes with $\hat J$ [(B.3)]: $\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta=\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta$. Split $\hat J_\alpha\hat J_\beta=\tfrac12\{\hat J_\alpha,\hat J_\beta\}+\tfrac12[\hat J_\alpha,\hat J_\beta]$ and use (B.2):
+\begin{equation*}
+\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta
+=\tfrac12\mu_{\alpha\beta}\{\hat J_\alpha,\hat J_\beta\}
+-\tfrac{i\hbar}{2}\,\mu_{\alpha\beta}\,\epsilon_{\alpha\beta\gamma}\,\hat J_\gamma .
+\end{equation*}
+The commutator term dies because $\mu_{\alpha\beta}$ is symmetric while $\epsilon_{\alpha\beta\gamma}$ is antisymmetric in $\alpha\beta$, so the contraction $\mu_{\alpha\beta}\epsilon_{\alpha\beta\gamma}=0$. Hence
+\begin{equation}
+\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta=\tfrac12\,\mu_{\alpha\beta}\{\hat J_\alpha,\hat J_\beta\}
+\qquad(\text{Hermitian; no }c\text{-number}). \tag{B.8}
+\end{equation}
+This is the asymmetric-top kinetic operator with $Q$-dependent inertia. It contains no $\hat P$, hence no differential-operator subtlety.
+
+\paragraph{(T2)\ \ $\hat L_\alpha\mu_{\alpha\beta}\hat L_\beta$.}
+Word-for-word the same as (T1) with $\hat J\to\hat L$: $\mu$ commutes with $\hat L$ [(B.3)], and although the $\hat L$ algebra carries the opposite sign, the commutator term again vanishes against symmetric $\mu$. Thus
+\begin{equation}
+\hat L_\alpha\mu_{\alpha\beta}\hat L_\beta=\tfrac12\,\mu_{\alpha\beta}\{\hat L_\alpha,\hat L_\beta\}
+\qquad(\text{Hermitian; no }c\text{-number}). \tag{B.9}
+\end{equation}
+
+\paragraph{(T3)\ \ $\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta$.}
+\emph{Is it Hermitian?} Use $\hat\pi^{\dagger}=\hat\pi$ from (B.6), then relabel $\alpha\leftrightarrow\beta$ and use $\mu$ symmetric:
+\begin{equation*}
+\bigl(\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta\bigr)^{\dagger}
+=\hat\pi_\beta\,\mu_{\alpha\beta}\,\hat\pi_\alpha
+=\hat\pi_\alpha\,\mu_{\beta\alpha}\,\hat\pi_\beta
+=\hat\pi_\alpha\,\mu_{\alpha\beta}\,\hat\pi_\beta .
+\end{equation*}
+So (T3) is Hermitian as written --- but \emph{only} because $\hat\pi$ is Hermitian, i.e.\ ultimately because $\zeta$ is antisymmetric (B.5). \emph{Differential-operator form.} Write $\hat\pi_\alpha=\sum_b\sigma_{b\alpha}\hat P_b$ and slide the left momentum $\hat P_b$ rightward past the $Q$-function $\mu_{\alpha\beta}\sigma_{c\beta}$ with Rule~2 and (B.4):
+\begin{align}
+\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta
+&=\sum_{bc}\sigma_{b\alpha}\,\hat P_b\,\bigl(\mu_{\alpha\beta}\sigma_{c\beta}\bigr)\,\hat P_c
+=\sum_{bc}\sigma_{b\alpha}\Bigl[\bigl(\mu_{\alpha\beta}\sigma_{c\beta}\bigr)\hat P_b-i\hbar\,\partial_b\!\bigl(\mu_{\alpha\beta}\sigma_{c\beta}\bigr)\Bigr]\hat P_c\nonumber\\[2pt]
+&=\underbrace{\sum_{bc}\bigl(\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}\bigr)_{bc}\,\hat P_b\hat P_c}_{\text{2nd order in }\hat P}
+\;-\;i\hbar\underbrace{\sum_{bc}\sigma_{b\alpha}\,\partial_b\!\bigl(\mu_{\alpha\beta}\sigma_{c\beta}\bigr)\,\hat P_c}_{\text{1st order in }\hat P}, \tag{B.10}
+\end{align}
+with $(\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T})_{bc}=\sum_{\alpha\beta}\sigma_{b\alpha}\mu_{\alpha\beta}\sigma_{c\beta}$, the Coriolis-dressed vibrational inertia. The two pieces together \emph{are} the Hermitian operator (T3); note that every surviving term still carries at least one $\hat P$, so there is \emph{no} pure constant ($c$-number).
+
+\subsubsection*{B.4\quad Cross terms}
+
+\paragraph{(T4)\ \ rotation--electron, $\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta+\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta$.}
+Here all three factors mutually commute: $[\hat J,\hat L]=0$, and $\mu$ commutes with both [(B.2)--(B.3)]. A single ordering is already Hermitian,
+\begin{equation*}
+\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta\bigr)^{\dagger}
+=\hat L_\beta\mu_{\alpha\beta}\hat J_\alpha
+=\mu_{\alpha\beta}\hat L_\beta\hat J_\alpha
+=\mu_{\alpha\beta}\hat J_\alpha\hat L_\beta
+=\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta ,
+\end{equation*}
+and the two orderings in the sum are equal ($\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta\overset{\alpha\leftrightarrow\beta}{=}\hat L_\beta\mu_{\alpha\beta}\hat J_\alpha=\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta$), so
+\begin{equation}
+\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta+\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta
+=2\,\mu_{\alpha\beta}\,\hat J_\alpha\hat L_\beta
+\qquad(\text{Hermitian; no }c\text{-number}). \tag{B.11}
+\end{equation}
+This is the rotation--electron Coriolis coupling. No $\hat P$ appears, so there is no differential subtlety.
+
+\paragraph{(T5)\ \ rotation--vibration, $\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta$.}
+Now the subtlety: $\hat\pi$ does \emph{not} commute with $\mu$,
+\begin{equation*}
+[\hat\pi_\beta,\mu_{\alpha\beta}]=\sum_b\sigma_{b\beta}[\hat P_b,\mu_{\alpha\beta}]=-i\hbar\sum_b\sigma_{b\beta}\partial_b\mu_{\alpha\beta}\neq0 ,
+\end{equation*}
+so the single ordering $\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta$ is \emph{not} Hermitian by itself. Its conjugate is, however, exactly the \emph{other} ordering (use $\hat J$ commutes with $\mu,\hat\pi$, then relabel $\alpha\leftrightarrow\beta$):
+\begin{equation*}
+\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta\bigr)^{\dagger}
+=\hat\pi_\beta\mu_{\alpha\beta}\hat J_\alpha
+\overset{\alpha\leftrightarrow\beta}{=}\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta .
+\end{equation*}
+The cross term is therefore of the form $\hat X+\hat X^{\dagger}$, which is automatically Hermitian. \emph{This is why the classical product $-2\,J\mu\pi$ must be quantized as the symmetric sum, not as one ordering.} Pulling $\hat J$ out (it commutes with both $\mu$ and $\hat\pi$),
+\begin{equation}
+\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta
+=\hat J_\alpha\,\{\mu_{\alpha\beta},\hat\pi_\beta\},
+\qquad \{\mu_{\alpha\beta},\hat\pi_\beta\}\equiv\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\beta\mu_{\alpha\beta} , \tag{B.12}
+\end{equation}
+where $\{\mu_{\alpha\beta},\hat\pi_\beta\}$, being the anticommutator of two Hermitian operators, is manifestly Hermitian. \emph{Differential-operator form.} Expand the anticommutator with $\hat\pi_\beta=\sum_c\sigma_{c\beta}\hat P_c$, sliding $\hat P_c$ rightward in the second piece [(B.4)]:
+\begin{align}
+\{\mu_{\alpha\beta},\hat\pi_\beta\}
+&=\sum_c\Bigl(\mu_{\alpha\beta}\sigma_{c\beta}\hat P_c+\sigma_{c\beta}\hat P_c\,\mu_{\alpha\beta}\Bigr)
+=\sum_c\Bigl(\underbrace{2\,\mu_{\alpha\beta}\sigma_{c\beta}\hat P_c}_{\text{1st order in }\hat P}
+\;\underbrace{-\,i\hbar\,\sigma_{c\beta}\partial_c\mu_{\alpha\beta}}_{\text{0th order in }\hat P}\Bigr). \tag{B.13}
+\end{align}
+Multiplied by $\hat J_\alpha$, the first piece is the rotation--vibration Coriolis coupling ($\hat J$ times $\hat P$); the second is the imaginary, $\hat J$-linear term required to make the sum Hermitian (it is not a stand-alone $c$-number: it still carries $\hat J_\alpha$). Indeed one verifies Hermiticity using (B.5): $\bigl(2\mu_{\alpha\beta}\sigma_{c\beta}\hat P_c\bigr)^{\dagger}=2\mu_{\alpha\beta}\sigma_{c\beta}\hat P_c-2i\hbar\,\partial_c(\mu_{\alpha\beta}\sigma_{c\beta})$ and $\sum_c\partial_c\sigma_{c\beta}=0$, so the extra $-i\hbar\sigma_{c\beta}\partial_c\mu_{\alpha\beta}$ is exactly what (B.13) supplies.
+
+\paragraph{(T6)\ \ vibration--electron, $\hat L_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat L_\beta$.}
+Identical to (T5) with $\hat J\to\hat L$ ($\hat L$ also commutes with $\mu$ and $\hat\pi$):
+\begin{equation}
+\hat L_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat L_\beta
+=\hat L_\alpha\,\{\mu_{\alpha\beta},\hat\pi_\beta\}, \tag{B.14}
+\end{equation}
+with the same expansion (B.13). This is the vibration--electron angular coupling.
+
+\subsubsection*{B.5\quad Assembly, and where the pseudopotential is (and is not)}
+
+Collecting (B.8)--(B.14), the quantized kernel $\tfrac12\hat A_\alpha\mu_{\alpha\beta}\hat A_\beta$ is Hermitian \emph{exactly} as written in (4.10)/(4.14), with $\mu$ sandwiched between the two factors. Two lessons stand out.
+\begin{itemize}
+\item Terms made only of \emph{mutually commuting}, individually Hermitian operators --- (T1) $\hat J\mu\hat J$, (T2) $\hat L\mu\hat L$, and (T4) $\hat J\mu\hat L$ --- are Hermitian in a \emph{single} ordering; the asymmetric-top operators (T1),(T2) shed their commutator pieces against symmetric $\mu$.
+\item Terms pairing $\hat\pi$ with $\hat J$ or $\hat L$ --- (T5),(T6) --- are Hermitian only as the \emph{symmetric sum} (anticommutator), because $\hat\pi$ and $\mu$ do not commute. Term (T3) $\hat\pi\mu\hat\pi$ is the fortunate middle case: with $\mu$ between two \emph{equal} Hermitian factors it is Hermitian automatically.
+\end{itemize}
+\textbf{No $c$-number from the kernel.} In the explicit differential forms (B.10) and (B.13), every surviving term carries at least one momentum ($\hat P$, $\hat J$, or $\hat L$): the ordering of the kernel produces only second- and first-order operators, never a pure constant. \emph{Therefore the kernel ordering does not generate the Watson pseudopotential.} The pseudopotential $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ of (4.11) is a separate, $\mathcal O(\hbar^2)$ pure $c$-number that originates in the \emph{curved integration measure} $\sqrt{|g|}$ --- the Podolsky / Laplace--Beltrami construction --- and is extracted in \S\,4.4 by the rescaling $\psi_W=\gamma^{1/4}\psi$. The division of labour is clean: \emph{ordering of the kernel} $\rightarrow$ the Hermitian operators of this appendix; \emph{the measure} $\rightarrow$ the pseudopotential of \S\,4.4.
