@@ -1,0 +1,314 @@
+\section{Quantization}
+
+The classical internal Hamiltonian (3.22) is parametrized by curvilinear coordinates (Euler angles $\phi,\theta,\chi$ and vibrational normal coordinates $Q_b$) and BF Cartesian electron coordinates $\bar{\mathbf{r}}_i$. Canonical quantization in curvilinear coordinates requires care: the naïve substitution $\pi\to-i\hbar\partial$ does not produce a Hermitian operator on the natural Hilbert space. The Podolsky (Laplace--Beltrami) prescription resolves this; the residual ordering produces the Watson pseudopotential, and the BF angular momentum acquires an \emph{anomalous} commutator algebra.
+
+\subsection{The quantization problem in curvilinear coordinates}
+
+Label the configuration-space coordinates $q^{A}$:
+\begin{equation}
+\{q^{A}\}\;=\;\bigl\{\,\phi,\theta,\chi,\;Q_1,\dots,Q_{3N_{\mathrm{nucl}}-6},\;\bar{\mathbf{r}}_1,\dots,\bar{\mathbf{r}}_{N_{\mathrm{elec}}}\,\bigr\}, \tag{4.1}
+\end{equation}
+with conjugate momenta $\pi_A$. The classical kinetic energy from (3.22) is a quadratic form
+\begin{equation}
+T \;=\; \tfrac12\,g^{AB}(q)\,\pi_A\pi_B, \tag{4.2}
+\end{equation}
+where $g^{AB}$ is the inverse of the configuration-space metric $g_{AB}$ defined by $T=\tfrac12 g_{AB}\dot q^A\dot q^B$. The metric inherits block structure from (3.22): a rotational block governed by the Watson reciprocal inertia $\boldsymbol{\mu}(Q)=(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})^{-1}$, an identity vibrational block (normal coordinates), and a Cartesian block for $\bar{\mathbf{r}}_i$.
+
+\subsubsection{Podolsky form / Laplace--Beltrami quantization}
+
+The natural Hilbert space is $L^{2}(\mathcal{C},\sqrt{|g|}\,d^{n}q)$, where the Riemannian volume element $\sqrt{|g|}\,d^{n}q$ is the unique measure compatible with the metric. To produce a Hermitian kinetic operator on this Hilbert space, replace $T$ by the Laplace--Beltrami operator divided by $-2/\hbar^{2}$:
+\begin{equation}
+\boxed{\;\hat T \;=\; -\frac{\hbar^{2}}{2}\,\frac{1}{\sqrt{|g|}}\,\partial_A\!\bigl(\sqrt{|g|}\,g^{AB}\,\partial_B\bigr).\;} \tag{4.3}
+\end{equation}
+This is the \emph{Podolsky prescription}~\cite{podolsky1928}. Equivalently, one may write $\hat\pi_A = -i\hbar(\partial_A + \tfrac12\partial_A\ln\sqrt{|g|})$ and then take $\hat T = \tfrac12\hat\pi_A g^{AB}\hat\pi_B$ in symmetric (Weyl-type) ordering; the two prescriptions coincide up to terms absorbed into the volume element.
+
+For our problem, only the Euler-angle and $Q_b$ sectors are curvilinear; the BF Cartesian electronic sector retains the standard $\hat{\bar{\mathbf{p}}}_i = -i\hbar\nabla_{\bar{\mathbf{r}}_i}$ on $L^{2}(\mathbb{R}^{3N_{\mathrm{elec}}},d^{3N_{\mathrm{elec}}}\bar{\mathbf{r}})$.
+
+\subsection{Volume element and Podolsky rescaling}
+
+\subsubsection{Configuration-space metric and the volume element}
+
+The configuration-space metric requires the kinetic energy with \emph{all} coordinates --- the electrons included --- carried as velocities $\mathbf{v}=(\boldsymbol{\omega},\dot{\mathbf{Q}},\dot{\bar{\mathbf{r}}}_i)$. (This velocity-form representation, used here solely to read off the measure, is distinct from the Routhian (3.13), in which the electrons are kept in momentum form.) Expanding the body-fixed nuclear, electronic, and mass-polarization kinetic terms via (3.9d)--(3.9e), in normal coordinates (vibrational block $\sum_j\mathbf{l}_{ja}\!\cdot\!\mathbf{l}_{jb}=\delta_{ab}$),
+\begin{equation}
+2T = \mathbf{v}^{\mathsf T}\mathsf{M}\,\mathbf{v},\qquad
+\mathsf{M}=\begin{pmatrix}\mathbf{I} & \mathsf{Z} & \mathsf{C}\\[2pt] \mathsf{Z}^{\mathsf T} & \mathbb{1} & 0\\[2pt] \mathsf{C}^{\mathsf T} & 0 & \mathsf{D}\end{pmatrix},
+\tag{4.3a}
+\end{equation}
+with $\mathbf{I}=\mathbf{I}_N+\mathbf{I}_e-\mathbf{I}_X$ the full instantaneous inertia ($\boldsymbol{\omega}$--$\boldsymbol{\omega}$ block), $\mathsf{Z}_{\alpha b}=(\boldsymbol{\sigma}_b)_\alpha$ the rotation--vibration Coriolis block, $\mathsf{C}$ the rotation--electron block (from $\boldsymbol{\omega}\!\cdot\!(\mathbf{L}_e-\mathbf{L}_X)$), and $\mathsf{D}_{(i\alpha)(j\beta)}=(m_e\delta_{ij}-m_e^2/M_{\mathrm{tot}})\,\delta_{\alpha\beta}$ the \emph{constant} electron block. The physical velocities relate to the coordinate velocities $\dot q=(\dot\phi,\dot\theta,\dot\chi,\dot Q_b,\dot{\bar{\mathbf{r}}}_i)$ by $\mathbf{v}=\mathsf{A}(q)\dot q$ with $\mathsf{A}=\mathrm{diag}\!\bigl(\mathsf{E}(\Omega),\mathbb{1},\mathbb{1}\bigr)$, where $\boldsymbol{\omega}=\mathsf{E}(\Omega)\dot{\boldsymbol{\Omega}}$ is the Euler kinematic relation. Hence $g_{AB}=(\mathsf{A}^{\mathsf T}\mathsf{M}\mathsf{A})_{AB}$ and
+\begin{equation}
+\det g = (\det\mathsf{A})^2\det\mathsf{M}=\sin^2\!\theta\;\det\mathsf{M},\qquad |\det\mathsf{E}(\Omega)|=\sin\theta . \tag{4.3b}
+\end{equation}
+
+Reduce $\det\mathsf{M}$ by the Schur complement of the constant electron block $\mathsf{D}$:
+\begin{equation}
+\det\mathsf{M}=\det\mathsf{D}\;\det\!\begin{pmatrix}\mathbf{I}-\mathsf{C}\mathsf{D}^{-1}\mathsf{C}^{\mathsf T} & \mathsf{Z}\\[2pt] \mathsf{Z}^{\mathsf T} & \mathbb{1}\end{pmatrix}. \tag{4.3c}
+\end{equation}
+The electron Schur correction is precisely the electronic + mass-polarization inertia $\mathbf{I}_e-\mathbf{I}_X$ of (3.9e): completing the square in $\dot{\bar{\mathbf{r}}}_i$ (equivalently, eliminating the electron velocities in favour of the momenta $\bar{\mathbf{p}}_i$) removes all $\boldsymbol{\omega}$-dependence from the electron block, $\mathsf{C}\mathsf{D}^{-1}\mathsf{C}^{\mathsf T}=\mathbf{I}_e-\mathbf{I}_X$, so $\mathbf{I}-\mathsf{C}\mathsf{D}^{-1}\mathsf{C}^{\mathsf T}=\mathbf{I}_N$ --- the same $\mathbf{I}_e/\mathbf{I}_X$ cancellation as the cross-check (3.18). A second Schur complement, now of the $\mathbb{1}$ vibrational block, gives
+\begin{equation}
+\det\mathsf{M}=\det\mathsf{D}\;\det\!\bigl(\mathbf{I}_N-\mathsf{Z}\mathsf{Z}^{\mathsf T}\bigr)=\det\mathsf{D}\;\det\mathbf{I}',\qquad \mathbf{I}'=\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}, \tag{4.3d}
+\end{equation}
+using $\mathsf{Z}\mathsf{Z}^{\mathsf T}=\sum_b\boldsymbol{\sigma}_b\boldsymbol{\sigma}_b^{\mathsf T}=\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}$, with $\det\mathsf{D}$ a constant. The Coriolis coupling therefore enters the determinant through the \emph{same} modified inertia $\mathbf{I}'$ that defines the kernel $\boldsymbol{\mu}=(\mathbf{I}')^{-1}$. Dropping the constant electron factor (an overall normalization of the flat electronic measure), the Riemannian volume element is
+\begin{equation}
+\boxed{\;\sqrt{|g|}\,d^{n}q \;=\; \underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Haar on }SO(3)}\cdot\underbrace{\sqrt{\det\mathbf{I}'(Q)}\,\prod_b dQ_b}_{\text{rot.\,--\,vib.\ Jacobian}}\cdot\underbrace{\prod_{i}d^{3}\bar{\mathbf{r}}_{i}}_{\text{flat (const.)}} . \;}\tag{4.4}
+\end{equation}
+The Jacobian carries the Watson modified inertia $\mathbf{I}'=\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}$, \emph{not} the bare $\mathbf{I}_N$: the rotation--vibration Coriolis coupling reduces the rotational determinant from $\det\mathbf{I}_N$ to $\det(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})$.
+
+\subsubsection{Wavefunction rescaling}
+
+To work with the simpler measure $d\mu_W \equiv \sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^{3}\bar{\mathbf{r}}_i$, define the rescaled wavefunction
+\begin{equation}
+\psi_W \;\equiv\; \bigl(\det\mathbf{I}'(Q)\bigr)^{1/4}\,\psi. \tag{4.5}
+\end{equation}
+Then $|\psi|^{2}\sqrt{|g|}\,d^n q = |\psi_W|^{2}\,d\mu_W$, so $\psi_W \in L^{2}(\mathcal{C},d\mu_W)$. The kinetic operator transforms by a similarity: $\hat T_W = \mathcal{J}^{1/2}\hat T \mathcal{J}^{-1/2}$ with $\mathcal{J} = (\det\mathbf{I}')^{1/2}$. The residual non-cancellation generates a new $Q$-dependent ordinary potential --- the Watson pseudopotential (next subsection).
+
+\subsection{Anomalous BF angular-momentum algebra}
+
+Total angular momentum is naturally defined as an SF observable; its BF components are obtained by projection through $\mathbf{S}$:
+\begin{equation}
+\hat J_{\alpha}^{\mathrm{BF}} \;=\; \mathbf{S}_{\beta\alpha}\,\hat J_\beta^{\mathrm{SF}}. \tag{4.6}
+\end{equation}
+The space-fixed components are ordinary angular-momentum operators in the Euler angles; they obey the normal algebra and act on the direction-cosine matrix $\mathbf{S}=\mathbf{S}(\Omega)$ through its \emph{space-fixed} index,
+\begin{equation}
+[\hat J_\gamma^{\mathrm{SF}},\hat J_\delta^{\mathrm{SF}}]=i\hbar\,\epsilon_{\gamma\delta\lambda}\hat J_\lambda^{\mathrm{SF}},\qquad
+[\hat J_\gamma^{\mathrm{SF}},S_{\delta\beta}]=i\hbar\,\epsilon_{\gamma\delta\lambda}S_{\lambda\beta}. \tag{4.6a}
+\end{equation}
+Because $\mathbf{S}$ is a proper rotation ($\det\mathbf{S}=1$), the triple product of direction cosines collapses to one Levi-Civita symbol, and orthogonality inverts the projection (4.6):
+\begin{equation}
+\epsilon_{\gamma\delta\lambda}\,S_{\gamma\alpha}S_{\delta\beta}S_{\lambda\nu}=\det(\mathbf{S})\,\epsilon_{\alpha\beta\nu}=\epsilon_{\alpha\beta\nu},\qquad
+\hat J_\lambda^{\mathrm{SF}}=S_{\lambda\nu}\,\hat J_\nu^{\mathrm{BF}}. \tag{4.6b}
+\end{equation}
+Now evaluate the body-fixed commutator (writing $\hat J\equiv\hat J^{\mathrm{SF}}$), moving the Euler-angle functions $S_{\delta\beta}$ leftward past $\hat J_\gamma$ with (4.6a):
+\begin{align*}
+[\hat J_\alpha^{\mathrm{BF}},\hat J_\beta^{\mathrm{BF}}]
+&=[S_{\gamma\alpha}\hat J_\gamma,\,S_{\delta\beta}\hat J_\delta]
+= S_{\gamma\alpha}S_{\delta\beta}[\hat J_\gamma,\hat J_\delta]
++ S_{\gamma\alpha}\,[\hat J_\gamma,S_{\delta\beta}]\,\hat J_\delta
+- S_{\delta\beta}\,[\hat J_\delta,S_{\gamma\alpha}]\,\hat J_\gamma\\
+&= i\hbar\,\epsilon_{\gamma\delta\lambda}\bigl(S_{\gamma\alpha}S_{\delta\beta}\hat J_\lambda+S_{\gamma\alpha}S_{\lambda\beta}\hat J_\delta+S_{\delta\beta}S_{\lambda\alpha}\hat J_\gamma\bigr),
+\end{align*}
+where $[\hat J_\gamma,\hat J_\delta]=i\hbar\epsilon_{\gamma\delta\lambda}\hat J_\lambda$, $[\hat J_\gamma,S_{\delta\beta}]=i\hbar\epsilon_{\gamma\delta\lambda}S_{\lambda\beta}$, and $-[\hat J_\delta,S_{\gamma\alpha}]=-i\hbar\epsilon_{\delta\gamma\lambda}S_{\lambda\alpha}=+i\hbar\epsilon_{\gamma\delta\lambda}S_{\lambda\alpha}$ were collected under a common $\epsilon_{\gamma\delta\lambda}$. Insert $\hat J=\mathbf{S}\hat J^{\mathrm{BF}}$ in each term and apply (4.6b):
+\begin{equation*}
+\epsilon_{\gamma\delta\lambda}S_{\gamma\alpha}S_{\delta\beta}\,\hat J_\lambda=\epsilon_{\alpha\beta\nu}\hat J_\nu^{\mathrm{BF}},\quad
+\epsilon_{\gamma\delta\lambda}S_{\gamma\alpha}S_{\lambda\beta}\,\hat J_\delta=\epsilon_{\alpha\nu\beta}\hat J_\nu^{\mathrm{BF}},\quad
+\epsilon_{\gamma\delta\lambda}S_{\delta\beta}S_{\lambda\alpha}\,\hat J_\gamma=\epsilon_{\nu\beta\alpha}\hat J_\nu^{\mathrm{BF}}.
+\end{equation*}
+Since $\epsilon_{\alpha\beta\nu}+\epsilon_{\alpha\nu\beta}+\epsilon_{\nu\beta\alpha}=\epsilon_{\alpha\beta\nu}-\epsilon_{\alpha\beta\nu}-\epsilon_{\alpha\beta\nu}=-\epsilon_{\alpha\beta\nu}$, the three pieces sum to a single term of \emph{reversed} sign --- the extra contribution from differentiating $\mathbf{S}$ outweighs and flips the bare SF algebra:
+\begin{equation}
+\boxed{\;[\hat J_{\alpha}^{\mathrm{BF}},\hat J_{\beta}^{\mathrm{BF}}]\;=\;-i\hbar\,\epsilon_{\alpha\beta\gamma}\,\hat J_{\gamma}^{\mathrm{BF}}.\;} \tag{4.7}
+\end{equation}
+This is the famous \textbf{anomalous commutator} for BF angular momentum~\cite{klein1929,vanvleck1951}, reviewed in Bunker--Jensen~\cite{bunkerjensen}.
+
+In contrast, BF electronic angular momentum is built intrinsically from BF Cartesian electron operators:
+\begin{equation}
+[\hat L_{\mathrm{elec},\alpha},\hat L_{\mathrm{elec},\beta}]\;=\;+i\hbar\,\epsilon_{\alpha\beta\gamma}\,\hat L_{\mathrm{elec},\gamma}, \tag{4.8}
+\end{equation}
+the \emph{normal} algebra. Since $\hat J^{\mathrm{BF}}$ acts only on Euler angles and $\hat{\mathbf{L}}_{\mathrm{elec}}$ acts only on BF electron coordinates, the two commute:
+\begin{equation}
+[\hat J_{\alpha}^{\mathrm{BF}},\hat L_{\mathrm{elec},\beta}] \;=\; 0. \tag{4.9}
+\end{equation}
+The vibrational $\hat\pi_\alpha$, built from $Q_b$ and $\hat P_b$, also commutes with both $\hat J^{\mathrm{BF}}$ and $\hat{\mathbf{L}}_{\mathrm{elec}}$. From here on we write $\hat J_\alpha \equiv \hat J_\alpha^{\mathrm{BF}}$ and the anomalous algebra (4.7) is understood.
+
+\subsection{Watson pseudopotential}
+
+We now quantize the rovibrational kinetic energy of (3.22),
+\begin{equation}
+T_{\mathrm{rovib}}=\tfrac12\sum_{\alpha\beta}A_\alpha\,\mu_{\alpha\beta}(Q)\,A_\beta+\tfrac12\sum_b P_b^2,\qquad
+A_\alpha\equiv J_\alpha-L_{\mathrm{elec},\alpha}-\pi_\alpha, \tag{4.10a}
+\end{equation}
+a quadratic form in the momenta $(J_\alpha,P_b)$ whose coefficients $\mu_{\alpha\beta}(Q)$ depend on the shape. The na\"ive replacement $P_b\to-i\hbar\,\partial_{Q_b}$ is \emph{not} Hermitian on the curved measure (4.4); the Podolsky (Laplace--Beltrami) prescription (4.3) restores Hermiticity, and the rescaling (4.5) to the flat measure then leaves a $c$-number residue --- the \textbf{Watson pseudopotential} $\hat U(Q)$. We carry out the reduction in full.
+
+\subsubsection{The curvilinear extra-potential, in general}
+
+For arbitrary coordinates $q^A$ with covariant metric $g_{AB}$ ($2T=g_{AB}\dot q^A\dot q^B$), contravariant inverse $g^{AB}$, and determinant $g\equiv\det g_{AB}$, the kinetic operator Hermitian on $L^2(\sqrt g\,d^nq)$ is the Laplace--Beltrami operator
+\begin{equation}
+\hat T_{\mathrm{LB}}=-\frac{\hbar^2}{2}\,g^{-1/2}\,\partial_A\!\bigl(g^{1/2}\,g^{AB}\,\partial_B\bigr). \tag{4.10b}
+\end{equation}
+To pass to the flat measure $\prod_A dq^A$, set $\psi=g^{-1/4}\psi_W$ (so $\psi_W=g^{1/4}\psi$) and conjugate, $\hat T_W=g^{1/4}\hat T_{\mathrm{LB}}\,g^{-1/4}$. Writing $\rho\equiv g^{1/2}$ one has $\partial_B\psi=\rho^{-1/2}f_B$ with $f_B\equiv\partial_B\psi_W-\tfrac12(\partial_B\ln\rho)\psi_W$; carrying the $g^{1/4}$ through $\hat T_{\mathrm{LB}}$,
+\begin{equation}
+\hat T_W\psi_W=-\frac{\hbar^2}{2}\Bigl[\underbrace{\tfrac12(\partial_A\ln\rho)\,g^{AB}f_B}_{(\mathrm i)}+\underbrace{(\partial_Ag^{AB})\,f_B}_{(\mathrm{ii})}+\underbrace{g^{AB}\,\partial_Af_B}_{(\mathrm{iii})}\Bigr]. \tag{4.10c}
+\end{equation}
+Insert $f_B$ and $\partial_Af_B=\partial_A\partial_B\psi_W-\tfrac12(\partial_A\partial_B\ln\rho)\psi_W-\tfrac12(\partial_B\ln\rho)\partial_A\psi_W$, and sort by the order of derivative acting on $\psi_W$:
+\begin{itemize}
+\item[$\partial\partial\psi_W:$] only (iii) contributes, $g^{AB}\partial_A\partial_B\psi_W$;
+\item[$\partial\psi_W:$] (i) gives $+\tfrac12 g^{AB}(\partial_A\ln\rho)\partial_B\psi_W$ and (iii) gives $-\tfrac12 g^{AB}(\partial_B\ln\rho)\partial_A\psi_W$, which \emph{cancel} by symmetry of $g^{AB}$, leaving only $(\partial_Ag^{AB})\partial_B\psi_W$ from (ii);
+\item[$\psi_W:$] (i) gives $-\tfrac14 g^{AB}(\partial_A\ln\rho)(\partial_B\ln\rho)$, (ii) gives $-\tfrac12(\partial_Ag^{AB})(\partial_B\ln\rho)$, (iii) gives $-\tfrac12 g^{AB}\partial_A\partial_B\ln\rho$.
+\end{itemize}
+The first two derivative-orders reassemble into $\partial_A(g^{AB}\partial_B\psi_W)$, i.e.\ the flat symmetric operator $\tfrac12\hat p_Ag^{AB}\hat p_B$ ($\hat p_A=-i\hbar\partial_A$). The $\psi_W$-terms, using $-\tfrac12(\partial_Ag^{AB})(\partial_B\ln\rho)-\tfrac12 g^{AB}\partial_A\partial_B\ln\rho=-\tfrac12\partial_A(g^{AB}\partial_B\ln\rho)$ and $\ln\rho=\tfrac12\ln g$, give the extra-potential:
+\begin{equation}
+\boxed{\;\hat T_W=\tfrac12\,\hat p_A\,g^{AB}\,\hat p_B+U,\qquad
+U=\frac{\hbar^2}{8}\Bigl[\tfrac14\,g^{AB}(\partial_A\ln g)(\partial_B\ln g)+\partial_A\!\bigl(g^{AB}\partial_B\ln g\bigr)\Bigr].\;}\tag{4.10d}
+\end{equation}
+Equation (4.10d) is exact and coordinate-general; the prefactor $\hbar^2/8$ traces to the two half-powers $g^{\pm1/4}$ of the rescaling.
+
+\subsubsection{The molecular metric and its determinant}
+
+Read the contravariant metric off (4.10a). With $\pi_\alpha=\sum_b\sigma_{b\alpha}P_b$ (i.e.\ $\boldsymbol\pi=\boldsymbol\sigma^{\mathsf T}\!P$, $\sigma_{b\alpha}=(\boldsymbol\sigma_b)_\alpha$), and dropping the electronic shift $\hat{\mathbf L}_{\mathrm{elec}}$ (a different sector, commuting with the nuclear metric),
+\begin{equation*}
+2T_{\mathrm{rovib}}=J^{\mathsf T}\boldsymbol\mu J-2J^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}P+P^{\mathsf T}(\mathbb 1+\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T})P,
+\end{equation*}
+so in the body-frame momentum basis $(J_\alpha,P_b)$,
+\begin{equation}
+g^{AB}=\begin{pmatrix}\boldsymbol\mu & -\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}\\[2pt] -\boldsymbol\sigma\boldsymbol\mu & \mathbb 1+\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}\end{pmatrix}. \tag{4.10e}
+\end{equation}
+By the Schur complement of the $\boldsymbol\mu$ block,
+\begin{equation}
+\det g^{AB}=\det\boldsymbol\mu\;\det\!\bigl(\mathbb 1+\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}-\boldsymbol\sigma\boldsymbol\mu\,\boldsymbol\mu^{-1}\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}\bigr)=\det\boldsymbol\mu, \tag{4.10f}
+\end{equation}
+hence $g=\det g_{AB}=1/\det\boldsymbol\mu=\det\mathbf I'\equiv\gamma(Q)$, consistent with $\sqrt{|g|}=\sin\theta\sqrt{\gamma}$ of (4.4). The full measure carries $\ln g=2\ln\sin\theta+\ln\gamma$. In the rovibrational convention the body-frame $\hat J_\alpha$ are already Hermitian on $\sin\theta\,d\Omega$ [with the anomalous algebra (4.7)], so the $2\ln\sin\theta$ is accounted for by the $\hat J_\alpha$; \emph{only} $\gamma(Q)$ is removed by the rescaling (4.5), and we set $\ln g\to\ln\gamma$ (a function of $Q$ alone) in (4.10d).
+
+\subsubsection{Rotational sector: no $c$-number}
+
+The only operator ambiguity in the rotational kernel is the ordering of $\hat J_\alpha\hat J_\beta$. Splitting into symmetric and antisymmetric parts and using the anomalous algebra (4.7),
+\begin{equation}
+\tfrac12\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta=\tfrac14\mu_{\alpha\beta}\{\hat J_\alpha,\hat J_\beta\}+\tfrac14\mu_{\alpha\beta}[\hat J_\alpha,\hat J_\beta]=\tfrac14\mu_{\alpha\beta}\{\hat J_\alpha,\hat J_\beta\}-\frac{i\hbar}{4}\,\mu_{\alpha\beta}\epsilon_{\alpha\beta\gamma}\hat J_\gamma. \tag{4.10g}
+\end{equation}
+Since $\mu_{\alpha\beta}=\mu_{\beta\alpha}$ is symmetric while $\epsilon_{\alpha\beta\gamma}$ is antisymmetric in $(\alpha,\beta)$, the contraction $\mu_{\alpha\beta}\epsilon_{\alpha\beta\gamma}=0$: the commutator term vanishes, the asymmetric-top operator is Hermitian as written, and it contributes \emph{no} $c$-number. The same holds for the full kernel $\tfrac12\hat A_\alpha\mu_{\alpha\beta}\hat A_\beta$ ($\hat A_\alpha=\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}-\hat\pi_\alpha$), since $\boldsymbol\mu$ is symmetric and commutes with $\hat J$ and $\hat{\mathbf L}_{\mathrm{elec}}$.
+
+\subsubsection{Vibrational sector: the rescaling, step by step}
+
+With $g^{ab}=\delta_{ab}$ but the measure carrying $\gamma(Q)$, the vibrational part of (4.10b) is
+\begin{equation}
+\hat T_{\mathrm{vib}}=-\frac{\hbar^2}{2}\,\gamma^{-1/2}\sum_b\partial_{Q_b}\!\bigl(\gamma^{1/2}\,\partial_{Q_b}\bigr). \tag{4.10h}
+\end{equation}
+Conjugate by $\gamma^{1/4}$ and act on $\psi_W$, working from the innermost derivative outward (each line is one application of the product rule):
+\begin{align}
+\partial_{Q_b}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{-1/4}\Bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\psi_W\Bigr],\nonumber\\
+\gamma^{1/2}\,\partial_{Q_b}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{1/4}\Bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\psi_W\Bigr],\nonumber\\
+\partial_{Q_b}\Bigl(\gamma^{1/4}\bigl[\,\cdots\,\bigr]\Bigr)&=\gamma^{1/4}\Bigl[\partial_{Q_b}^2\psi_W-\tfrac1{16}(\partial_{Q_b}\!\ln\gamma)^2\psi_W-\tfrac14(\partial_{Q_b}^2\ln\gamma)\psi_W\Bigr], \tag{4.10i}
+\end{align}
+where in the last line the two cross terms $+\tfrac14(\partial_{Q_b}\!\ln\gamma)\partial_{Q_b}\psi_W$ (from differentiating $\gamma^{1/4}$) and $-\tfrac14(\partial_{Q_b}\!\ln\gamma)\partial_{Q_b}\psi_W$ (from the bracket) cancel. Multiplying by $-\tfrac{\hbar^2}{2}\,\gamma^{1/4}\!\cdot\!\gamma^{-1/2}=-\tfrac{\hbar^2}{2}\gamma^{-1/4}$ and summing over $b$,
+\begin{equation}
+\gamma^{1/4}\hat T_{\mathrm{vib}}\gamma^{-1/4}=\tfrac12\sum_b\hat P_b^2+U_{\mathrm{vib}},\qquad \hat P_b=-i\hbar\,\partial_{Q_b}, \tag{4.10j}
+\end{equation}
+with the \emph{Pauli residue}
+\begin{equation}
+U_{\mathrm{vib}}=\frac{\hbar^2}{8}\sum_b\Bigl[\partial_{Q_b}^2\ln\gamma+\tfrac14(\partial_{Q_b}\!\ln\gamma)^2\Bigr]=\frac{\hbar^2}{2}\,\gamma^{-1/4}\Bigl(\sum_b\partial_{Q_b}^2\Bigr)\gamma^{1/4}. \tag{4.10k}
+\end{equation}
+This is exactly what (4.10d) yields for the \emph{flat} vibrational block $g^{ab}=\delta_{ab}$; the off-diagonal $-\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}$ and the $\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}$ dressing of (4.10e) supply the remaining \emph{Coriolis} $c$-numbers. Collecting the three sectors,
+\begin{align}
+\hat T_{\mathrm{rovib}}\;=\;&\tfrac12\!\sum_{\alpha\beta}\bigl(\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}-\hat\pi_\alpha\bigr)\mu_{\alpha\beta}(Q)\bigl(\hat J_\beta-\hat L_{\mathrm{elec},\beta}-\hat\pi_\beta\bigr)\nonumber\\
+&+\tfrac12\!\sum_b\hat P_b^2\;+\;\hat U(Q),\qquad \hat U=U_{\mathrm{vib}}+U_{\mathrm{Cor}}. \tag{4.10}
+\end{align}
+
+\subsubsection{Collapse to the Watson trace}
+
+The residue (4.10k) and the Coriolis $c$-numbers $U_{\mathrm{Cor}}$ collapse by two exact identities. First, Jacobi's formula for $\gamma=\det\mathbf I'$ and the derivative of an inverse,
+\begin{equation}
+\partial_b\ln\gamma=\operatorname{tr}\!\bigl(\boldsymbol\mu\,\partial_b\mathbf I'\bigr)=\sum_{\alpha\beta}\mu_{\alpha\beta}\,\partial_b\mathbf I'_{\alpha\beta},\qquad \partial_b\boldsymbol\mu=-\,\boldsymbol\mu\,(\partial_b\mathbf I')\,\boldsymbol\mu, \tag{4.10l}
+\end{equation}
+re-express every $\partial_b\ln\gamma$ and $\partial_b\boldsymbol\mu$ through $\partial_b\mathbf I'$. Second, since $\mathbf I'=\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T}$ with $\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a$ \emph{linear} in $Q$ [(3.17a)],
+\begin{equation}
+\partial_c\mathbf I'_{\alpha\beta}=-\sum_b\bigl(\zeta^\alpha_{cb}\,\sigma_{b\beta}+\sigma_{b\alpha}\,\zeta^\beta_{cb}\bigr),\qquad \zeta^\alpha_{cb}\equiv(\boldsymbol\zeta_{cb})_\alpha=\partial_c\sigma_{b\alpha}\ (\text{constant}), \tag{4.10m}
+\end{equation}
+so $\partial_b\mathbf I'$ is built from the \emph{constant} Coriolis matrices $\boldsymbol\zeta_{cb}=\sum_j\mathbf l_{jc}\!\times\!\mathbf l_{jb}$. Substituting (4.10l)--(4.10m) into the vibrational residue (4.10k) and into $U_{\mathrm{Cor}}$, the gradient terms $\propto\partial_b\operatorname{tr}\boldsymbol\mu$ generated by the two groups cancel identically; the surviving $Q$-local remainder is fixed by the Coriolis sum rules obeyed by the $\boldsymbol\zeta$'s [from the orthonormality $\sum_j\mathbf l_{ja}\!\cdot\!\mathbf l_{jb}=\delta_{ab}$ of the Eckart mode vectors, the $\boldsymbol\zeta^{(\alpha)}$ acting as $SO(3)$ generators on the mode index], which collapse it to a single trace over the three Cartesian components~\cite{watson1968}:
+\begin{equation}
+\boxed{\;\hat U(Q)\;=\;-\frac{\hbar^{2}}{8}\sum_{\alpha=1}^{3}\mu_{\alpha\alpha}(Q),\qquad \boldsymbol{\mu}=(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})^{-1}.\;} \tag{4.11}
+\end{equation}
+Two remarks. \emph{(a)} The cancellation is special to \emph{rectilinear} normal coordinates: for general curvilinear $Q$ the linear relation (4.10m) fails, the residue (4.10k) does \emph{not} collapse to the trace, and additional vibrational extrapotential terms survive. \emph{(b)} The electrons do not modify $\hat U$: $\mu_{\alpha\beta}$ depends on $Q$ alone, the electronic sector enters the rovib block only through $\hat{\mathbf{L}}_{\mathrm{elec}}$ (which commutes with $\boldsymbol\mu$ and with the $Q$-measure $\gamma$), and the electronic Cartesian Jacobian is flat. The pseudopotential is a $c$-number on the nuclear configuration space, fixed entirely by the modified inertia $\mathbf{I}'$.
+
+\subsubsection{Algebraic cross-check of the coefficient}
+
+The $-\hbar^2/8$ is confirmed by the equivalent algebraic (Weyl-ordering) route noted under (4.3): with the Hermitian momenta $\hat\pi_A=-i\hbar(\partial_A+\tfrac12\partial_A\ln\sqrt{|g|})$ one has $\hat T=\tfrac12\hat\pi_A g^{AB}\hat\pi_B$, identical to the Laplace--Beltrami operator. Three observations fix the result:
+\begin{itemize}
+\item \emph{Vibrational sector.} With $g^{ab}=\delta_{ab}$ and $\sqrt{|g|}\propto\gamma^{1/2}$, expanding $\tfrac12\sum_b\hat\pi_{Q_b}^2$ (the Hermitian momenta of (4.3) specialized to the modes) and rescaling reproduces exactly the residue (4.10k), $U_{\mathrm{vib}}=\tfrac{\hbar^2}{2}\gamma^{-1/4}\bigl(\sum_b\partial_{Q_b}^2\bigr)\gamma^{1/4}$ --- the $-\hbar^2/8$ scale enters through the two $\tfrac12\partial_A\ln\sqrt{|g|}$ factors, $\tfrac12\hat\pi_{Q_b}^2\supset\tfrac{\hbar^2}{8}(\partial_{Q_b}\ln\gamma)^2$ etc.
+\item \emph{Rotational sector.} $\mu_{\alpha\beta}(Q)$ commutes with $\hat J$, so the only reordering is among the $\hat J$'s; by the anomalous algebra (4.7) the antisymmetric part of $\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta$ vanishes ($\mu_{\alpha\beta}=\mu_{\beta\alpha}$), so this block adds no independent $c$-number.
+\item \emph{Reduction.} Carrying the Watson cancellations (Jacobi's formula and the Coriolis sum rules) through both sectors collapses every $Q$-derivative to the single trace $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$, in agreement with (4.11).
+\end{itemize}
+The pseudopotential is a $c$-number depending only on $Q$ (a function on the nuclear configuration space).
+
+\subsubsection{Operator ordering: what is and isn't ambiguous}
+
+\begin{itemize}
+\item $\mu_{\alpha\beta}(Q)$ commutes with $\hat J$ (different coordinate sectors: Euler angles vs.\ $Q$), with $\hat{\mathbf{L}}_{\mathrm{elec}}$ (BF electron coords), but not with $\hat P_b$ (since $\partial\mu_{\alpha\beta}/\partial Q_b \ne 0$). Hence $\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta = \mu_{\alpha\beta}\hat J_\alpha\hat J_\beta$.
+\item Within the rotational block, the symmetric product $\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta$ in (4.10) is unambiguous because $\mu$ is symmetric in $(\alpha,\beta)$, and the Watson pseudopotential (4.11) accounts for the residual non-commutativity of the $\hat J$'s themselves.
+\item In normal coordinates the vibrational term is the bare $\tfrac12\sum_b\hat P_b^2$; the $Q$-dependence of the volume element has been moved into $\hat U(Q)$ by the rescaling (4.5), which is precisely what Podolsky produces.
+\end{itemize}
+
+\subsection{Electronic kinetic operator}
+
+In BF Cartesian electron coordinates, $\hat{\bar{\mathbf{p}}}_i = -i\hbar\nabla_{\bar{\mathbf{r}}_i}$ is Hermitian on $L^{2}(\mathbb{R}^{3N_{\mathrm{elec}}},d^{3N_{\mathrm{elec}}}\bar{\mathbf{r}})$. The electronic + mass-polarization kinetic operator is therefore the straightforward quantization of (3.21):
+\begin{equation}
+\hat T_e \;=\; \sum_i\frac{\hat{\bar{\mathbf{p}}}_i^{\,2}}{2m_e} \;+\; \frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf{p}}}_i\Bigr)^{\!2}. \tag{4.12}
+\end{equation}
+Expanding the second piece:
+\begin{equation}
+\frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf{p}}}_i\Bigr)^{\!2} \;=\; \sum_i\frac{\hat{\bar{\mathbf{p}}}_i^{\,2}}{2M_N} \;+\; \frac{1}{M_N}\!\sum_{i<l}\hat{\bar{\mathbf{p}}}_i\!\cdot\!\hat{\bar{\mathbf{p}}}_l. \tag{4.13}
+\end{equation}
+The diagonal $1/(2M_N)$ piece renormalizes the effective electron mass through $1/m_e + 1/M_N = M_{\mathrm{tot}}/(m_e M_N) = 1/\mu_e$. The off-diagonal two-electron term is the mass-polarization \emph{sensu stricto}, dynamically coupling electrons through nuclear recoil --- a purely classical effect (Section 2.4) inherited by the quantum theory.
+
+\subsection{Complete quantum molecular Hamiltonian}
+
+Combining (4.10), (4.11), (4.12), and the rotationally invariant Coulomb potentials from (3.8):
+\begin{equation}
+\boxed{
+\begin{aligned}
+\hat H_{\mathrm{int}}\;=\;& \tfrac12\sum_{\alpha\beta}\bigl(\hat J_\alpha - \hat L_{\mathrm{elec},\alpha} - \hat\pi_\alpha\bigr)\mu_{\alpha\beta}(Q)\bigl(\hat J_\beta - \hat L_{\mathrm{elec},\beta} - \hat\pi_\beta\bigr) \\
+& + \tfrac12\sum_b\hat P_b^2 \\
+& + \sum_i\frac{\hat{\bar{\mathbf{p}}}_i^{\,2}}{2m_e} \;+\; \frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf{p}}}_i\Bigr)^{\!2} \\
+& - \frac{\hbar^{2}}{8}\sum_{\alpha}\mu_{\alpha\alpha}(Q) \\
+& + V_{NN}(Q) \;+\; V_{Ne}(Q,\{\bar{\mathbf{r}}_i\}) \;+\; V_{ee}(\{\bar{\mathbf{r}}_i\}),
+\end{aligned}}\tag{4.14}
+\end{equation}
+acting on $L^{2}(\mathcal{C},\,d\mu_W)$ with $d\mu_W = \sin\theta\,d\phi d\theta d\chi\,\prod_b dQ_b\,\prod_i d^{3}\bar{\mathbf{r}}_i$. All operators are Hermitian on this Hilbert space.
+
+This is the \textbf{exact non-relativistic molecular Hamiltonian} after separation of the total COM motion, in BF + Eckart frame, with electrons referred to the nuclear COM. The only approximations made along the way were: (i) non-relativistic dynamics; (ii) Eckart's choice of the BF orientation (a convention, not an approximation); (iii) parametrization of the nuclear shape by $3N_{\mathrm{nucl}}-6$ internal coordinates $Q_b$ (a parametrization, also exact).
+
+\subsection{Born--Huang expansion}
+
+\subsubsection{Clamped-nuclei electronic Hamiltonian}
+
+At each nuclear configuration $Q$, define the \textbf{BF clamped-nuclei electronic Hamiltonian} as the sum of all $Q$-parametric electron-only pieces of (4.14):
+\begin{equation}
+\hat H_{\mathrm{el}}(Q) \;\equiv\; \sum_i\frac{\hat{\bar{\mathbf{p}}}_i^{\,2}}{2m_e} \;+\; \frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf{p}}}_i\Bigr)^{\!2} \;+\; V_{Ne}(Q,\{\bar{\mathbf{r}}_i\}) \;+\; V_{ee}(\{\bar{\mathbf{r}}_i\}). \tag{4.15}
+\end{equation}
+\emph{Remark.} The mass-polarization piece $(\sum_i\hat{\bar{\mathbf{p}}}_i)^{2}/(2M_N)$ is included here as a small correction with $1/M_N$. Some treatments (``clamped-nuclei BO'') drop it; we keep it explicit because it is parametric in $Q$ only through the absent dependence (i.e., $M_N$ is just a number), which means it acts trivially on the parametric family of electronic Hilbert spaces.
+
+Solve the parametric eigenvalue problem:
+\begin{equation}
+\hat H_{\mathrm{el}}(Q)\,|\phi_n(Q)\rangle \;=\; E_n^{\mathrm{el}}(Q)\,|\phi_n(Q)\rangle, \tag{4.16}
+\end{equation}
+in the electronic Hilbert space $\mathcal{H}_e = L^{2}(\mathbb{R}^{3N_{\mathrm{elec}}},d^{3N_{\mathrm{elec}}}\bar{\mathbf{r}})$. The eigenstates $\{|\phi_n(Q)\rangle\}$ depend \emph{parametrically} on $Q$ --- $Q$ is treated as a fixed classical parameter, not a quantum degree of freedom --- and form a complete orthonormal basis of $\mathcal{H}_e$ at each $Q$:
+\begin{equation}
+\sum_n |\phi_n(Q)\rangle\langle\phi_n(Q)| \;=\; \hat{\mathbb{1}}_{e},\qquad \langle\phi_m(Q)|\phi_n(Q)\rangle_e = \delta_{mn}. \tag{4.17}
+\end{equation}
+
+\subsubsection{The exact Born--Huang expansion}
+
+The \emph{exact} molecular wavefunction $|\Psi\rangle \in L^{2}(\mathcal{C},d\mu_W)$ admits a resolution against the parametric electronic basis. Insert the resolution of identity (4.17) at each $Q$:
+\begin{equation}
+|\Psi\rangle \;=\; \sum_n |\chi_n\rangle \otimes |\phi_n(Q)\rangle, \qquad \chi_n(\Omega,Q) \;\equiv\; \langle\phi_n(Q)|\Psi\rangle_e, \tag{4.18}
+\end{equation}
+where $\Omega=(\phi,\theta,\chi)$, the electronic inner product is taken at fixed $Q$, and $\chi_n$ are the \textbf{nuclear coefficient functions}. The expansion (4.18) is \textbf{exact}, not an ansatz: it follows from the completeness (4.17) at each $Q$, with the only subtlety being that the basis $|\phi_n(Q)\rangle$ varies parametrically. There is \emph{no} simple tensor factorization $\mathcal{H}_{\mathrm{molecule}} = \mathcal{H}_N \otimes \mathcal{H}_e$ because of this parametric dependence; the Born--Huang expansion~\cite{bornhuang1954} is the rigorous replacement.
+
+\subsubsection{Coupled-channel equations}
+
+Substitute (4.18) into $\hat H_{\mathrm{int}}|\Psi\rangle = E|\Psi\rangle$, project from the left by $\langle\phi_m(Q)|$, and use (4.16):
+\begin{equation}
+\bigl[\hat T_N + E_n^{\mathrm{el}}(Q) + V_{NN}(Q) + \hat U(Q)\bigr]\chi_n(\Omega,Q) \;+\; \sum_m \hat\Lambda_{nm}\,\chi_m(\Omega,Q) \;=\; E\,\chi_n(\Omega,Q), \tag{4.19}
+\end{equation}
+where $\hat T_N$ denotes the nuclear (rotational + vibrational) kinetic operator from the first two lines of (4.14). The \textbf{non-adiabatic coupling operators} $\hat\Lambda_{nm}$ arise from the action of $\hat T_N$ (and the rot--electronic couplings through $\hat{\mathbf{L}}_{\mathrm{elec}}$) on the $Q$-parametric dependence of $|\phi_m(Q)\rangle$:
+\begin{equation}
+\hat\Lambda_{nm} \;\sim\; -\frac{\hbar^{2}}{1}\,\langle\phi_n|\nabla_Q\phi_m\rangle_e\!\cdot\!\nabla_Q \;-\; \frac{\hbar^{2}}{2}\,\langle\phi_n|\nabla_Q^{2}\phi_m\rangle_e \;+\;\ldots, \tag{4.20}
+\end{equation}
+with analogous terms from the rotation--electron Coriolis $\hat J_\alpha\hat L_{\mathrm{elec},\alpha}$ kernel.
+
+\subsubsection{Born--Oppenheimer approximation as truncation}
+
+The \textbf{Born--Oppenheimer (BO) approximation} is the diagonal truncation of (4.19): set $\hat\Lambda_{nm}\to 0$ for $m\ne n$ and (optionally) also $\hat\Lambda_{nn}\to 0$. The resulting effective nuclear problem is
+\begin{equation}
+\bigl[\hat T_N + E_n^{\mathrm{el}}(Q) + V_{NN}(Q) + \hat U(Q)\bigr]\chi_n^{\mathrm{BO}}(\Omega,Q) \;=\; E^{\mathrm{BO}}\,\chi_n^{\mathrm{BO}}(\Omega,Q), \tag{4.21}
+\end{equation}
+where the \textbf{Born--Oppenheimer potential energy surface} for electronic state $n$ is
+\begin{equation}
+V_n^{\mathrm{BO}}(Q) \;\equiv\; E_n^{\mathrm{el}}(Q) + V_{NN}(Q) + \hat U(Q). \tag{4.22}
+\end{equation}
+The exactness of (4.18) and the well-definedness of (4.19) are mathematical facts. BO is the physical assumption that off-diagonal $\hat\Lambda_{nm}$ are small --- justified when electronic gaps are large compared to nuclear kinetic energies, breaking down at conical intersections and avoided crossings, where the parametric variation of $|\phi_n(Q)\rangle$ becomes singular.
+
+\subsubsection{Summary}
+
+\begin{enumerate}
+\item (4.14) is the exact non-relativistic quantum molecular Hamiltonian in BF + Eckart + nuclear-COM coordinates.
+\item The Born--Huang expansion (4.18) is exact, following from completeness of the parametric electronic basis (4.17).
+\item The infinite coupled system (4.19) is equivalent to the Schr\"odinger equation $\hat H_{\mathrm{int}}|\Psi\rangle = E|\Psi\rangle$.
+\item The Born--Oppenheimer truncation reduces it to (4.21), giving the familiar single-PES picture (4.22).
+\end{enumerate}
