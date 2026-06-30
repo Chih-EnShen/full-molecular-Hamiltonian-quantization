@@ -33,8 +33,9 @@
 
 \title{Full Molecular Hamiltonian}
 \subtitle{From Classical to Quantum: the exact non-relativistic quantization}
-\author{Chih-En Shen}
-\date{}
+\author{Author: Claude Code \\ Presenter: Chih-En Shen}
+% \author{Chih-En Shen}
+\date{\today}
 
 \begin{document}
 
@@ -317,16 +318,28 @@ T=\tfrac12\,g^{AB}(q)\,\pi_A\pi_B. \tag{4.1, 4.2}
 \end{equation*}
 The metric $g_{AB}$ inherits the block structure of (3.22): Watson $\boldsymbol\mu(Q)$ (rotation), identity (vibration), Cartesian (electrons).
 \begin{alertblock}{The problem}
-The Euler angles and $Q$ are \emph{curvilinear}. The natural Hilbert space is $L^2\!\bigl(\sqrt{|g|}\,d^nq\bigr)$, but $\hat\pi_A=-i\hbar\partial_A$ makes $\tfrac12 g^{AB}\hat\pi_A\hat\pi_B$ \textbf{non-Hermitian} there ($g^{AB}$ depends on $q$ and does not commute with $\partial_A$).
+The Euler angles and $Q$ are \emph{curvilinear}. With the curvilinear volume element $\sqrt{|g|}\,d^nq$, the naive quantization $\hat\pi_A=-i\hbar\partial_A$ makes $\tfrac12 g^{AB}\hat\pi_A\hat\pi_B$ \textbf{non-Hermitian} ($g^{AB}$ depends on $q$ and does not commute with $\partial_A$).
 \end{alertblock}
 \end{frame}
 
 % ==================================================================
 \section{Podolsky quantization}
 
+\begin{frame}{Podolsky quantization: the recipe}
+\setstage{3}
+Three steps from the classical $T=\tfrac12 g^{AB}\pi_A\pi_B$ to the exact quantum $\hat T$:
+\begin{enumerate}
+  \item \textbf{Write the unique Hermitian operator} consistent with the curvilinear volume element $\sqrt{|g|}\,d^nq$ --- the Podolsky / Laplace--Beltrami form.
+  \item \textbf{Identify $\sqrt{|g|}$} for the molecule from the block structure of $g_{AB}$.
+  \item \textbf{Flatten the vibrational measure} via $\psi\to\psi_W$ --- the $Q$-Jacobian generates the Watson pseudopotential.
+\end{enumerate}
+\vspace{0.5ex}
+\footnotesize The anomalous BF angular-momentum algebra ensures the rotational sector contributes \emph{no} extra potential.
+\end{frame}
+
 \begin{frame}{The Podolsky / Laplace--Beltrami prescription}
 \setstage{3}
-The unique kinetic operator Hermitian on $L^2(\mathcal C,\sqrt{|g|}\,d^nq)$ is the Laplace--Beltrami operator:
+\textbf{Step~1.}\enspace The unique kinetic operator self-adjoint with respect to the volume element $\sqrt{|g|}\,d^nq$ is the Laplace--Beltrami operator:
 \begin{equation*}
 \boxed{\;\hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt{|g|}}\,\partial_A\!\bigl(\sqrt{|g|}\,g^{AB}\,\partial_B\bigr).\;}\tag{4.3}
 \end{equation*}
@@ -338,22 +351,22 @@ The $\sqrt{|g|}$ factors symmetrize the operator about the curved measure. The p
 
 \begin{frame}{The molecular volume element}
 \setstage{3}
-Building $g_{AB}$ from the velocity-form kinetic energy and reducing the determinant (Schur complements over the electron and vibrational blocks) gives
+\textbf{Step~2.}\enspace Building $g_{AB}$ from the velocity-form kinetic energy and reducing the determinant by block-matrix identities gives
 \begin{equation*}
-\boxed{\;\sqrt{|g|}\,d^nq=\underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Haar on }SO(3)}\cdot\underbrace{\sqrt{\det\mathbf I'(Q)}\,\textstyle\prod_b dQ_b}_{\text{rot.--vib.\ Jacobian}}\cdot\underbrace{\textstyle\prod_i d^3\bar{\mathbf r}_i}_{\text{flat}}.\;}\tag{4.4}
+\boxed{\;\sqrt{|g|}\,d^nq=\underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Euler-angle measure}}\cdot\underbrace{\sqrt{\det\mathbf I'(Q)}\,\textstyle\prod_b dQ_b}_{\text{rot.--vib.\ Jacobian}}\cdot\underbrace{\textstyle\prod_i d^3\bar{\mathbf r}_i}_{\text{flat}}.\;}\tag{4.4}
 \end{equation*}
 The Jacobian carries the \alert{Watson modified inertia} $\mathbf I'=\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T}$, \emph{not} the bare $\mathbf I_N$: the rotation--vibration Coriolis coupling reduces $\det\mathbf I_N\to\det\mathbf I'$.
 \end{frame}
 
 \begin{frame}{Rescaling to a flat measure}
 \setstage{3}
-To work on the simpler measure $d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$, rescale the wavefunction by the $Q$-Jacobian $\gamma\equiv\det\mathbf I'$:
+\textbf{Step~3.}\enspace Rescale the wavefunction by the $Q$-Jacobian $\gamma\equiv\det\mathbf I'$ to work on the flat measure $d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$:
 \begin{equation*}
 \psi_W\equiv\bigl(\det\mathbf I'(Q)\bigr)^{1/4}\psi,\qquad
 \hat T_W=\mathcal J^{1/2}\hat T\,\mathcal J^{-1/2},\quad \mathcal J=(\det\mathbf I')^{1/2}. \tag{4.5}
 \end{equation*}
 \begin{block}{Why rescale?}
-$\psi_W\in L^2(d\mu_W)$ with the \emph{flat} vibrational measure, so $\hat P_b=-i\hbar\partial_{Q_b}$ is Hermitian. The similarity does not commute through $\gamma(Q)$ --- the leftover is exactly the pseudopotential $\hat U(Q)$.
+$\psi_W$ is normalised with the \emph{flat} vibrational measure, so $\hat P_b=-i\hbar\partial_{Q_b}$ is Hermitian. The similarity does not commute through $\gamma(Q)$ --- the leftover is exactly the pseudopotential $\hat U(Q)$.
 \end{block}
 \end{frame}
 
@@ -407,7 +420,7 @@ In the body-frame momentum basis $(\hat J_\alpha,\hat P_b)$ [with $\boldsymbol\p
 g^{AB}=\begin{pmatrix}\boldsymbol\mu & -\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}\\[2pt] -\boldsymbol\sigma\boldsymbol\mu & \mathbb 1+\boldsymbol\sigma\boldsymbol\mu\boldsymbol\sigma^{\mathsf T}\end{pmatrix},
 \qquad \det g^{AB}=\det\boldsymbol\mu \tag{4.10e,f}
 \end{equation*}
-(Schur complement of the $\boldsymbol\mu$ block). Hence $g=1/\det\boldsymbol\mu=\det\mathbf I'\equiv\gamma(Q)$. Since the $\hat J_\alpha$ already carry $\sin\theta$, only $\gamma(Q)$ is rescaled: set $\ln g\to\ln\gamma$ in (4.10d).
+(block-matrix determinant identity). Hence $g=1/\det\boldsymbol\mu=\det\mathbf I'\equiv\gamma(Q)$. Since the $\hat J_\alpha$ already carry $\sin\theta$, only $\gamma(Q)$ is rescaled: set $\ln g\to\ln\gamma$ in (4.10d).
 \end{frame}
 
 \begin{frame}{Rotational sector: no $c$-number}
@@ -476,7 +489,7 @@ Collecting the rovibrational kernel (3.22), the Watson pseudopotential (4.11), a
 &+V_{NN}+V_{Ne}+V_{ee} &&\text{\footnotesize Coulomb}
 \end{aligned}}\tag{4.14}
 \end{equation*}
-\centering\footnotesize Hermitian on $L^2(\mathcal C,d\mu_W)$, $\;d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$.
+\centering\footnotesize $d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$.
 \end{frame}
 
 % ==================================================================
