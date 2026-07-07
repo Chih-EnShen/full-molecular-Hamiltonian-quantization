@@ -1,519 +1,237 @@
-\subsection*{Appendix C: Podolsky quantization from the ro-vibrational metric, without the anomalous angular-momentum algebra}
+\subsection*{Appendix C: Term-by-term expansion of the Podolsky operator, with every derivative}
 
-Section~4 and Appendix~B quantize the kernel of (3.22) in terms of the abstract
-body-fixed momenta $\hat J_\alpha,\hat L_{\mathrm{elec},\alpha},\hat\pi_\alpha,\hat P_b$,
-and the argument that the rotational ordering produces no $c$-number [(4.10g),
-(B.8)] leans on the \emph{anomalous} commutator
-$[\hat J_\alpha,\hat J_\beta]=-i\hbar\,\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ of (4.7).
-This appendix redoes the same quantization from the opposite end: we never introduce
-$\hat J_\alpha$ as a primitive object and we never use any commutator of body-fixed
-angular momenta. Instead we build the configuration-space metric $g_{AB}$ \emph{directly
-in the ro-vibrational coordinates}
+Section~4 quantized the classical Hamiltonian (3.22) by applying the Podolsky operator (4.5) to the ro-vibrational metric (4.15) and rescaling to the flat measure. This appendix supplies what the main text compressed: the expansion of the quantized kernel of (4.41),
 \begin{equation}
-q^{A}=\bigl(\underbrace{\phi,\theta,\chi}_{\text{Euler angles}},\;\underbrace{Q_1,\dots,Q_f}_{\text{normal coords}}\bigr),
-\qquad f\equiv 3N_{\mathrm{nucl}}-6, \tag{C.1}
+\hat T_{\mathrm{kernel}}=\tfrac12\sum_{\alpha\beta}\hat A_\alpha\,\mu_{\alpha\beta}(Q)\,\hat A_\beta,\qquad
+\hat A_\alpha\equiv\hat J_\alpha-\hat L_\alpha-\hat\pi_\alpha,\qquad
+\hat L_\alpha\equiv\hat L_{\mathrm{elec},\alpha}, \tag{C.1}
 \end{equation}
-and apply the Podolsky (Laplace--Beltrami) prescription (4.3) as a pure differential
-operator, writing out \emph{every} partial derivative
-$\partial_\phi,\partial_\theta,\partial_\chi,\partial_{Q_b}$ explicitly. The electrons enter
-as a flat Cartesian spectator sector: $\hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}$
-on $L^2(\mathbb R^{3N_{\mathrm{elec}}},\prod_i d^3\bar{\mathbf r}_i)$, and the electronic
-angular momentum $\mathbf L_{\mathrm{elec}}=\sum_i\bar{\mathbf r}_i\times\bar{\mathbf p}_i$
-acts only on those coordinates, so it enters the ro-vibrational operator merely as the
-coordinate-independent shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$ of (3.19)
-and never touches the metric below. Everything nontrivial lives in the
-$(3+f)\times(3+f)$ metric on (C.1).
+into its nine products, with \emph{every} coordinate derivative written out and the Hermiticity of each block verified from first principles. All arguments use only: the adjoint of a product reverses the order, $(\hat X\hat Y)^{\dagger}=\hat Y^{\dagger}\hat X^{\dagger}$; integration by parts on the measure $d\mu_W$; and the product rule. No commutator algebra of body-fixed angular momenta appears anywhere (cf.\ the Remark in \S\,4.11). Repeated Cartesian indices $\alpha,\beta\in\{1,2,3\}$ and mode indices $b,c\in\{1,\dots,f\}$ are summed.
 
-The output is identical to (4.14): the same Hermitian kernel and the same Watson
-pseudopotential $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$. The point of the
-exercise is that \emph{none} of it requires the anomalous algebra --- the Laplace--Beltrami
-operator is Hermitian by construction, and the only $c$-number comes from differentiating
-the volume element, a purely coordinate computation.
+\subsubsection*{C.1\quad Toolkit}
 
-\subsubsection*{C.1\quad The $zyz$ body frame and every derivative of the Euler angles}
+The three momentum-like operators live in three separate coordinate sectors:
+\begin{equation}
+\hat J_\alpha=-i\hbar\,(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}\ \ \text{[eq.~(4.24), Euler angles]},\quad
+\hat P_b=-i\hbar\,\partial_{Q_b}\ \ \text{[modes]},\quad
+\hat L_\alpha=-i\hbar\,\epsilon_{\alpha\beta\gamma}\textstyle\sum_i\bar r_{i\beta}\partial_{\bar r_{i\gamma}}\ \ \text{[electrons]}. \tag{C.2}
+\end{equation}
+Because they differentiate disjoint sets of variables, \emph{operators from different sectors commute}, and each sector's functions are constants for the other sectors' derivatives. Each is Hermitian on its factor of $d\mu_W$: $\hat J_\alpha$ on $\sin\theta\,d\Omega$ by the divergence identity (4.26) [via (4.27)], $\hat L_\alpha$ on the flat electron measure by (4.18), and $\hat P_b$ on the flat $\prod_bdQ_b$ trivially. The only non-commutativity in the problem is the product rule within the $Q$-sector,
+\begin{equation}
+\hat P_b\,f(Q)=f(Q)\,\hat P_b-i\hbar\,(\partial_{Q_b}f)
+\qquad\Longrightarrow\qquad
+\hat P_b\,\mu_{\alpha\beta}=\mu_{\alpha\beta}\hat P_b-i\hbar\,\partial_b\mu_{\alpha\beta},\quad
+\hat P_b\,\sigma_{\alpha c}=\sigma_{\alpha c}\hat P_b-i\hbar\,\zeta^{\alpha}_{bc}, \tag{C.3}
+\end{equation}
+where the last relation uses $\sigma_{\alpha b}=\sum_a\zeta^{\alpha}_{ab}Q_a$ [(3.17a)], linear in $Q$ with \emph{constant} $\zeta^{\alpha}_{ab}=\bigl(\sum_j\mathbf l_{ja}\times\mathbf l_{jb}\bigr)_\alpha$, so $\partial_{Q_b}\sigma_{\alpha c}=\zeta^{\alpha}_{bc}$. The antisymmetry of the cross product gives the sum rule that recurs throughout:
+\begin{equation}
+\zeta^{\alpha}_{ab}=-\zeta^{\alpha}_{ba}\qquad\Longrightarrow\qquad
+\zeta^{\alpha}_{bb}=0,\qquad \sum_b\partial_{Q_b}\sigma_{\alpha b}=\sum_b\zeta^{\alpha}_{bb}=0 . \tag{C.4}
+\end{equation}
+\textbf{$\hat\pi_\alpha$ is Hermitian on the flat mode measure.} With $\hat\pi_\alpha=\sum_b\sigma_{\alpha b}\hat P_b$, take the adjoint (order reverses; $\sigma$ real, $\hat P_b$ Hermitian), then slide $\hat P_b$ back to the right with (C.3), then apply (C.4):
+\begin{equation}
+\hat\pi_\alpha^{\dagger}
+=\sum_b\hat P_b\,\sigma_{\alpha b}
+=\sum_b\bigl(\sigma_{\alpha b}\hat P_b-i\hbar\,\zeta^{\alpha}_{bb}\bigr)
+=\hat\pi_\alpha . \tag{C.5}
+\end{equation}
+Had $\sum_b\zeta^\alpha_{bb}$ been nonzero, $\hat\pi_\alpha$ would have required explicit symmetrization; the antisymmetry of $\zeta$ spares us. Finally, $\mu_{\alpha\beta}(Q)=\mu_{\beta\alpha}(Q)$ is a real symmetric function of $Q$ alone.
 
-Fix the body-fixed orientation by the $zyz$ convention
-\begin{equation}
-\mathbf S(\phi,\theta,\chi)=R_z(\phi)\,R_y(\theta)\,R_z(\chi),\qquad
-R_z(\psi)=\!\begin{pmatrix}\cos\psi&-\sin\psi&0\\ \sin\psi&\cos\psi&0\\ 0&0&1\end{pmatrix},\;
-R_y(\vartheta)=\!\begin{pmatrix}\cos\vartheta&0&\sin\vartheta\\ 0&1&0\\ -\sin\vartheta&0&\cos\vartheta\end{pmatrix}, \tag{C.2}
-\end{equation}
-so that $\mathbf R'_j=\mathbf S\bar{\mathbf R}_j$ as in (3.1). The body-fixed angular velocity
-is defined by $(\mathbf S^{T}\dot{\mathbf S})_{\alpha\beta}=-\epsilon_{\alpha\beta\gamma}\omega_\gamma$
-[eq.~(3.2)]. Writing $G_z=\partial_\psi R_z|_0$ and $G_y=\partial_\vartheta R_y|_0$ for the
-$SO(3)$ generators,
-\begin{equation}
-G_z=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&0\end{pmatrix},\qquad
-G_y=\begin{pmatrix}0&0&1\\0&0&0\\-1&0&0\end{pmatrix}, \tag{C.3}
-\end{equation}
-one differentiates (C.2) term by term, using $\partial_\phi\mathbf S=G_z\mathbf S$,
-$\partial_\theta\mathbf S=R_z(\phi)G_yR_y(\theta)R_z(\chi)$, and
-$\partial_\chi\mathbf S=\mathbf S\,G_z$. Hence
-\begin{equation}
-\mathbf S^{T}\dot{\mathbf S}
-=\dot\phi\,\mathbf S^{T}G_z\mathbf S
-+\dot\theta\,R_z(\chi)^{T}G_yR_z(\chi)
-+\dot\chi\,G_z
-=\bigl[\dot\phi\,\mathbf S^{T}\hat{\mathbf z}+\dot\theta\,R_z(\chi)^{T}\hat{\mathbf y}+\dot\chi\,\hat{\mathbf z}\bigr]_\times, \tag{C.4}
-\end{equation}
-using $R^{T}[\mathbf a]_\times R=[R^{T}\mathbf a]_\times$ and $R_y(\theta)^{T}\hat{\mathbf y}=\hat{\mathbf y}$.
-Evaluating the three body-frame vectors,
-$\mathbf S^{T}\hat{\mathbf z}=(-\sin\theta\cos\chi,\ \sin\theta\sin\chi,\ \cos\theta)$,
-$R_z(\chi)^{T}\hat{\mathbf y}=(\sin\chi,\ \cos\chi,\ 0)$, gives
-$\boldsymbol\omega=\mathsf E(\Omega)\,\dot{\boldsymbol\Omega}$ with $\dot{\boldsymbol\Omega}=(\dot\phi,\dot\theta,\dot\chi)^{T}$ and
-\begin{equation}
-\boxed{\;
-\mathsf E(\Omega)=
-\begin{pmatrix}
--\sin\theta\cos\chi & \sin\chi & 0\\[2pt]
-\ \ \sin\theta\sin\chi & \cos\chi & 0\\[2pt]
-\ \ \cos\theta & 0 & 1
-\end{pmatrix},\qquad
-\begin{aligned}
-\omega_1&=-\dot\phi\,\sin\theta\cos\chi+\dot\theta\,\sin\chi,\\
-\omega_2&=\ \ \dot\phi\,\sin\theta\sin\chi+\dot\theta\,\cos\chi,\\
-\omega_3&=\ \ \dot\phi\,\cos\theta+\dot\chi .
-\end{aligned}\;}\tag{C.5}
-\end{equation}
-Expanding along the third column (which is $\hat{\mathbf z}$) gives the Jacobian of the
-body-frame parametrization,
-\begin{equation}
-\det\mathsf E(\Omega)
-=1\cdot\det\!\begin{pmatrix}-\sin\theta\cos\chi&\sin\chi\\ \sin\theta\sin\chi&\cos\chi\end{pmatrix}
-=-\sin\theta(\cos^2\chi+\sin^2\chi)=-\sin\theta,\qquad |\det\mathsf E|=\sin\theta . \tag{C.6}
-\end{equation}
-Inverting the linear system (C.5) for $(\dot\phi,\dot\theta,\dot\chi)$ --- multiply the
-$\omega_1,\omega_2$ equations by $(\sin\chi,\cos\chi)$ and by $(\cos\chi,-\sin\chi)$ and add ---
-yields $\dot{\boldsymbol\Omega}=\mathsf E^{-1}\boldsymbol\omega$ with
-\begin{equation}
-\boxed{\;
-\mathsf E^{-1}(\Omega)=
-\begin{pmatrix}
--\dfrac{\cos\chi}{\sin\theta} & \dfrac{\sin\chi}{\sin\theta} & 0\\[10pt]
-\ \ \sin\chi & \cos\chi & 0\\[6pt]
-\ \ \dfrac{\cos\theta\cos\chi}{\sin\theta} & -\dfrac{\cos\theta\sin\chi}{\sin\theta} & 1
-\end{pmatrix},
-\qquad
-\begin{aligned}
-\dot\phi&=\tfrac{1}{\sin\theta}\bigl(-\cos\chi\,\omega_1+\sin\chi\,\omega_2\bigr),\\
-\dot\theta&=\sin\chi\,\omega_1+\cos\chi\,\omega_2,\\
-\dot\chi&=\omega_3-\tfrac{\cos\theta}{\sin\theta}\bigl(\sin\chi\,\omega_2-\cos\chi\,\omega_1\bigr).
-\end{aligned}\;}\tag{C.7}
-\end{equation}
-The $1/\sin\theta$ entries are the coordinate singularity at the poles $\theta=0,\pi$; they
-are exactly compensated by the vanishing of $|\det\mathsf E|=\sin\theta$ in the volume
-element, so no observable is singular. Equations (C.5)--(C.7) are the \emph{only} facts
-about the Euler angles we shall use; in particular we never assign a commutator to any
-combination of $\partial_\phi,\partial_\theta,\partial_\chi$.
+\subsubsection*{C.2\quad The nine products}
 
-\subsubsection*{C.2\quad The ro-vibrational metric tensor}
-
-The classical rotation--vibration kinetic energy carried into the body frame is the nuclear
-piece of the Routhian (3.13),
-\begin{equation}
-2T_{\mathrm{rv}}
-=\boldsymbol\omega^{T}\mathbf I_N(Q)\,\boldsymbol\omega
-+2\,\boldsymbol\omega^{T}\!\sum_b\boldsymbol\sigma_b(Q)\,\dot Q_b
-+\sum_b\dot Q_b^{\,2}, \tag{C.8}
-\end{equation}
-where $\mathbf I_N=\sum_jM_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^{T})$ [(3.9)],
-the Coriolis vectors are $\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a$ with constant
-$\boldsymbol\zeta_{ab}=\sum_j\mathbf l_{ja}\times\mathbf l_{jb}$ [(3.17a)], and the vibrational
-metric is the identity because the $Q_b$ are mass-weighted rectilinear normal coordinates,
-$\sum_jM_j(\partial\bar{\mathbf R}_j/\partial Q_a)\!\cdot\!(\partial\bar{\mathbf R}_j/\partial Q_b)=\delta_{ab}$
-[(3.17)]. Collecting $\boldsymbol\sigma$ into the $3\times f$ matrix
-$\boldsymbol\sigma_{\alpha b}\equiv(\boldsymbol\sigma_b)_\alpha$, the velocity quadratic form is
-\begin{equation}
-2T_{\mathrm{rv}}=\begin{pmatrix}\boldsymbol\omega\\ \dot{\mathbf Q}\end{pmatrix}^{\!T}
-\begin{pmatrix}\mathbf I_N & \boldsymbol\sigma\\ \boldsymbol\sigma^{T} & \mathbb 1_f\end{pmatrix}
-\begin{pmatrix}\boldsymbol\omega\\ \dot{\mathbf Q}\end{pmatrix}. \tag{C.9}
-\end{equation}
-Now trade the physical velocities for the coordinate velocities using the \emph{explicit}
-$\boldsymbol\omega=\mathsf E(\Omega)\dot{\boldsymbol\Omega}$ of (C.5); the $\dot Q_b$ are already
-coordinate velocities. With
-$\bigl(\begin{smallmatrix}\boldsymbol\omega\\ \dot{\mathbf Q}\end{smallmatrix}\bigr)
-=\mathsf A\,\dot q$, $\mathsf A=\mathrm{diag}(\mathsf E,\mathbb 1_f)$, the metric $g_{AB}$
-defined by $2T_{\mathrm{rv}}=g_{AB}\dot q^{A}\dot q^{B}$ is $g=\mathsf A^{T}(\cdots)\mathsf A$:
-\begin{equation}
-\boxed{\;
-g_{AB}=
-\begin{pmatrix}
-\mathsf E^{T}\mathbf I_N\,\mathsf E & \mathsf E^{T}\boldsymbol\sigma\\[3pt]
-\boldsymbol\sigma^{T}\mathsf E & \mathbb 1_f
-\end{pmatrix}
-\;=\;
-\begin{pmatrix}
-g_{\Omega\Omega} & g_{\Omega Q}\\[3pt]
-g_{Q\Omega} & g_{QQ}
-\end{pmatrix},\qquad
-\begin{aligned}
-g_{\Omega\Omega}&=\mathsf E^{T}\mathbf I_N\mathsf E\quad(3\times3),\\
-g_{\Omega Q}&=\mathsf E^{T}\boldsymbol\sigma\quad(3\times f),\\
-g_{QQ}&=\mathbb 1_f .
-\end{aligned}\;}\tag{C.10}
-\end{equation}
-The Euler--angle block $g_{\Omega\Omega}=\mathsf E^{T}\mathbf I_N\mathsf E$ is the inertia tensor
-pulled back through the kinematic matrix; the rotation--vibration block
-$g_{\Omega Q}=\mathsf E^{T}\boldsymbol\sigma$ is the Coriolis coupling; the vibrational block is
-flat. This is the entire geometric content of (3.22): the rotational kernel
-$\tfrac12\mathbf J^{T}\boldsymbol\mu\mathbf J$, the Coriolis coupling $-\mathbf J^{T}\boldsymbol\mu\boldsymbol\pi$,
-the vibrational $\tfrac12\sum_bP_b^{2}$, and the internal $\tfrac12\boldsymbol\pi^{T}\boldsymbol\mu\boldsymbol\pi$
-are \emph{not} independent postulates --- they are the four blocks of $g^{AB}$ that we compute next.
-
-\subsubsection*{C.3\quad Determinant and the Riemannian volume element}
-
-Take the determinant of (C.10) by the Schur complement of the identity block $g_{QQ}=\mathbb 1_f$:
-\begin{equation}
-\det g_{AB}
-=\det(\mathbb 1_f)\,\det\!\bigl(\mathsf E^{T}\mathbf I_N\mathsf E-\mathsf E^{T}\boldsymbol\sigma\,\mathbb 1_f^{-1}\boldsymbol\sigma^{T}\mathsf E\bigr)
-=\det\!\bigl[\mathsf E^{T}(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T})\mathsf E\bigr]. \tag{C.11}
-\end{equation}
-Using $\det(\mathsf E^{T}X\mathsf E)=(\det\mathsf E)^2\det X$ and (C.6),
-\begin{equation}
-\boxed{\;
-\det g_{AB}=(\det\mathsf E)^2\,\det\mathbf I'
-=\sin^2\!\theta\;\det\mathbf I'(Q),\qquad
-\mathbf I'\equiv\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T},\quad
-\boldsymbol\sigma\boldsymbol\sigma^{T}=\sum_b\boldsymbol\sigma_b\boldsymbol\sigma_b^{T},\;}\tag{C.12}
-\end{equation}
-with $\mathbf I'$ the Watson modified inertia of (3.20). Writing $\gamma(Q)\equiv\det\mathbf I'(Q)$,
-the Riemannian volume element is
-\begin{equation}
-\boxed{\;
-\sqrt{|g|}\,d^{\,3+f}q=\underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Haar on }SO(3)}\;\underbrace{\sqrt{\gamma(Q)}\,\textstyle\prod_b dQ_b}_{\text{rot.\,--\,vib.\ Jacobian}},\qquad \sqrt{|g|}=\sin\theta\,\sqrt{\gamma(Q)}.\;}\tag{C.13}
-\end{equation}
-This reproduces (4.4) exactly, but now the two factors have a transparent origin: the
-$\sin\theta$ is $|\det\mathsf E|$ from the Euler-angle kinematics (C.6), and the $\sqrt\gamma$
-is $|\det\mathsf E|^{-1}$ times the full determinant, i.e.\ the Coriolis-reduced inertia
-determinant. The full electronic Cartesian block multiplies (C.13) by the flat, constant
-$\prod_i d^3\bar{\mathbf r}_i$ and contributes nothing to $\sqrt{|g|}$.
-
-\subsubsection*{C.4\quad The inverse metric}
-
-Invert (C.10) block-wise. With $g_{QQ}=\mathbb 1_f$ the Schur complement of the vibrational
-block is $S=g_{\Omega\Omega}-g_{\Omega Q}g_{Q\Omega}=\mathsf E^{T}\mathbf I'\mathsf E$, whose inverse is
-$S^{-1}=\mathsf E^{-1}\boldsymbol\mu\,\mathsf E^{-T}$ with the Watson reciprocal inertia
-$\boldsymbol\mu\equiv(\mathbf I')^{-1}$ [eq.~(3.20)] and $\mathsf E^{-T}\equiv(\mathsf E^{-1})^{T}$.
-The standard block-inverse formulas give
-\begin{equation}
-\boxed{\;
-g^{AB}=
-\begin{pmatrix}
-\mathsf E^{-1}\boldsymbol\mu\,\mathsf E^{-T} & -\mathsf E^{-1}\boldsymbol\mu\,\boldsymbol\sigma\\[3pt]
--\boldsymbol\sigma^{T}\boldsymbol\mu\,\mathsf E^{-T} & \mathbb 1_f+\boldsymbol\sigma^{T}\boldsymbol\mu\,\boldsymbol\sigma
-\end{pmatrix}
-=
-\begin{pmatrix}
-g^{\Omega\Omega} & g^{\Omega Q}\\[3pt]
-g^{Q\Omega} & g^{QQ}
-\end{pmatrix}.\;}\tag{C.14}
-\end{equation}
-Two checks. \emph{(i)} $\det g^{AB}=1/\det g_{AB}=1/(\sin^2\theta\,\gamma)$, consistent with
-(C.12). \emph{(ii)} In the body-frame momentum basis $(J_\alpha,P_b)$ --- reached by the
-constant-per-point linear map $\hat J_\alpha=(\mathsf E^{-T})_{\alpha s}\hat p_{\Omega_s}$,
-$\hat P_b=\hat p_{Q_b}$ --- the $\mathsf E^{\pm1}$ factors are absorbed and (C.14) collapses to
-\begin{equation}
-\begin{pmatrix}\boldsymbol\mu & -\boldsymbol\mu\boldsymbol\sigma\\ -\boldsymbol\sigma^{T}\boldsymbol\mu & \mathbb 1_f+\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma\end{pmatrix},
-\tag{C.15}
-\end{equation}
-which is precisely the momentum-space contravariant metric (4.10e). Equation (C.14) is the
-same object written in the raw coordinates $q^A$, with all the Euler-angle dependence made
-explicit through $\mathsf E^{-1}$.
-
-\subsubsection*{C.5\quad The natural first-order operators (defined, not postulated)}
-
-When the rotational block of the Laplace--Beltrami operator is written out, the combination
-$(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ appears repeatedly. It is convenient to name it
-\begin{equation}
-\hat J_\alpha\equiv-i\hbar\sum_{s\in\{\phi,\theta,\chi\}}(\mathsf E^{-1})_{s\alpha}\,\partial_{\Omega_s},
-\tag{C.16}
-\end{equation}
-which, inserting the explicit $\mathsf E^{-1}$ of (C.7), reads
-\begin{equation}
-\boxed{\;
-\begin{aligned}
-\hat J_1&=-i\hbar\Bigl[-\tfrac{\cos\chi}{\sin\theta}\,\partial_\phi+\sin\chi\,\partial_\theta+\tfrac{\cos\theta\cos\chi}{\sin\theta}\,\partial_\chi\Bigr],\\
-\hat J_2&=-i\hbar\Bigl[\ \ \tfrac{\sin\chi}{\sin\theta}\,\partial_\phi+\cos\chi\,\partial_\theta-\tfrac{\cos\theta\sin\chi}{\sin\theta}\,\partial_\chi\Bigr],\\
-\hat J_3&=-i\hbar\,\partial_\chi .
-\end{aligned}\;}\tag{C.17}
-\end{equation}
-We stress the logic: (C.17) is a \emph{definition}, a shorthand for the three explicit
-Euler-angle derivative combinations. We do \emph{not} compute $[\hat J_\alpha,\hat J_\beta]$,
-we do not invoke the anomalous algebra (4.7), and nothing below depends on it. The
-Laplace--Beltrami operator is Hermitian because it is built from the real symmetric metric
-$g^{AB}$ and the measure $\sqrt{|g|}$ --- Hermiticity is automatic, not a property to be
-rescued by a commutator identity.
-
-\subsubsection*{C.6\quad Term-by-term Podolsky quantization of (3.22)}
-
-The Podolsky prescription (4.3) turns the classical kinetic energy $T=\tfrac12 g^{AB}\pi_A\pi_B$
-into the Hermitian operator
-\begin{equation}
-\hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt{|g|}}\sum_{A,B}\partial_A\!\bigl(\sqrt{|g|}\;g^{AB}\,\partial_B\bigr),
-\qquad \sqrt{|g|}=\sin\theta\,\sqrt{\gamma(Q)}. \tag{C.18}
-\end{equation}
-We now go through the pieces of (3.22) one at a time, each quantized by (C.18), writing every
-derivative.
-
-\paragraph{Term 0 --- electrons and potential (flat / multiplicative).}
-The electronic block of $g^{AB}$ is flat and constant [$\mathsf D_{(i\alpha)(j\beta)}$ of
-(4.3a) is $Q$-, $\Omega$-independent], so $\sqrt{|g|}$ does not depend on $\bar{\mathbf r}_i$ and
-(C.18) reduces on that sector to the ordinary Laplacian:
-\begin{equation}
-\hat T_e=\sum_i\frac{\hat{\bar{\mathbf p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf p}}_i\Bigr)^{\!2},
-\qquad \hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}, \tag{C.19}
-\end{equation}
-identical to (4.12). The Coulomb potential $V(Q,\{\bar{\mathbf r}_i\})$ of (3.8) is a real
-multiplication operator, unchanged. The electronic angular-momentum shift
-$\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$ acts across sectors that commute, so wherever
-$\hat J_\alpha$ appears below one simply replaces it by $\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$
-at the end; the metric, the measure and the pseudopotential are untouched because they depend on
-$(\Omega,Q)$ only.
-
-\paragraph{Term 1 --- rotational kernel $\tfrac12\mathbf J^{T}\boldsymbol\mu\mathbf J$ (the $g^{\Omega\Omega}$ block).}
-Collect the terms of (C.18) with $A,B\in\{\phi,\theta,\chi\}$. Because $g^{\Omega\Omega}=\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T}$
-and $\boldsymbol\mu=\boldsymbol\mu(Q)$, $\gamma=\gamma(Q)$ are \emph{independent of the Euler
-angles}, the factor $\sqrt\gamma$ in $\sqrt{|g|}$ passes through the Euler derivatives untouched
-and cancels against the $1/\sqrt{|g|}$ prefactor:
-\begin{equation}
-\hat T_{\mathrm{rot}}
-=-\frac{\hbar^2}{2}\,\frac{1}{\sin\theta\sqrt\gamma}\sum_{s,t}\partial_{\Omega_s}\!\Bigl(\sin\theta\sqrt\gamma\,(\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T})_{st}\,\partial_{\Omega_t}\Bigr)
-=-\frac{\hbar^2}{2}\,\frac{1}{\sin\theta}\sum_{s,t}\partial_{\Omega_s}\!\Bigl(\sin\theta\,(\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T})_{st}\,\partial_{\Omega_t}\Bigr). \tag{C.20}
-\end{equation}
-Insert $(\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T})_{st}=\sum_{\alpha\beta}(\mathsf E^{-1})_{s\alpha}\mu_{\alpha\beta}(\mathsf E^{-1})_{t\beta}$
-and move the $\Omega$-constant $\mu_{\alpha\beta}$ outside the $\Omega$-derivatives. What remains
-is the divergence of $\sin\theta\,(\mathsf E^{-1})_{s\alpha}$ paired with $(\mathsf E^{-1})_{t\beta}\partial_{\Omega_t}$.
-A direct computation from the explicit $\mathsf E^{-1}$ of (C.7) --- using
-$\sum_s\partial_{\Omega_s}\!\bigl(\sin\theta\,(\mathsf E^{-1})_{s\alpha}\bigr)=0$, the coordinate
-statement that the body-frame generators are divergence-free on the Haar measure --- collapses
-(C.20) to the manifestly Hermitian symmetric form
-\begin{equation}
-\boxed{\;\hat T_{\mathrm{rot}}=\tfrac12\sum_{\alpha\beta}\mu_{\alpha\beta}(Q)\,\hat J_\alpha\hat J_\beta,\;}\tag{C.21}
-\end{equation}
-with $\hat J_\alpha$ the differential operators (C.17). \emph{No $c$-number appears.} In the
-algebraic route this fact required the anomalous identity $\mu_{\alpha\beta}[\hat J_\alpha,\hat J_\beta]\propto\mu_{\alpha\beta}\epsilon_{\alpha\beta\gamma}=0$
-[(4.10g), (B.8)]; here it is instead the statement that the rotational Laplace--Beltrami
-operator on a shape with \emph{fixed} $Q$ (a rigid asymmetric top) carries no extra potential ---
-a standard, purely coordinate result, obtained by differentiating $\sin\theta\,\mathsf E^{-1}$ and
-finding the putative $c$-number identically zero. As a representative check, the spherical case
-$\mu_{\alpha\beta}=\mu\,\delta_{\alpha\beta}$ makes (C.21) equal to $\tfrac{\mu}{2}\hat J^2$ with
-\begin{equation}
-\hat J^2=-\hbar^2\Bigl[\tfrac{1}{\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta)+\tfrac{1}{\sin^2\theta}\bigl(\partial_\phi^{2}-2\cos\theta\,\partial_\phi\partial_\chi+\partial_\chi^{2}\bigr)\Bigr], \tag{C.22}
-\end{equation}
-the standard symmetric-top operator, which is Hermitian on $\sin\theta\,d\phi\,d\theta\,d\chi$
-with no additive constant.
-
-\paragraph{Term 2 --- rotation--vibration Coriolis $-\mathbf J^{T}\boldsymbol\mu\boldsymbol\pi$ (the $g^{\Omega Q}$ block).}
-Now the derivatives mix sectors. The off-diagonal contribution to (C.18) is
-\begin{equation}
-\hat T_{\mathrm{Cor}}
-=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt{|g|}}\Bigl[\sum_{s,b}\partial_{\Omega_s}\!\bigl(\sqrt{|g|}\,g^{\Omega Q}_{sb}\,\partial_{Q_b}\bigr)+\sum_{b,s}\partial_{Q_b}\!\bigl(\sqrt{|g|}\,g^{Q\Omega}_{bs}\,\partial_{\Omega_s}\bigr)\Bigr]. \tag{C.23}
-\end{equation}
-Here the second group carries $\partial_{Q_b}$, which \emph{does} act on $\sqrt{|g|}=\sin\theta\sqrt\gamma$
-and on $g^{Q\Omega}_{bs}=-(\boldsymbol\sigma^{T}\boldsymbol\mu\,\mathsf E^{-T})_{bs}$ through the
-$Q$-dependence of $\boldsymbol\sigma$, $\boldsymbol\mu$ and $\gamma$. Writing
-$g^{\Omega Q}_{sb}=-\sum_{\alpha\beta}(\mathsf E^{-1})_{s\alpha}\mu_{\alpha\beta}\sigma_{\beta b}$ and
-using (C.16), the first group is $\hat J_\alpha$ acting from the left; the second group, after the
-product rule
-\begin{equation}
-\partial_{Q_b}\!\bigl(\sqrt{|g|}\,g^{Q\Omega}_{bs}\,\partial_{\Omega_s}\bigr)
-=\sqrt{|g|}\,g^{Q\Omega}_{bs}\,\partial_{Q_b}\partial_{\Omega_s}
-+\partial_{Q_b}\!\bigl(\sqrt{|g|}\,g^{Q\Omega}_{bs}\bigr)\,\partial_{\Omega_s}, \tag{C.24}
-\end{equation}
-produces the $\hat J_\alpha$ acting from the right \emph{plus} a first-order term in which the
-$Q$-derivative has landed on $\sqrt{|g|}\,g^{Q\Omega}$. Assembling the two groups and symmetrizing,
-(C.23) becomes the Hermitian anticommutator form
-\begin{equation}
-\boxed{\;\hat T_{\mathrm{Cor}}=-\tfrac12\sum_{\alpha}\hat J_\alpha\,\{\mu_{\alpha\beta},\hat\pi_\beta\}
-=-\tfrac12\sum_{\alpha\beta b}\hat J_\alpha\bigl(\mu_{\alpha\beta}\sigma_{\beta b}\hat P_b+\hat P_b\,\sigma_{\beta b}\mu_{\alpha\beta}\bigr),\;}\tag{C.25}
-\end{equation}
-with $\hat P_b=-i\hbar\,\partial_{Q_b}$ and $\hat\pi_\beta=\sum_b\sigma_{\beta b}\hat P_b$. This is
-term (T5) of Appendix~B [eqs.~(B.12)--(B.13)], now obtained without any commutator input: the
-symmetric ordering is forced by the two Laplace--Beltrami groups in (C.23), and the imaginary
-$\hat J$-linear remainder in (C.25) is exactly the derivative $\partial_{Q_b}$ of
-$\sqrt{|g|}\,g^{Q\Omega}$ that Hermiticity of (C.18) supplies automatically.
-
-\paragraph{Term 3 --- vibration, $\tfrac12\sum_bP_b^2+\tfrac12\boldsymbol\pi^{T}\boldsymbol\mu\boldsymbol\pi$ (the $g^{QQ}$ block).}
-The vibrational contribution is
-\begin{equation}
-\hat T_{\mathrm{vib}}
-=-\frac{\hbar^2}{2}\,\frac{1}{\sin\theta\sqrt\gamma}\sum_{b,c}\partial_{Q_b}\!\Bigl(\sin\theta\sqrt\gamma\;\bigl(\delta_{bc}+(\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma)_{bc}\bigr)\,\partial_{Q_c}\Bigr). \tag{C.26}
-\end{equation}
-The $\sin\theta$ is $Q$-independent and cancels. Split $g^{QQ}=\mathbb 1_f+\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$.
-For the identity part, expanding the product rule with $\hat P_b=-i\hbar\partial_{Q_b}$,
-\begin{equation}
--\frac{\hbar^2}{2}\,\gamma^{-1/2}\sum_b\partial_{Q_b}\!\bigl(\gamma^{1/2}\,\partial_{Q_b}\psi\bigr)
-=\tfrac12\sum_b\hat P_b^{2}\psi
--\frac{\hbar^2}{2}\sum_b\bigl(\tfrac12\partial_{Q_b}\!\ln\gamma\bigr)\partial_{Q_b}\psi , \tag{C.27}
-\end{equation}
-so the naive $\tfrac12\sum_b\hat P_b^2$ is corrected by a first-order piece proportional to
-$\partial_{Q_b}\ln\gamma$ --- the signature that $\hat P_b$ alone is \emph{not} Hermitian on the
-curved measure $\sqrt\gamma\,dQ$. The $\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$ part gives
-the Coriolis-dressed second-order operator plus its own first-order derivative remainder, exactly
-term (T3) of Appendix~B [eq.~(B.10)]. Both first-order remainders are removed --- and converted
-into the pseudopotential $c$-number --- by the Podolsky rescaling of the next subsection.
-
-\subsubsection*{C.7\quad The measure-induced $c$-number: collapse to the Watson pseudopotential}
-
-Every operator ambiguity has now been reduced to the single fact that $\hat P_b$ is not Hermitian
-on $\sqrt\gamma\,dQ$. Cure it by the Podolsky rescaling to the flat vibrational measure: put
-\begin{equation}
-\psi=\gamma^{-1/4}\psi_W,\qquad \psi_W=\gamma^{1/4}\psi,\qquad
-|\psi|^2\sqrt{|g|}\,d^{\,3+f}q=|\psi_W|^2\,\sin\theta\,d\phi\,d\theta\,d\chi\,\textstyle\prod_b dQ_b, \tag{C.28}
-\end{equation}
-i.e.\ $\psi_W\in L^2(\sin\theta\,d\Omega\,dQ)$, and conjugate every vibrational operator by
-$\gamma^{1/4}$. Only the $Q$-sector is rescaled; the $\sin\theta$ stays in the measure and is
-carried by the rotational operators (C.21), which are already Hermitian on $\sin\theta\,d\Omega$.
-Working the identity-block conjugation of (C.27) outward through the product rule, exactly as in
-(4.10i),
+Substitute $\hat A_\alpha=\hat J_\alpha-\hat L_\alpha-\hat\pi_\alpha$ into (C.1) and multiply out, \emph{keeping the operator order} (the factors need not commute):
 \begin{align}
-\gamma^{1/4}\Bigl[-\tfrac{\hbar^2}{2}\gamma^{-1/2}\partial_{Q_b}\bigl(\gamma^{1/2}\partial_{Q_b}\bigr)\Bigr]\gamma^{-1/4}
-&=\tfrac12\hat P_b^{2}
-+\underbrace{\frac{\hbar^2}{8}\Bigl[\partial_{Q_b}^{2}\ln\gamma+\tfrac14(\partial_{Q_b}\!\ln\gamma)^{2}\Bigr]}_{\text{$c$-number}}, \tag{C.29}
+\hat A_\alpha\mu_{\alpha\beta}\hat A_\beta
+=\;&\underbrace{\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta}_{\text{(T1) rotation}}
++\underbrace{\hat L_\alpha\mu_{\alpha\beta}\hat L_\beta}_{\text{(T2) electronic}}
++\underbrace{\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta}_{\text{(T3) vibrational}}
+-\underbrace{\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta+\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr)}_{\text{(T4) rotation--electron}}\nonumber\\
+&-\underbrace{\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr)}_{\text{(T5) rotation--vibration}}
++\underbrace{\bigl(\hat L_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat L_\beta\bigr)}_{\text{(T6) vibration--electron}} . \tag{C.6}
 \end{align}
-the two cross terms $\pm\tfrac14(\partial_{Q_b}\ln\gamma)\partial_{Q_b}\psi_W$ cancelling. Summing over
-$b$ and adding the analogous $c$-number residues $U_{\mathrm{Cor}}$ from the
-$\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$ dressing of (C.26) and from the cross block
-(C.23) gives the total extra-potential
-\begin{equation}
-\hat U=U_{\mathrm{vib}}+U_{\mathrm{Cor}},\qquad
-U_{\mathrm{vib}}=\frac{\hbar^2}{8}\sum_b\Bigl[\partial_{Q_b}^{2}\ln\gamma+\tfrac14(\partial_{Q_b}\!\ln\gamma)^{2}\Bigr]. \tag{C.30}
-\end{equation}
-It remains to evaluate (C.30) explicitly and show it collapses to the Watson trace. Every
-ingredient is a $Q$-derivative. By Jacobi's formula for $\gamma=\det\mathbf I'$ and the
-derivative-of-inverse rule,
-\begin{equation}
-\partial_{Q_b}\ln\gamma=\operatorname{tr}\!\bigl(\boldsymbol\mu\,\partial_{Q_b}\mathbf I'\bigr)=\sum_{\alpha\beta}\mu_{\alpha\beta}\,\partial_{Q_b}\mathbf I'_{\alpha\beta},
-\qquad
-\partial_{Q_b}\boldsymbol\mu=-\boldsymbol\mu\,(\partial_{Q_b}\mathbf I')\,\boldsymbol\mu, \tag{C.31}
-\end{equation}
-and, because $\mathbf I'=\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T}$ with
-$\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a$ \emph{linear} in $Q$ with \emph{constant}
-$\boldsymbol\zeta_{ab}=\sum_j\mathbf l_{ja}\times\mathbf l_{jb}$,
-\begin{equation}
-\partial_{Q_c}\mathbf I'_{\alpha\beta}=-\sum_b\bigl(\zeta^{\alpha}_{cb}\,\sigma_{\beta b}+\sigma_{\alpha b}\,\zeta^{\beta}_{cb}\bigr),\qquad
-\zeta^{\alpha}_{cb}\equiv(\boldsymbol\zeta_{cb})_\alpha=\partial_{Q_c}\sigma_{\alpha b}\ (\text{constant}). \tag{C.32}
-\end{equation}
-Thus every $\partial_{Q_b}\ln\gamma$ and $\partial_{Q_b}\boldsymbol\mu$ is built from the constant
-Coriolis matrices $\boldsymbol\zeta$ and the linear $\boldsymbol\sigma(Q)$. Substituting
-(C.31)--(C.32) into $U_{\mathrm{vib}}$ and $U_{\mathrm{Cor}}$, the gradient pieces
-$\propto\partial_{Q_b}\operatorname{tr}\boldsymbol\mu$ generated by the two groups cancel identically,
-and the residual $Q$-local term is fixed by the Coriolis sum rules obeyed by the $\boldsymbol\zeta$'s
-(from the orthonormality $\sum_j\mathbf l_{ja}\!\cdot\!\mathbf l_{jb}=\delta_{ab}$, the
-$\zeta^{(\alpha)}$ act as $SO(3)$ generators on the mode index). The collapse is the same one carried
-out in \S\,4.4.6, and it yields
-\begin{equation}
-\boxed{\;\hat U(Q)=-\frac{\hbar^2}{8}\sum_{\alpha=1}^{3}\mu_{\alpha\alpha}(Q),\qquad \boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T})^{-1}.\;}\tag{C.33}
-\end{equation}
-This is the Watson pseudopotential (4.11), reproduced entirely from the coordinate derivatives of
-the volume element $\sqrt{|g|}=\sin\theta\sqrt\gamma$ --- Jacobi's formula, the linearity (C.32) of
-$\mathbf I'$ in $Q$, and the constant $\boldsymbol\zeta$ sum rules. \textbf{At no point did we use the
-anomalous commutator (4.7), or any commutator of body-fixed angular momenta.} The rotational block
-(C.21) contributed no $c$-number for the coordinate reason that a rigid rotor has no pseudopotential;
-the entire $\hat U$ came from the $Q$-dependence of $\gamma=\det\mathbf I'$.
+Each cross term collects the two equal classical contributions $X\mu Y$ and $Y\mu X$, which is why it appears as a symmetric sum of orderings. We now treat the six blocks one at a time: for each we verify Hermiticity and write the explicit differential form.
 
-Assembling (C.19), (C.21), (C.25), (C.26) rescaled, and (C.33), and restoring the electronic shift
-$\hat J_\alpha\to\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$, reproduces the complete quantum
-Hamiltonian (4.14) term for term.
+\subsubsection*{C.3\quad Diagonal terms}
 
-\subsubsection*{C.8\quad Worked example: a bent triatomic}
+\paragraph{(T1)\ \ $\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta$.}
+\emph{Hermiticity.} Take the adjoint ($\mu$ real, $\hat J_\alpha^\dagger=\hat J_\alpha$ on $\sin\theta\,d\Omega$; order reverses), then relabel the summed dummy indices $\alpha\leftrightarrow\beta$, then use $\mu_{\beta\alpha}=\mu_{\alpha\beta}$:
+\begin{equation}
+\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr)^{\dagger}
+=\hat J_\beta\,\mu_{\alpha\beta}\,\hat J_\alpha
+=\hat J_\alpha\,\mu_{\beta\alpha}\,\hat J_\beta
+=\hat J_\alpha\,\mu_{\alpha\beta}\,\hat J_\beta . \tag{C.7}
+\end{equation}
+Hermitian exactly as written --- no symmetrization, no commutator evaluated. \emph{Differential form.} $\mu(Q)$ commutes with the Euler derivatives, and inserting (C.2),
+\begin{equation}
+\hat J_\alpha\mu_{\alpha\beta}\hat J_\beta
+=-\hbar^{2}\mu_{\alpha\beta}\,(\mathsf E^{-1})_{s\alpha}\Bigl[(\mathsf E^{-1})_{t\beta}\,\partial_{\Omega_s}\partial_{\Omega_t}
++\bigl(\partial_{\Omega_s}(\mathsf E^{-1})_{t\beta}\bigr)\,\partial_{\Omega_t}\Bigr], \tag{C.8}
+\end{equation}
+with the trigonometric entries of $\mathsf E^{-1}$ read off (4.12). Every term carries at least one Euler derivative: the rotational block generates \emph{no} pure multiplicative term, in agreement with the Laplace--Beltrami computation (4.29).
 
-To make ``every derivative'' concrete, take a bent triatomic $XY_2$ (e.g.\ H${}_2$O), a
-$C_{2v}$ asymmetric top with $N_{\mathrm{nucl}}=3$ and $f=3N_{\mathrm{nucl}}-6=3$ normal
-coordinates: the symmetric stretch $Q_1$ and bend $Q_2$ (both $a_1$) and the antisymmetric
-stretch $Q_3$ ($b_2$). Choose the body frame as the instantaneous principal-axis system, with
-$a,b$ in the molecular plane and $c\perp$ to it.
+\paragraph{(T2)\ \ $\hat L_\alpha\mu_{\alpha\beta}\hat L_\beta$.}
+Word-for-word the same as (T1) with $\hat J\to\hat L$: the adjoint chain (C.7) uses only $\hat L_\alpha^\dagger=\hat L_\alpha$ [(4.18)] and the symmetry of $\mu$. Hermitian as written; all terms carry electron derivatives; no multiplicative residue.
+
+\paragraph{(T3)\ \ $\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta$.}
+\emph{Hermiticity.} Use $\hat\pi^{\dagger}=\hat\pi$ from (C.5), then relabel $\alpha\leftrightarrow\beta$ and use $\mu$ symmetric --- the same three-step chain as (C.7). Hermitian as written, but \emph{only} because $\hat\pi$ is Hermitian, i.e.\ ultimately because of the antisymmetry (C.4). \emph{Differential form.} Write $\hat\pi_\alpha=\sigma_{\alpha b}\hat P_b$ and slide the left momentum past the $Q$-function $\mu_{\alpha\beta}\sigma_{\beta c}$ with (C.3):
+\begin{align}
+\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta
+&=\sigma_{\alpha b}\,\hat P_b\,\bigl(\mu_{\alpha\beta}\sigma_{\beta c}\bigr)\,\hat P_c
+=\sigma_{\alpha b}\Bigl[\bigl(\mu_{\alpha\beta}\sigma_{\beta c}\bigr)\hat P_b-i\hbar\,\partial_b\!\bigl(\mu_{\alpha\beta}\sigma_{\beta c}\bigr)\Bigr]\hat P_c\nonumber\\[2pt]
+&=\underbrace{G_{bc}\,\hat P_b\hat P_c}_{\text{2nd order}}
+\;-\;i\hbar\,\underbrace{\sigma_{\alpha b}\Bigl[(\partial_b\mu_{\alpha\beta})\sigma_{\beta c}+\mu_{\alpha\beta}\,\zeta^{\beta}_{bc}\Bigr]\hat P_c}_{\text{1st order}},
+\qquad G_{bc}\equiv(\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma)_{bc}, \tag{C.9}
+\end{align}
+the Coriolis-dressed vibrational operator. Every surviving term carries at least one $\hat P$: again no pure multiplicative term. \emph{Equivalence with the ordered form.} The same sum rule shows that (T3) equals the fully left-ordered operator: moving the left $\hat P_b$ past its own coefficient $\sigma_{\alpha b}$,
+\begin{equation}
+\hat P_b\,G_{bc}\,\hat P_c
+-\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta
+=\bigl[\hat P_b,\sigma_{\alpha b}\bigr]\,\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c
+=-i\hbar\Bigl(\textstyle\sum_b\zeta^{\alpha}_{bb}\Bigr)\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c=0 , \tag{C.10}
+\end{equation}
+so $\tfrac12\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta=\tfrac12\hat P_b\,G_{bc}\,\hat P_c$ \emph{exactly}. This identity is what lets the sandwich-ordered kernel of (4.41) match the Laplace--Beltrami vibrational block (4.31), whose dressed part is precisely $\tfrac12\hat P_bG_{bc}\hat P_c$ after the rescaling (see \S\,C.5).
+
+\subsubsection*{C.4\quad Cross terms}
+
+\paragraph{(T4)\ \ $\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta+\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta$.}
+All three factors act on disjoint variables and mutually commute. A single ordering is already Hermitian,
+\begin{equation}
+\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta\bigr)^{\dagger}
+=\hat L_\beta\,\mu_{\alpha\beta}\,\hat J_\alpha
+=\mu_{\alpha\beta}\,\hat J_\alpha\hat L_\beta
+=\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta , \tag{C.11}
+\end{equation}
+and the two orderings in the sum are equal (relabel $\alpha\leftrightarrow\beta$ and commute), so
+\begin{equation}
+\hat J_\alpha\mu_{\alpha\beta}\hat L_\beta+\hat L_\alpha\mu_{\alpha\beta}\hat J_\beta
+=2\,\mu_{\alpha\beta}\,\hat J_\alpha\hat L_\beta
+\qquad(\text{Hermitian; no residue}). \tag{C.12}
+\end{equation}
+This is the rotation--electron Coriolis coupling; no $\hat P$ appears, so there is no differential subtlety.
+
+\paragraph{(T5)\ \ $\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta$.}
+Now the subtlety: $\hat\pi$ does \emph{not} commute with $\mu$, since by (C.3) $\hat\pi_\beta\mu_{\alpha\beta}=\mu_{\alpha\beta}\hat\pi_\beta-i\hbar\,\sigma_{\beta b}\partial_b\mu_{\alpha\beta}\neq\mu_{\alpha\beta}\hat\pi_\beta$. A single ordering is therefore \emph{not} Hermitian by itself; its adjoint is exactly the \emph{other} ordering ($\hat J$ commutes with $\mu$ and $\hat\pi$; relabel $\alpha\leftrightarrow\beta$):
+\begin{equation}
+\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta\bigr)^{\dagger}
+=\hat\pi_\beta\,\mu_{\alpha\beta}\,\hat J_\alpha
+=\hat\pi_\alpha\,\mu_{\alpha\beta}\,\hat J_\beta . \tag{C.13}
+\end{equation}
+The cross term is of the form $\hat X+\hat X^{\dagger}$, automatically Hermitian --- \emph{this is why the classical product $-2J\mu\pi$ must be quantized as the symmetric sum}, and it is precisely the symmetric sum that the Laplace--Beltrami operator produced by itself in (4.30)/(4.35). Pulling $\hat J$ out front and expanding the anticommutator with (C.3),
+\begin{equation}
+\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta
+=\hat J_\alpha\bigl(\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\beta\mu_{\alpha\beta}\bigr)
+=\hat J_\alpha\Bigl(\underbrace{2\,\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c}_{\text{1st order in }\hat P}
+\;\underbrace{-\,i\hbar\,\sigma_{\beta c}\,\partial_c\mu_{\alpha\beta}}_{\text{0th order in }\hat P}\Bigr). \tag{C.14}
+\end{equation}
+The first piece is the rotation--vibration Coriolis coupling ($\hat J$ times $\hat P$); the second is the imaginary, $\hat J$-linear counterterm that makes the sum Hermitian. It is \emph{not} a stand-alone multiplicative residue --- it still carries $\hat J_\alpha$ --- consistent with the Laplace--Beltrami result (4.35) that the Coriolis block contributes nothing to the pseudopotential. As a cross-check of (C.14) against the pre-rescaling form (4.30): expanding the second group of (4.30) by the product rule,
+\begin{equation}
+\tfrac{1}{\sqrt\gamma}\,\hat P_b\,\sqrt\gamma\;\sigma_{\alpha b}\mu_{\alpha\beta}\,\hat J_\beta
+=\Bigl[\sigma_{\alpha b}\mu_{\alpha\beta}\hat P_b
+-i\hbar\,\partial_b\!\bigl(\sigma_{\alpha b}\mu_{\alpha\beta}\bigr)
+-\tfrac{i\hbar}{2}\,(\partial_b\ln\gamma)\,\sigma_{\alpha b}\mu_{\alpha\beta}\Bigr]\hat J_\beta , \tag{C.15}
+\end{equation}
+and conjugating by $\gamma^{1/4}$ as in \S\,4.9 cancels the $\partial_b\ln\gamma$ terms between the two groups, reproducing exactly $-\tfrac12\hat J_\alpha\{\mu_{\alpha\beta},\hat\pi_\beta\}$ of (4.35), i.e.\ $-\tfrac12\times$(C.14).
+
+\paragraph{(T6)\ \ $\hat L_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat L_\beta$.}
+Identical to (T5) with $\hat J\to\hat L$ ($\hat L$ also commutes with $\mu$ and $\hat\pi$):
+\begin{equation}
+\hat L_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat L_\beta
+=\hat L_\alpha\Bigl(2\,\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c-i\hbar\,\sigma_{\beta c}\,\partial_c\mu_{\alpha\beta}\Bigr), \tag{C.16}
+\end{equation}
+the vibration--electron angular coupling.
+
+\subsubsection*{C.5\quad The measure residue $U_{\mathrm{Cor}}$, every derivative}
+
+Section 4.9 derived the identity-block residue $U_{\mathrm{vib}}$ [(4.34)] in full and deferred the residue of the dressed block. Here it is. Conjugate the dressed part of the vibrational Laplace--Beltrami block (4.31) by $\gamma^{1/4}$ and act on $\psi_W$; each line is one product rule [$G_{bc}=(\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma)_{bc}$, symmetric]:
+\begin{align}
+\partial_{Q_c}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{-1/4}\Bigl[\partial_{Q_c}\psi_W-\tfrac14(\partial_c\ln\gamma)\psi_W\Bigr],\nonumber\\
+\gamma^{1/2}\,G_{bc}\,\partial_{Q_c}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{1/4}\,G_{bc}\Bigl[\partial_{Q_c}\psi_W-\tfrac14(\partial_c\ln\gamma)\psi_W\Bigr],\nonumber\\
+\partial_{Q_b}\Bigl(\gamma^{1/4}\,G_{bc}\bigl[\cdots\bigr]\Bigr)
+&=\gamma^{1/4}\Bigl[G_{bc}\,\partial_b\partial_c\psi_W+(\partial_bG_{bc})\,\partial_c\psi_W
++\tfrac14(\partial_b\ln\gamma)G_{bc}\,\partial_c\psi_W-\tfrac14 G_{bc}(\partial_c\ln\gamma)\,\partial_b\psi_W\nonumber\\
+&\qquad\quad-\tfrac14\,\partial_b\bigl(G_{bc}\,\partial_c\ln\gamma\bigr)\psi_W
+-\tfrac{1}{16}\,G_{bc}(\partial_b\ln\gamma)(\partial_c\ln\gamma)\,\psi_W\Bigr]. \tag{C.17}
+\end{align}
+The two first-order $\ln\gamma$ terms cancel by the symmetry of $G_{bc}$ (relabel $b\leftrightarrow c$), leaving $G\partial\partial+(\partial G)\partial$ --- which is exactly $-\tfrac{2}{\hbar^2}\times\tfrac12\hat P_bG_{bc}\hat P_c$ --- plus a pure multiplicative remainder. Multiplying by $-\tfrac{\hbar^2}{2}$ (the prefactors $\gamma^{1/4}\cdot\gamma^{-1/2}\cdot\gamma^{1/4}=1$ combine to unity),
+\begin{equation}
+\gamma^{1/4}\,\hat T_{\mathrm{dress}}\,\gamma^{-1/4}
+=\tfrac12\,\hat P_b\,G_{bc}\,\hat P_c+U_{\mathrm{Cor}},\qquad
+\boxed{\;U_{\mathrm{Cor}}=\frac{\hbar^{2}}{8}\Bigl[\partial_b\bigl(G_{bc}\,\partial_c\ln\gamma\bigr)+\tfrac14\,G_{bc}\,(\partial_b\ln\gamma)(\partial_c\ln\gamma)\Bigr].\;} \tag{C.18}
+\end{equation}
+By (C.10), $\tfrac12\hat P_bG_{bc}\hat P_c=\tfrac12\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta$, so the operator part is exactly the (T3) sandwich of the kernel (4.41), and the entire ordering debt of the dressed block is the multiplicative $U_{\mathrm{Cor}}$. Together with $U_{\mathrm{vib}}$ of (4.34) [the same computation with $G_{bc}\to\delta_{bc}$], the total residue is
+\begin{equation}
+\hat U=U_{\mathrm{vib}}+U_{\mathrm{Cor}}
+=\frac{\hbar^{2}}{8}\Bigl[\partial_b\bigl(g^{QQ}_{bc}\,\partial_c\ln\gamma\bigr)+\tfrac14\,g^{QQ}_{bc}\,(\partial_b\ln\gamma)(\partial_c\ln\gamma)\Bigr],
+\qquad g^{QQ}_{bc}=\delta_{bc}+G_{bc}, \tag{C.19}
+\end{equation}
+every ingredient of which reduces, via Jacobi's formula (4.36) and the linearity (4.37), to the constant $\boldsymbol\zeta$'s and the linear $\boldsymbol\sigma(Q)$; the Watson sum rules then collapse (C.19) to the trace $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ of (4.38)~\cite{watson1968}.
+
+\textbf{The division of labour is clean.} In the explicit forms (C.8), (C.9), (C.12), (C.14), (C.16), every surviving kernel term carries at least one derivative operator ($\hat P$, $\hat J$, or $\hat L$): \emph{the ordering of the kernel never generates a pure multiplicative term}. The pseudopotential (4.38) is an $\mathcal O(\hbar^2)$ $c$-number that originates entirely in the \emph{curved integration measure} $\sqrt\gamma$, extracted by the rescaling $\psi_W=\gamma^{1/4}\psi$ --- (C.18) is its dressed-block share. Kernel ordering $\rightarrow$ the Hermitian operators of this appendix; the measure $\rightarrow$ the pseudopotential.
+
+\subsubsection*{C.6\quad Worked example: a bent triatomic}
+
+To make ``every derivative'' concrete, take a bent triatomic $XY_2$ (e.g.\ H${}_2$O), a $C_{2v}$ asymmetric top with $N_{\mathrm{nucl}}=3$ and $f=3N_{\mathrm{nucl}}-6=3$ normal coordinates: the symmetric stretch $Q_1$ and bend $Q_2$ (both $a_1$) and the antisymmetric stretch $Q_3$ ($b_2$). Choose the body frame as the instantaneous principal-axis system, with $a,b$ in the molecular plane and $c\perp$ to it.
 
 \paragraph{Inertia and its derivatives.}
-At equilibrium the inertia tensor is diagonal, $\mathbf I_N^{\mathrm{eq}}=\operatorname{diag}(I_a^{e},I_b^{e},I_c^{e})$,
-and because the equilibrium mass distribution is planar the perpendicular-axis theorem gives the
-exact relation
+At equilibrium the inertia tensor is diagonal, $\mathbf I_N^{\mathrm{eq}}=\operatorname{diag}(I_a^{e},I_b^{e},I_c^{e})$, and because the equilibrium mass distribution is planar the perpendicular-axis theorem gives the exact relation
 \begin{equation}
-I_c^{e}=I_a^{e}+I_b^{e}. \tag{C.34}
+I_c^{e}=I_a^{e}+I_b^{e}. \tag{C.20}
 \end{equation}
-The totally symmetric coordinates $Q_1,Q_2$ preserve the $C_{2v}$ symmetry, so to linear order they
-only \emph{scale} the diagonal moments, whereas the antisymmetric $Q_3$ tilts the principal axes and
-enters $\mathbf I_N$ only at second order. Hence
+The totally symmetric coordinates $Q_1,Q_2$ preserve the $C_{2v}$ symmetry, so to linear order they only \emph{scale} the diagonal moments, whereas the antisymmetric $Q_3$ tilts the principal axes and enters $\mathbf I_N$ only at second order. Hence
 \begin{equation}
 I_\alpha(Q)=I_\alpha^{e}+a_\alpha^{1}Q_1+a_\alpha^{2}Q_2+\mathcal O(Q^2),
-\qquad a_\alpha^{b}\equiv\frac{\partial I_\alpha}{\partial Q_b}\Big|_{\mathrm{eq}}, \tag{C.35}
+\qquad a_\alpha^{b}\equiv\frac{\partial I_\alpha}{\partial Q_b}\Big|_{\mathrm{eq}}, \tag{C.21}
 \end{equation}
-with the inertial derivatives $a_\alpha^{b}$ computable from the mode vectors $\mathbf l_{jb}$ via
-$\partial I_{\alpha\alpha}/\partial Q_b=2\sum_j\sqrt{M_j}\,(\bar{\mathbf R}_j^{e}\!\cdot\!\bar{\mathbf R}_j^{e}\,\delta-\bar R_{j\alpha}^{e}\,l_{jb,\alpha})$
-evaluated at equilibrium. These are exactly the derivatives that populate the rotation--vibration
-Jacobian $\sqrt{\gamma(Q)}$.
+with the inertial derivatives $a_\alpha^{b}$ computable from the mode vectors $\mathbf l_{jb}$ evaluated at equilibrium. These are exactly the derivatives that populate the rotation--vibration Jacobian $\sqrt{\gamma(Q)}$ of (4.21).
 
 \paragraph{Coriolis coupling.}
-The only nonzero constant Coriolis matrix in $C_{2v}$ couples the two $a_1$ modes to the $b_2$ mode
-about the $b$ axis (the axis whose rotation maps a symmetric into an antisymmetric displacement):
+The only nonzero constant Coriolis matrix in $C_{2v}$ couples the two $a_1$ modes to the $b_2$ mode about the $b$ axis (the axis whose rotation maps a symmetric into an antisymmetric displacement):
 \begin{equation}
 \boldsymbol\sigma_1=\zeta^{b}_{13}\,Q_3\,\hat{\mathbf b},\quad
 \boldsymbol\sigma_2=\zeta^{b}_{23}\,Q_3\,\hat{\mathbf b},\quad
 \boldsymbol\sigma_3=-\bigl(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2\bigr)\hat{\mathbf b},
-\qquad \zeta^{b}_{ab}=-\zeta^{b}_{ba}, \tag{C.36}
+\qquad \zeta^{b}_{ab}=-\zeta^{b}_{ba}, \tag{C.22}
 \end{equation}
-so $\boldsymbol\sigma\boldsymbol\sigma^{T}=\bigl[(\zeta^{b}_{13}Q_3)^2+(\zeta^{b}_{23}Q_3)^2+(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2)^2\bigr]\hat{\mathbf b}\hat{\mathbf b}^{T}$
-corrects only the $bb$ element of the inertia,
+so $\boldsymbol\sigma\boldsymbol\sigma^{T}=\bigl[(\zeta^{b}_{13}Q_3)^2+(\zeta^{b}_{23}Q_3)^2+(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2)^2\bigr]\hat{\mathbf b}\hat{\mathbf b}^{T}$ corrects only the $bb$ element of the inertia,
 \begin{equation}
 \mathbf I'(Q)=\operatorname{diag}\!\bigl(I_a(Q),\,I_b(Q)-s(Q),\,I_c(Q)\bigr),\qquad
-s(Q)\equiv(\zeta^{b}_{13}Q_3)^2+(\zeta^{b}_{23}Q_3)^2+(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2)^2 . \tag{C.37}
+s(Q)\equiv(\zeta^{b}_{13}Q_3)^2+(\zeta^{b}_{23}Q_3)^2+(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2)^2 . \tag{C.23}
 \end{equation}
-Note $s(Q)=\mathcal O(Q^2)$, so it does not affect the linear-order derivatives (C.35) but does
-enter the pseudopotential and the exact Jacobian.
+Note $s(Q)=\mathcal O(Q^2)$, so it does not affect the linear-order derivatives (C.21) but does enter the pseudopotential and the exact Jacobian.
 
 \paragraph{Determinant, volume element, and its explicit derivatives.}
-With $\mathbf I'$ diagonal in (C.37),
+With $\mathbf I'$ diagonal in (C.23),
 \begin{equation}
 \gamma(Q)=\det\mathbf I'=I_a(Q)\,\bigl(I_b(Q)-s(Q)\bigr)\,I_c(Q),\qquad
-\sqrt{|g|}=\sin\theta\,\sqrt{I_a\,(I_b-s)\,I_c}. \tag{C.38}
+\sqrt{g}=\sin\theta\,\sqrt{I_a\,(I_b-s)\,I_c}, \tag{C.24}
 \end{equation}
-The vibrational Jacobian carries the explicit derivatives
+and the vibrational Jacobian carries the explicit derivatives
 \begin{equation}
 \partial_{Q_b}\ln\gamma
 =\frac{a_a^{b}}{I_a}+\frac{a_b^{b}-\partial_{Q_b}s}{I_b-s}+\frac{a_c^{b}}{I_c},
 \qquad
 \partial_{Q_3}s=2\bigl[(\zeta^{b}_{13})^2+(\zeta^{b}_{23})^2\bigr]Q_3,\;\;
-\partial_{Q_1}s=2\zeta^{b}_{13}\bigl(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2\bigr),\ \text{etc.}, \tag{C.39}
+\partial_{Q_1}s=2\zeta^{b}_{13}\bigl(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2\bigr),\ \text{etc.}, \tag{C.25}
 \end{equation}
-which are precisely the first-order remainders that appear in (C.27) and are removed by the
-$\gamma^{1/4}$ rescaling.
+which are precisely the first-order remainders exhibited under (4.31) and removed by the $\gamma^{1/4}$ rescaling of \S\,4.9.
 
 \paragraph{Pseudopotential.}
-Since $\mathbf I'$ is diagonal, $\boldsymbol\mu=\operatorname{diag}(1/I_a,\,1/(I_b-s),\,1/I_c)$ and the
-trace formula (C.33) is fully explicit:
+Since $\mathbf I'$ is diagonal, $\boldsymbol\mu=\operatorname{diag}\bigl(1/I_a,\,1/(I_b-s),\,1/I_c\bigr)$ and the trace formula (4.38) is fully explicit:
 \begin{equation}
-\boxed{\;\hat U(Q)=-\frac{\hbar^2}{8}\Bigl[\frac{1}{I_a(Q)}+\frac{1}{I_b(Q)-s(Q)}+\frac{1}{I_c(Q)}\Bigr].\;}\tag{C.40}
+\boxed{\;\hat U(Q)=-\frac{\hbar^2}{8}\Bigl[\frac{1}{I_a(Q)}+\frac{1}{I_b(Q)-s(Q)}+\frac{1}{I_c(Q)}\Bigr].\;}\tag{C.26}
 \end{equation}
-Expanding to the order at which it first varies with the coordinates, and using (C.34),
+Expanding to the order at which it first varies with the coordinates, and using (C.20),
 \begin{equation}
 \hat U(Q)=-\frac{\hbar^2}{8}\Bigl(\frac{1}{I_a^{e}}+\frac{1}{I_b^{e}}+\frac{1}{I_c^{e}}\Bigr)
-+\frac{\hbar^2}{8}\sum_{b=1,2}\Bigl(\frac{a_a^{b}}{(I_a^{e})^2}+\frac{a_b^{b}}{(I_b^{e})^2}+\frac{a_c^{b}}{(I_c^{e})^2}\Bigr)Q_b+\mathcal O(Q^2). \tag{C.41}
++\frac{\hbar^2}{8}\sum_{b=1,2}\Bigl(\frac{a_a^{b}}{(I_a^{e})^2}+\frac{a_b^{b}}{(I_b^{e})^2}+\frac{a_c^{b}}{(I_c^{e})^2}\Bigr)Q_b+\mathcal O(Q^2). \tag{C.27}
 \end{equation}
-The constant is an inconsequential shift of the electronic--vibrational zero; the linear term is a
-genuine $\hbar^2$ force on the normal coordinates --- the physical content of the Watson
-pseudopotential for this molecule --- and it was produced entirely by differentiating
-$\sqrt{\gamma(Q)}$ through (C.39), with no reference to angular-momentum commutators. Every step from
-the metric (C.10) to the surface (C.41) used only $\partial_\phi,\partial_\theta,\partial_\chi$ and
-$\partial_{Q_b}$.
+The constant is an inconsequential shift of the electronic--vibrational zero; the linear term is a genuine $\hbar^2$ force on the normal coordinates --- the physical content of the Watson pseudopotential for this molecule --- produced entirely by differentiating $\sqrt{\gamma(Q)}$ through (C.25). Every step from the metric (4.15) to the surface (C.27) used only $\partial_\phi,\partial_\theta,\partial_\chi$ and $\partial_{Q_b}$.
 
-\subsubsection*{C.9\quad Summary}
+\subsubsection*{C.7\quad Summary}
 
 \begin{enumerate}
-\item In the ro-vibrational coordinates $(\phi,\theta,\chi,Q_b)$ the configuration-space metric is
-the single object (C.10), $g_{\Omega\Omega}=\mathsf E^{T}\mathbf I_N\mathsf E$,
-$g_{\Omega Q}=\mathsf E^{T}\boldsymbol\sigma$, $g_{QQ}=\mathbb 1$, built from the explicit
-$zyz$ kinematic matrix $\mathsf E(\Omega)$ of (C.5).
-\item Its determinant factorizes as $\det g_{AB}=\sin^2\theta\,\det\mathbf I'$ [(C.12)], giving the
-volume element $\sqrt{|g|}=\sin\theta\sqrt\gamma$; its inverse is (C.14),
-$g^{\Omega\Omega}=\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T}$, $g^{QQ}=\mathbb 1+\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$.
-\item Applying the Podolsky operator (C.18) term by term reproduces every piece of (3.22): the
-rotational kernel (C.21), the Coriolis coupling (C.25), the vibrational operator (C.26), and the
-flat electronic kinetic energy (C.19), each with all Euler-angle and normal-mode derivatives written
-out explicitly.
-\item The only $c$-number is the measure-induced Watson pseudopotential (C.33),
-$\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$, obtained from the coordinate derivatives of
-$\sqrt\gamma$ via Jacobi's formula and the constant Coriolis sum rules.
-\item The anomalous body-fixed angular-momentum algebra (4.7) is \emph{never used}: the
-Laplace--Beltrami operator is Hermitian by construction, and the derivative of the volume element
-does all the work the commutator did in \S\,4.
+\item The quantized kernel (C.1) expands into the nine products (C.6). Blocks built from mutually commuting, individually Hermitian factors --- (T1) $\hat J\mu\hat J$, (T2) $\hat L\mu\hat L$, (T4) $\hat J\mu\hat L$ --- are Hermitian in a single ordering, by the adjoint-reversal argument (C.7) alone.
+\item Blocks pairing $\hat\pi$ with $\hat J$ or $\hat L$ --- (T5), (T6) --- are Hermitian only as the symmetric sum $\hat X+\hat X^\dagger$, which is exactly the ordering the Laplace--Beltrami operator produces by itself [(4.30), (4.35)]. (T3) $\hat\pi\mu\hat\pi$ is the fortunate middle case, Hermitian because $\hat\pi$ is [(C.5)], and equal to the left-ordered $\tfrac12\hat P G\hat P$ by the sum rule (C.10).
+\item No kernel ordering produces a pure multiplicative term. The Watson pseudopotential comes solely from the measure: $U_{\mathrm{vib}}$ [(4.34)] plus $U_{\mathrm{Cor}}$ [(C.18)] collapse to $-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ [(4.38)].
+\item Every Hermiticity statement above used only integration by parts, the product rule, and the divergence identities (4.18), (4.26), (C.4) --- never a commutator of body-fixed angular momenta.
 \end{enumerate}
