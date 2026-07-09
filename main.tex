@@ -461,527 +461,203 @@ Compared to the previous (electrons-in-SF) framework: kinetic rot–electron cou
 \section*{Appendix}
 \subsection*{Appendix A: Mass-Polarization Term in Classical Molecular Hamiltonian}
 
+Section 2 produced the mass-polarization term on the momentum side, via the generating function (2.5). This appendix re-derives it from the velocity side: substitute the same mixed mass-centered coordinates of \S\,2.1 into the laboratory-frame kinetic energy, read off the canonical momenta from the Lagrangian, and Legendre-transform back. Every step is elementary; the payoff is seeing where the mass polarization hides in velocity form --- as a \emph{negative} correction --- and how the Legendre transform flips its sign.
+
 We start from the laboratory-frame kinetic energy
+\begin{equation}
+T = \frac{1}{2}\sum_j M_j \dot{\mathbf R}_j^2 + \frac{1}{2}\sum_i m_e \dot{\mathbf r}_i^2 ,
+\end{equation}
+where $M_j$ is the mass of the $j$-th nucleus, $\mathbf R_j$ its Cartesian coordinate, $m_e$ the electron mass, and $\mathbf r_i$ the coordinate of the $i$-th electron.
 
-\begin{equation}
-T
-=
-\frac{1}{2}\sum_j M_j \dot{\mathbf R}_j^2
-+
-\frac{1}{2}\sum_i m_e \dot{\mathbf r}_i^2 ,
-\end{equation}
-where \(M_j\) is the mass of the \(j\)-th nucleus, \(\mathbf R_j\) is its Cartesian coordinate, \(m_e\) is the electron mass, and \(\mathbf r_i\) is the coordinate of the \(i\)-th electron.
+\subsubsection*{Mixed Mass-Centered Coordinates}
 
-\subsubsection*{Nuclear Center-of-Mass Coordinate}
-
-Define the nuclear total mass
-
+As in (2.1)--(2.3): the nuclear and total masses and centers of mass are
 \begin{equation}
-M_N = \sum_j M_j .
+M_N = \sum_j M_j ,\qquad M_{\mathrm{tot}} = M_N + N_{\mathrm{elec}}\,m_e ,
 \end{equation}
-The nuclear center-of-mass coordinate is
 \begin{equation}
-\mathbf{R}_{\mathrm{cm}}
-=
-\mathbf R_N^{\rm CoM}
-=
-\frac{1}{M_N}\sum_j M_j \mathbf R_j .
+\mathbf R_{\mathrm{ncm}} = \frac{1}{M_N}\sum_j M_j \mathbf R_j ,\qquad
+\mathbf R_{\mathrm{cm}} = \frac{1}{M_{\mathrm{tot}}}\Bigl(\sum_j M_j \mathbf R_j + m_e\sum_i \mathbf r_i\Bigr)
+= \mathbf R_{\mathrm{ncm}} + \frac{m_e}{M_{\mathrm{tot}}}\sum_i \mathbf r'_i ,
 \end{equation}
-We introduce coordinates shifted by the nuclear center of mass:
+and the internal coordinates are referred to the \emph{nuclear} CoM,
 \begin{equation}
-\mathbf R_j'
-=
-\mathbf R_j - \mathbf{R}_{\mathrm{cm}} ,
+\mathbf R'_j = \mathbf R_j - \mathbf R_{\mathrm{ncm}} ,\qquad
+\mathbf r'_i = \mathbf r_i - \mathbf R_{\mathrm{ncm}} ,\qquad
+\sum_j M_j \mathbf R'_j = 0 .
 \end{equation}
-
+The constraint ties the nuclear relative vectors only; the $\mathbf r'_i$ are unconstrained. To substitute into $T$ we need the old coordinates in terms of the new. Solving the second equality of the $\mathbf R_{\mathrm{cm}}$ definition for the nuclear CoM,
 \begin{equation}
-\mathbf r_i'
-=
-\mathbf r_i - \mathbf{R}_{\mathrm{cm}} .
-\end{equation}
-Therefore,
-\begin{equation}
-\mathbf R_j = \mathbf{R}_{\mathrm{cm}} + \mathbf R_j',
-\qquad
-\mathbf r_i = \mathbf{R}_{\mathrm{cm}} + \mathbf r_i' .
-\end{equation}
-The shifted nuclear coordinates satisfy the constraint
-\begin{equation}
-\sum_j M_j \mathbf R_j' = 0 ,
+\mathbf R_{\mathrm{ncm}} = \mathbf R_{\mathrm{cm}} - \frac{m_e}{M_{\mathrm{tot}}}\sum_l \mathbf r'_l ,
 \end{equation}
 and therefore
 \begin{equation}
-\sum_j M_j \dot{\mathbf R}_j' = 0 .
+\mathbf R_j = \mathbf R_{\mathrm{cm}} + \mathbf R'_j - \frac{m_e}{M_{\mathrm{tot}}}\sum_l \mathbf r'_l ,
+\qquad
+\mathbf r_i = \mathbf R_{\mathrm{cm}} + \mathbf r'_i - \frac{m_e}{M_{\mathrm{tot}}}\sum_l \mathbf r'_l .
 \end{equation}
-This is important: the \(\mathbf R_j'\) are not all independent.
+Both families ride on the \emph{same} drift --- the velocity of the nuclear CoM,
+\begin{equation}
+\mathbf D \equiv \dot{\mathbf R}_{\mathrm{ncm}} = \dot{\mathbf R}_{\mathrm{cm}} - \frac{m_e}{M_{\mathrm{tot}}}\sum_l \dot{\mathbf r}'_l ,
+\qquad
+\dot{\mathbf R}_j = \mathbf D + \dot{\mathbf R}'_j ,
+\qquad
+\dot{\mathbf r}_i = \mathbf D + \dot{\mathbf r}'_i .
+\end{equation}
 
 \subsubsection*{Kinetic Energy in Velocity Form}
 
-Substitute
+Substitute the velocities into $T$. The nuclear part, using $\sum_j M_j\dot{\mathbf R}'_j = 0$ (the time derivative of the constraint) on the cross term,
 \begin{equation}
-\dot{\mathbf R}_j
-=
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf R}_j',
-\qquad
-\dot{\mathbf r}_i
-=
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf r}_i'
+T_N = \frac12\sum_j M_j\bigl(\mathbf D + \dot{\mathbf R}'_j\bigr)^2
+= \frac12 M_N \mathbf D^2 + \mathbf D\cdot\underbrace{\sum_j M_j\dot{\mathbf R}'_j}_{=\,0} + \frac12\sum_j M_j\dot{\mathbf R}_j^{'2} .
 \end{equation}
-into the kinetic energy.
-For the nuclear part,
+The electronic part has no constraint, so its cross term survives:
+\begin{equation}
+T_e = \frac12 m_e\sum_i\bigl(\mathbf D + \dot{\mathbf r}'_i\bigr)^2
+= \frac12 N_{\mathrm{elec}}\,m_e \mathbf D^2 + m_e\,\mathbf D\cdot\sum_i\dot{\mathbf r}'_i + \frac12 m_e\sum_i\dot{\mathbf r}_i^{'2} .
+\end{equation}
+Adding, with $M_N + N_{\mathrm{elec}}m_e = M_{\mathrm{tot}}$,
+\begin{equation}
+T = \frac12 M_{\mathrm{tot}}\mathbf D^2 + m_e\,\mathbf D\cdot\sum_i\dot{\mathbf r}'_i + \frac12\sum_j M_j\dot{\mathbf R}_j^{'2} + \frac12 m_e\sum_i\dot{\mathbf r}_i^{'2} .
+\end{equation}
+Now expand $\mathbf D = \dot{\mathbf R}_{\mathrm{cm}} - \frac{m_e}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l$ in the first two terms:
 \begin{align}
-T_N
-&=
-\frac{1}{2}\sum_j M_j
-\left(
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf R}_j'
-\right)^2
+\frac12 M_{\mathrm{tot}}\mathbf D^2
+&= \frac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2
+- m_e\,\dot{\mathbf R}_{\mathrm{cm}}\!\cdot\!\sum_l\dot{\mathbf r}'_l
++ \frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl(\sum_l\dot{\mathbf r}'_l\Bigr)^2 ,
 \\
-&=
-\frac{1}{2}M_N \dot{\mathbf{R}}_{\mathrm{cm}}^2
-+
-\dot{\mathbf{R}}_{\mathrm{cm}}\cdot
-\sum_j M_j \dot{\mathbf R}_j'
-+
-\frac{1}{2}\sum_j M_j \dot{\mathbf R}_j'^2 .
+m_e\,\mathbf D\cdot\sum_i\dot{\mathbf r}'_i
+&= m_e\,\dot{\mathbf R}_{\mathrm{cm}}\!\cdot\!\sum_i\dot{\mathbf r}'_i
+- \frac{m_e^2}{M_{\mathrm{tot}}}\Bigl(\sum_l\dot{\mathbf r}'_l\Bigr)^2 .
 \end{align}
-Using
+The two $\dot{\mathbf R}_{\mathrm{cm}}\!\cdot\!\sum\dot{\mathbf r}'$ cross terms cancel \emph{identically} --- the velocity-form image of the momentum-side cancellation in \S\,2.3 --- and the quadratic pieces combine to a single negative remainder:
 \begin{equation}
-\sum_j M_j \dot{\mathbf R}_j'=0 ,
+\boxed{\;
+T = \frac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2
++ \frac12\sum_j M_j\dot{\mathbf R}_j^{'2}
++ \frac12 m_e\sum_i\dot{\mathbf r}_i^{'2}
+- \frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl(\sum_i\dot{\mathbf r}'_i\Bigr)^2 .
+\;}
 \end{equation}
-we get
-\begin{equation}
-T_N
-=
-\frac{1}{2}M_N \dot{\mathbf{R}}_{\mathrm{cm}}^2
-+
-\frac{1}{2}\sum_j M_j \dot{\mathbf R}_j'^2 .
-\end{equation}
-For the electronic part,
-\begin{align}
-T_e
-&=
-\frac{1}{2}\sum_i m_e
-\left(
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf r}_i'
-\right)^2
-\\
-&=
-\frac{1}{2}N_{\mathrm{elec}} m_e \dot{\mathbf{R}}_{\mathrm{cm}}^2
-+
-m_e \dot{\mathbf{R}}_{\mathrm{cm}}\cdot \sum_i \dot{\mathbf r}_i'
-+
-\frac{1}{2}\sum_i m_e \dot{\mathbf r}_i'^2 ,
-\end{align}
-where \(N_{\mathrm{elec}}\) is the number of electrons.
-Hence the total kinetic energy is
-\begin{equation}
-T
-=
-\frac{1}{2}
-\left(
-M_N + N_{\mathrm{elec}} m_e
-\right)
-\dot{\mathbf{R}}_{\mathrm{cm}}^2
-+
-m_e \dot{\mathbf{R}}_{\mathrm{cm}}\cdot
-\sum_i \dot{\mathbf r}_i'
-+
-\frac{1}{2}\sum_j M_j \dot{\mathbf R}_j'^2
-+
-\frac{1}{2}\sum_i m_e \dot{\mathbf r}_i'^2 .
-\end{equation}
+Two features are already visible at the velocity level: the CoM decouples with the \emph{correct} total mass $M_{\mathrm{tot}}$, and the electron sector carries a \emph{negative} collective correction. That negative term is the mass polarization in disguise --- the Legendre transform below flips its sign and trades $M_{\mathrm{tot}}$ for $M_N$.
 
 \subsubsection*{Canonical Momenta}
 
-The momentum conjugate to the nuclear center-of-mass coordinate \(\mathbf{R}_{\mathrm{cm}}\) is
+With $L = T - V$ and $V$ velocity-independent, differentiate the boxed $T$.
 
-\begin{align}
-\mathbf P_{\mathrm{cm}}
-&=
-\frac{\partial \mathcal{L}}{\partial \dot{\mathbf{R}}_{\mathrm{cm}}}
-\\
-&=
-\left(
-M_N + N_{\mathrm{elec}} m_e
-\right)\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-m_e \sum_i \dot{\mathbf r}_i' .
-\end{align}
-Since
+\noindent\emph{CoM:} only the first term carries $\dot{\mathbf R}_{\mathrm{cm}}$, so
 \begin{equation}
-\mathbf p_i'
-=
-\frac{\partial \mathcal{L}}{\partial \dot{\mathbf r}_i'}
-=
-m_e
-\left(
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf r}_i'
-\right),
+\boxed{\;\mathbf P_{\mathrm{cm}} = \frac{\partial L}{\partial\dot{\mathbf R}_{\mathrm{cm}}} = M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}} .\;}
 \end{equation}
-we can write
+Sanity check: $\sum_j M_j\dot{\mathbf R}_j + m_e\sum_i\dot{\mathbf r}_i = M_{\mathrm{tot}}\mathbf D + m_e\sum_i\dot{\mathbf r}'_i = M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}$, so $\mathbf P_{\mathrm{cm}}$ is the total momentum, as it must be.
+
+\noindent\emph{Electrons:} the last two terms of the boxed $T$ carry $\dot{\mathbf r}'_i$,
 \begin{equation}
-\sum_i \mathbf p_i'
-=
-N_{\mathrm{elec}} m_e \dot{\mathbf{R}}_{\mathrm{cm}}
-+
-m_e \sum_i \dot{\mathbf r}_i' .
+\boxed{\;\mathbf p'_i = \frac{\partial L}{\partial\dot{\mathbf r}'_i}
+= m_e\dot{\mathbf r}'_i - \frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l ,\;}
 \end{equation}
-Therefore,
+which is precisely the momentum--velocity relation (3.5). Summing over $i$,
 \begin{equation}
-\boxed{
-\mathbf P_{\mathrm{cm}}
-=
-M_N \dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\sum_i \mathbf p_i'
-}
+\sum_i\mathbf p'_i = m_e\Bigl(1 - \frac{N_{\mathrm{elec}}m_e}{M_{\mathrm{tot}}}\Bigr)\sum_l\dot{\mathbf r}'_l
+= \frac{m_e M_N}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l ,
 \end{equation}
-or equivalently,
+so $\frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l = \frac{m_e}{M_N}\sum_l\mathbf p'_l$, and the relation inverts to
 \begin{equation}
-\boxed{
-M_N \dot{\mathbf{R}}_{\mathrm{cm}}
-=
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-}
+m_e\dot{\mathbf r}'_i = \mathbf p'_i + \frac{m_e}{M_N}\sum_l\mathbf p'_l
+\qquad\Longleftrightarrow\qquad
+\dot{\mathbf r}'_i = \frac{\mathbf p'_i}{m_e} + \frac{1}{M_N}\sum_l\mathbf p'_l ,
 \end{equation}
-and hence
+the Hamilton equation (3.4).
+
+\noindent\emph{Nuclei:} on the constraint surface $\sum_j M_j\dot{\mathbf R}'_j = 0$ and in the dual gauge $\sum_j\mathbf P'_j = 0$ of \S\,2.2,
 \begin{equation}
-\boxed{
-\dot{\mathbf{R}}_{\mathrm{cm}}
-=
-\frac{1}{M_N}
-\left(
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-\right).
-}
+\boxed{\;\mathbf P'_j = M_j\dot{\mathbf R}'_j .\;}
 \end{equation}
-The electron momentum conjugate to \(\mathbf r_i'\) is
+Consistency check against (2.8): the lab momentum is $M_j\dot{\mathbf R}_j = M_j\mathbf D + M_j\dot{\mathbf R}'_j$, and
 \begin{equation}
-\boxed{
-\mathbf p_i'
-=
-m_e
-\left(
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf r}_i'
-\right).
-}
+\mathbf D = \dot{\mathbf R}_{\mathrm{cm}} - \frac{m_e}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l
+= \frac{\mathbf P_{\mathrm{cm}}}{M_{\mathrm{tot}}} - \frac{1}{M_N}\sum_l\mathbf p'_l ,
 \end{equation}
-Thus \(\mathbf p_i'\) is the lab-frame electron momentum, not simply
-\(m_e \dot{\mathbf r}_i'\).
-Equivalently,
-\begin{equation}
-m_e \dot{\mathbf r}_i'
-=
-\mathbf p_i'
--
-m_e \dot{\mathbf{R}}_{\mathrm{cm}}.
-\end{equation}
-The nuclear shifted momenta are
-\begin{equation}
-\boxed{
-\mathbf P_j'
-=
-M_j \dot{\mathbf R}_j' .
-}
-\end{equation}
-Because the shifted nuclear coordinates satisfy
-\begin{equation}
-\sum_j M_j \mathbf R_j' = 0 ,
-\end{equation}
-their conjugate momenta satisfy
-\begin{equation}
-\boxed{
-\sum_j \mathbf P_j' = 0 .
-}
-\end{equation}
-In terms of the laboratory-frame nuclear momenta
-\begin{equation}
-\mathbf P_j = M_j \dot{\mathbf R}_j ,
-\end{equation}
-one has
-\begin{equation}
-\boxed{
-\mathbf P_j'
-=
-\mathbf P_j
--
-\frac{M_j}{M_N}\mathbf P_N ,
-}
-\end{equation}
-where
-\begin{equation}
-\mathbf P_N
-=
-\sum_j \mathbf P_j
-=
-M_N \dot{\mathbf{R}}_{\mathrm{cm}}.
-\end{equation}
-Using
-\begin{equation}
-\mathbf P_N
-=
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i',
-\end{equation}
-we may also write
-\begin{equation}
-\boxed{
-\mathbf P_j'
-=
-\mathbf P_j
--
-\frac{M_j}{M_N}
-\left(
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-\right).
-}
-\end{equation}
+which is exactly the common vector $\mathbf b$ of (2.9); hence $\mathbf P_j = \frac{M_j}{M_{\mathrm{tot}}}\mathbf P_{\mathrm{cm}} + \mathbf P'_j - \frac{M_j}{M_N}\sum_l\mathbf p'_l$, reproducing (2.8).
 
 \subsubsection*{Kinetic Energy in Momentum Form}
-The original kinetic energy can be written as
-\begin{equation}
-T
-=
-T_{\rm nuc,int}
-+
-T_{\rm nuc,CoM}
-+
-T_e .
-\end{equation}
-The nuclear internal kinetic energy is
-\begin{equation}
-T_{\rm nuc,int}
-=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}.
-\end{equation}
-The electron kinetic energy is
-\begin{equation}
-T_e
-=
-\sum_i \frac{\mathbf p_i'^2}{2m_e}.
-\end{equation}
-The nuclear center-of-mass kinetic energy is
-\begin{equation}
-T_{\rm nuc,CoM}
-=
-\frac{1}{2}M_N \dot{\mathbf{R}}_{\mathrm{cm}}^2 .
-\end{equation}
-Using
-\begin{equation}
-M_N \dot{\mathbf{R}}_{\mathrm{cm}}
-=
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i',
-\end{equation}
-we get
-\begin{equation}
-T_{\rm nuc,CoM}
-=
-\frac{1}{2M_N}
-\left(
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-\right)^2 .
-\end{equation}
-Therefore the kinetic energy in terms of the new momenta is
-\begin{equation}
-\boxed{
-T
-=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}
-+
-\sum_i \frac{\mathbf p_i'^2}{2m_e}
-+
-\frac{1}{2M_N}
-\left(
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-\right)^2 .
-}
-\end{equation}
-The accompanying constraints are
-\begin{equation}
-\boxed{
-\sum_j M_j \mathbf R_j'=0,
-\qquad
-\sum_j \mathbf P_j'=0.
-}
-\end{equation}
 
-\subsubsection*{Expanded Form}
-Expanding the center-of-mass recoil term gives
-\begin{align}
-T
-&=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}
-+
-\sum_i \frac{\mathbf p_i'^2}{2m_e}
-+
-\frac{\mathbf P_{\mathrm{cm}}^2}{2M_N}
--
-\frac{\mathbf P_{\mathrm{cm}}}{M_N}
-\cdot
-\sum_i \mathbf p_i'
-+
-\frac{1}{2M_N}
-\left(
-\sum_i \mathbf p_i'
-\right)^2 .
-\end{align}
-Thus,
+The CoM and nuclear terms are immediate: $\frac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2 = \mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}$ and $\frac12 M_j\dot{\mathbf R}_j^{'2} = \mathbf P_j^{'2}/2M_j$. For the electron sector, abbreviate $\bar{\mathbf P}\equiv\sum_l\mathbf p'_l$ and substitute $\dot{\mathbf r}'_i = \mathbf p'_i/m_e + \bar{\mathbf P}/M_N$:
 \begin{equation}
-\boxed{
-T
-=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}
-+
-\sum_i \frac{\mathbf p_i'^2}{2m_e}
-+
-\frac{\mathbf P_{\mathrm{cm}}^2}{2M_N}
--
-\frac{\mathbf P_{\mathrm{cm}}}{M_N}
-\cdot
-\sum_i \mathbf p_i'
-+
-\frac{1}{2M_N}
-\left(
-\sum_i \mathbf p_i'
-\right)^2 .
-}
+\frac12 m_e\sum_i\dot{\mathbf r}_i^{'2}
+= \sum_i\frac{1}{2m_e}\Bigl(\mathbf p'_i + \frac{m_e}{M_N}\bar{\mathbf P}\Bigr)^2
+= \sum_i\frac{\mathbf p_i^{'2}}{2m_e} + \frac{\bar{\mathbf P}^2}{M_N} + \frac{N_{\mathrm{elec}}m_e}{2M_N^2}\bar{\mathbf P}^2 ,
+\end{equation}
+and, using $\sum_l\dot{\mathbf r}'_l = \frac{M_{\mathrm{tot}}}{m_e M_N}\bar{\mathbf P}$,
+\begin{equation}
+-\frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl(\sum_l\dot{\mathbf r}'_l\Bigr)^2
+= -\frac{m_e^2}{2M_{\mathrm{tot}}}\cdot\frac{M_{\mathrm{tot}}^2}{m_e^2 M_N^2}\,\bar{\mathbf P}^2
+= -\frac{M_{\mathrm{tot}}}{2M_N^2}\,\bar{\mathbf P}^2 .
+\end{equation}
+Collecting the three $\bar{\mathbf P}^2$ coefficients,
+\begin{equation}
+\frac{1}{M_N} + \frac{N_{\mathrm{elec}}m_e - M_{\mathrm{tot}}}{2M_N^2}
+= \frac{1}{M_N} - \frac{M_N}{2M_N^2}
+= \frac{1}{M_N} - \frac{1}{2M_N}
+= +\frac{1}{2M_N} ,
+\end{equation}
+using $M_{\mathrm{tot}} - N_{\mathrm{elec}}m_e = M_N$. The negative velocity-form correction has become the \emph{positive} mass polarization:
+\begin{equation}
+\boxed{\;
+T = \frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}
++ \sum_j\frac{\mathbf P_j^{'2}}{2M_j}
++ \sum_i\frac{\mathbf p_i^{'2}}{2m_e}
++ \frac{1}{2M_N}\Bigl(\sum_i\mathbf p'_i\Bigr)^2 .
+\;}
 \end{equation}
 
 \subsubsection*{Hamiltonian}
-If the potential energy is translationally invariant, then
-\begin{equation}
-V
-=
-V\left(
-\{\mathbf R_j'\},
-\{\mathbf r_i'\}
-\right).
-\end{equation}
-The Hamiltonian is therefore
-\begin{equation}
-\boxed{
-H
-=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}
-+
-\sum_i \frac{\mathbf p_i'^2}{2m_e}
-+
-\frac{1}{2M_N}
-\left(
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-\right)^2
-+
-V\left(
-\{\mathbf R_j'\},
-\{\mathbf r_i'\}
-\right).
-}
-\end{equation}
 
-\subsubsection*{Molecular Rest Frame}
-If the whole molecule is taken to be in its rest frame, then
+The potential is translationally invariant and both internal families share the reference point $\mathbf R_{\mathrm{ncm}}$, so every interparticle separation is a plain coordinate difference and $V = V(\{\mathbf R'_j\},\{\mathbf r'_i\})$. Hence
 \begin{equation}
-\mathbf P_{\mathrm{cm}} = 0 .
+\boxed{\;
+H = \frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}
++ \sum_j\frac{\mathbf P_j^{'2}}{2M_j}
++ \sum_i\frac{\mathbf p_i^{'2}}{2m_e}
++ \frac{1}{2M_N}\Bigl(\sum_i\mathbf p'_i\Bigr)^2
++ V(\{\mathbf R'_j\},\{\mathbf r'_i\}) ,
+\;}
 \end{equation}
-The kinetic energy becomes
-\begin{equation}
-\boxed{
-T_{\rm rest}
-=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}
-+
-\sum_i \frac{\mathbf p_i'^2}{2m_e}
-+
-\frac{1}{2M_N}
-\left(
-\sum_i \mathbf p_i'
-\right)^2 .
-}
-\end{equation}
-The last term,
-\begin{equation}
-\frac{1}{2M_N}
-\left(
-\sum_i \mathbf p_i'
-\right)^2 ,
-\end{equation}
-is the nuclear center-of-mass recoil term, also called the mass-polarization term.
+identical to (2.12) --- exact for \emph{any} $\mathbf P_{\mathrm{cm}}$, with no rest-frame choice, no CoM--internal cross-coupling, and the correct total mass in the free term.
 
 \subsubsection*{Important Interpretation}
 
-The coordinate transformation used here shifts both nuclei and electrons by the nuclear center of mass, not by the total molecular center of mass.
-Therefore,
+\noindent\emph{The canonical electron momentum is not $m_e\dot{\mathbf r}'_i$.} It is depleted by the collective recoil,
 \begin{equation}
-\mathbf p_i'
-=
-m_e
-\left(
-\dot{\mathbf{R}}_{\mathrm{cm}}
-+
-\dot{\mathbf r}_i'
-\right)
+\mathbf p'_i = m_e\dot{\mathbf r}'_i - \frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l ,
 \end{equation}
-is the canonical momentum conjugate to \(\mathbf r_i'\). It is equal to the electron lab-frame mechanical momentum.
-However,
+because moving one electron drags the total CoM, and the coordinate $\mathbf r'_i$ is measured from the (recoiling) nuclear CoM.
+
+\noindent\emph{Why the sign flips.} The electron block of the velocity-form kinetic energy is the quadratic form $\frac12\dot{\mathbf r}^{\prime\mathsf T}\mathbf A\,\dot{\mathbf r}'$ with the non-diagonal mass matrix
 \begin{equation}
-m_e \dot{\mathbf r}_i'
+\mathbf A = m_e\Bigl(\mathbb{1} - \frac{m_e}{M_{\mathrm{tot}}}\mathbf J\Bigr),
+\qquad \mathbf J_{il} = 1 \ \text{(all-ones block)},
 \end{equation}
-is only the electron momentum relative to the moving nuclear center of mass. It is not the canonical momentum conjugate to \(\mathbf r_i'\) unless the nuclear center-of-mass motion has been fixed or eliminated.
-The final kinetic energy in nuclear-CoM coordinates is therefore
+and the Legendre transform replaces $\mathbf A$ by its \emph{inverse}:
 \begin{equation}
-\boxed{
-T
-=
-\sum_j \frac{\mathbf P_j'^2}{2M_j}
-+
-\sum_i \frac{\mathbf p_i'^2}{2m_e}
-+
-\frac{1}{2M_N}
-\left(
-\mathbf P_{\mathrm{cm}}
--
-\sum_i \mathbf p_i'
-\right)^2 ,
-}
+\mathbf A^{-1} = \frac{1}{m_e}\Bigl(\mathbb{1} + \frac{m_e}{M_N}\mathbf J\Bigr)
+\qquad\Longrightarrow\qquad
+\frac12\,\mathbf p^{\prime\mathsf T}\mathbf A^{-1}\mathbf p'
+= \sum_i\frac{\mathbf p_i^{'2}}{2m_e} + \frac{1}{2M_N}\Bigl(\sum_i\mathbf p'_i\Bigr)^2 ,
 \end{equation}
-with
+(one verifies $\mathbf A\mathbf A^{-1}=\mathbb{1}$ using $\mathbf J^2 = N_{\mathrm{elec}}\mathbf J$ and $M_{\mathrm{tot}} - N_{\mathrm{elec}}m_e = M_N$). The inversion turns the negative $-m_e^2/2M_{\mathrm{tot}}$ collective coupling into the positive $+1/2M_N$ mass polarization: same physics, opposite side of the Legendre transform.
+
+\noindent\emph{Bookkeeping.} The accompanying constraints are
 \begin{equation}
-\boxed{
-\sum_j M_j \mathbf R_j'=0,
+\boxed{\;
+\sum_j M_j \mathbf R'_j = 0 ,
 \qquad
-\sum_j \mathbf P_j'=0.
-}
+\sum_j \mathbf P'_j = 0 ,
+\;}
 \end{equation}
-
-
+purely nuclear on both sides. Everything above agrees with the generating-function route of Section 2: the momentum relations reproduce (2.8), and the Hamiltonian reproduces (2.12).
 
 % ------------------------------------------------------------------------------
 % Reference and Cited Works
