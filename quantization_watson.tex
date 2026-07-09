@@ -1,14 +1,24 @@
 \section{Quantization}
 
-The classical internal Hamiltonian (3.22) is parametrized by curvilinear coordinates (Euler angles $\phi,\theta,\chi$ and vibrational normal coordinates $Q_b$) and BF Cartesian electron coordinates $\bar{\mathbf{r}}_i$. Canonical quantization in curvilinear coordinates requires care: the na\"ive substitution $\pi_A\to-i\hbar\,\partial_A$ does not produce a Hermitian operator on the natural Hilbert space. The Podolsky (Laplace--Beltrami) prescription~\cite{podolsky1928} resolves this, and we carry it out here \emph{entirely in coordinate form}: we first construct the metric tensor of the ro-vibrational configuration space, then its determinant (which fixes the volume element) and its inverse, and then apply the Laplace--Beltrami operator block by block, writing out the explicit derivatives $\partial_\phi,\partial_\theta,\partial_\chi,\partial_{Q_b}$ at every stage. Hermiticity is automatic at each step because the Laplace--Beltrami operator is Hermitian by construction; in particular, \emph{no commutator algebra of body-fixed angular momenta is ever used} (see the Remark in \S\,4.11). The residual ordering effects collapse into a single multiplicative function of the shape --- the Watson pseudopotential. The term-by-term expansion of every block, with each derivative written out, is collected in Appendix~B.
+The classical internal Hamiltonian (3.22) is parametrized by curvilinear coordinates (Euler angles $\phi,\theta,\chi$ and vibrational normal coordinates $Q_b$) and BF Cartesian electron coordinates $\bar{\mathbf{r}}_i$. Its quantization requires \emph{no new postulate}: the internal nuclear configuration space is the flat Euclidean space of mass-weighted Cartesian displacements, and $(\Omega,Q)$ is merely a curvilinear chart of it (\S\,4.1). The exact kinetic operator is therefore the ordinary flat-space Laplacian, and everything else is calculus, carried out \emph{entirely in coordinate form}: we construct the metric of the chart, its determinant (which fixes the volume element) and its inverse (\S\S\,4.2--4.6), expand the Laplacian block by block writing out the explicit derivatives $\partial_\phi,\partial_\theta,\partial_\chi,\partial_{Q_b}$ at every stage (\S\S\,4.7--4.8), and finally reweight the wavefunction to the Watson measure, which turns the operator into Podolsky's manifestly Hermitian flat-measure form~\cite{podolsky1928} (\S\,4.9). Hermiticity is automatic at every step --- the Podolsky form is a symmetric sandwich of operators individually Hermitian on the flat measure --- and \emph{no commutator algebra of body-fixed angular momenta is ever used} (see the Remark in \S\,4.11). The only residue of the ordering is a single multiplicative function of the shape --- the Watson pseudopotential. The term-by-term expansion of every block, with each derivative written out, is collected in Appendix~B.
 
-\subsection{Why curvilinear coordinates require care}
+\subsection{No quantization postulate: the internal configuration space is flat}
 
 Label the curvilinear configuration-space coordinates
 \begin{equation}
 \{q^{A}\}\;=\;\bigl\{\,\phi,\theta,\chi,\;Q_1,\dots,Q_f\,\bigr\},\qquad f\equiv 3N_{\mathrm{nucl}}-6, \tag{4.1}
 \end{equation}
-supplemented by the BF Cartesian electron coordinates $\bar{\mathbf{r}}_i$ (treated in \S\,4.4). In classical mechanics, any kinetic energy that is quadratic in the velocities defines a \textbf{metric tensor} $g_{AB}(q)$ on configuration space,
+supplemented by the BF Cartesian electron coordinates $\bar{\mathbf{r}}_i$ (treated in \S\,4.4). The central observation of this section is that the coordinates (4.1) parametrize a \emph{flat} space. By (3.1), the mass-weighted nuclear displacements
+\begin{equation*}
+\boldsymbol\xi_j\equiv\sqrt{M_j}\,\mathbf R'_j=\mathbf S(\Omega)\,\mathbf u_j(Q),
+\qquad
+\mathbf u_j(Q)\equiv\sqrt{M_j}\,\bar{\mathbf R}_j(Q)=\mathbf e_j+\sum_b\mathbf l_{jb}\,Q_b,
+\qquad
+\mathbf e_j\equiv\sqrt{M_j}\,\bar{\mathbf R}^{\mathrm{eq}}_j,
+\end{equation*}
+lie, by the center-of-mass constraint $\sum_j\sqrt{M_j}\,\boldsymbol\xi_j=0$ [(2.4)], in a fixed linear subspace $\mathcal V\cong\mathbb R^{3N_{\mathrm{nucl}}-3}$ of the mass-weighted Cartesian space, on which the internal nuclear kinetic energy is the \emph{flat} quadratic form $T=\tfrac12\sum_j|\dot{\boldsymbol\xi}_j|^{2}$ [\S\,3.4]. The chart $(\Omega,Q)\mapsto\boldsymbol\xi$ has exactly $3+f=3N_{\mathrm{nucl}}-3$ coordinates, and the Eckart conditions (3.1b) make it locally invertible (away from the poles $\sin\theta=0$ and degenerate shapes). Consequently there is nothing to postulate: \emph{the exact quantum kinetic operator of the internal nuclear motion is the ordinary flat-space Laplacian} $\hat T_{\mathrm{rv}}=-\tfrac{\hbar^{2}}{2}\Delta_{\mathcal V}$, exactly as in Cartesian quantum mechanics, and the entire task of this section is calculus: express $\Delta_{\mathcal V}$ in the chart, and reweight the wavefunction to the Watson measure.
+
+In classical mechanics, any kinetic energy that is quadratic in the velocities defines a \textbf{metric tensor} $g_{AB}(q)$ on configuration space,
 \begin{equation}
 T=\tfrac12\,g_{AB}(q)\,\dot q^{A}\dot q^{B},\qquad
 p_A\equiv\frac{\partial T}{\partial\dot q^{A}}=g_{AB}\,\dot q^{B}, \tag{4.2}
@@ -17,7 +27,7 @@ p_A\equiv\frac{\partial T}{\partial\dot q^{A}}=g_{AB}\,\dot q^{B}, \tag{4.2}
 \begin{equation}
 T=\tfrac12\,g^{AB}(q)\,p_A p_B ,\qquad g^{AB}\equiv (g^{-1})_{AB}. \tag{4.3}
 \end{equation}
-So three objects control everything: the metric $g_{AB}$, its inverse $g^{AB}$, and its determinant $g\equiv\det g_{AB}$. We will build all three explicitly for the coordinates (4.1) in \S\,4.2--4.6.
+So three objects control everything: the metric $g_{AB}$, its inverse $g^{AB}$, and its determinant $g\equiv\det g_{AB}$. For our chart they are concrete geometry: $g_{AB}=\sum_j(\partial\boldsymbol\xi_j/\partial q^A)\!\cdot\!(\partial\boldsymbol\xi_j/\partial q^B)$ is the Gram matrix of the chart's tangent vectors --- the flat metric of $\mathcal V$ pulled back to the coordinates --- and $\sqrt g=|\det(\partial\boldsymbol\xi/\partial q)|$ is the Jacobian of the chart. We will build all three objects explicitly for the coordinates (4.1) in \S\,4.2--4.6.
 
 Why can we not simply replace $p_A\to-i\hbar\,\partial_A$ in (4.3)? Because on a curved configuration space the physically meaningful inner product carries the Riemannian volume weight, $\langle\varphi|\psi\rangle=\int\varphi^{*}\psi\,\sqrt{g}\,d^{n}q$, and $-i\hbar\partial_A$ is \emph{not} Hermitian with respect to it. The one-dimensional case shows the problem completely: on $L^{2}(w(q)\,dq)$ with a positive weight $w$, integration by parts (boundary terms vanishing) gives
 \begin{equation}
@@ -26,18 +36,18 @@ Why can we not simply replace $p_A\to-i\hbar\,\partial_A$ in (4.3)? Because on a
 \;-\;i\hbar\int\varphi^{*}\psi\;\frac{w'}{w}\,w\,dq ,
 \tag{4.4}
 \end{equation}
-so the adjoint is $(-i\hbar\partial_q)^{\dagger}=-i\hbar\bigl(\partial_q+w'/w\bigr)\neq-i\hbar\partial_q$ whenever the weight is not constant. A kinetic operator built by na\"ive substitution would fail to be Hermitian and could produce complex expectation values.
+so the adjoint is $(-i\hbar\partial_q)^{\dagger}=-i\hbar\bigl(\partial_q+w'/w\bigr)\neq-i\hbar\partial_q$ whenever the weight is not constant. A kinetic operator built by na\"ive substitution would fail to be Hermitian and could produce complex expectation values. The same computation read backwards is the cure: the reweighting $\psi\mapsto w^{1/2}\psi$ maps $L^{2}(w\,dq)$ unitarily onto $L^{2}(dq)$, at the price of conjugating every operator by $w^{1/2}$ --- the mechanism we will use in \S\,4.9.
 
-The resolution, due to Podolsky~\cite{podolsky1928}, is to replace the classical kinetic energy (4.3) by the \textbf{Laplace--Beltrami operator}:
+What, then, \emph{is} the flat Laplacian expressed in the chart? For any curvilinear chart of a flat space it takes the classical form
 \begin{equation}
 \boxed{\;\hat T \;=\; -\frac{\hbar^{2}}{2}\,\frac{1}{\sqrt{g}}\,\partial_A\!\bigl(\sqrt{g}\,g^{AB}\,\partial_B\bigr),\qquad g=\det g_{AB}.\;} \tag{4.5}
 \end{equation}
-This operator is Hermitian on $L^{2}(\sqrt{g}\,d^{n}q)$ \emph{by construction}: for wavefunctions with vanishing boundary terms (here: periodicity in $\phi,\chi$, the vanishing of $\sin\theta$ at the poles $\theta=0,\pi$, and decay in $Q_b$), one integration by parts gives
+To derive it, take $\Psi(\boldsymbol\xi)=\psi(q(\boldsymbol\xi))$ and $\Phi$ likewise. The chain rule gives $\nabla\Psi=\mathsf J^{-\mathsf T}\partial\psi$ with $\mathsf J=\partial\boldsymbol\xi/\partial q$, hence $\nabla\Phi^{*}\!\cdot\!\nabla\Psi=(\partial_A\varphi)^{*}g^{AB}(\partial_B\psi)$ and $d\boldsymbol\xi=\sqrt g\,d^nq$; the flat-space identity $\int\Phi^{*}(-\tfrac{\hbar^2}{2}\Delta\Psi)\,d\boldsymbol\xi=\tfrac{\hbar^2}{2}\int\nabla\Phi^{*}\!\cdot\!\nabla\Psi\,d\boldsymbol\xi$ therefore reads, after undoing the integration by parts in the chart (boundary terms vanishing: periodicity in $\phi,\chi$, the vanishing of $\sin\theta$ at the poles $\theta=0,\pi$, and decay in $Q_b$),
 \begin{equation}
 \int\varphi^{*}\,\hat T\psi\;\sqrt{g}\,d^{n}q
 =\frac{\hbar^{2}}{2}\int (\partial_A\varphi)^{*}\,g^{AB}\,(\partial_B\psi)\;\sqrt{g}\,d^{n}q , \tag{4.6}
 \end{equation}
-which is manifestly symmetric under $\varphi\leftrightarrow\psi$ (and manifestly positive for $\varphi=\psi$, since $g^{AB}$ is positive definite wherever the classical kinetic energy is). When the metric is constant and Cartesian, $g_{AB}=\delta_{AB}$, (4.5) reduces to the familiar $-\tfrac{\hbar^2}{2}\nabla^2$ --- the prescription contains ordinary quantum mechanics as a special case. Our entire task in this section is therefore: \emph{compute $g_{AB}$, $g$, and $g^{AB}$ for the coordinates (4.1), then expand (4.5)}.
+identifying (4.5) as the coordinate form of $-\tfrac{\hbar^2}{2}\Delta_{\mathcal V}$. The right-hand side of (4.6) is manifestly symmetric under $\varphi\leftrightarrow\psi$ and positive for $\varphi=\psi$, so (4.5) is Hermitian on $L^{2}(\sqrt g\,d^nq)$ --- not by prescription, but because it \emph{is} the flat Laplacian, inheriting the Hermiticity of $-\tfrac{\hbar^2}{2}\nabla^{2}$. Equation (4.5) is the same classical formula that yields the spherical-coordinates Laplacian; nothing quantum-mechanically new has been introduced. Our entire task in this section is therefore: \emph{compute $g_{AB}$, $g$, and $g^{AB}$ for the coordinates (4.1), expand (4.5), and reweight to the Watson measure (\S\,4.9)}.
 
 \subsection{Body-frame kinematics: the Euler-angle derivatives, explicitly}
 
@@ -132,7 +142,7 @@ Every entry is now an explicit function of $(\theta,\chi,Q)$: the inertia tensor
 
 \subsection{The electron sector: flat, constant, and decoupled from the measure}
 
-Before quantizing (4.15) we must account for the electrons, since the Podolsky prescription requires the metric of the \emph{full} configuration space. Include the electron velocities: expanding the body-fixed electronic and mass-polarization kinetic terms via (3.9e), the complete velocity-form kinetic energy is
+Before expanding the Laplacian over (4.15) we must account for the electrons, since the kinetic operator involves the metric of the \emph{full} configuration space. Include the electron velocities: expanding the body-fixed electronic and mass-polarization kinetic terms via (3.9e), the complete velocity-form kinetic energy is
 \begin{equation}
 2T = \mathbf{v}^{\mathsf T}\mathsf{M}\,\mathbf{v},\qquad
 \mathbf v=(\boldsymbol\omega,\dot{\mathbf Q},\dot{\bar{\mathbf r}}_i),\qquad
@@ -150,7 +160,7 @@ and the surviving determinant is exactly that of the ro-vibrational block (4.14)
 \sum_{i\gamma}\partial_{\bar r_{i\gamma}}\bigl(\epsilon_{\alpha\beta\gamma}\bar r_{i\beta}\bigr)
 =\sum_i\epsilon_{\alpha\beta\gamma}\,\delta_{\beta\gamma}=0 . \tag{4.18}
 \end{equation}
-Consequently the entire quantization problem lives in the ro-vibrational sector: we quantize the metric (4.15) by the Podolsky prescription, and the electrons enter the result only through the flat kinetic operator of \S\,4.10 and the uniform shift $\hat J_\alpha\to\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$, which preserves Hermiticity term by term because $\hat L_{\mathrm{elec},\alpha}$ is Hermitian and acts on a different set of coordinates than every ro-vibrational object (the term-by-term verification is Appendix~B).
+Consequently the entire quantization problem lives in the ro-vibrational sector: we expand the flat Laplacian over the ro-vibrational chart --- the metric (4.15) --- and the electrons enter the result only through the flat kinetic operator of \S\,4.10 and the uniform shift $\hat J_\alpha\to\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$, which preserves Hermiticity term by term because $\hat L_{\mathrm{elec},\alpha}$ is Hermitian and acts on a different set of coordinates than every ro-vibrational object (the term-by-term verification is Appendix~B).
 
 \subsection{Determinant and the volume element}
 
@@ -174,11 +184,11 @@ using $\det(\mathsf E^{T}X\mathsf E)=(\det\mathsf E)^2\det X$ and (4.11). Remark
 \boxed{\;
 \sqrt{g}\,d^{\,3+f}q=\underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Haar measure on }SO(3)}\;\underbrace{\sqrt{\gamma(Q)}\,\textstyle\prod_b dQ_b}_{\text{rot.--vib.\ Jacobian}},\qquad \sqrt{g}=\sin\theta\,\sqrt{\gamma(Q)},\;}\tag{4.21}
 \end{equation}
-times the flat, constant electron factor $\prod_id^3\bar{\mathbf r}_i$ from \S\,4.4. The two curved factors have transparent origins: $\sin\theta$ is the Euler-angle Jacobian $|\det\mathsf E|$ of (4.11), and $\sqrt\gamma$ is the shape-dependent part carrying the Coriolis-reduced inertia.
+times the flat, constant electron factor $\prod_id^3\bar{\mathbf r}_i$ from \S\,4.4. The two curved factors have transparent origins: $\sin\theta$ is the Euler-angle Jacobian $|\det\mathsf E|$ of (4.11), and $\sqrt\gamma$ is the shape-dependent part carrying the Coriolis-reduced inertia. Indeed $\sqrt g=\sin\theta\sqrt\gamma$ is nothing but the Jacobian $|\det(\partial\boldsymbol\xi/\partial(\Omega,Q))|$ of the chart: (4.21) is the flat volume element $d\boldsymbol\xi$ written in ro-vibrational coordinates.
 
 \subsection{The inverse metric}
 
-The Podolsky operator (4.5) needs $g^{AB}$. We claim
+The kinetic operator (4.5) needs $g^{AB}$. We claim
 \begin{equation}
 \boxed{\;
 g^{AB}=
@@ -203,7 +213,7 @@ So $g_{AB}\,g^{BC}=\delta_A^{\ C}$, confirming (4.22). Note how the Watson recip
 
 \subsection{The rotational derivative operators (defined, not postulated)}
 
-Expanding the Podolsky operator will repeatedly produce the combination $(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ (index $s$ running over $\phi,\theta,\chi$). It is convenient to give it a name:
+Expanding the Laplacian (4.5) will repeatedly produce the combination $(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ (index $s$ running over $\phi,\theta,\chi$). It is convenient to give it a name:
 \begin{equation}
 \boxed{\;
 \hat J_\alpha\equiv-i\hbar\sum_{s}(\mathsf E^{-1})_{s\alpha}\,\partial_{\Omega_s}:\qquad
@@ -242,9 +252,9 @@ Second, this identity makes each $\hat J_\alpha$ \textbf{Hermitian on the Haar m
 \end{equation}
 so $\hat J_\alpha^{\dagger}=\hat J_\alpha$ with \emph{no} symmetrization needed. In differential-geometric language, (4.26) says the vector fields generating body-frame rotations are divergence-free with respect to the Haar measure; it is the coordinate-level fact that replaces every appeal to angular-momentum algebra in what follows. [The same argument with the flat measure and (4.18) makes $\hat L_{\mathrm{elec},\alpha}$ Hermitian, and the vibrational analogue appears in \S\,4.9.]
 
-\subsection{The Podolsky operator, block by block}
+\subsection{The kinetic operator, block by block}
 
-Insert the measure (4.21) and the inverse metric (4.22) into the Podolsky operator (4.5) and split the double sum over $A,B$ into the four blocks:
+Insert the measure (4.21) and the inverse metric (4.22) into the Laplacian (4.5) and split the double sum over $A,B$ into the four blocks:
 \begin{equation}
 \hat T_{\mathrm{rv}}
 =\underbrace{-\frac{\hbar^{2}}{2\sqrt g}\,\partial_{\Omega_s}\!\bigl(\sqrt g\,g^{\Omega\Omega}_{st}\partial_{\Omega_t}\bigr)}_{\hat T_{\mathrm{rot}}}
@@ -281,17 +291,25 @@ With $g^{QQ}_{bc}=\delta_{bc}+(\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\si
 \hat T_{\mathrm{vib}}
 =-\frac{\hbar^{2}}{2}\,\frac{1}{\sqrt\gamma}\sum_{b,c}\partial_{Q_b}\!\Bigl(\sqrt\gamma\;\bigl[\delta_{bc}+(\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma)_{bc}\bigr]\,\partial_{Q_c}\Bigr). \tag{4.31}
 \end{equation}
-Expanding the $\delta_{bc}$ part by one product rule exhibits the problem announced in (4.4): $-\tfrac{\hbar^2}{2}\gamma^{-1/2}\partial_{Q_b}(\gamma^{1/2}\partial_{Q_b}\psi)=\tfrac12\hat P_b^2\psi-\tfrac{\hbar^2}{2}\bigl(\tfrac12\partial_{Q_b}\ln\gamma\bigr)\partial_{Q_b}\psi$ --- the bare $\hat P_b$ is not Hermitian on the curved measure $\sqrt\gamma\,dQ$, and the first-order remainder is the compensation. Removing these remainders once and for all is the job of the rescaling below.
+Expanding the $\delta_{bc}$ part by one product rule exhibits the problem announced in (4.4): $-\tfrac{\hbar^2}{2}\gamma^{-1/2}\partial_{Q_b}(\gamma^{1/2}\partial_{Q_b}\psi)=\tfrac12\hat P_b^2\psi-\tfrac{\hbar^2}{2}\bigl(\tfrac12\partial_{Q_b}\ln\gamma\bigr)\partial_{Q_b}\psi$ --- the bare $\hat P_b$ is not Hermitian on the curved measure $\sqrt\gamma\,dQ$, and the first-order remainder is the compensation. Removing these remainders once and for all is the job of the reweighting below.
 
-\subsection{Rescaling to the flat measure and the Watson pseudopotential}
+\subsection{Reweighting to the Watson measure: Podolsky's form and the pseudopotential}
 
-To work with the simpler measure $d\mu_W\equiv\sin\theta\,d\phi\,d\theta\,d\chi\,\prod_bdQ_b\,\prod_id^3\bar{\mathbf r}_i$, absorb the shape factor of the volume element into the wavefunction:
+The wavefunction inherited from the flat space is normalized on $\sqrt g\,d^{\,3+f}q$. Watson's convention works instead with the measure $d\mu_W\equiv\sin\theta\,d\phi\,d\theta\,d\chi\,\prod_bdQ_b\,\prod_id^3\bar{\mathbf r}_i$: absorb the shape factor of the volume element into the wavefunction,
 \begin{equation}
 \psi_W\equiv\gamma^{1/4}\,\psi
 \qquad\Longrightarrow\qquad
 |\psi|^{2}\,\sqrt g\;d^{\,3+f}q=|\psi_W|^{2}\,d\mu_W , \tag{4.32}
 \end{equation}
-so $\psi_W\in L^{2}(d\mu_W)$, and conjugate every operator: $\hat O_W=\gamma^{1/4}\,\hat O\,\gamma^{-1/4}$. Only the $Q$-sector is affected ($\gamma$ depends on $Q$ alone); the $\sin\theta$ stays in the measure, on which the $\hat J_\alpha$ are already Hermitian by (4.27), and the electron sector is flat. Conjugating the identity part of (4.31), working from the innermost derivative outward (each line is one product rule):
+so $\psi_W\in L^{2}(d\mu_W)$, and conjugate every operator: $\hat O_W=\gamma^{1/4}\,\hat O\,\gamma^{-1/4}$. Only the $Q$-sector is affected ($\gamma$ depends on $Q$ alone); the $\sin\theta$ stays in the measure, on which the $\hat J_\alpha$ are already Hermitian by (4.27), and the electron sector is flat. Conjugating the blocks (4.29)--(4.31) assembles the ro-vibrational operator into a single sandwich,
+\begin{equation}
+\boxed{\;\hat T_{\mathrm{rv},W}\equiv\gamma^{1/4}\,\hat T_{\mathrm{rv}}\,\gamma^{-1/4}
+=\tfrac12\,\gamma^{-1/4}\Bigl[\hat J_\alpha\,\gamma^{1/2}\mu_{\alpha\beta}\,\hat J_\beta
+-\hat J_\alpha\,\gamma^{1/2}(\boldsymbol\mu\boldsymbol\sigma)_{\alpha b}\,\hat P_b
+-\hat P_b\,\gamma^{1/2}(\boldsymbol\sigma^{T}\boldsymbol\mu)_{b\beta}\,\hat J_\beta
++\hat P_b\,\gamma^{1/2}g^{QQ}_{bc}\,\hat P_c\Bigr]\gamma^{-1/4},\;}\tag{4.32$'$}
+\end{equation}
+the equality being checked factor by factor against (4.29)--(4.31): the rotational block is untouched because $\gamma$ commutes with the $\hat J_\alpha$, and in the Coriolis and vibrational blocks the explicit powers of $\gamma$ combine identically. Equation (4.32$'$) is \textbf{Podolsky's form} of the kinetic operator~\cite{podolsky1928}, adapted to the Watson measure. Its virtue is that Hermiticity on $L^{2}(d\mu_W)$ is now \emph{manifest}, with no integration by parts: taking the adjoint merely reverses each product --- using only $\hat J_\alpha^{\dagger}=\hat J_\alpha$ (4.27), $\hat P_b^{\dagger}=\hat P_b$, the reality of $\gamma$, and the symmetry of the coefficient blocks --- and returns the same expression. All that remains is to \emph{order} the sandwich: push the $\gamma^{\pm1/4}$ factors through the derivatives and collect the multiplicative residue. Ordering the identity part of the vibrational block, working from the innermost derivative outward (each line is one product rule):
 \begin{align}
 \partial_{Q_b}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{-1/4}\Bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\,\psi_W\Bigr],\nonumber\\
 \gamma^{1/2}\,\partial_{Q_b}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{1/4}\Bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\,\psi_W\Bigr],\nonumber\\
@@ -301,12 +319,12 @@ where in the last line the two cross terms $\pm\tfrac14(\partial_{Q_b}\ln\gamma)
 \begin{equation}
 U_{\mathrm{vib}}=\frac{\hbar^{2}}{8}\sum_b\Bigl[\partial_{Q_b}^{2}\ln\gamma+\tfrac14\bigl(\partial_{Q_b}\!\ln\gamma\bigr)^{2}\Bigr]. \tag{4.34}
 \end{equation}
-The Coriolis block responds even more simply. Conjugating (4.30): in the first group, $\gamma^{1/4}\hat P_b\gamma^{-1/4}=\hat P_b+\tfrac{i\hbar}{4}(\partial_{Q_b}\ln\gamma)$; in the second, $\gamma^{-1/4}\hat P_b\gamma^{1/4}=\hat P_b-\tfrac{i\hbar}{4}(\partial_{Q_b}\ln\gamma)$. The two induced terms are equal and opposite [they multiply the same function, since $\hat J_\alpha\mu_{\alpha\beta}\sigma_{\beta b}=\sigma_{\beta b}\mu_{\alpha\beta}\hat J_\alpha$ upon relabeling the summed Cartesian indices --- these are functions of different variables and commute], so they cancel, leaving the manifestly symmetric flat-measure form
+The Coriolis part of the sandwich orders even more simply: in its first group, $\gamma^{1/4}\hat P_b\gamma^{-1/4}=\hat P_b+\tfrac{i\hbar}{4}(\partial_{Q_b}\ln\gamma)$; in the second, $\gamma^{-1/4}\hat P_b\gamma^{1/4}=\hat P_b-\tfrac{i\hbar}{4}(\partial_{Q_b}\ln\gamma)$. The two induced terms are equal and opposite [they multiply the same function, since $\hat J_\alpha\mu_{\alpha\beta}\sigma_{\beta b}=\sigma_{\beta b}\mu_{\alpha\beta}\hat J_\alpha$ upon relabeling the summed Cartesian indices --- these are functions of different variables and commute], so they cancel, leaving the manifestly symmetric flat-measure form
 \begin{equation}
 \hat T_{\mathrm{Cor},W}=-\tfrac12\sum_{\alpha\beta}\hat J_\alpha\bigl(\mu_{\alpha\beta}\,\hat\pi_\beta+\hat\pi_\beta\,\mu_{\alpha\beta}\bigr)
 \;=\;-\tfrac12\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr), \tag{4.35}
 \end{equation}
-with \emph{no} extra potential from this block. Finally, conjugating the $\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$ dressing of (4.31) and reorganizing it into the symmetric kernel ordering $\tfrac12\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta$ leaves a second multiplicative residue, $U_{\mathrm{Cor}}$ (every derivative of this bookkeeping is written out in Appendix~B).
+with \emph{no} extra potential from this block. Finally, ordering the $\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$-dressed part of the vibrational block and reorganizing it into the symmetric kernel $\tfrac12\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta$ leaves a second multiplicative residue, $U_{\mathrm{Cor}}$ (every derivative of this bookkeeping is written out in Appendix~B).
 
 The total extra potential $\hat U=U_{\mathrm{vib}}+U_{\mathrm{Cor}}$ collapses through two exact identities, both pure $Q$-calculus. First, Jacobi's formula --- for a symmetric positive-definite matrix, $\ln\det\mathbf I'=\operatorname{tr}\ln\mathbf I'$, so differentiating,
 \begin{equation}
@@ -352,12 +370,12 @@ Collect the flat-measure blocks: the rotational kernel (4.29), the Coriolis coup
 & + V_{NN}(Q) \;+\; V_{Ne}(Q,\{\bar{\mathbf{r}}_i\}) \;+\; V_{ee}(\{\bar{\mathbf{r}}_i\}),
 \end{aligned}}\tag{4.41}
 \end{equation}
-acting on $L^{2}(\mathcal{C},\,d\mu_W)$ with $d\mu_W = \sin\theta\,d\phi\, d\theta\, d\chi\,\prod_b dQ_b\,\prod_i d^{3}\bar{\mathbf{r}}_i$. Every operator in (4.41) is an explicit differential operator in the coordinates --- the $\hat J_\alpha$ are the Euler-angle combinations (4.24), $\hat\pi_\alpha=\sum_b\sigma_{\alpha b}\hat P_b$, $\hat P_b=-i\hbar\partial_{Q_b}$, $\hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}$ --- and every one is Hermitian on $d\mu_W$ by the integration-by-parts arguments given above.
+acting on $L^{2}(\mathcal{C},\,d\mu_W)$ with $d\mu_W = \sin\theta\,d\phi\, d\theta\, d\chi\,\prod_b dQ_b\,\prod_i d^{3}\bar{\mathbf{r}}_i$. Every operator in (4.41) is an explicit differential operator in the coordinates --- the $\hat J_\alpha$ are the Euler-angle combinations (4.24), $\hat\pi_\alpha=\sum_b\sigma_{\alpha b}\hat P_b$, $\hat P_b=-i\hbar\partial_{Q_b}$, $\hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}$ --- and every one is Hermitian on $d\mu_W$ by the integration-by-parts arguments given above; indeed (4.41) is exactly the ordered form of the Podolsky sandwich (4.32$'$).
 
 This is the \textbf{exact non-relativistic molecular Hamiltonian} after separation of the total COM motion, in BF + Eckart frame, with electrons referred to the nuclear COM. The only approximations made along the way were: (i) non-relativistic dynamics; (ii) Eckart's choice of the BF orientation (a convention, not an approximation); (iii) parametrization of the nuclear shape by $3N_{\mathrm{nucl}}-6$ internal coordinates $Q_b$ (a parametrization, also exact).
 
 \medskip
-\noindent\textbf{Remark (the anomalous commutator, not needed).} The traditional route to (4.41)~\cite{klein1929,vanvleck1951,bunkerjensen} defines the body-fixed angular momentum by projecting the space-fixed operator through the direction cosines, derives its \emph{anomalous} commutation relations $[\hat J_\alpha,\hat J_\beta]=-i\hbar\,\epsilon_{\alpha\beta\gamma}\hat J_\gamma$, and uses that algebra to control the operator ordering of the rotational kernel. Nothing in this section used it: the $\hat J_\alpha$ entered only as the shorthand (4.24) for explicit Euler-angle derivatives, Hermiticity came from integration by parts with the divergence identity (4.26), and the pseudopotential came from the $Q$-derivatives of the volume element. The anomalous algebra is a correct and sometimes useful property of the operators (4.24), but it is a \emph{consequence} of the coordinate representation, not an input to the quantization.
+\noindent\textbf{Remark (the anomalous commutator, not needed).} The traditional route to (4.41)~\cite{klein1929,vanvleck1951,bunkerjensen} defines the body-fixed angular momentum by projecting the space-fixed operator through the direction cosines, derives its \emph{anomalous} commutation relations $[\hat J_\alpha,\hat J_\beta]=-i\hbar\,\epsilon_{\alpha\beta\gamma}\hat J_\gamma$, and uses that algebra to control the operator ordering of the rotational kernel. Nothing in this section used it: the $\hat J_\alpha$ entered only as the shorthand (4.24) for explicit Euler-angle derivatives, Hermiticity came from the divergence identity (4.26) and the manifest sandwich structure of Podolsky's form (4.32$'$), and the pseudopotential came from the $Q$-derivatives of the volume element. The anomalous algebra is a correct and sometimes useful property of the operators (4.24), but it is a \emph{consequence} of the coordinate representation, not an input to the quantization.
 
 \subsection{Born--Huang expansion}
 
@@ -413,7 +431,7 @@ The exactness of (4.45) and the well-definedness of (4.46) are mathematical fact
 \subsubsection{Summary}
 
 \begin{enumerate}
-\item (4.41) is the exact non-relativistic quantum molecular Hamiltonian in BF + Eckart + nuclear-COM coordinates, obtained entirely from coordinate derivatives: metric (4.15) $\to$ measure (4.21) $\to$ inverse (4.22) $\to$ Laplace--Beltrami blocks (4.29)--(4.31) $\to$ rescaling and pseudopotential (4.38).
+\item (4.41) is the exact non-relativistic quantum molecular Hamiltonian in BF + Eckart + nuclear-COM coordinates, obtained entirely from coordinate derivatives on a flat internal space: metric (4.15) $\to$ measure (4.21) $\to$ inverse (4.22) $\to$ Laplacian blocks (4.29)--(4.31) $\to$ Podolsky reweighting (4.32$'$) and pseudopotential (4.38).
 \item The Born--Huang expansion (4.45) is exact, following from completeness of the parametric electronic basis (4.44).
 \item The infinite coupled system (4.46) is equivalent to the Schr\"odinger equation $\hat H_{\mathrm{int}}|\Psi\rangle = E|\Psi\rangle$.
 \item The Born--Oppenheimer truncation reduces it to (4.48), giving the familiar single-PES picture (4.49).

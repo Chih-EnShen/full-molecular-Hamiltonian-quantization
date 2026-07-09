@@ -1,6 +1,6 @@
 \subsection*{Appendix B: Term-by-term expansion of the Podolsky operator, with every derivative}
 
-Section~4 quantized the classical Hamiltonian (3.22) by applying the Podolsky operator (4.5) to the ro-vibrational metric (4.15) and rescaling to the flat measure. This appendix supplies what the main text compressed: the expansion of the quantized kernel of (4.41),
+Section~4 quantized the classical Hamiltonian (3.22) by expressing the flat-space Laplacian in the ro-vibrational chart [the metric (4.15)] and reweighting to the Watson measure --- i.e.\ by ordering Podolsky's sandwich (4.32$'$). This appendix supplies what the main text compressed: the expansion of the quantized kernel of (4.41),
 \begin{equation}
 \hat T_{\mathrm{kernel}}=\tfrac12\sum_{\alpha\beta}\hat A_\alpha\,\mu_{\alpha\beta}(Q)\,\hat A_\beta,\qquad
 \hat A_\alpha\equiv\hat J_\alpha-\hat L_\alpha-\hat\pi_\alpha,\qquad
@@ -67,7 +67,7 @@ Hermitian exactly as written --- no symmetrization, no commutator evaluated. \em
 =-\hbar^{2}\mu_{\alpha\beta}\,(\mathsf E^{-1})_{s\alpha}\Bigl[(\mathsf E^{-1})_{t\beta}\,\partial_{\Omega_s}\partial_{\Omega_t}
 +\bigl(\partial_{\Omega_s}(\mathsf E^{-1})_{t\beta}\bigr)\,\partial_{\Omega_t}\Bigr], \tag{B.8}
 \end{equation}
-with the trigonometric entries of $\mathsf E^{-1}$ read off (4.12). Every term carries at least one Euler derivative: the rotational block generates \emph{no} pure multiplicative term, in agreement with the Laplace--Beltrami computation (4.29).
+with the trigonometric entries of $\mathsf E^{-1}$ read off (4.12). Every term carries at least one Euler derivative: the rotational block generates \emph{no} pure multiplicative term, in agreement with the block computation (4.29).
 
 \paragraph{(T2)\ \ $\hat L_\alpha\mu_{\alpha\beta}\hat L_\beta$.}
 Word-for-word the same as (T1) with $\hat J\to\hat L$: the adjoint chain (B.7) uses only $\hat L_\alpha^\dagger=\hat L_\alpha$ [(4.18)] and the symmetry of $\mu$. Hermitian as written; all terms carry electron derivatives; no multiplicative residue.
@@ -89,7 +89,7 @@ the Coriolis-dressed vibrational operator. Every surviving term carries at least
 =\bigl[\hat P_b,\sigma_{\alpha b}\bigr]\,\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c
 =-i\hbar\Bigl(\textstyle\sum_b\zeta^{\alpha}_{bb}\Bigr)\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c=0 , \tag{B.10}
 \end{equation}
-so $\tfrac12\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta=\tfrac12\hat P_b\,G_{bc}\,\hat P_c$ \emph{exactly}. This identity is what lets the sandwich-ordered kernel of (4.41) match the Laplace--Beltrami vibrational block (4.31), whose dressed part is precisely $\tfrac12\hat P_bG_{bc}\hat P_c$ after the rescaling (see \S\,B.5).
+so $\tfrac12\hat\pi_\alpha\mu_{\alpha\beta}\hat\pi_\beta=\tfrac12\hat P_b\,G_{bc}\,\hat P_c$ \emph{exactly}. This identity is what lets the sandwich-ordered kernel of (4.41) match the vibrational block (4.31) of the Laplacian, whose dressed part is precisely $\tfrac12\hat P_bG_{bc}\hat P_c$ after the ordering of \S\,4.9 (see \S\,B.5).
 
 \subsubsection*{B.4\quad Cross terms}
 
@@ -116,14 +116,14 @@ Now the subtlety: $\hat\pi$ does \emph{not} commute with $\mu$, since by (B.3) $
 =\hat\pi_\beta\,\mu_{\alpha\beta}\,\hat J_\alpha
 =\hat\pi_\alpha\,\mu_{\alpha\beta}\,\hat J_\beta . \tag{B.13}
 \end{equation}
-The cross term is of the form $\hat X+\hat X^{\dagger}$, automatically Hermitian --- \emph{this is why the classical product $-2J\mu\pi$ must be quantized as the symmetric sum}, and it is precisely the symmetric sum that the Laplace--Beltrami operator produced by itself in (4.30)/(4.35). Pulling $\hat J$ out front and expanding the anticommutator with (B.3),
+The cross term is of the form $\hat X+\hat X^{\dagger}$, automatically Hermitian --- \emph{this is why the classical product $-2J\mu\pi$ must be quantized as the symmetric sum}, and it is precisely the symmetric sum that the expansion of the kinetic operator produced by itself in (4.30)/(4.35). Pulling $\hat J$ out front and expanding the anticommutator with (B.3),
 \begin{equation}
 \hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta
 =\hat J_\alpha\bigl(\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\beta\mu_{\alpha\beta}\bigr)
 =\hat J_\alpha\Bigl(\underbrace{2\,\mu_{\alpha\beta}\sigma_{\beta c}\hat P_c}_{\text{1st order in }\hat P}
 \;\underbrace{-\,i\hbar\,\sigma_{\beta c}\,\partial_c\mu_{\alpha\beta}}_{\text{0th order in }\hat P}\Bigr). \tag{B.14}
 \end{equation}
-The first piece is the rotation--vibration Coriolis coupling ($\hat J$ times $\hat P$); the second is the imaginary, $\hat J$-linear counterterm that makes the sum Hermitian. It is \emph{not} a stand-alone multiplicative residue --- it still carries $\hat J_\alpha$ --- consistent with the Laplace--Beltrami result (4.35) that the Coriolis block contributes nothing to the pseudopotential. As a cross-check of (B.14) against the pre-rescaling form (4.30): expanding the second group of (4.30) by the product rule,
+The first piece is the rotation--vibration Coriolis coupling ($\hat J$ times $\hat P$); the second is the imaginary, $\hat J$-linear counterterm that makes the sum Hermitian. It is \emph{not} a stand-alone multiplicative residue --- it still carries $\hat J_\alpha$ --- consistent with the result (4.35) that the Coriolis block contributes nothing to the pseudopotential. As a cross-check of (B.14) against the pre-reweighting form (4.30): expanding the second group of (4.30) by the product rule,
 \begin{equation}
 \tfrac{1}{\sqrt\gamma}\,\hat P_b\,\sqrt\gamma\;\sigma_{\alpha b}\mu_{\alpha\beta}\,\hat J_\beta
 =\Bigl[\sigma_{\alpha b}\mu_{\alpha\beta}\hat P_b
@@ -142,7 +142,7 @@ the vibration--electron angular coupling.
 
 \subsubsection*{B.5\quad The measure residue $U_{\mathrm{Cor}}$, every derivative}
 
-Section 4.9 derived the identity-block residue $U_{\mathrm{vib}}$ [(4.34)] in full and deferred the residue of the dressed block. Here it is. Conjugate the dressed part of the vibrational Laplace--Beltrami block (4.31) by $\gamma^{1/4}$ and act on $\psi_W$; each line is one product rule [$G_{bc}=(\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma)_{bc}$, symmetric]:
+Section 4.9 derived the identity-block residue $U_{\mathrm{vib}}$ [(4.34)] in full and deferred the residue of the dressed block. Here it is. Order the dressed part of the vibrational block (4.31) --- i.e.\ conjugate it by $\gamma^{1/4}$, as dictated by the Podolsky sandwich (4.32$'$) --- and act on $\psi_W$; each line is one product rule [$G_{bc}=(\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma)_{bc}$, symmetric]:
 \begin{align}
 \partial_{Q_c}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{-1/4}\Bigl[\partial_{Q_c}\psi_W-\tfrac14(\partial_c\ln\gamma)\psi_W\Bigr],\nonumber\\
 \gamma^{1/2}\,G_{bc}\,\partial_{Q_c}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{1/4}\,G_{bc}\Bigl[\partial_{Q_c}\psi_W-\tfrac14(\partial_c\ln\gamma)\psi_W\Bigr],\nonumber\\
@@ -166,7 +166,7 @@ By (B.10), $\tfrac12\hat P_bG_{bc}\hat P_c=\tfrac12\hat\pi_\alpha\mu_{\alpha\bet
 \end{equation}
 the complete term-by-term collapse of (B.19) to the trace $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ of (4.38)~\cite{watson1968} --- via Jacobi's formula (4.36), Watson's closed form (4.37), and the Eckart sum rules --- is carried out in \S\,B.6.
 
-\textbf{The division of labour is clean.} In the explicit forms (B.8), (B.9), (B.12), (B.14), (B.16), every surviving kernel term carries at least one derivative operator ($\hat P$, $\hat J$, or $\hat L$): \emph{the ordering of the kernel never generates a pure multiplicative term}. The pseudopotential (4.38) is an $\mathcal O(\hbar^2)$ $c$-number that originates entirely in the \emph{curved integration measure} $\sqrt\gamma$, extracted by the rescaling $\psi_W=\gamma^{1/4}\psi$ --- (B.18) is its dressed-block share. Kernel ordering $\rightarrow$ the Hermitian operators of this appendix; the measure $\rightarrow$ the pseudopotential.
+\textbf{The division of labour is clean.} In the explicit forms (B.8), (B.9), (B.12), (B.14), (B.16), every surviving kernel term carries at least one derivative operator ($\hat P$, $\hat J$, or $\hat L$): \emph{the ordering of the kernel never generates a pure multiplicative term}. The pseudopotential (4.38) is an $\mathcal O(\hbar^2)$ $c$-number that originates entirely in the \emph{curved integration measure} $\sqrt\gamma$, extracted by the reweighting $\psi_W=\gamma^{1/4}\psi$ --- (B.18) is its dressed-block share. Kernel ordering $\rightarrow$ the Hermitian operators of this appendix; the measure $\rightarrow$ the pseudopotential.
 
 \subsubsection*{B.6\quad From (B.19) to the Watson trace (4.38): every step}
 
@@ -411,7 +411,7 @@ and the vibrational Jacobian carries the explicit derivatives
 \partial_{Q_3}s=2\bigl[(\zeta^{b}_{13})^2+(\zeta^{b}_{23})^2\bigr]Q_3,\;\;
 \partial_{Q_1}s=2\zeta^{b}_{13}\bigl(\zeta^{b}_{13}Q_1+\zeta^{b}_{23}Q_2\bigr),\ \text{etc.}, \tag{B.52}
 \end{equation}
-which are precisely the first-order remainders exhibited under (4.31) and removed by the $\gamma^{1/4}$ rescaling of \S\,4.9.
+which are precisely the first-order remainders exhibited under (4.31) and removed by the $\gamma^{1/4}$ reweighting of \S\,4.9.
 
 \paragraph{Pseudopotential.}
 Since $\mathbf I'$ is diagonal, $\boldsymbol\mu=\operatorname{diag}\bigl(1/I_a,\,1/(I_b-s),\,1/I_c\bigr)$ and the trace formula (4.38) is fully explicit:
@@ -429,7 +429,7 @@ The constant is an inconsequential shift of the electronic--vibrational zero; th
 
 \begin{enumerate}
 \item The quantized kernel (B.1) expands into the nine products (B.6). Blocks built from mutually commuting, individually Hermitian factors --- (T1) $\hat J\mu\hat J$, (T2) $\hat L\mu\hat L$, (T4) $\hat J\mu\hat L$ --- are Hermitian in a single ordering, by the adjoint-reversal argument (B.7) alone.
-\item Blocks pairing $\hat\pi$ with $\hat J$ or $\hat L$ --- (T5), (T6) --- are Hermitian only as the symmetric sum $\hat X+\hat X^\dagger$, which is exactly the ordering the Laplace--Beltrami operator produces by itself [(4.30), (4.35)]. (T3) $\hat\pi\mu\hat\pi$ is the fortunate middle case, Hermitian because $\hat\pi$ is [(B.5)], and equal to the left-ordered $\tfrac12\hat P G\hat P$ by the sum rule (B.10).
+\item Blocks pairing $\hat\pi$ with $\hat J$ or $\hat L$ --- (T5), (T6) --- are Hermitian only as the symmetric sum $\hat X+\hat X^\dagger$, which is exactly the ordering Podolsky's sandwich (4.32$'$) produces by itself [(4.30), (4.35)]. (T3) $\hat\pi\mu\hat\pi$ is the fortunate middle case, Hermitian because $\hat\pi$ is [(B.5)], and equal to the left-ordered $\tfrac12\hat P G\hat P$ by the sum rule (B.10).
 \item No kernel ordering produces a pure multiplicative term. The Watson pseudopotential comes solely from the measure: $U_{\mathrm{vib}}$ [(4.34)] plus $U_{\mathrm{Cor}}$ [(B.18)] collapse to $-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ [(4.38)].
 \item Every Hermiticity statement above used only integration by parts, the product rule, and the divergence identities (4.18), (4.26), (B.4) --- never a commutator of body-fixed angular momenta.
 \end{enumerate}
