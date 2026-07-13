@@ -281,3 +281,85 @@ $$
 | 4. Normal-mode | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\tfrac12\boldsymbol\omega^T(\mathbf I_N{+}\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega+\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}{+}\mathbf L_e{-}\mathbf L_X)+\tfrac12\sum_b\dot Q_b^2+\tfrac{m_e}{2}\sum_i\dot{\bar{\mathbf r}}_i^2-\tfrac{m_e^2}{2M_{\mathrm{tot}}}\dot{\bar{\mathbf r}}^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\tfrac12(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)^T\boldsymbol\mu(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)+\tfrac12\sum_bP_b^2+\sum_i\tfrac{\bar{\mathbf p}_i^2}{2m_e}+\tfrac{(\sum_i\bar{\mathbf p}_i)^2}{2M_N}$ | in $\mathbf I_X,\mathbf L_X,T_X^{\mathrm{mp}}$ vs $+\tfrac{(\Sigma\bar{\mathbf p})^2}{2M_N}$ | none (Eckart conditions consumed by the chart) |
 
 The through-line of the table: the mass polarization is *absent* in Cartesian coordinates, appears as a *negative velocity-form correction* $\propto m_e^2/M_{\mathrm{tot}}$ or a *positive momentum-form term* $\propto 1/M_N$ at stage 2, and from stage 3 onward additionally entangles with rotation in velocity form (through $\mathbf I_X,\mathbf L_X$) while remaining a clean rotational scalar in momentum form — which is precisely why the paper carries the electrons in momentum form from stage 2 onward. Note also how the Hamiltonian's *form* is inert through stages 2 → 3 (body-fixing is a rotation, and the kinetic energy is a rotational scalar): the familiar Watson structure — rotational kernel $\boldsymbol\mu$, Coriolis $\boldsymbol\pi$, bare vibrational $\tfrac12\Sigma P_b^2$ — only materializes at stage 4, when the shape is parametrized and the rotation–vibration split of $\dot{\bar{\mathbf R}}_j$ becomes available.
+
+---
+
+## Momenta: canonical, mechanical, and quasi
+
+"Non-canonical" means two independent things across the four stages, and the
+two tables below keep them apart:
+
+- **canonical vs *mechanical*** (mass × velocity). A momentum is *canonical* if
+  it is the variable conjugate to a coordinate, $\{q,p\}=1$ (quantized as
+  $-i\hbar\,\partial_q$); *mechanical* if it equals mass × velocity. They
+  coincide at stage 1, then **split**: $\mathbf p'_i\ne m_e\dot{\mathbf r}'_i$
+  (mass-polarization gap, from referring electrons to the nuclear CoM), and
+  $P_b\ne\dot Q_b$ (Coriolis gap, from the rotating frame).
+- **canonical vs *quasi* (frame-projected / non-holonomic)**. The true
+  canonical momenta conjugate to the Euler angles are $p_\phi,p_\theta,p_\chi$.
+  The physically useful body-frame $\mathbf J$, vibrational $\boldsymbol\pi$, and
+  angular *velocity* $\boldsymbol\omega$ are coordinate-dependent combinations of
+  the canonical momenta (or, for $\boldsymbol\omega$, a velocity) — not
+  canonical. This is the origin of the anomalous
+  $\{J_\alpha,J_\beta\}=-\epsilon_{\alpha\beta\gamma}J_\gamma$.
+
+### Table A — translational / internal / vibrational / electronic momenta (canonical vs mechanical)
+
+| Stage | coord. $q$ | canonical momentum $p=\partial L/\partial\dot q$ | $\{q,p\}$ | $=$ mass × velocity? | quantum operator | Hermitian on |
+|---|---|---|---|---|---|---|
+| 1 | $\mathbf R_j$ | $\mathbf P_j=M_j\dot{\mathbf R}_j$ | $\delta_{jk}\delta_{\alpha\beta}$ | **yes** | $-i\hbar\nabla_{\mathbf R_j}$ | flat |
+| 1 | $\mathbf r_i$ | $\mathbf p_i=m_e\dot{\mathbf r}_i$ | $\delta_{ik}\delta_{\alpha\beta}$ | **yes** | $-i\hbar\nabla_{\mathbf r_i}$ | flat |
+| 2 | $\mathbf R_{\mathrm{cm}}$ | $\mathbf P_{\mathrm{cm}}=M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}$ | $\delta_{\alpha\beta}$ | **yes** (= total mom., conserved) | $-i\hbar\nabla_{\mathbf R_{\mathrm{cm}}}$ | flat |
+| 2 | $\mathbf R'_j$ | $\mathbf P'_j=M_j\dot{\mathbf R}'_j$ | $\delta_{jk}\delta_{\alpha\beta}$† | **yes** | $-i\hbar\nabla_{\mathbf R'_j}$ | flat |
+| 2 | $\mathbf r'_i$ | $\mathbf p'_i=m_e\dot{\mathbf r}'_i-\tfrac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l$ | $\delta_{ik}\delta_{\alpha\beta}$ | **NO** — mass-polarization gap | $-i\hbar\nabla_{\mathbf r'_i}$ | flat |
+| 3 | $\bar{\mathbf R}_j$ | $\bar{\mathbf P}_j=M_j(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)=\mathbf S^{\mathsf T}\mathbf P'_j$ | $\delta_{jk}\delta_{\alpha\beta}$† | **yes** (transported vel.) | $-i\hbar\nabla_{\bar{\mathbf R}_j}$ | curved‡ |
+| 3, 4 | $\Omega_s$ | $p_{\Omega_s}=(\mathsf E^{\mathsf T}\mathbf J)_s$ | $\delta_{st}$ | — (rotational; Table B) | $-i\hbar\partial_{\Omega_s}$ | **not** alone§ |
+| 4 | $Q_b$ | $P_b=\dot Q_b+\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b$ | $\delta_{bc}$ | **NO** — Coriolis gap ($\ne\dot Q_b$) | $-i\hbar\partial_{Q_b}$ | flat $dQ$ (after reweighting) |
+| 3, 4 | $\bar{\mathbf r}_i$ | $\bar{\mathbf p}_i=\mathbf S^{\mathsf T}\mathbf p'_i$ | $\delta_{ik}\delta_{\alpha\beta}$ | **NO** — inherits mass-pol. gap | $-i\hbar\nabla_{\bar{\mathbf r}_i}$ | flat $\prod d^3\bar r$ |
+
+† on the constraint surface, with the dual gauge $\sum_j\mathbf P'_j=0$
+(resp. $\sum_j\bar{\mathbf P}_j=0$). ‡ curved measure
+$\sin\theta\,d\Omega\,\prod_j d^3\bar R_j$ before the shape is parametrized.
+§ $\hat p_{\Omega_s}=-i\hbar\partial_{\Omega_s}$ is **not** Hermitian on
+$\sin\theta\,d\Omega$; only the combination $\hat J_\alpha$ is (Eq. 4.27).
+
+### Table B — rotational objects (angular velocity & angular momenta, body frame)
+
+| Object | definition | canonical? | algebra $\{\,,\}$ (classical) / $[\,,\,]$ (quantum) | quantum operator | role |
+|---|---|---|---|---|---|
+| $\boldsymbol\omega$ | $\mathsf E(\Omega)\dot{\boldsymbol\Omega}$ | **no** — quasi-*velocity* | — | (velocity, not quantized directly) | conjugate to $\mathbf J_N$ in $L$ |
+| $p_{\Omega_s}$ | $\partial L/\partial\dot\Omega_s=(\mathsf E^{\mathsf T}\mathbf J)_s$ | **yes** (true conjugate) | $\{\Omega_s,p_{\Omega_t}\}=\delta_{st}$ | $-i\hbar\partial_{\Omega_s}$ | rarely used directly |
+| $\mathbf J$ | $J_\alpha=(\mathsf E^{-1})_{s\alpha}p_{\Omega_s}$ | **no** — frame-projected | $\{J_\alpha,J_\beta\}=-\epsilon_{\alpha\beta\gamma}J_\gamma$; $[\hat J_\alpha,\hat J_\beta]=-i\hbar\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ (**anomalous**) | $-i\hbar(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ (Eq. 4.24) | total ang. mom.; $\hat J_\alpha$ Hermitian on $\sin\theta\,d\Omega$ |
+| $\mathbf J_N$ | $\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}=\mathbf J-\mathbf L_{\mathrm{elec}}$ | **no** — conjugate to quasi-vel. $\boldsymbol\omega$ | same anomalous family | $\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$ | "nuclear" ang. mom. |
+| $\boldsymbol\pi$ | $\sum_b\boldsymbol\sigma_b(Q)\,P_b$ | **no** — coord-dependent combo of $P_b$ | $[\hat P_b,\hat\pi_\alpha]=-i\hbar\,\zeta^{\alpha}_{bc}\hat P_c\ne0$ | $\sum_b\sigma_{\alpha b}\hat P_b$ | vibrational (Coriolis) ang. mom. |
+| $\mathbf L_{\mathrm{elec}}$ | $\sum_i\bar{\mathbf r}_i\times\bar{\mathbf p}_i$ | derived from a **canonical** pair | $\{L_\alpha,L_\beta\}=+\epsilon_{\alpha\beta\gamma}L_\gamma$; $[\hat L_\alpha,\hat L_\beta]=+i\hbar\epsilon_{\alpha\beta\gamma}\hat L_\gamma$ (**normal**) | $-i\hbar\,\epsilon_{\alpha\beta\gamma}\sum_i\bar r_{i\beta}\partial_{\bar r_{i\gamma}}$ | the well-behaved one |
+| $\mathbf L_N^{\mathrm{vib}}$ | $\sum_jM_j\bar{\mathbf R}_j\times\dot{\bar{\mathbf R}}_j=\boldsymbol\pi-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T}\boldsymbol\omega$ | **no** — velocity-form | — | — | intermediate; eliminated in (3.20) |
+
+Cross-sector (anti)commutators — each operator acts on a different coordinate
+set unless noted:
+$$
+[\hat J_\alpha,\hat L_{\mathrm{elec},\beta}]=0,\qquad
+[\hat J_\alpha,\hat\pi_\beta]=0,\qquad
+[\hat J_\alpha,\hat P_b]=0,\qquad
+[\hat P_b,\hat\pi_\alpha]=-i\hbar\,\zeta^{\alpha}_{bc}\hat P_c .
+$$
+
+*Reading the two tables.*
+
+- **Every entry marked canonical is quantized by the naive $-i\hbar\,\partial_q$;**
+  Hermiticity on the correct measure is the separate job of the Podolsky
+  reweighting (see `tutorial_watson_pseudopotential.md`). The quasi objects of
+  Table B are *derived* from the canonical momenta — never quantized on their own.
+- **Two gaps, two origins.** The *mechanical* gaps
+  ($\mathbf p'_i\ne m_e\dot{\mathbf r}'_i$, $P_b\ne\dot Q_b$) come from the
+  coordinate *choice*; the *quasi* gap ($\mathbf J,\boldsymbol\pi,\boldsymbol\omega$)
+  comes from using a rotating frame.
+- **Only $\mathbf J$ is anomalous; $\mathbf L_{\mathrm{elec}}$ is not.** Both live
+  in the body frame, but $\mathbf J$ is the space-fixed angular momentum
+  *projected through* the angle-dependent $\mathsf E(\Omega)$ (⇒ anomalous sign),
+  whereas $\mathbf L_{\mathrm{elec}}$ is assembled *directly* from the canonical
+  pair $(\bar{\mathbf r}_i,\bar{\mathbf p}_i)$ (⇒ normal sign). Sign derivation:
+  `tutorial_quantization.md` §5.
+- **The anomaly never bites $H$:** in $H_{\mathrm{int}}$ the only place
+  $\{\hat J,\hat J\}$ could enter is contracted with the symmetric
+  $\mu_{\alpha\beta}$, where it vanishes regardless of sign.
