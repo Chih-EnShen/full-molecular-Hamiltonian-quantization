@@ -1,0 +1,13 @@
+\section{Classical Cartesian Hamiltonian}
+
+We have $N_{\mathrm{nucl}}$ nuclei labeled by $j$ with masses $M_j$, charges $Z_j e$, positions $\mathbf{R}_j$, and conjugate momenta $\mathbf{P}_j$; and $N_{\mathrm{elec}}$ electrons labeled by $i$ with mass $m_e$, charge $-e$, positions $\mathbf{r}_i$, and momenta $\mathbf{p}_i$. All vectors live in a space-fixed (SF) lab frame. Using SI units and writing $R_{ij}=|\mathbf{R}_i-\mathbf{R}_j|$ etc.,
+
+\begin{equation}
+H = \underbrace{\sum_{j=1}^{N_{\mathrm{nucl}}}\frac{\mathbf{P}_j^{\,2}}{2M_j}}_{T_N} + \underbrace{\sum_{i=1}^{N_{\mathrm{elec}}}\frac{\mathbf{p}_i^{\,2}}{2m_e}}_{T_e} + V, \tag{1.1}
+\end{equation}
+
+\begin{equation}
+V = \frac{1}{4\pi\epsilon_0}\left(\frac12\sum_{i\ne j}\frac{Z_i Z_j e^2}{R_{ij}} - \sum_{i,j}\frac{Z_j e^2}{|\mathbf{R}_j-\mathbf{r}_i|} + \frac12\sum_{i\ne j}\frac{e^2}{r_{ij}}\right). \tag{1.2}
+\end{equation}
+
+Canonical Poisson brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$, $\{r_{i\alpha},p_{j\beta}\}=\delta_{ij}\delta_{\alpha\beta}$.

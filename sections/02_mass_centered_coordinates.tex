@@ -1,0 +1,90 @@
+\section{Direct Transformation to Mass-Centered Coordinates}
+
+The translational coordinate and the internal reference point need not be the same, and choosing them \emph{differently} is what makes the transformation land directly on the final form: take the \emph{total} (nuclei $+$ electrons) center of mass as the translational coordinate --- so the free term carries the correct total mass --- but refer all \emph{internal} coordinates, nuclear and electronic, to the \emph{nuclear} center of mass --- the Born--Oppenheimer-friendly reference. A single point transformation then produces the exact CoM separation \emph{and} the electronic mass-polarization term at once, with no subsequent canonical transformation.
+
+\subsection{New coordinates}
+
+Define the nuclear and the total centers of mass,
+\begin{equation}
+\mathbf{R}_{\mathrm{ncm}} = \frac{1}{M_N}\sum_j M_j\mathbf{R}_j,\qquad M_N = \sum_j M_j, \tag{2.1}
+\end{equation}
+\begin{equation}
+\mathbf{R}_{\mathrm{cm}} = \frac{1}{M_{\mathrm{tot}}}\Bigl(\sum_j M_j\mathbf{R}_j + m_e\sum_i\mathbf{r}_i\Bigr) = \mathbf{R}_{\mathrm{ncm}} + \frac{m_e}{M_{\mathrm{tot}}}\sum_i\bigl(\mathbf{r}_i-\mathbf{R}_{\mathrm{ncm}}\bigr), \tag{2.2}
+\end{equation}
+with $M_{\mathrm{tot}} = M_N + N_{\mathrm{elec}}\,m_e$, and take as new coordinates the total CoM $\mathbf{R}_{\mathrm{cm}}$ together with internal coordinates referred to the \emph{nuclear} CoM:
+\begin{equation}
+\mathbf{R}'_j = \mathbf{R}_j - \mathbf{R}_{\mathrm{ncm}},\qquad \mathbf{r}'_i = \mathbf{r}_i - \mathbf{R}_{\mathrm{ncm}}. \tag{2.3}
+\end{equation}
+Only the nuclear relative vectors are linearly dependent:
+\begin{equation}
+\sum_j M_j\mathbf{R}'_j = 0, \tag{2.4}
+\end{equation}
+the electron coordinates $\mathbf{r}'_i$ being unconstrained. The second equality in (2.2) shows how the two reference points sit relative to one another: the total CoM is the nuclear CoM displaced by the (mass-weighted) electronic polarization $\frac{m_e}{M_{\mathrm{tot}}}\sum_i\mathbf{r}'_i$.
+
+\subsection{Canonical momenta}
+
+This is a point transformation $\mathbf{Q}_{\mathrm{new}}' = \mathbf{Q}_{\mathrm{new}}'(\mathbf{q}_{\mathrm{old}})$ with $\mathbf{q}_{\mathrm{old}} = (\mathbf{R}_j,\mathbf{r}_i)$ and $\mathbf{Q}'_{\mathrm{new}} = (\mathbf{R}_{\mathrm{cm}},\mathbf{R}'_j,\mathbf{r}'_i)$. Use the generating function:
+$F_2 = F_2(\mathbf{q_{\mathrm{old}}}, \mathbf{P}, t) = \mathbf{P} \cdot \mathbf{Q}_{\mathrm{new}}'(\mathbf{q_{\mathrm{old}}})$
+\begin{equation}
+F_2 = \mathbf{P}_{\mathrm{cm}}\cdot\mathbf{R}_{\mathrm{cm}}(\mathbf{R}_j,\mathbf{r}_i) + \sum_j\mathbf{P}'_j\cdot\mathbf{R}'_j(\{\mathbf{R}_j\}) + \sum_i\mathbf{p}'_{\,i}\cdot\mathbf{r}'_i(\mathbf{R}_j,\mathbf{r}_i). \tag{2.5}
+\end{equation}
+Then $\mathbf{P}_j = \partial F_2/\partial\mathbf{R}_j$, $\mathbf{p}_i = \partial F_2/\partial\mathbf{r}_i$. Differentiating (2.1)--(2.3) with respect to a nuclear position,
+\begin{equation}
+\frac{\partial\mathbf{R}_{\mathrm{cm}}}{\partial\mathbf{R}_j} = \frac{M_j}{M_{\mathrm{tot}}}\mathbb{1},\qquad \frac{\partial\mathbf{R}'_k}{\partial\mathbf{R}_j} = \Bigl(\delta_{jk}-\frac{M_j}{M_N}\Bigr)\mathbb{1},\qquad \frac{\partial\mathbf{r}'_l}{\partial\mathbf{R}_j} = -\frac{M_j}{M_N}\mathbb{1}, \tag{2.6a}
+\end{equation}
+and with respect to an electron position,
+\begin{equation}
+\frac{\partial\mathbf{R}_{\mathrm{cm}}}{\partial\mathbf{r}_i} = \frac{m_e}{M_{\mathrm{tot}}}\mathbb{1},\qquad \frac{\partial\mathbf{R}'_k}{\partial\mathbf{r}_i} = 0,\qquad \frac{\partial\mathbf{r}'_l}{\partial\mathbf{r}_i} = \delta_{il}\,\mathbb{1}. \tag{2.6b}
+\end{equation}
+The mixed choice is visible here: the translational row carries the \emph{total}-mass fractions $M_j/M_{\mathrm{tot}}$, $m_e/M_{\mathrm{tot}}$, while the internal rows carry the \emph{nuclear} fractions $M_j/M_N$ --- and the electron positions do not move the internal reference point at all, $\partial\mathbf{R}'_k/\partial\mathbf{r}_i=0$. One obtains
+\begin{equation}
+\mathbf{P}_j = \frac{M_j}{M_{\mathrm{tot}}}\mathbf{P}_{\mathrm{cm}} + \mathbf{P}'_j - \frac{M_j}{M_N}\Bigl(\textstyle\sum_k\mathbf{P}'_k+\sum_l\mathbf{p}'_l\Bigr),\qquad
+\mathbf{p}_i = \frac{m_e}{M_{\mathrm{tot}}}\mathbf{P}_{\mathrm{cm}} + \mathbf{p}'_i. \tag{2.7}
+\end{equation}
+The constraint dual to (2.4) is $\sum_k\mathbf{P}'_k = 0$, so
+\begin{equation}
+\boxed{\;\mathbf{P}_j = \frac{M_j}{M_{\mathrm{tot}}}\,\mathbf{P}_{\mathrm{cm}}+\mathbf{P}'_j-\frac{M_j}{M_N}\sum_l\mathbf{p}'_l,\qquad \mathbf{p}_i = \frac{m_e}{M_{\mathrm{tot}}}\,\mathbf{P}_{\mathrm{cm}}+\mathbf{p}'_i.\;} \tag{2.8}
+\end{equation}
+Each particle carries its total-mass-fraction share of $\mathbf{P}_{\mathrm{cm}}$ plus its internal momentum; in addition, each \emph{nucleus} carries the recoil $-\frac{M_j}{M_N}\sum_l\mathbf{p}'_l$ against the electrons, because the internal reference point (2.1) is built from the nuclei alone. Summing (2.8) over all particles, the mass fractions add to one, $\sum_j\frac{M_j}{M_N}=1$ makes the recoils cancel against $\sum_i\mathbf{p}'_i$, and $\sum_j\mathbf{P}_j+\sum_i\mathbf{p}_i = \mathbf{P}_{\mathrm{cm}}$: the new translational momentum is the total momentum, as it must be.
+
+\subsection{Hamiltonian after the transformation}
+
+Insert (2.8) into $T_N$ in (1.1). The nuclear momentum has the form $\mathbf{P}_j = M_j\mathbf{b} + \mathbf{P}'_j$ with the common vector
+\begin{equation}
+\mathbf{b} \equiv \frac{\mathbf{P}_{\mathrm{cm}}}{M_{\mathrm{tot}}} - \frac{1}{M_N}\sum_l\mathbf{p}'_l , \tag{2.9}
+\end{equation}
+so, expanding the square and using the dual constraint $\sum_j\mathbf{P}'_j=0$ on the cross term,
+\begin{equation}
+T_N = \sum_j\frac{(M_j\mathbf{b}+\mathbf{P}'_j)^2}{2M_j} = \frac{M_N}{2}\,\mathbf{b}^2 + \mathbf{b}\cdot\underbrace{\sum_j\mathbf{P}'_j}_{=0} + \sum_j\frac{\mathbf{P}_j^{'2}}{2M_j}, \tag{2.10a}
+\end{equation}
+where, squaring (2.9),
+\begin{equation}
+\frac{M_N}{2}\,\mathbf{b}^2 = \frac{M_N}{M_{\mathrm{tot}}}\frac{\mathbf{P}_{\mathrm{cm}}^{\,2}}{2M_{\mathrm{tot}}} - \frac{\mathbf{P}_{\mathrm{cm}}\!\cdot\!\sum_l\mathbf{p}'_l}{M_{\mathrm{tot}}} + \frac{\bigl(\sum_l\mathbf{p}'_l\bigr)^2}{2M_N}. \tag{2.10b}
+\end{equation}
+The electrons give
+\begin{equation}
+T_e = \sum_i\frac{1}{2m_e}\Bigl[\frac{m_e}{M_{\mathrm{tot}}}\mathbf{P}_{\mathrm{cm}}+\mathbf{p}'_i\Bigr]^2 = \frac{N_{\mathrm{elec}}m_e}{M_{\mathrm{tot}}}\frac{\mathbf{P}_{\mathrm{cm}}^{\,2}}{2M_{\mathrm{tot}}} + \frac{\mathbf{P}_{\mathrm{cm}}\!\cdot\!\sum_i\mathbf{p}'_i}{M_{\mathrm{tot}}} + \sum_i\frac{\mathbf{p}_i^{'2}}{2m_e}. \tag{2.11}
+\end{equation}
+Adding (2.10a)--(2.10b) and (2.11): the two mass fractions in front of $\mathbf{P}_{\mathrm{cm}}^{\,2}/2M_{\mathrm{tot}}$ sum to $(M_N+N_{\mathrm{elec}}m_e)/M_{\mathrm{tot}}=1$, and the two cross terms cancel \emph{identically} --- the nuclear recoil against the electrons contributes $-\mathbf{P}_{\mathrm{cm}}\!\cdot\!\sum\mathbf{p}'/M_{\mathrm{tot}}$, and the electrons' share of the CoM momentum contributes exactly $+\mathbf{P}_{\mathrm{cm}}\!\cdot\!\sum\mathbf{p}'/M_{\mathrm{tot}}$. No constraint is needed for this cancellation; it is built into the coordinate choice. What survives of $\frac{M_N}{2}\mathbf{b}^2$ is the \textbf{mass-polarization} term. Combining with $V$:
+\begin{equation}
+\boxed{\;H = \frac{\mathbf{P}_{\mathrm{cm}}^{\,2}}{2M_{\mathrm{tot}}} + \sum_j\frac{\mathbf{P}_j^{'2}}{2M_j} + \sum_i\frac{\mathbf{p}_i^{'2}}{2m_e} + \underbrace{\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{\!2}}_{\text{electron mass polarization}} + V(\mathbf{R}'_j,\mathbf{r}'_i).\;} \tag{2.12}
+\end{equation}
+The potential is unchanged in form because both internal families are referred to the \emph{same} point $\mathbf{R}_{\mathrm{ncm}}$: $\mathbf{R}'_j-\mathbf{R}'_k = \mathbf{R}_j-\mathbf{R}_k$, $\mathbf{R}'_j-\mathbf{r}'_i = \mathbf{R}_j-\mathbf{r}_i$, $\mathbf{r}'_i-\mathbf{r}'_l = \mathbf{r}_i-\mathbf{r}_l$. Because $H$ is independent of $\mathbf{R}_{\mathrm{cm}}$, $\mathbf{P}_{\mathrm{cm}}$ is conserved and the CoM separates exactly, \emph{for any} $\mathbf{P}_{\mathrm{cm}}$: the free term carries the correct total mass $M_{\mathrm{tot}}$, there is no COM--internal cross-coupling, and the internal Hamiltonian
+\begin{equation}
+\boxed{\;H_{\mathrm{int}} = \sum_j\frac{\mathbf{P}_j^{'2}}{2M_j} + \sum_i\frac{\mathbf{p}_i^{'2}}{2m_e} + \frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{\!2} + V(\mathbf{R}'_j,\mathbf{r}'_i)\;}\tag{2.13}
+\end{equation}
+already contains the mass polarization, $(M_N)^{-1}\sum_{i<l}\mathbf{p}'_i\cdot\mathbf{p}'_l + (2M_N)^{-1}\sum_i\mathbf{p}_i^{'2}$, produced by the coordinate choice itself --- no subsequent canonical (Galilean-boost) transformation is required.
+
+\subsection{Remark: anatomy of the coordinate choice}
+
+Each term in (2.12) can be traced to one design decision:
+\begin{itemize}
+\item \emph{Translational coordinate $=$ total CoM} puts the total-mass fractions $M_j/M_{\mathrm{tot}}$, $m_e/M_{\mathrm{tot}}$ into the momentum relations (2.8), which is what makes the $\mathbf{P}_{\mathrm{cm}}^{\,2}$ coefficients sum to $1/2M_{\mathrm{tot}}$ and the cross terms cancel identically.
+\item \emph{Electrons referred to the nuclear CoM} gives the nuclei the recoil $-\frac{M_j}{M_N}\sum_l\mathbf{p}'_l$ in (2.8); squaring it in $T_N$ is the sole source of the mass polarization $(\sum_i\mathbf{p}'_i)^2/2M_N$.
+\item \emph{Nuclei referred to the nuclear CoM} keeps every interparticle separation a plain coordinate difference, so $V$ is form-invariant, and keeps the constraint (2.4) purely nuclear.
+\end{itemize}
+The nuclear reference point is the one place where an alternative suggests itself: referring the nuclei to the \emph{total} CoM instead, $\mathbf{R}'_j=\mathbf{R}_j-\mathbf{R}_{\mathrm{cm}}$, leads (with the analogous gauge $\sum_k\mathbf{P}'_k=0$) to the \emph{same} momentum relations (2.8) and hence the same kinetic decomposition (2.12), mass polarization included. But the coordinate-side bookkeeping degrades: the constraint becomes the mixed relation $\sum_j M_j\mathbf{R}'_j + \frac{M_N m_e}{M_{\mathrm{tot}}}\sum_i\mathbf{r}'_i = 0$, and, because the two internal families no longer share a reference point, the electron--nucleus separations are no longer coordinate differences,
+\begin{equation}
+\mathbf{R}_j-\mathbf{r}_i \;=\; \mathbf{R}'_j-\mathbf{r}'_i + \frac{m_e}{M_{\mathrm{tot}}}\sum_l\mathbf{r}'_l , \tag{2.14}
+\end{equation}
+so $V_{Ne}$ picks up a polarization shift in its argument. Sharing the nuclear CoM between both internal families avoids both blemishes at no kinetic cost. Compared instead with referring \emph{everything} to the total CoM, where the internal kinetic energy is diagonal but one constraint ties all particles together, the present choice trades that diagonality for the mass-polarization term while keeping the electrons unconstrained --- the trade that suits the Born--Oppenheimer treatment. It is the internal Hamiltonian (2.13), exact for \emph{any} $\mathbf{P}_{\mathrm{cm}}$, that we carry into the body-fixed treatment of Section 3.

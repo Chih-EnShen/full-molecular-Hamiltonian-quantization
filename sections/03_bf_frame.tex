@@ -1,0 +1,281 @@
+\section{BF frame for both nuclei and electrons}
+
+\subsection{Setup}
+
+With Eckart's frame~\cite{eckart1935} fixed by the \emph{nuclei},
+
+\begin{equation}
+\mathbf{R}_j'=\mathbf{S}(\phi,\theta,\chi)\,\bar{\mathbf{R}}_j(Q),\qquad \mathbf{r}_i'=\mathbf{S}(\phi,\theta,\chi)\,\bar{\mathbf{r}}_i. \tag{3.1}
+\end{equation}
+The Eckart conditions $\sum_j M_j\bar{\mathbf{R}}_j=0$ and $\sum_j M_j\bar{\mathbf{R}}_j^{\mathrm{eq}}\!\times\bar{\mathbf{R}}_j=0$ fix the orientation of $\mathbf{S}$ from the \emph{nuclear} positions; the same $\mathbf{S}$ is then used to define BF electron coordinates $\bar{\mathbf{r}}_i$. The nuclear shape is parametrized by rectilinear mass-weighted \textbf{normal coordinates} $Q_b$,
+\begin{equation}
+\bar{\mathbf{R}}_j(Q) = \bar{\mathbf{R}}_j^{\mathrm{eq}} + \frac{1}{\sqrt{M_j}}\sum_{b}\mathbf{l}_{jb}\,Q_b , \tag{3.1a}
+\end{equation}
+with mass-weighted normal-mode vectors $\mathbf{l}_{jb}$ obeying orthonormality and the Eckart (Sayvetz) conditions~\cite{eckart1935,sayvetz1939}
+\begin{equation}
+\sum_j \mathbf{l}_{ja}\!\cdot\!\mathbf{l}_{jb}=\delta_{ab},\qquad
+\sum_j\sqrt{M_j}\,\mathbf{l}_{jb}=0,\qquad
+\sum_j\sqrt{M_j}\,\bar{\mathbf{R}}_j^{\mathrm{eq}}\!\times\!\mathbf{l}_{jb}=0 , \tag{3.1b}
+\end{equation}
+so that $\partial\bar{\mathbf{R}}_j/\partial Q_b=\mathbf{l}_{jb}/\sqrt{M_j}$ is constant. \\
+BF angular velocity:
+\begin{equation}
+(\mathbf{S}^T\dot{\mathbf{S}})_{\alpha\beta}=-\epsilon_{\alpha\beta\gamma}\,\omega_\gamma \Longrightarrow \mathbf{S}^T\dot{\mathbf{S}}\,\mathbf{v}=\boldsymbol{\omega}\times\mathbf{v}. \tag{3.2}
+\end{equation}
+Velocities (using $|\mathbf{S}\mathbf{v}|^2=|\mathbf{v}|^2$):
+\begin{equation}
+\dot{\mathbf{R}}_j'=\mathbf{S}\bigl(\boldsymbol{\omega}\!\times\!\bar{\mathbf{R}}_j+\dot{\bar{\mathbf{R}}}_j\bigr),\qquad \dot{\mathbf{r}}_i'=\mathbf{S}\bigl(\boldsymbol{\omega}\!\times\!\bar{\mathbf{r}}_i+\dot{\bar{\mathbf{r}}}_i\bigr). \tag{3.3}
+\end{equation}
+
+\subsection{From the internal Hamiltonian to a working Routhian}
+
+I need an action principle for the body-fixed \emph{nuclear} coordinates. The electrons, however, are best left in the canonical (momentum) form they already carry in (2.13): their kinetic energy and mass polarization form a rotational scalar that passes through the body-fixed transformation unchanged. I therefore Legendre-transform \emph{only} the COM and nuclear momenta back to velocities --- keeping $\mathbf{P}_{\mathrm{cm}}$ arbitrary, never setting it to zero --- and keep the electron momenta $\mathbf{p}'_i$ as canonical variables. The relevant Hamilton equations from (2.13) are
+\begin{equation}
+\dot{\mathbf{R}}_{\mathrm{cm}}=\mathbf{P}_{\mathrm{cm}}/M_{\mathrm{tot}},\qquad \dot{\mathbf{R}}_j'=\mathbf{P}'_j/M_j,\qquad \dot{\mathbf{r}}_i'=\mathbf{p}'_i/m_e+(\textstyle\sum_l\mathbf{p}'_l)/M_N, \tag{3.4}
+\end{equation}
+the last of which inverts to the electron momentum--velocity relation [recorded for the velocity-form cross-check below, around (3.18)]
+\begin{equation}
+\mathbf{p}'_i=m_e\dot{\mathbf{r}}_i'-\frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf{r}}_l',\qquad \sum_l\mathbf{p}'_l=\frac{m_e M_N}{M_{\mathrm{tot}}}\,\sum_i\dot{\mathbf{r}}_i'. \tag{3.5}
+\end{equation}
+Legendre-transforming the COM and nuclear momenta only, $\mathcal{R}=\mathbf{P}_{\mathrm{cm}}\!\cdot\!\dot{\mathbf{R}}_{\mathrm{cm}}+\sum_j\mathbf{P}'_j\!\cdot\!\dot{\mathbf{R}}'_j-H$, yields the \textbf{Routhian}
+\begin{equation}
+\boxed{\;\mathcal{R}=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf{R}}_{\mathrm{cm}}|^2+\tfrac12\sum_j M_j|\dot{\mathbf{R}}_j'|^2-H_e(\mathbf{p}'_i)-V,\qquad H_e\equiv\sum_i\frac{\mathbf{p}_i^{'\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{2},\;} \tag{3.6}
+\end{equation}
+which is a Lagrangian in $(\mathbf{R}_{\mathrm{cm}},\mathbf{R}'_j)$ and \emph{minus} a Hamiltonian in $(\mathbf{r}'_i,\mathbf{p}'_i)$: extremizing $\int\mathcal{R}\,dt$ gives Euler--Lagrange equations for the COM and nuclei and Hamilton's equations for the electrons. The electronic kinetic energy and mass polarization thus retain their (2.13) momentum form $H_e$ --- they are never converted to velocity form. (The overall minus sign on $H_e$ is the Routhian's partial-Legendre signature; the mass polarization keeps its physical positive coefficient $+1/2M_N$ inside $H_e$, and the whole $H_e$ re-enters the Hamiltonian with a plus sign when it is reassembled in (3.22).)
+
+\subsection{Body-fixed Routhian}
+
+Substitute the body-fixed velocities (3.3) into the nuclear term of (3.6); the COM term is untouched by the rotation. The electron Hamiltonian $H_e$ is a \emph{rotational scalar} --- it is built from the dot products $\mathbf{p}'_i\!\cdot\!\mathbf{p}'_l$ --- so under the passive rotation to the body frame it is unchanged in form. Defining the body-fixed electron momenta $\bar{\mathbf{p}}_i\equiv\mathbf{S}^{T}\mathbf{p}'_i$ (a proper rotation, so $|\bar{\mathbf{p}}_i|^2=|\mathbf{p}'_i|^2$ and $\sum_i\bar{\mathbf{p}}_i=\mathbf{S}^{T}\sum_i\mathbf{p}'_i$, whence $(\sum_i\bar{\mathbf{p}}_i)^2=(\sum_i\mathbf{p}'_i)^2$),
+\begin{equation}
+H_e=\sum_i\frac{\mathbf{p}_i^{'\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{2}=\sum_i\frac{\bar{\mathbf{p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf{p}}_i\Bigr)^{2}. \tag{3.6a}
+\end{equation}
+Defining $\bar{\mathbf{r}}\equiv\sum_i\bar{\mathbf{r}}_i$, the body-fixed Routhian is therefore
+\begin{equation}
+\mathcal{R}=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf{R}}_{\mathrm{cm}}|^2+\tfrac12\!\sum_j M_j|\boldsymbol{\omega}\!\times\!\bar{\mathbf{R}}_j+\dot{\bar{\mathbf{R}}}_j|^2-\sum_i\frac{\bar{\mathbf{p}}_i^{\,2}}{2m_e}-\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf{p}}_i\Bigr)^{2}-V, \tag{3.7}
+\end{equation}
+in which only the nuclear kinetic term carries the body-fixed angular velocity $\boldsymbol{\omega}$. The potential is now manifestly $\mathbf{S}$-independent:
+\begin{equation}
+V=\frac{1}{4\pi\epsilon_0}\left(\frac{1}{2}\!\sum_{j\ne k}\!\frac{Z_jZ_ke^2}{\bar R_{jk}}-\!\sum_{j,i}\!\frac{Z_je^2}{|\bar{\mathbf{R}}_j-\bar{\mathbf{r}}_i|}+\frac{1}{2}\!\sum_{i\ne l}\!\frac{e^2}{\bar{r}_{il}}\right). \tag{3.8}
+\end{equation}
+Rotational symmetry is rendered explicit; the BF electronic problem at fixed $Q$ is self-contained.
+
+\subsection{Expanding (3.7)}
+
+\subsubsection{Generic squared-term identity}
+
+For any vectors $\mathbf{a},\dot{\mathbf{a}},\boldsymbol{\omega}\in\mathbb{R}^3$, the BCH-style identity $\mathbf{a}\!\times\!(\boldsymbol{\omega}\!\times\!\mathbf{a})=\boldsymbol{\omega}\,a^2-\mathbf{a}(\mathbf{a}\!\cdot\!\boldsymbol{\omega})$ gives
+\begin{align}
+|\boldsymbol{\omega}\!\times\!\mathbf{a}|^{2} 
+&= (\boldsymbol{\omega}\!\times\!\mathbf{a})\!\cdot\!(\boldsymbol{\omega}\!\times\!\mathbf{a})
+\;=\; \boldsymbol{\omega}\!\cdot\!\bigl[\mathbf{a}\!\times\!(\boldsymbol{\omega}\!\times\!\mathbf{a})\bigr] \nonumber\\
+&= \boldsymbol{\omega}\!\cdot\!\bigl[\boldsymbol{\omega}\,a^{2}-\mathbf{a}(\mathbf{a}\!\cdot\!\boldsymbol{\omega})\bigr]
+\;=\; \boldsymbol{\omega}^{T}(a^{2}\mathbb{1}-\mathbf{a}\mathbf{a}^{T})\,\boldsymbol{\omega}, \tag{3.9a}
+\end{align}
+while the scalar triple product gives
+\begin{equation}
+(\boldsymbol{\omega}\!\times\!\mathbf{a})\!\cdot\!\dot{\mathbf{a}}
+\;=\; \boldsymbol{\omega}\!\cdot\!(\mathbf{a}\!\times\!\dot{\mathbf{a}}). \tag{3.9b}
+\end{equation}
+Hence, for any constant mass-like coefficient $m$,
+\begin{align}
+\tfrac{m}{2}\bigl|\boldsymbol{\omega}\!\times\!\mathbf{a} + \dot{\mathbf{a}}\bigr|^{2}
+&= \tfrac{m}{2}\bigl[|\boldsymbol{\omega}\!\times\!\mathbf{a}|^{2} + 2(\boldsymbol{\omega}\!\times\!\mathbf{a})\!\cdot\!\dot{\mathbf{a}} + |\dot{\mathbf{a}}|^{2}\bigr] \nonumber\\
+&= \underbrace{\tfrac{m}{2}\,\boldsymbol{\omega}^{T}(a^{2}\mathbb{1}-\mathbf{a}\mathbf{a}^{T})\boldsymbol{\omega}}_{\text{rotational}} \;+\; \underbrace{m\,\boldsymbol{\omega}\!\cdot\!(\mathbf{a}\!\times\!\dot{\mathbf{a}})}_{\text{Coriolis-type}} \;+\; \underbrace{\tfrac{m}{2}|\dot{\mathbf{a}}|^{2}}_{\text{vibrational}}. \tag{3.9c}
+\end{align}
+
+\subsubsection{Application to the nuclear term}
+
+Only the nuclear kinetic term of the Routhian (3.7) carries $\boldsymbol{\omega}$. Apply (3.9c) with $m\!\to\! M_j$, $\mathbf{a}\!\to\!\bar{\mathbf{R}}_j$ and sum over $j$:
+\begin{equation}
+\tfrac12\!\sum_j M_j\bigl|\boldsymbol{\omega}\!\times\!\bar{\mathbf{R}}_j+\dot{\bar{\mathbf{R}}}_j\bigr|^{2}
+\;=\; \tfrac12\boldsymbol{\omega}^{T}\!\mathbf{I}_N\boldsymbol{\omega} \;+\; \boldsymbol{\omega}\!\cdot\!\mathbf{L}_N^{\mathrm{vib}} \;+\; T_{\mathrm{vib}}^{N}. \tag{3.9d}
+\end{equation}
+The electronic kinetic energy is \emph{not} expanded this way --- it is carried as the rotational scalar $H_e$ of (3.6a). Only for the velocity-form cross-check of \S\,3.6 do we record the decomposition that the electronic and mass-polarization terms \emph{would} produce if the electrons were instead kept in velocity form,
+\begin{equation}
+\tfrac{m_e}{2}\!\sum_i\bigl|\boldsymbol{\omega}\!\times\!\bar{\mathbf{r}}_i+\dot{\bar{\mathbf{r}}}_i\bigr|^{2}
+= \tfrac12\boldsymbol{\omega}^{T}\!\mathbf{I}_e\boldsymbol{\omega} + \boldsymbol{\omega}\!\cdot\!\mathbf{L}_e + T_{e}^{\mathrm{BF}},\qquad
+-\tfrac{m_e^{2}}{2M_{\mathrm{tot}}}\bigl|\boldsymbol{\omega}\!\times\!\bar{\mathbf{r}}+\dot{\bar{\mathbf{r}}}\bigr|^{2}
+= -\tfrac12\boldsymbol{\omega}^{T}\!\mathbf{I}_X\boldsymbol{\omega} - \boldsymbol{\omega}\!\cdot\!\mathbf{L}_X - T_{X}^{\mathrm{mp}}. \tag{3.9e}
+\end{equation}
+
+The constituent inertia tensors are
+\begin{equation}
+\mathbf{I}_N=\sum_j M_j(\bar R_j^2\mathbb{1}-\bar{\mathbf{R}}_j\bar{\mathbf{R}}_j^T),\qquad \mathbf{I}_e=m_e\!\sum_i(\bar r_i^2\mathbb{1}-\bar{\mathbf{r}}_i\bar{\mathbf{r}}_i^T), \tag{3.9}
+\end{equation}
+\begin{equation}
+\mathbf{I}_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb{1}-\bar{\mathbf{r}}\bar{\mathbf{r}}^T), \tag{3.10}
+\end{equation}
+the angular-momentum-like (velocity-form) quantities are
+\begin{equation}
+\mathbf{L}_N^{\mathrm{vib}}=\sum_jM_j\bar{\mathbf{R}}_j\!\times\!\dot{\bar{\mathbf{R}}}_j,\quad \mathbf{L}_e=m_e\!\sum_i\bar{\mathbf{r}}_i\!\times\!\dot{\bar{\mathbf{r}}}_i,\quad \mathbf{L}_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}\bar{\mathbf{r}}\!\times\!\dot{\bar{\mathbf{r}}}, \tag{3.11}
+\end{equation}
+and the ``vibrational'' kinetic pieces are
+\begin{equation}
+T_{\mathrm{vib}}^{N}=\tfrac12\!\sum_jM_j|\dot{\bar{\mathbf{R}}}_j|^2=\tfrac12\!\sum_b\dot Q_b^2,\quad T_{e}^{\mathrm{BF}}=\tfrac{m_e}{2}\!\sum_i|\dot{\bar{\mathbf{r}}}_i|^2,\quad T_X^{\mathrm{mp}}=\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf{r}}}|^2. \tag{3.12}
+\end{equation}
+
+\subsubsection{Assembled Routhian}
+
+Inserting the nuclear expansion (3.9d) into (3.7), together with the decoupled COM term, the electron scalar $H_e$, and the potential:
+\begin{equation}
+\boxed{\;\mathcal{R}=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf{R}}_{\mathrm{cm}}|^2+\underbrace{\tfrac12\boldsymbol{\omega}^{T}\mathbf{I}_N\,\boldsymbol{\omega}+\boldsymbol{\omega}\!\cdot\!\mathbf{L}_N^{\mathrm{vib}}+T_{\mathrm{vib}}^{N}}_{\text{nuclear, velocity form}}\;-\;H_e\;-\;V.\;} \tag{3.13}
+\end{equation}
+The rotational kernel is the \textbf{nuclear} inertia $\mathbf{I}_N$ \emph{alone}: because the electrons are carried as the scalar $H_e$ rather than expanded in $\boldsymbol{\omega}$, no electronic or mass-polarization inertia ($\mathbf{I}_e$, $\mathbf{I}_X$) enters the kernel. The electrons couple to rotation only \emph{kinematically}, through their angular momentum, which we identify next. The body-fixed electron momenta and the \textbf{electronic angular momentum} are
+\begin{equation}
+\bar{\mathbf{p}}_i=\mathbf{S}^{T}\mathbf{p}'_i,\qquad \mathbf{L}_{\mathrm{elec}}\equiv\sum_i\bar{\mathbf{r}}_i\!\times\!\bar{\mathbf{p}}_i. \tag{3.14}
+\end{equation}
+\textbf{Remark.} The electronic and mass-polarization inertia/angular-momentum quantities $\mathbf{I}_e,\mathbf{I}_X,\mathbf{L}_e,\mathbf{L}_X$ of (3.9)--(3.11), and the velocity-form decomposition (3.9e), are needed \emph{only} in the cross-check of \S\,3.6; they play no role in the Routhian (3.13) itself.
+
+\subsection{Canonical momenta and the total angular momentum}
+
+Compute the conjugate momenta from the Routhian $\mathcal{R}$. The cyclic COM coordinate gives the conserved total momentum $\mathbf{P}_{\mathrm{cm}}=\partial \mathcal{R}/\partial\dot{\mathbf{R}}_{\mathrm{cm}}=M_{\mathrm{tot}}\dot{\mathbf{R}}_{\mathrm{cm}}$; being decoupled, it contributes nothing to the internal momenta below. The electron momenta $\bar{\mathbf{p}}_i$ are already canonical [eq.~(3.14)]; it remains to find the rotational and vibrational momenta, most transparently by differentiating the unexpanded nuclear term of (3.7).
+
+\subsubsection{Nuclear angular momentum $\mathbf{J}_N=\partial \mathcal{R}/\partial\boldsymbol{\omega}$}
+
+In the Routhian (3.13) only the nuclear rotational kernel and the nuclear Coriolis piece carry $\boldsymbol{\omega}$ --- the electron scalar $H_e$ and the COM term do not. The momentum conjugate to the body-fixed angular velocity is therefore the \emph{nuclear} angular momentum
+\begin{equation}
+\mathbf{J}_N\;\equiv\;\frac{\partial \mathcal{R}}{\partial\boldsymbol{\omega}}=\mathbf{I}_N\,\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}}. \tag{3.15}
+\end{equation}
+
+\subsubsection{Total angular momentum $\mathbf{J}=\mathbf{J}_N+\mathbf{L}_{\mathrm{elec}}$}
+
+The body-fixed frame $\mathbf{S}(\Omega)$ rotates the nuclei \emph{and} the electrons together [eq.~(3.1)], so the total angular momentum conjugate to the Euler angles --- the physical, conserved rovibronic angular momentum --- is the sum of the nuclear and electronic contributions. The electronic part is the canonical electron angular momentum $\mathbf{L}_{\mathrm{elec}}=\sum_i\bar{\mathbf{r}}_i\!\times\!\bar{\mathbf{p}}_i$ of (3.14), the body-fixed image of $\sum_i\mathbf{r}'_i\!\times\!\mathbf{p}'_i$ (the cross product co-rotates with $\mathbf{S}$). Hence
+\begin{equation}
+\mathbf{J}=\mathbf{J}_N+\mathbf{L}_{\mathrm{elec}}=\mathbf{I}_N\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}}+\mathbf{L}_{\mathrm{elec}}. \tag{3.16}
+\end{equation}
+
+\subsubsection{Vibrational momentum $P_b=\partial \mathcal{R}/\partial\dot Q_b$}
+
+Only $\dot{\bar{\mathbf{R}}}_j$ carries $\dot Q_b$ dependence; with $\partial\bar{\mathbf{R}}_j/\partial Q_b=\mathbf{l}_{jb}/\sqrt{M_j}$ from (3.1a),
+\begin{equation}
+P_b\;\equiv\;\frac{\partial \mathcal{R}}{\partial\dot Q_b}=\sum_jM_j\bigl(\boldsymbol{\omega}\!\times\!\bar{\mathbf{R}}_j+\dot{\bar{\mathbf{R}}}_j\bigr)\!\cdot\!\frac{\partial\bar{\mathbf{R}}_j}{\partial Q_b}=\sum_j\sqrt{M_j}\,\bigl(\boldsymbol{\omega}\!\times\!\bar{\mathbf{R}}_j+\dot{\bar{\mathbf{R}}}_j\bigr)\!\cdot\!\mathbf{l}_{jb}. \tag{3.17}
+\end{equation}
+Separating the rotational and vibrational pieces defines the \textbf{Coriolis vectors} $\boldsymbol{\sigma}_b$,
+\begin{equation}
+\boldsymbol{\sigma}_b \equiv \sum_jM_j\,\bar{\mathbf{R}}_j\!\times\!\frac{\partial\bar{\mathbf{R}}_j}{\partial Q_b}=\sum_j\sqrt{M_j}\,\bar{\mathbf{R}}_j\!\times\!\mathbf{l}_{jb}=\sum_a\boldsymbol{\zeta}_{ab}\,Q_a,\qquad \boldsymbol{\zeta}_{ab}\equiv\sum_j\mathbf{l}_{ja}\!\times\!\mathbf{l}_{jb}, \tag{3.17a}
+\end{equation}
+the second form following from (3.1a) with the Eckart condition $\sum_j\sqrt{M_j}\bar{\mathbf{R}}_j^{\mathrm{eq}}\!\times\!\mathbf{l}_{jb}=0$. The vibrational metric is the identity, $\sum_jM_j(\partial\bar{\mathbf{R}}_j/\partial Q_a)\!\cdot\!(\partial\bar{\mathbf{R}}_j/\partial Q_b)=\sum_j\mathbf{l}_{ja}\!\cdot\!\mathbf{l}_{jb}=\delta_{ab}$, so the canonical vibrational momentum carries \emph{no} Wilson $G$-matrix,
+\begin{equation}
+P_b \;=\; \boldsymbol{\omega}\!\cdot\!\boldsymbol{\sigma}_b(Q) \;+\; \dot Q_b. \tag{3.17b}
+\end{equation}
+
+\subsection{Key identity}
+
+\subsubsection{The clean split}
+
+The total-angular-momentum decomposition (3.16) \emph{is} the key identity: subtracting the electronic part from both sides,
+\begin{equation}
+\boxed{\;\mathbf{J}-\mathbf{L}_{\mathrm{elec}}=\mathbf{I}_N(Q)\,\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}}.\;} \tag{3.19}
+\end{equation}
+The right side is a purely nuclear-velocity quantity, with the \emph{nuclear} inertia $\mathbf{I}_N$ as rotational kernel. The entire electronic and mass-polarization content sits on the left, in the kinematic shift $\mathbf{J}\to\mathbf{J}-\mathbf{L}_{\mathrm{elec}}$; it never enters the kernel, because in the Routhian (3.13) the electrons were carried as the scalar $H_e$ and contributed no inertia at all.
+
+\subsubsection{Cross-check: the $\mathbf{I}_e/\mathbf{I}_X$ cancellation of the velocity-form route}
+
+Had we instead converted the electrons to velocity form --- expanding their kinetic energy via (3.9e) --- the electronic inertia and Coriolis terms would have entered \emph{both} $\mathbf{J}$ and $\mathbf{L}_{\mathrm{elec}}$, and (3.19) would emerge only after an exact cancellation. The velocity-form electron momentum is $\bar{\mathbf{p}}_i=m_e(\boldsymbol{\omega}\!\times\!\bar{\mathbf{r}}_i+\dot{\bar{\mathbf{r}}}_i)-\tfrac{m_e^2}{M_{\mathrm{tot}}}(\boldsymbol{\omega}\!\times\!\bar{\mathbf{r}}+\dot{\bar{\mathbf{r}}})$ [the body-fixed image of (3.5)]; substituting into $\mathbf{L}_{\mathrm{elec}}=\sum_i\bar{\mathbf{r}}_i\!\times\!\bar{\mathbf{p}}_i$ and using the BAC--CAB identity $\mathbf{a}\!\times\!(\boldsymbol{\omega}\!\times\!\mathbf{a})=(a^2\mathbb{1}-\mathbf{a}\mathbf{a}^{T})\boldsymbol{\omega}$ on the two $\boldsymbol{\omega}$-terms collapses the four pieces to
+\begin{equation}
+\mathbf{L}_{\mathrm{elec}}=(\mathbf{I}_e-\mathbf{I}_X)\boldsymbol{\omega}+(\mathbf{L}_e-\mathbf{L}_X), \tag{3.18}
+\end{equation}
+with $\mathbf{I}_e,\mathbf{I}_X,\mathbf{L}_e,\mathbf{L}_X$ from (3.9)--(3.11). The velocity-form total angular momentum would read $\mathbf{J}=(\mathbf{I}_N+\mathbf{I}_e-\mathbf{I}_X)\boldsymbol{\omega}+(\mathbf{L}_N^{\mathrm{vib}}+\mathbf{L}_e-\mathbf{L}_X)$ [from (3.9d)+(3.9e)], so
+\begin{equation*}
+\mathbf{J}-\mathbf{L}_{\mathrm{elec}}=\mathbf{I}_N\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}}+\underbrace{\bigl[(\mathbf{I}_e-\mathbf{I}_X)\boldsymbol{\omega}+(\mathbf{L}_e-\mathbf{L}_X)\bigr]-\mathbf{L}_{\mathrm{elec}}}_{=\,0\ \text{by (3.18)}}=\mathbf{I}_N\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}},
+\end{equation*}
+reproducing (3.19): the electronic inertia $\mathbf{I}_e$ and the mass-polarization inertia $\mathbf{I}_X$ cancel \emph{exactly}. This ``algebraic miracle'' of the Eckart construction is automatic in the mixed treatment, where $\mathbf{I}_e$ and $\mathbf{I}_X$ never arise.
+
+\subsubsection{Inversion: the Watson reciprocal inertia}
+
+To invert (3.19) for $\boldsymbol{\omega}$ we must re-express the velocity-form $\mathbf{L}_N^{\mathrm{vib}}$ in canonical variables. In normal coordinates $\mathbf{L}_N^{\mathrm{vib}}=\sum_jM_j\bar{\mathbf{R}}_j\!\times\!\dot{\bar{\mathbf{R}}}_j=\sum_b\boldsymbol{\sigma}_b\,\dot Q_b$; eliminating $\dot Q_b=P_b-\boldsymbol{\omega}\!\cdot\!\boldsymbol{\sigma}_b$ from (3.17b),
+\begin{equation}
+\mathbf{L}_N^{\mathrm{vib}}=\sum_b\boldsymbol{\sigma}_b\bigl(P_b-\boldsymbol{\omega}\!\cdot\!\boldsymbol{\sigma}_b\bigr)=\boldsymbol{\pi}-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}\boldsymbol{\omega},\qquad
+\boldsymbol{\pi}\equiv\sum_b\boldsymbol{\sigma}_bP_b,\quad \boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}\equiv\sum_b\boldsymbol{\sigma}_b\boldsymbol{\sigma}_b^{\mathsf T}, \tag{3.20a}
+\end{equation}
+with $\boldsymbol{\pi}$ the \textbf{field-free vibrational angular momentum}. Substituting into (3.19), $\mathbf{J}-\mathbf{L}_{\mathrm{elec}}=(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})\boldsymbol{\omega}+\boldsymbol{\pi}\equiv\mathbf{I}'\boldsymbol{\omega}+\boldsymbol{\pi}$, so
+\begin{equation}
+\boldsymbol{\omega}=\boldsymbol{\mu}\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr),\qquad
+\boxed{\;\boldsymbol{\mu}\equiv(\mathbf{I}')^{-1}=\bigl(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T}\bigr)^{-1},\;} \tag{3.20}
+\end{equation}
+the \textbf{Watson reciprocal-inertia tensor}~\cite{watson1968}. The rotation--vibration coupling is now carried by the modified inertia $\mathbf{I}'$ and the uniform shift $\mathbf{J}\to\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}$ --- with no Wilson $G$-matrix.
+
+\subsection{Hamiltonian in canonical variables}
+
+We now assemble the body-fixed Hamiltonian in the canonical variables $(\Omega,\mathbf{J};\,Q,P_b;\,\bar{\mathbf{r}}_i,\bar{\mathbf{p}}_i)$. The total energy splits as $H=\mathbf{P}_{\mathrm{cm}}^2/2M_{\mathrm{tot}}+H_{\mathrm{int}}$, the COM piece being a decoupled spectator. The internal Hamiltonian is the sum of the nuclear rotation--vibration kinetic energy, the electron scalar, and the potential,
+\begin{equation*}
+H_{\mathrm{int}}=T_N^{\mathrm{rot+vib}}+H_e+V,\qquad T_N^{\mathrm{rot+vib}}\equiv\tfrac12\boldsymbol{\omega}^{T}\mathbf{I}_N\boldsymbol{\omega}+\boldsymbol{\omega}\!\cdot\!\mathbf{L}_N^{\mathrm{vib}}+T_{\mathrm{vib}}^{N},
+\end{equation*}
+read off the Routhian (3.13). The electron scalar $H_e$ [eq.~(3.6a)] and the potential $V$ are already canonical; only $T_N^{\mathrm{rot+vib}}$ must be re-expressed through the momenta $(\mathbf{J},P_b)$.
+
+\subsubsection{Nuclear rotation--vibration block}
+
+$T_N^{\mathrm{rot+vib}}$ is homogeneous-quadratic in the nuclear velocities $(\boldsymbol{\omega},\dot Q_b)$, so by Euler's theorem $2T_N^{\mathrm{rot+vib}}=\mathbf{J}_N\!\cdot\!\boldsymbol{\omega}+\sum_b P_b\dot Q_b$, with conjugate momenta $\mathbf{J}_N=\mathbf{J}-\mathbf{L}_{\mathrm{elec}}$ [eqs.~(3.15),(3.19)] and $P_b$ [eq.~(3.17b)]. Substituting $\dot Q_b=P_b-\boldsymbol{\omega}\!\cdot\!\boldsymbol{\sigma}_b$ and $\sum_b P_b\boldsymbol{\sigma}_b=\boldsymbol{\pi}$,
+\begin{equation*}
+2T_N^{\mathrm{rot+vib}}=(\mathbf{J}-\mathbf{L}_{\mathrm{elec}})\!\cdot\!\boldsymbol{\omega}+\sum_bP_b\bigl(P_b-\boldsymbol{\omega}\!\cdot\!\boldsymbol{\sigma}_b\bigr)=(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi})\!\cdot\!\boldsymbol{\omega}+\sum_bP_b^2 .
+\end{equation*}
+Inserting $\boldsymbol{\omega}=\boldsymbol{\mu}(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi})$ from (3.20),
+\begin{equation}
+\boxed{\;T_N^{\mathrm{rot+vib}}\Big|_{\mathrm{canonical}} \;=\; \tfrac12(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi})^{T}\boldsymbol{\mu}\,(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}) + \tfrac12\sum_{b}P_b^2.\;} \tag{3.20d}
+\end{equation}
+The vibrational kinetic energy is the \emph{bare} $\tfrac12\sum_bP_b^2$; the entire rotation--vibration coupling is carried by $\boldsymbol{\pi}$ and by the Watson inertia $\boldsymbol{\mu}=(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})^{-1}$ --- no Wilson $G$-matrix survives.
+
+\subsubsection{Electronic block}
+
+The electronic kinetic energy and mass polarization require no further work: they are the rotational scalar $H_e$ of (3.6a), carried unchanged from the internal Hamiltonian (2.13),
+\begin{equation}
+\boxed{\;H_e=\sum_i\frac{\bar{\mathbf{p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf{p}}_i\Bigr)^{2}.\;} \tag{3.21}
+\end{equation}
+Because $H_e$ is built from the rotation-invariant dot products $\bar{\mathbf{p}}_i\!\cdot\!\bar{\mathbf{p}}_l$ and $\bar{\mathbf{p}}_i=\mathbf{S}^{T}\mathbf{p}'_i$ is a passive rotation, its body-fixed form is \emph{identical} to the internal Hamiltonian's form (2.13) under $\mathbf{p}'_i\to\bar{\mathbf{p}}_i$ --- no Legendre transform or angular-momentum expansion is needed. The mass polarization survives the body-fixed transformation intact in functional form.
+
+\emph{Reduced-mass check} ($N_{\mathrm{elec}}=1$): $H_e=\bar{\mathbf{p}}_1^{\,2}/(2m_e)+\bar{\mathbf{p}}_1^{\,2}/(2M_N)=\bar{\mathbf{p}}_1^{\,2}/(2\mu_e)$ with $\mu_e=m_eM_N/(m_e+M_N)=m_eM_N/M_{\mathrm{tot}}$. $\checkmark$
+
+\subsubsection{Final assembly: (3.22)}
+
+Add (3.20d) and (3.21), include $V = V_{NN}(Q)+V_{Ne}(Q,\{\bar{\mathbf{r}}_i\})+V_{ee}(\{\bar{\mathbf{r}}_i\})$ from (3.8), and use $H_{\mathrm{int}} = T_N^{\mathrm{rot+vib}}+H_e+V$:
+\begin{equation}
+\boxed{
+\begin{aligned}
+H_{\mathrm{int}}\;=\;& \tfrac12\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr)^T\boldsymbol{\mu}(Q)\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr) \\
+& +\tfrac12\!\sum_{b}P_b^2 \\
+& +\sum_i\frac{\bar{\mathbf{p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\!\Bigl(\sum_i\bar{\mathbf{p}}_i\Bigr)^{\!2} \\
+& +V_{NN}(Q)+V_{Ne}(Q,\{\bar{\mathbf{r}}_i\})+V_{ee}(\{\bar{\mathbf{r}}_i\}).
+\end{aligned}}\tag{3.22}
+\end{equation}
+
+Restoring the decoupled COM piece, the complete canonical Hamiltonian is $H = \mathbf{P}_{\mathrm{cm}}^2/2M_{\mathrm{tot}} + H_{\mathrm{int}}$ with $H_{\mathrm{int}}$ given by (3.22) --- exact for \emph{any} $\mathbf{P}_{\mathrm{cm}}$. The COM term is a conserved free-particle spectator that decouples from every body-fixed variable, so the quantization of Section 4 proceeds with $H_{\mathrm{int}}$.
+
+Here $\boldsymbol{\pi}=\sum_b\boldsymbol{\sigma}_bP_b$ is the field-free vibrational angular momentum, with the Coriolis vectors $\boldsymbol{\sigma}_b=\sum_a\boldsymbol{\zeta}_{ab}Q_a$ of (3.17a) and constants $\boldsymbol{\zeta}_{ab}=\sum_j\mathbf{l}_{ja}\!\times\!\mathbf{l}_{jb}$; the vibrational metric being the identity, no Wilson $G$-matrix enters.
+
+$\mathbf{L}_{\mathrm{elec}}=\sum_i\bar{\mathbf{r}}_i\!\times\!\bar{\mathbf{p}}_i$ is the BF canonical electronic angular momentum, and crucially:
+\begin{itemize}
+    \item $\boldsymbol{\mu}=(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})^{-1}$ is the \textbf{Watson reciprocal-inertia tensor}, built from nuclear quantities alone: \emph{no} electron or mass-polarization corrections enter the rotational kernel --- they were absorbed into $\mathbf{L}_{\mathrm{elec}}$ via (3.19).
+    \item The electron contribution to rotation appears entirely as the Coriolis-like coupling $-\mathbf{J}^T\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$.
+    \item The mass polarization is preserved in its $\Bigl(\sum_i\bar{\mathbf{p}}_i\Bigr)^{\!2}\!\!/(2M_N)$ form.
+\end{itemize}
+
+\subsection{Complete coupling enumeration}
+
+Expanding the rotational kernel:
+$$
+\tfrac12\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr)^T\boldsymbol{\mu}\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr)=
+$$
+$$
+\underbrace{\tfrac12\mathbf{J}^T\boldsymbol{\mu}\mathbf{J}}_{\text{rotation}}
+\underbrace{-\mathbf{J}^T\boldsymbol{\mu}\boldsymbol{\pi}}_{\text{rot–vib Coriolis}}
+\underbrace{-\mathbf{J}^T\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}}_{\text{rot–elec Coriolis}}
+\underbrace{+\boldsymbol{\pi}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}}_{\text{vib–elec angular}}
++\tfrac12\boldsymbol{\pi}^{T}\boldsymbol{\mu}\boldsymbol{\pi}+\tfrac12\mathbf{L}_{\mathrm{elec}}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}.
+$$
+
+All couplings in (3.22), referred to the standard analyses~\cite{watson1968,bunkerjensen}:
+\begin{enumerate}
+    \item \textbf{Pure rotation, anisotropic top:} $\tfrac12\mathbf{J}^T\boldsymbol{\mu}(Q)\mathbf{J}$ --- $Q$-dependent moments of inertia (rot–vib coupling through inertia).
+    \item \textbf{Rot–vib Coriolis}~\cite{wilson1955}: $-\mathbf{J}^T\boldsymbol{\mu}\boldsymbol{\pi}$.
+    \item \textbf{Rot–electron Coriolis:} $-\mathbf{J}^T\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$ --- the kinetic source of $\Lambda$-doubling~\cite{mullikenchristy1931,vanvleck1951}, Renner–Teller~\cite{renner1934}, and spin–rotation~\cite{curl1965} analogues.
+    \item \textbf{Vib–electron angular coupling:} $\boldsymbol{\pi}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$ --- exact non-adiabatic angular coupling intrinsic to BF embedding~\cite{bornoppenheimer1927,bornhuang1954,littlejohn1997}.
+    \item \textbf{Quadratic vibrational angular momentum:} $\tfrac12\boldsymbol{\pi}^{T}\boldsymbol{\mu}\boldsymbol{\pi}$.
+    \item \textbf{Quadratic electronic angular momentum:} $\tfrac12\mathbf{L}_{\mathrm{elec}}^{T}\boldsymbol{\mu}\mathbf{L}_{\mathrm{elec}}$.
+    \item \textbf{Pure vibrational kinetic:} $\tfrac12\sum_{b}P_b^2$.
+    \item \textbf{Electronic kinetic:} $\sum_i\bar{\mathbf{p}}_i^{\,2}/(2m_e)$.
+    \item \textbf{Mass-polarization, diagonal:} $\sum_i\bar{\mathbf{p}}_i^{\,2}/(2M_N)$ --- modifies effective electron mass~\cite{bornoppenheimer1927,bunkerjensen}.
+    \item \textbf{Mass-polarization, off-diagonal (two-electron):} $\sum_{i<l}\bar{\mathbf{p}}_i\!\cdot\!\bar{\mathbf{p}}_l/M_N$.
+    \item \textbf{Coulomb:} $V_{NN}(Q)+V_{Ne}(Q,\{\bar{\mathbf{r}}_i\})+V_{ee}(\{\bar{\mathbf{r}}_i\})$. All Euler-angle independent.
+\end{enumerate}
+
+Compared to the previous (electrons-in-SF) framework: kinetic rot–electron coupling has \emph{replaced} potential rot–electron coupling. $V_{Ne}$ is now manifestly $\mathbf{S}$-independent --- the canonical chemistry advantage.\newpage
