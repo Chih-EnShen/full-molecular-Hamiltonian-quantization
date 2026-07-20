@@ -104,18 +104,41 @@ The \emph{only} ingredients are:
 \setstage{1}
 \section{Classical Cartesian Hamiltonian}
 
-\begin{frame}{The starting point (lab frame)}
+\begin{frame}{The Lagrangian in the lab frame}
 \setstage{1}
-$N_{\mathrm{nucl}}$ nuclei ($M_j,Z_je,\mathbf R_j,\mathbf P_j$) and $N_{\mathrm{elec}}$ electrons ($m_e,-e,\mathbf r_i,\mathbf p_i$), all in the space-fixed frame; SI units:
+$N_{\mathrm{nucl}}$ nuclei ($M_j,Z_je,\mathbf R_j$) and $N_{\mathrm{elec}}$ electrons ($m_e,-e,\mathbf r_i$), all in the space-fixed frame; SI units. The Lagrangian is kinetic minus potential:
+\begin{equation*}
+L = \sum_j\tfrac12 M_j\dot{\mathbf R}_j^{\,2} + \sum_i\tfrac12 m_e\dot{\mathbf r}_i^{\,2} - V(\mathbf R_j,\mathbf r_i).
+\end{equation*}
+Differentiate $L$ with respect to each velocity to get the \alert{canonical momenta}:
+\begin{equation*}
+\boxed{\;\mathbf{P}_j \equiv \frac{\partial L}{\partial\dot{\mathbf R}_j} = M_j\dot{\mathbf R}_j,
+\qquad
+\mathbf{p}_i \equiv \frac{\partial L}{\partial\dot{\mathbf r}_i} = m_e\dot{\mathbf r}_i.\;}
+\end{equation*}
+Canonical brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$, $\{r_{i\alpha},p_{j\beta}\}=\delta_{ij}\delta_{\alpha\beta}$.
+\begin{itemize}
+  \item Kinetic energy is diagonal and quadratic in Cartesian velocities: \emph{canonical momentum $=$ mass $\times$ velocity}, no surprises.
+  \item This is the \emph{only} stage of the whole paper where canonical and mechanical momentum coincide.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Legendre transform to the Hamiltonian}
+\setstage{1}
+The three-move recipe (we reuse it, less trivially, in a moment):
+\begin{enumerate}
+  \item \textbf{Define} $p_q\equiv\partial L/\partial\dot q$ for every coordinate.
+  \item \textbf{Invert} for every velocity as a function of the momenta.
+  \item \textbf{Assemble} $H\equiv\sum_qp_q\dot q-L$ and substitute.
+\end{enumerate}
+Here step 2 is immediate, $\dot{\mathbf R}_j=\mathbf P_j/M_j$, $\dot{\mathbf r}_i=\mathbf p_i/m_e$; step 3 gives
 \begin{equation*}
 H = \underbrace{\sum_{j}\frac{\mathbf{P}_j^{\,2}}{2M_j}}_{T_N} + \underbrace{\sum_{i}\frac{\mathbf{p}_i^{\,2}}{2m_e}}_{T_e} + V, \tag{1.1}
 \end{equation*}
 \begin{equation*}
 V = \frac{1}{4\pi\epsilon_0}\left(\frac12\sum_{i\ne j}\frac{Z_i Z_j e^2}{R_{ij}} - \sum_{i,j}\frac{Z_j e^2}{|\mathbf{R}_j-\mathbf{r}_i|} + \frac12\sum_{i\ne j}\frac{e^2}{r_{ij}}\right). \tag{1.2}
 \end{equation*}
-Canonical brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$, $\{r_{i\alpha},p_{j\beta}\}=\delta_{ij}\delta_{\alpha\beta}$.
 \vspace{0.5ex}
-
 \centering\footnotesize Everything that follows is an exact rewriting of (1.1)--(1.2).
 \end{frame}
 
@@ -123,49 +146,118 @@ Canonical brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$,
 \setstage{1}
 \section{Mass-centered coordinates}
 
-\begin{frame}{Two reference points}
+\begin{frame}{Two centers of mass, two roles}
 \setstage{1}
-The translational coordinate and the internal reference point \alert{need not be the same}:
+The translational coordinate and the internal reference point \alert{need not be the same}. Define
+\begin{equation*}
+M_N=\sum_jM_j,\qquad M_{\mathrm{tot}}=M_N+N_{\mathrm{elec}}m_e,
+\end{equation*}
 \begin{align*}
 \mathbf{R}_{\mathrm{ncm}} &= \frac{1}{M_N}\sum_j M_j\mathbf{R}_j,
-&\mathbf{R}_{\mathrm{cm}} &= \frac{1}{M_{\mathrm{tot}}}\Bigl(\sum_j M_j\mathbf{R}_j+m_e\sum_i\mathbf{r}_i\Bigr), \tag{2.1, 2.2}\\
-\mathbf{R}'_j &= \mathbf{R}_j-\mathbf{R}_{\mathrm{ncm}},
-&\mathbf{r}'_i &= \mathbf{r}_i-\mathbf{R}_{\mathrm{ncm}},\qquad \textstyle\sum_j M_j\mathbf{R}'_j=0. \tag{2.3, 2.4}
+&\mathbf{R}_{\mathrm{cm}} &= \frac{1}{M_{\mathrm{tot}}}\Bigl(\sum_j M_j\mathbf{R}_j+m_e\sum_i\mathbf{r}_i\Bigr), \tag{A.2, A.3}
 \end{align*}
+and refer \emph{every} internal coordinate --- nuclear and electronic --- to the \emph{nuclear} CoM:
+\begin{equation*}
+\mathbf{R}'_j = \mathbf{R}_j-\mathbf{R}_{\mathrm{ncm}},
+\qquad\mathbf{r}'_i = \mathbf{r}_i-\mathbf{R}_{\mathrm{ncm}},\qquad \textstyle\sum_j M_j\mathbf{R}'_j=0. \tag{A.4}
+\end{equation*}
 \begin{block}{The mixed choice}
 \textbf{Translation $=$ total CoM} $\Rightarrow$ correct total mass, and (we will see) the COM--internal cross terms cancel identically.\\
 \textbf{Internals referred to the nuclear CoM} $\Rightarrow$ Born--Oppenheimer-friendly coordinates, $V$ form-invariant, and the mass polarization appears \emph{by itself}.
 \end{block}
 \end{frame}
 
-\begin{frame}{Canonical momenta: mass-fraction share $+$ nuclear recoil}
+\begin{frame}{Inverting: every particle rides a shared drift}
 \setstage{1}
-The canonical momenta are written in terms of the internal momenta $\mathbf P'_j,\mathbf p'_i$:
+Solve (A.3) for the nuclear CoM, then invert (A.4) for the lab positions:
 \begin{equation*}
-\boxed{\;\mathbf{P}_j = \frac{M_j}{M_{\mathrm{tot}}}\,\mathbf{P}_{\mathrm{cm}}+\mathbf{P}'_j-\frac{M_j}{M_N}\sum_l\mathbf{p}'_l,
-\qquad \mathbf{p}_i = \frac{m_e}{M_{\mathrm{tot}}}\,\mathbf{P}_{\mathrm{cm}}+\mathbf{p}'_i.\;}\tag{2.8}
+\mathbf R_{\mathrm{ncm}} = \mathbf R_{\mathrm{cm}} - \frac{m_e}{M_{\mathrm{tot}}}\sum_l\mathbf r'_l , \tag{A.5}
 \end{equation*}
-\begin{itemize}
-  \item Each particle carries its \emph{total-mass-fraction} share of $\mathbf P_{\mathrm{cm}}$ plus its internal momentum.
-  \item Each \emph{nucleus} additionally recoils against the electrons, $-\frac{M_j}{M_N}\sum_l\mathbf p'_l$, because the internal reference point (2.1) is built from the nuclei alone.
-  \item Summing: mass fractions add to one, recoils cancel, $\sum_j\mathbf P_j+\sum_i\mathbf p_i=\mathbf P_{\mathrm{cm}}$. $\checkmark$
-\end{itemize}
+\begin{equation*}
+\mathbf R_j = \mathbf R_{\mathrm{cm}}+\mathbf R'_j-\frac{m_e}{M_{\mathrm{tot}}}\sum_l\mathbf r'_l,
+\qquad
+\mathbf r_i = \mathbf R_{\mathrm{cm}}+\mathbf r'_i-\frac{m_e}{M_{\mathrm{tot}}}\sum_l\mathbf r'_l . \tag{A.6}
+\end{equation*}
+Both families ride on the \emph{same} drift --- the nuclear-CoM velocity:
+\begin{equation*}
+\boxed{\;\mathbf D \equiv \dot{\mathbf R}_{\mathrm{ncm}} = \dot{\mathbf R}_{\mathrm{cm}}-\frac{m_e}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l,
+\qquad \dot{\mathbf R}_j=\mathbf D+\dot{\mathbf R}'_j,\qquad \dot{\mathbf r}_i=\mathbf D+\dot{\mathbf r}'_i.\;} \tag{A.7}
+\end{equation*}
+\centering\itshape Every lab velocity $=$ internal velocity $+$ one shared drift $\mathbf D$ --- passengers on a train.
 \end{frame}
 
-\begin{frame}{The Hamiltonian lands directly on the final form}
+\begin{frame}{Kinetic energy in velocity form: the mass polarization appears}
 \setstage{1}
-Insert (2.8): every nucleus has $\mathbf P_j=M_j\mathbf b+\mathbf P'_j$ with the common vector $\mathbf b=\mathbf P_{\mathrm{cm}}/M_{\mathrm{tot}}-\sum_l\mathbf p'_l/M_N$ (2.9).
-\\
-Expanding, the $\mathbf P_{\mathrm{cm}}^2$ fractions sum to $\tfrac{1}{2M_{\mathrm{tot}}}$, the cross terms cancel
-\alert{identically}, and squaring the recoil leaves the mass polarization:
+Substitute (A.7) into $T=\sum_j\tfrac12M_j\dot{\mathbf R}_j^2+\sum_i\tfrac12m_e\dot{\mathbf r}_i^2$. The nuclear cross term dies by $\sum_jM_j\dot{\mathbf R}'_j=0$; the electronic one does \emph{not}:
+\begin{equation*}
+T_N=\tfrac12M_N\mathbf D^2+\tfrac12\sum_jM_j\dot{\mathbf R}_j^{'2}, \qquad
+T_e=\tfrac12N_{\mathrm{elec}}m_e\mathbf D^2+m_e\mathbf D\!\cdot\!\sum_i\dot{\mathbf r}'_i+\tfrac12m_e\sum_i\dot{\mathbf r}_i^{'2}. \tag{A.8, A.9}
+\end{equation*}
+\pause
+Expand $\mathbf D$ in the two $\mathbf D$-dependent pieces (A.11a,b): the $\dot{\mathbf R}_{\mathrm{cm}}\!\cdot\!\sum\dot{\mathbf r}'$ cross terms cancel \alert{identically}, and the quadratic pieces combine to one \emph{negative} remainder:
+\begin{equation*}
+\boxed{\;T = \tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^{2}
++ \tfrac12\sum_j M_j\dot{\mathbf R}_j^{'2}
++ \tfrac12 m_e\sum_i\dot{\mathbf r}_i^{'2}
+- \frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl(\sum_i\dot{\mathbf r}'_i\Bigr)^{2}.\;} \tag{A.12}
+\end{equation*}
+The CoM decouples with the \emph{correct} mass $M_{\mathrm{tot}}$; the electrons carry a negative collective correction --- the mass polarization in disguise.
+\end{frame}
+
+\begin{frame}{Canonical momenta: $\partial L/\partial\dot q$, and the tricky one}
+\setstage{1}
+With $L=T-V$ ($V$ velocity-independent), differentiate the boxed $T$:
+\begin{equation*}
+\mathbf P_{\mathrm{cm}} = \frac{\partial L}{\partial\dot{\mathbf R}_{\mathrm{cm}}} = M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}},
+\qquad
+\mathbf P'_j = \frac{\partial L}{\partial\dot{\mathbf R}'_j} = M_j\dot{\mathbf R}'_j . \tag{A.13, A.17}
+\end{equation*}
+The electrons take care: \emph{two} terms of $T$ involve $\dot{\mathbf r}'_i$ (its own kinetic term, \emph{and} the mass-polarization sum), so
+\begin{equation*}
+\boxed{\;\mathbf p'_i \equiv \frac{\partial L}{\partial\dot{\mathbf r}'_i}
+= m_e\dot{\mathbf r}'_i - \frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l
+\;\ne\; m_e\dot{\mathbf r}'_i .\;} \tag{A.14}
+\end{equation*}
+\alert{Canonical $\ne$ mechanical:} moving \emph{one} electron drags the whole molecule's CoM, and $\mathbf r'_i$ is measured from the (recoiling) nuclear CoM --- every electron's momentum carries a shared correction.
+\end{frame}
+
+\begin{frame}{Inverting the electron relation}
+\setstage{1}
+Sum (A.14) over all electrons; with $M_{\mathrm{tot}}-N_{\mathrm{elec}}m_e=M_N$,
+\begin{equation*}
+\sum_i\mathbf p'_i = m_e\Bigl(1-\frac{N_{\mathrm{elec}}m_e}{M_{\mathrm{tot}}}\Bigr)\sum_l\dot{\mathbf r}'_l = \frac{m_eM_N}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l . \tag{A.15}
+\end{equation*}
+Solve for $\dot{\mathbf r}'_i$:
+\begin{equation*}
+\boxed{\;\dot{\mathbf r}'_i = \frac{\mathbf p'_i}{m_e} + \frac{1}{M_N}\sum_l\mathbf p'_l .\;} \tag{A.16}
+\end{equation*}
+\centering\itshape Each electron's velocity $=$ its own momentum$/m_e$ $+$ one shared recoil --- the momentum-space mirror of the shared drift $\mathbf D$.
+\end{frame}
+
+\begin{frame}{Legendre transform: kinetic energy in momentum form}
+\setstage{1}
+CoM and nuclear terms are immediate: $\tfrac12M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2=\mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}$, $\tfrac12M_j\dot{\mathbf R}_j^{'2}=\mathbf P_j^{'2}/2M_j$. Substituting (A.16) into the electron sector (A.19, A.20) and collecting the $\bigl(\sum_l\mathbf p'_l\bigr)^2$ coefficients,
+\begin{equation*}
+\frac{1}{M_N}+\frac{N_{\mathrm{elec}}m_e-M_{\mathrm{tot}}}{2M_N^2} = \frac{1}{M_N}-\frac{M_N}{2M_N^2} = +\frac{1}{2M_N} . \tag{A.21}
+\end{equation*}
+\alert{The negative velocity-form correction has become the positive mass polarization:}
+\begin{equation*}
+\boxed{\;T = \frac{\mathbf P_{\mathrm{cm}}^{2}}{2M_{\mathrm{tot}}} + \sum_j\frac{\mathbf P_j^{'2}}{2M_j} + \sum_i\frac{\mathbf p_i^{'2}}{2m_e} + \frac{1}{2M_N}\Bigl(\sum_i\mathbf p'_i\Bigr)^{2}.\;} \tag{A.22}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{The Hamiltonian --- and why the sign flips}
+\setstage{1}
+Both internal families share the reference point $\mathbf R_{\mathrm{ncm}}$, so $V(\mathbf R'_j,\mathbf r'_i)$ is unchanged in form. Add it to (A.22):
 \begin{equation*}
 \boxed{\;H = \frac{\mathbf{P}_{\mathrm{cm}}^{\,2}}{2M_{\mathrm{tot}}}
 +\underbrace{\sum_j\frac{\mathbf{P}_j^{'2}}{2M_j}+\sum_i\frac{\mathbf{p}_i^{'2}}{2m_e}
-+\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{\!2}+V(\mathbf R'_j,\mathbf r'_i)}_{\textstyle H_{\mathrm{int}}\ (2.13)}.\;} \tag{2.12}
++\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{\!2}+V(\mathbf R'_j,\mathbf r'_i)}_{\textstyle H_{\mathrm{int}}\ (2.13)}.\;} \tag{2.12 $\equiv$ A.23}
 \end{equation*}
-\begin{itemize}
-  \item $V$ unchanged in form: both internal families share the reference point $\mathbf R_{\mathrm{ncm}}$.
-\end{itemize}
+\begin{block}{Why the sign flips}
+The electron block of $T$ is the quadratic form $\tfrac12\dot{\mathbf r}^{\prime\mathsf T}\mathbf A\dot{\mathbf r}'$ with $\mathbf A=m_e(\mathbb 1-\tfrac{m_e}{M_{\mathrm{tot}}}\mathbf J)$ ($\mathbf J$ all-ones); the Legendre transform replaces $\mathbf A\to\mathbf A^{-1}=\tfrac1{m_e}(\mathbb 1+\tfrac{m_e}{M_N}\mathbf J)$ (A.25, A.26) --- same physics, opposite side of the transform.
+\end{block}
+\footnotesize Exact for any $\mathbf P_{\mathrm{cm}}$: no rest frame, no boost, no cross-coupling --- agrees with the paper's generating-function route (Sec.\ 2).\normalsize
 \centering\itshape $H_{\mathrm{int}}$ is what we carry into the body-fixed frame.
 \end{frame}
 
