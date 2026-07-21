@@ -295,6 +295,28 @@ $\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{
 with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$. The potential is now manifestly $\mathbf S$-independent (3.8). We carry the electrons in velocity form all the way --- $\mathbf I_e$, $\mathbf I_X$ and all.
 \end{frame}
 
+\begin{frame}{The vibrational term $\dot{\bar{\mathbf R}}_j\to\dot Q_b$, and the kinetic pieces}
+\setstage{2}
+Expanding each square $|\boldsymbol\omega\!\times\!\mathbf a+\dot{\mathbf a}|^2$ leaves a pure-velocity (\alert{vibrational}) piece $|\dot{\mathbf a}|^2$. For the nuclei it collapses cleanly: the mode vectors are \emph{constant} [$\partial\bar{\mathbf R}_j/\partial Q_b=\mathbf l_{jb}/\sqrt{M_j}$ from (3.1a)], so
+\begin{equation*}
+\dot{\bar{\mathbf R}}_j=\frac{1}{\sqrt{M_j}}\sum_b\mathbf l_{jb}\,\dot Q_b .
+\end{equation*}
+The $M_j$ cancels and the orthonormality $\sum_j\mathbf l_{jb}\!\cdot\!\mathbf l_{jc}=\delta_{bc}$ (3.1a) collapses the double sum:
+\begin{equation*}
+\boxed{\;T_{\mathrm{vib}}^{N}\equiv\tfrac12\sum_j M_j|\dot{\bar{\mathbf R}}_j|^2
+=\tfrac12\sum_{b,c}\Bigl(\underbrace{\textstyle\sum_j\mathbf l_{jb}\!\cdot\!\mathbf l_{jc}}_{=\,\delta_{bc}}\Bigr)\dot Q_b\dot Q_c
+=\tfrac12\sum_b\dot Q_b^2 .\;}
+\end{equation*}
+\alert{The vibrational metric is the identity --- no Wilson $G$-matrix.}
+\begin{block}{The electron/mass-polarization kinetic pieces \& nuclear Coriolis vector (used in (3.13$'$))}
+\begin{equation*}
+T_e^{\mathrm{BF}}=\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2,\qquad
+T_X^{\mathrm{mp}}=\frac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2,\qquad
+\mathbf L_N^{\mathrm{vib}}=\sum_j M_j\,\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j .
+\end{equation*}
+\end{block}
+\end{frame}
+
 \begin{frame}{Expand every squared term $\Rightarrow$ the full inertia}
 \setstage{2}
 The vector identity (any $\mathbf a,\dot{\mathbf a},\boldsymbol\omega$)
