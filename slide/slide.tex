@@ -47,10 +47,10 @@
 \setstage{0}
 We build the \alert{exact} non-relativistic molecular Hamiltonian in four stages:
 \begin{enumerate}
-  \item \textbf{Classical} — lab-frame $H$; one point transformation separates the centre of mass \emph{and} produces the mass polarization.
-  \item \textbf{Body-Fixed} — co-rotating frame + Lagrangian $\Rightarrow$ classical molecular $H_{\mathrm{int}}$.
-  \item \textbf{Quantize} — Podolsky rule from \alert{coordinate derivatives alone}: metric $\to$ measure $\to$ inverse $\to$ Watson pseudopotential. No angular-momentum algebra.
-  \item \textbf{Quantum $\hat H$} — the exact non-relativistic molecular Hamiltonian.
+  \item \textbf{Classical} — lab-frame Hamiltonian; transformation into center-of-mass coordinates produces the mass polarization (mass pol.).
+  \item \textbf{Body-Fixed} — co-rotating frame + Lagrangian $\Rightarrow$ classical internal molecular Hamiltonian $H_{\mathrm{int}}$.
+  \item \textbf{Quantize} — \textbf{Podolsky quantization} for curvilinear coordinates in polyatomic molecules.
+  \item \textbf{Quantum $\hat H$} — the exact non-relativistic molecular Hamiltonian for non-linear polyatomic molecules.
 \end{enumerate}
 \vspace{1ex}
 \end{frame}
@@ -77,7 +77,7 @@ To do molecular physics we want to separate
 \begin{alertblock}{The catch}
 Rotation + vibration are \emph{curvilinear} coordinates. Naively quantizing
 $p\to-i\hbar\,\partial$ is \textbf{not} Hermitian there. Getting it right forces the
-Podolsky construction.
+Podolsky quantization.
 \end{alertblock}
 \end{frame}
 
@@ -94,10 +94,10 @@ The \emph{only} ingredients are:
 \begin{enumerate}
   \item non-relativistic dynamics;
   \item the Eckart frame (a \emph{convention}, not an approximation);
-  \item parametrizing the nuclear shape by $3N_{\mathrm{nucl}}-6$ normal coordinates (exact).
+  \item parametrizing the nuclear shape by $3N_{\mathrm{nucl}}-6$ normal coordinates (non-linear molecules).
 \end{enumerate}
 \vspace{0.5ex}
-\centering\itshape The endpoint is the exact quantum $\hat H_{\mathrm{int}}$ — the rigorous starting point
+\centering\itshape The endpoint is the exact quantum-mechanical internal molecular Hamiltonian $\hat H_{\mathrm{int}}$ — the rigorous starting point
 \end{frame}
 
 % ==================================================================
@@ -118,8 +118,7 @@ Differentiate $\mathcal L$ with respect to each velocity to get the \alert{canon
 \end{equation*}
 Canonical brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$, $\{r_{i\alpha},p_{j\beta}\}=\delta_{ij}\delta_{\alpha\beta}$.
 \begin{itemize}
-  \item Kinetic energy is diagonal and quadratic in Cartesian velocities: \emph{canonical momentum $=$ mass $\times$ velocity}, no surprises.
-  \item This is the \emph{only} stage of the whole paper where canonical and mechanical momentum coincide.
+  \item Kinetic energy is diagonal and quadratic in Cartesian velocities: \emph{canonical momentum $=$ mass $\times$ velocity}.
 \end{itemize}
 \end{frame}
 
@@ -183,7 +182,7 @@ Both families ride on the \emph{same} drift --- the nuclear-CoM velocity:
 \boxed{\;\mathbf D \equiv \dot{\mathbf R}_{\mathrm{ncm}} = \dot{\mathbf R}_{\mathrm{cm}}-\frac{m_e}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l,
 \qquad \dot{\mathbf R}_j=\mathbf D+\dot{\mathbf R}'_j,\qquad \dot{\mathbf r}_i=\mathbf D+\dot{\mathbf r}'_i.\;} \tag{A.7}
 \end{equation*}
-\centering\itshape Every lab velocity $=$ internal velocity $+$ one shared drift $\mathbf D$ --- passengers on a train.
+\centering\itshape Every lab velocity $=$ internal velocity $+$ one shared drift $\mathbf D$ --- just like passengers on a train.
 \end{frame}
 
 \begin{frame}{Kinetic energy in velocity form: the mass polarization appears}
@@ -201,7 +200,6 @@ Expand $\mathbf D$ in the two $\mathbf D$-dependent pieces (A.11a,b): the $\dot{
 + \tfrac12 m_e\sum_i\dot{\mathbf r}_i^{'2}
 - \frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl(\sum_i\dot{\mathbf r}'_i\Bigr)^{2}.\;} \tag{A.12}
 \end{equation*}
-The CoM decouples with the \emph{correct} mass $M_{\mathrm{tot}}$; the electrons carry a negative collective correction --- the mass polarization in disguise.
 \end{frame}
 
 \begin{frame}{Canonical momenta: $\partial \mathcal L/\partial\dot q$, and the tricky one}
@@ -218,7 +216,7 @@ The electrons take care: \emph{two} terms of $T$ involve $\dot{\mathbf r}'_i$ (i
 = m_e\dot{\mathbf r}'_i - \frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l
 \;\ne\; m_e\dot{\mathbf r}'_i .\;} \tag{A.14}
 \end{equation*}
-\alert{Canonical $\ne$ mechanical:} moving \emph{one} electron drags the whole molecule's CoM, and $\mathbf r'_i$ is measured from the (recoiling) nuclear CoM --- every electron's momentum carries a shared correction.
+% \alert{Canonical $\ne$ mechanical:} moving \emph{one} electron drags the whole molecule's CoM, and $\mathbf r'_i$ is measured from the (recoiling) nuclear CoM --- every electron's momentum carries a shared correction.
 \end{frame}
 
 \begin{frame}{Inverting the electron relation}
@@ -231,7 +229,7 @@ Solve for $\dot{\mathbf r}'_i$:
 \begin{equation*}
 \boxed{\;\dot{\mathbf r}'_i = \frac{\mathbf p'_i}{m_e} + \frac{1}{M_N}\sum_l\mathbf p'_l .\;} \tag{A.16}
 \end{equation*}
-\centering\itshape Each electron's velocity $=$ its own momentum$/m_e$ $+$ one shared recoil --- the momentum-space mirror of the shared drift $\mathbf D$.
+% \centering\itshape Each electron's velocity $=$ its own momentum$/m_e$ $+$ one shared recoil --- the momentum-space mirror of the shared drift $\mathbf D$.
 \end{frame}
 
 \begin{frame}{Legendre transform: kinetic energy in momentum form}
@@ -240,7 +238,8 @@ CoM and nuclear terms are immediate: $\tfrac12M_{\mathrm{tot}}\dot{\mathbf R}_{\
 \begin{equation*}
 \frac{1}{M_N}+\frac{N_{\mathrm{elec}}m_e-M_{\mathrm{tot}}}{2M_N^2} = \frac{1}{M_N}-\frac{M_N}{2M_N^2} = +\frac{1}{2M_N} . \tag{A.21}
 \end{equation*}
-\alert{The negative velocity-form correction has become the positive mass polarization:}
+As a result, the overall kinetic energy in momentum form is
+% \alert{The negative velocity-form correction has become the positive mass polarization:}
 \begin{equation*}
 \boxed{\;T = \frac{\mathbf P_{\mathrm{cm}}^{2}}{2M_{\mathrm{tot}}} + \sum_j\frac{\mathbf P_j^{'2}}{2M_j} + \sum_i\frac{\mathbf p_i^{'2}}{2m_e} + \frac{1}{2M_N}\Bigl(\sum_i\mathbf p'_i\Bigr)^{2}.\;} \tag{A.22}
 \end{equation*}
@@ -254,11 +253,8 @@ Both internal families share the reference point $\mathbf R_{\mathrm{ncm}}$, so 
 +\underbrace{\sum_j\frac{\mathbf{P}_j^{'2}}{2M_j}+\sum_i\frac{\mathbf{p}_i^{'2}}{2m_e}
 +\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{\!2}+V(\mathbf R'_j,\mathbf r'_i)}_{\textstyle H_{\mathrm{int}}\ (2.13)}.\;} \tag{2.12 $\equiv$ A.23}
 \end{equation*}
-\begin{block}{Why the sign flips}
-The electron block of $T$ is the quadratic form $\tfrac12\dot{\mathbf r}^{\prime\mathsf T}\mathbf A\dot{\mathbf r}'$ with $\mathbf A=m_e(\mathbb 1-\tfrac{m_e}{M_{\mathrm{tot}}}\mathbf J)$ ($\mathbf J$ all-ones); the Legendre transform replaces $\mathbf A\to\mathbf A^{-1}=\tfrac1{m_e}(\mathbb 1+\tfrac{m_e}{M_N}\mathbf J)$ (A.25, A.26) --- same physics, opposite side of the transform.
-\end{block}
 \footnotesize Exact for any $\mathbf P_{\mathrm{cm}}$: no rest frame, no boost, no cross-coupling --- agrees with the paper's generating-function route (Sec.\ 2).\normalsize
-\centering\itshape $H_{\mathrm{int}}$ is what we carry into the body-fixed frame.
+\centering
 \end{frame}
 
 % ==================================================================
@@ -278,8 +274,11 @@ The \emph{Eckart} conditions fix $\mathbf S$ from the \emph{nuclei}; the nuclear
 \end{equation*}
 The BF angular velocity $\boldsymbol{\omega}$ is defined by
 \begin{equation*}
-(\mathbf{S}^{T}\dot{\mathbf{S}})_{\alpha\beta}=-\epsilon_{\alpha\beta\gamma}\,\omega_\gamma . \tag{3.2}
+(\mathbf{S}^{T}\dot{\mathbf{S}}) \mathbf v = \boldsymbol{\omega} \times \mathbf v
 \end{equation*}
+\begin{itemize}
+  \item try to differentiate $\mathbf{S}^{T}\mathbf{S} = 0$
+\end{itemize}
 \end{frame}
 
 \begin{frame}{The velocity-form Lagrangian --- everything, electrons included}
@@ -822,39 +821,6 @@ Collecting the flat-measure blocks --- rotational (4.29), Coriolis (4.35), vibra
 \centering\footnotesize on $L^2(d\mu_W)$, $d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$. Every operator is an explicit differential operator, Hermitian by integration by parts.
 \end{frame}
 
-\begin{frame}{Remark: the anomalous commutator --- not needed}
-\setstage{4}
-The traditional route to (4.41) (Klein 1929; Van Vleck 1951) derives the \emph{anomalous} algebra of the body-fixed angular momentum,
-\begin{equation*}
-[\hat J_\alpha,\hat J_\beta]=-\,i\hbar\,\epsilon_{\alpha\beta\gamma}\,\hat J_\gamma\qquad(\text{note the }-\text{ sign}),
-\end{equation*}
-and uses it to control the operator ordering of the rotational kernel.
-\begin{block}{Nothing here used it}
-\begin{itemize}
-  \item $\hat J_\alpha$ entered only as the \emph{shorthand} (4.24) for explicit Euler-angle derivatives.
-  \item Hermiticity came from integration by parts $+$ the divergence identity (4.26).
-  \item The pseudopotential came from the $Q$-derivatives of the volume element.
-\end{itemize}
-The anomalous algebra is a correct property of the operators (4.24) --- but it is a \alert{consequence} of the coordinate representation, \alert{not an input} to the quantization.
-\end{block}
-\end{frame}
-
-\begin{frame}{Born--Huang expansion and the BO truncation}
-\setstage{4}
-At fixed $Q$, the clamped-nuclei electronic problem
-$\hat H_{\mathrm{el}}(Q)|\phi_n(Q)\rangle=E_n^{\mathrm{el}}(Q)|\phi_n(Q)\rangle$ (4.42--4.43) provides a complete parametric basis. The \alert{exact} molecular wavefunction expands as
-\begin{equation*}
-|\Psi\rangle=\sum_n|\chi_n\rangle\otimes|\phi_n(Q)\rangle \tag{4.45}
-\end{equation*}
---- not an ansatz: it follows from completeness at each $Q$. Projecting the Schr\"odinger equation gives coupled channels (4.46) with non-adiabatic couplings $\hat\Lambda_{nm}$ (4.47).
-\begin{block}{Born--Oppenheimer $=$ diagonal truncation}
-Set $\hat\Lambda_{nm}\to0$: single-surface nuclear dynamics (4.48) on the potential energy surface
-\[
-V_n^{\mathrm{BO}}(Q)=E_n^{\mathrm{el}}(Q)+V_{NN}(Q)+\hat U(Q). \tag{4.49}
-\]
-A controlled approximation \emph{of an exact operator} --- breaking down at conical intersections.
-\end{block}
-\end{frame}
 
 % ==================================================================
 \section{Summary}
@@ -869,6 +835,43 @@ A controlled approximation \emph{of an exact operator} --- breaking down at coni
 \end{enumerate}
 \end{frame}
 
+\begin{frame}{Lagrangians \& Hamiltonians: stages 1--2}
+\setstage{4}
+\small
+\textbf{1. Lab-frame Cartesian.}
+\begin{equation*}
+\mathcal L=\sum_j\tfrac12 M_j|\dot{\mathbf R}_j|^2+\sum_i\tfrac12 m_e|\dot{\mathbf r}_i|^2-V,
+\qquad
+H=\sum_j\frac{\mathbf P_j^2}{2M_j}+\sum_i\frac{\mathbf p_i^2}{2m_e}+V .
+\end{equation*}
+\textbf{2. Mass-centered} (total CoM $\mathbf R_{\mathrm{cm}}$; internals referred to the nuclear CoM):
+\begin{align*}
+\mathcal L&=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2+\sum_j\tfrac12 M_j|\dot{\mathbf R}'_j|^2+\sum_i\tfrac12 m_e|\dot{\mathbf r}'_i|^2-\frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl(\sum_i\dot{\mathbf r}'_i\Bigr)^2-V,\\
+H&=\frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\frac{\mathbf P_j^{\prime\,2}}{2M_j}+\sum_i\frac{\mathbf p_i^{\prime\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\mathbf p'_i\Bigr)^2+V .
+\end{align*}
+\centering\footnotesize Mass polarization: velocity form $-\tfrac{m_e^2}{2M_{\mathrm{tot}}}(\sum\dot{\mathbf r}')^2$ $\ \leftrightarrow\ $ momentum form $+\tfrac{1}{2M_N}(\sum\mathbf p')^2$.
+\end{frame}
+
+\begin{frame}{Lagrangians \& Hamiltonians: stages 3--4}
+\setstage{4}
+\footnotesize
+\textbf{3. Body-fixed (Eckart) Cartesian} --- electrons in velocity form:
+\begin{align*}
+\mathcal L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+&+\tfrac12\boldsymbol\omega^{T}(\mathbf I_N{+}\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega
++\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}{+}\mathbf L_e{-}\mathbf L_X)\\[-1pt]
+&+\tfrac12\sum_j M_j|\dot{\bar{\mathbf R}}_j|^2+\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2-\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2-V,\\[1pt]
+H=\frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}
+&+\sum_j\frac{\bar{\mathbf P}_j^{\,2}}{2M_j}+\sum_i\frac{\bar{\mathbf p}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf p}_i\Bigr)^2+V .
+\end{align*}
+\textbf{4. Normal-mode} (Watson): $\mathcal L$ as in stage 3 with $\tfrac12\sum_j M_j|\dot{\bar{\mathbf R}}_j|^2\to\tfrac12\sum_b\dot Q_b^2$; the canonical Hamiltonian is
+\begin{equation*}
+H_{\mathrm{int}}=\tfrac12(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)^{T}\boldsymbol\mu(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)+\tfrac12\sum_b P_b^2+\sum_i\frac{\bar{\mathbf p}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf p}_i\Bigr)^2+V_{NN}{+}V_{Ne}{+}V_{ee} .
+\end{equation*}
+\centering\footnotesize CoM decouples throughout ($\mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}$); quantizing stage~4 gives $\hat H_{\mathrm{int}}$ (4.41).
+\end{frame}
+
+
 \begin{frame}{What we did --- and did not --- assume}
 \setstage{4}
 $\hat H_{\mathrm{int}}$ (4.41) is \alert{exact}. The only inputs were:
@@ -879,9 +882,7 @@ $\hat H_{\mathrm{int}}$ (4.41) is \alert{exact}. The only inputs were:
 \end{itemize}
 \vspace{0.5ex}
 No Born--Oppenheimer, no clamped nuclei, no neglect of mass polarization, no harmonic assumption --- and \alert{no anomalous commutator as input}.
-\begin{block}{Outlook}
-(4.41) feeds the Born--Huang expansion (4.45), whose diagonal truncation recovers the familiar single-surface picture (4.48)--(4.49) --- a controlled approximation \emph{of an exact operator}.
-\end{block}
+
 \end{frame}
 
 \begin{frame}[standout]
