@@ -347,7 +347,7 @@ The \alert{canonical electronic angular momentum} is built from the electron pai
 Vibrational momentum, with the \alert{Coriolis vectors} $\boldsymbol\sigma_b$:
 \begin{equation*}
 P_b=\frac{\partial \mathcal L}{\partial\dot Q_b}=\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b+\dot Q_b,\qquad
-\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a,\quad \boldsymbol\zeta_{ab}=\sum_j\mathbf l_{ja}\!\times\!\mathbf l_{jb}. \tag{3.17a,b}
+\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a,\quad \boldsymbol{\zeta}_{ab}=\sum_j\mathbf l_{ja}\!\times\!\mathbf l_{jb}. \tag{3.17a,b}
 \end{equation*}
 \end{frame}
 
@@ -538,6 +538,38 @@ The $\tfrac2r\partial_r$ and $\cot\theta\,\partial_\theta$ are \alert{restored a
 \begin{block}{The molecule is the same story}
 Curvilinear $\{q^A\}=\{\phi,\theta,\chi,Q_1,\dots,Q_f\}$, $T=\tfrac12 g^{AB}p_Ap_B$, curved measure $\sqrt g\,d^nq$. We now build the three objects --- metric $g_{AB}$, determinant $g$, inverse $g^{AB}$ --- explicitly, then apply (4.5). \emph{Next section.}
 \end{block}
+\end{frame}
+
+\begin{frame}{Recipe: Podolsky / Laplace--Beltrami quantization}
+\setstage{3}
+\small
+\begin{columns}[T]
+\begin{column}{0.58\textwidth}
+\textbf{General recipe} --- curvilinear $\{q^i\}$:
+\begin{enumerate}\setlength{\itemsep}{0pt}
+\item \textbf{Metric} $g_{ij}$: read off $T=\tfrac12 g_{ij}\dot q^i\dot q^j$, or $g_{ij}=\sum_a m_a\,(\partial\mathbf r_a/\partial q^i)\!\cdot\!(\partial\mathbf r_a/\partial q^j)$.
+\item \textbf{Determinant \& measure}: $g=\det g_{ij}$ $\Rightarrow$ Hilbert space $L^2(\sqrt g\,d^nq)$.
+\item \textbf{Inverse} $g^{ij}=(g_{ij})^{-1}$.
+\item \textbf{Podolsky operator} (Hermitian on $L^2(\sqrt g\,d^nq)$ by construction):
+\[ \hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt g}\,\partial_i\!\bigl(\sqrt g\,g^{ij}\partial_j\bigr); \]
+$V$ and coordinate functions $\to$ multiplication.
+\item \textbf{(Optional) rescale} $\psi\to g^{1/4}\psi$ to a flatter measure; leftover $c$-number $=$ \alert{pseudopotential}.
+\end{enumerate}
+\end{column}
+\begin{column}{0.42\textwidth}
+\footnotesize
+\begin{block}{Instance: free particle in $(r,\theta,\phi)$}
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item $g_{ij}=\mathrm{diag}(m,\,mr^2,\,mr^2\sin^2\theta)$
+\item $\sqrt g=m^{3/2}r^2\sin\theta$
+\item $g^{ij}$: reciprocals of $g_{ii}$
+\item $\hat T=-\dfrac{\hbar^2}{2m}\nabla^2$ \checkmark
+\item flat $\Rightarrow$ no pseudopotential
+\end{enumerate}
+\end{block}
+{\scriptsize Molecule (next): metric (4.15) $\to$ measure (4.21) $\to$ inverse (4.22) $\to$ Podolsky $\to$ Watson $\hat U$.}
+\end{column}
+\end{columns}
 \end{frame}
 
 % ==================================================================
