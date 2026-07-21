@@ -414,6 +414,37 @@ H_{\mathrm{int}}=\;&\tfrac12\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsym
 \setstage{3}
 \section{The quantization problem}
 
+\begin{frame}{Primer: wavefunctions live in a space, $L^2$}
+\setstage{3}
+In quantum mechanics a state is a \alert{wavefunction} $\psi(q)$ --- and wavefunctions add and scale like vectors, so they form a vector space. To measure ``length'' and ``angle'' we need an \alert{inner product}; for two states $\varphi,\psi$,
+\begin{equation*}
+\langle\varphi|\psi\rangle \;\equiv\; \int \varphi^{*}(q)\,\psi(q)\;dq
+\qquad(\text{Dirac ``bra--ket'' notation}).
+\end{equation*}
+The squared length is the \alert{norm}, and a physical state is \alert{normalized}:
+\begin{equation*}
+\|\psi\|^2=\langle\psi|\psi\rangle=\int|\psi(q)|^2\,dq \;=\;1
+\qquad(\text{total probability}=1).
+\end{equation*}
+\begin{block}{What is $L^2$?}
+$L^2$ is the space of \alert{square-integrable} functions --- those with finite $\int|\psi|^2<\infty$, so the norm makes sense. Operators like $\hat H$ act on this space, and observables must be \alert{Hermitian}, $\hat O^{\dagger}=\hat O$, to have real eigenvalues.
+\end{block}
+\end{frame}
+
+\begin{frame}{Primer: the \emph{measure} --- what you integrate against}
+\setstage{3}
+The inner product needs a rule for ``how much volume'' each point carries --- the \alert{measure}. In plain Cartesian coordinates it is $dq=dx\,dy\,dz$, but after a change of variables it picks up the \alert{Jacobian}:
+\begin{equation*}
+\int f\,dx\,dy\,dz=\int f\;\underbrace{r^2\sin\theta}_{\text{Jacobian}}\,dr\,d\theta\,d\phi
+\quad\Longrightarrow\quad
+\langle\varphi|\psi\rangle=\int\varphi^{*}\psi\;\underbrace{w(q)}_{\text{measure}}\,d^nq .
+\end{equation*}
+Normalization is always against this measure: $\int|\psi|^2\,w\,d^nq=1$. We write the space as $L^2(w\,d^nq)$.
+\begin{alertblock}{Why it matters here}
+\alert{Hermiticity depends on the measure.} On a curved measure $-i\hbar\partial$ is \emph{not} Hermitian (next slides show this for $w=r^2\sin\theta$). Getting the operator right on the correct measure is exactly the quantization problem --- and its cure is the Podolsky rule. For the molecule the measure will be $\sqrt g\,d^nq$ (later reshaped to the flat $d\mu_W$).
+\end{alertblock}
+\end{frame}
+
 \begin{frame}{A worked example: one particle in spherical coordinates}
 \setstage{3}
 Take a single free particle of mass $m$. Cartesian: $\mathcal L=\tfrac12 m(\dot x^2+\dot y^2+\dot z^2)$. In spherical coordinates $(r,\theta,\phi)$,
