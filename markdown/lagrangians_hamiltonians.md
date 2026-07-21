@@ -1,6 +1,6 @@
 # Catalog: Lagrangians and Hamiltonians at Each Coordinate Stage
 
-This file lists the classical **Lagrangian in velocity form** $L(q,\dot q)$ and the classical **Hamiltonian in momentum form** $H(q,p)$ at the three coordinate stages of the paper:
+This file lists the classical **Lagrangian in velocity form** $\mathcal L(q,\dot q)$ and the classical **Hamiltonian in momentum form** $H(q,p)$ at the three coordinate stages of the paper:
 
 1. lab-frame Cartesian coordinates (Sec. 1);
 2. mass-centered coordinates — translational coordinate = **total** CoM, internal coordinates referred to the **nuclear** CoM (Sec. 2);
@@ -26,10 +26,10 @@ and $V$ is the Coulomb potential of eq. (1.2), a function of interparticle separ
 **Lagrangian (velocity form).**
 
 $$
-L \;=\; \sum_j \tfrac12 M_j\,|\dot{\mathbf R}_j|^2 \;+\; \sum_i \tfrac12 m_e\,|\dot{\mathbf r}_i|^2 \;-\; V(\mathbf R_j,\mathbf r_i).
+\mathcal L \;=\; \sum_j \tfrac12 M_j\,|\dot{\mathbf R}_j|^2 \;+\; \sum_i \tfrac12 m_e\,|\dot{\mathbf r}_i|^2 \;-\; V(\mathbf R_j,\mathbf r_i).
 $$
 
-**Momenta.** $\;\mathbf P_j=\partial L/\partial\dot{\mathbf R}_j=M_j\dot{\mathbf R}_j$, $\;\mathbf p_i=m_e\dot{\mathbf r}_i$.
+**Momenta.** $\;\mathbf P_j=\partial \mathcal L/\partial\dot{\mathbf R}_j=M_j\dot{\mathbf R}_j$, $\;\mathbf p_i=m_e\dot{\mathbf r}_i$.
 
 **Hamiltonian (momentum form)** — eq. (1.1):
 
@@ -58,7 +58,7 @@ with $\mathbf R_{\mathrm{ncm}}=\tfrac1{M_N}\sum_j M_j\mathbf R_j$ the nuclear Co
 **Lagrangian (velocity form).**
 
 $$
-L \;=\; \tfrac12 M_{\mathrm{tot}}\,|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}\,|\dot{\mathbf R}_{\mathrm{cm}}|^2
 \;+\; \sum_j \tfrac12 M_j\,|\dot{\mathbf R}'_j|^2
 \;+\; \sum_i \tfrac12 m_e\,|\dot{\mathbf r}'_i|^2
 \;-\; \frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl|\sum_i\dot{\mathbf r}'_i\Bigr|^2
@@ -115,7 +115,7 @@ with velocity versions $\sum_j M_j\dot{\bar{\mathbf R}}_j=0$, $\sum_j M_j\bar{\m
 **Lagrangian (velocity form).** Rotations preserve norms, so substituting $\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)$, $\dot{\mathbf r}'_i=\mathbf S(\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)$ into the stage-2 Lagrangian:
 
 $$
-L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\sum_j M_j\bigl|\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j\bigr|^2
 +\tfrac{m_e}{2}\sum_i\bigl|\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i\bigr|^2
 -\frac{m_e^2}{2M_{\mathrm{tot}}}\bigl|\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}\bigr|^2
@@ -125,7 +125,7 @@ $$
 with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$; expanded via (3.9c),
 
 $$
-L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\,\boldsymbol\omega^{T}\bigl(\mathbf I_N+\mathbf I_e-\mathbf I_X\bigr)\boldsymbol\omega
 +\boldsymbol\omega\cdot\bigl(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X\bigr)
 +\tfrac12\sum_j M_j|\dot{\bar{\mathbf R}}_j|^2
@@ -139,7 +139,7 @@ where $\mathbf I_N,\mathbf L_N^{\mathrm{vib}}$ are built from the $\bar{\mathbf 
 **Momenta.** All three families are the body-fixed images of the stage-2 momenta:
 
 $$
-\bar{\mathbf P}_j=\frac{\partial L}{\partial\dot{\bar{\mathbf R}}_j}
+\bar{\mathbf P}_j=\frac{\partial \mathcal L}{\partial\dot{\bar{\mathbf R}}_j}
 =M_j\bigl(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j\bigr)=\mathbf S^{T}\mathbf P'_j ,
 \qquad
 \bar{\mathbf p}_i
@@ -147,7 +147,7 @@ $$
 -\frac{m_e^2}{M_{\mathrm{tot}}}\bigl(\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}\bigr)=\mathbf S^{T}\mathbf p'_i ,
 $$
 
-and the angular momentum $\mathbf J=\partial L/\partial\boldsymbol\omega=(\mathbf I_N+\mathbf I_e-\mathbf I_X)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X$ is **not independent**: it satisfies the identity
+and the angular momentum $\mathbf J=\partial \mathcal L/\partial\boldsymbol\omega=(\mathbf I_N+\mathbf I_e-\mathbf I_X)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X$ is **not independent**: it satisfies the identity
 
 $$
 \mathbf J=\sum_j\bar{\mathbf R}_j\times\bar{\mathbf P}_j+\underbrace{\sum_i\bar{\mathbf r}_i\times\bar{\mathbf p}_i}_{\mathbf L_{\mathrm{elec}}} ,
@@ -210,7 +210,7 @@ $$
 **Lagrangian (velocity form, all degrees of freedom — no Routhian).** This is the stage-3 Lagrangian with the shape parametrized, $\bar{\mathbf R}_j\to\bar{\mathbf R}_j(Q)$ and $\dot{\bar{\mathbf R}}_j=\sum_b\mathbf l_{jb}\dot Q_b/\sqrt{M_j}$ (so $\tfrac12\sum_jM_j|\dot{\bar{\mathbf R}}_j|^2=\tfrac12\sum_b\dot Q_b^2$ by orthonormality of the $\mathbf l_{jb}$):
 
 $$
-L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\sum_j M_j\bigl|\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j\bigr|^2
 +\tfrac{m_e}{2}\sum_i\bigl|\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i\bigr|^2
 -\frac{m_e^2}{2M_{\mathrm{tot}}}\bigl|\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}\bigr|^2
@@ -220,7 +220,7 @@ $$
 or, expanded via the squared-term identity (3.9c) and eqs. (3.9d)–(3.9e):
 
 $$
-L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\,\boldsymbol\omega^{T}\bigl(\mathbf I_N+\mathbf I_e-\mathbf I_X\bigr)\boldsymbol\omega
 +\boldsymbol\omega\cdot\bigl(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X\bigr)
 +\tfrac12\sum_b\dot Q_b^2
@@ -229,17 +229,17 @@ L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 -V .
 $$
 
-**Momenta.** With $p_{\Omega_s}=\partial L/\partial\dot\Omega_s=(\mathsf E^{T}\mathbf J)_s$ defining the body-frame angular momentum $\mathbf J$ (conjugate to $\boldsymbol\omega$ in the quasi-velocity sense):
+**Momenta.** With $p_{\Omega_s}=\partial \mathcal L/\partial\dot\Omega_s=(\mathsf E^{T}\mathbf J)_s$ defining the body-frame angular momentum $\mathbf J$ (conjugate to $\boldsymbol\omega$ in the quasi-velocity sense):
 
 $$
-\mathbf J=\frac{\partial L}{\partial\boldsymbol\omega}
+\mathbf J=\frac{\partial \mathcal L}{\partial\boldsymbol\omega}
 =\bigl(\mathbf I_N+\mathbf I_e-\mathbf I_X\bigr)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X ,
 \qquad
-P_b=\frac{\partial L}{\partial\dot Q_b}=\dot Q_b+\boldsymbol\omega\cdot\boldsymbol\sigma_b ,
+P_b=\frac{\partial \mathcal L}{\partial\dot Q_b}=\dot Q_b+\boldsymbol\omega\cdot\boldsymbol\sigma_b ,
 $$
 
 $$
-\bar{\mathbf p}_i=\frac{\partial L}{\partial\dot{\bar{\mathbf r}}_i}
+\bar{\mathbf p}_i=\frac{\partial \mathcal L}{\partial\dot{\bar{\mathbf r}}_i}
 =m_e\bigl(\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i\bigr)
 -\frac{m_e^2}{M_{\mathrm{tot}}}\bigl(\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}\bigr)
 \qquad\text{[BF image of (3.5)]} .
@@ -264,7 +264,7 @@ $$
 
 *Notes.*
 
-- **The electron inertias appear in $L$ but cancel out of $H$.** The velocity-form rotational kernel is $\mathbf I_N+\mathbf I_e-\mathbf I_X$, yet the momentum-form kernel is the purely nuclear $\boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})^{-1}$: by (3.18)–(3.19) the entire electronic and mass-polarization content of $\mathbf J$ is absorbed into the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$ — the "algebraic miracle" of §3.6. The paper's Routhian route never lets $\mathbf I_e,\mathbf I_X$ arise in the first place; the full-Lagrangian route used here makes them appear and then cancel. Either way, the same (3.22).
+- **The electron inertias appear in $\mathcal L$ but cancel out of $H$.** The velocity-form rotational kernel is $\mathbf I_N+\mathbf I_e-\mathbf I_X$, yet the momentum-form kernel is the purely nuclear $\boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})^{-1}$: by (3.18)–(3.19) the entire electronic and mass-polarization content of $\mathbf J$ is absorbed into the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$ — the "algebraic miracle" of §3.6. The paper's Routhian route never lets $\mathbf I_e,\mathbf I_X$ arise in the first place; the full-Lagrangian route used here makes them appear and then cancel. Either way, the same (3.22).
 - **The mass polarization changes appearance again:** velocity form $-\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}|^2$ (negative, coupled to rotation), momentum form $+\tfrac{1}{2M_N}(\sum_i\bar{\mathbf p}_i)^2$ (positive, a rotational scalar).
 - **No Wilson $G$-matrix:** the vibrational metric of rectilinear normal coordinates is the identity, so the vibrational block is the bare $\tfrac12\sum_bP_b^2$; all rotation–vibration coupling lives in $\boldsymbol\pi$ and $\boldsymbol\mu$.
 - The CoM term is a decoupled spectator with the correct mass $M_{\mathrm{tot}}$, exactly as at stage 2.
@@ -273,7 +273,7 @@ $$
 
 ## Summary table
 
-| Stage | Kinetic energy, velocity form (in $L$) | Kinetic energy, momentum form (in $H$) | Mass polarization sits in | Constraints |
+| Stage | Kinetic energy, velocity form (in $\mathcal L$) | Kinetic energy, momentum form (in $H$) | Mass polarization sits in | Constraints |
 |---|---|---|---|---|
 | 1. Cartesian | $\sum_j\tfrac12 M_j\dot{\mathbf R}_j^2+\sum_i\tfrac12 m_e\dot{\mathbf r}_i^2$ | $\sum_j\tfrac{\mathbf P_j^2}{2M_j}+\sum_i\tfrac{\mathbf p_i^2}{2m_e}$ | — (absent) | none |
 | 2. Mass-centered | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\sum_j\tfrac12 M_j\dot{\mathbf R}_j^{\prime 2}+\sum_i\tfrac12 m_e\dot{\mathbf r}_i^{\prime 2}-\tfrac{m_e^2}{2M_{\mathrm{tot}}}(\sum_i\dot{\mathbf r}'_i)^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\tfrac{\mathbf P_j^{\prime 2}}{2M_j}+\sum_i\tfrac{\mathbf p_i^{\prime 2}}{2m_e}+\tfrac{(\sum_i\mathbf p'_i)^2}{2M_N}$ | $-\tfrac{m_e^2}{2M_{\mathrm{tot}}}(\Sigma\dot{\mathbf r}')^2$ vs $+\tfrac{(\Sigma\mathbf p')^2}{2M_N}$ | $\sum_jM_j\mathbf R'_j=0$, $\sum_j\mathbf P'_j=0$ |
@@ -305,7 +305,7 @@ two tables below keep them apart:
 
 ### Table A — translational / internal / vibrational / electronic momenta (canonical vs mechanical)
 
-| Stage | coord. $q$ | canonical momentum $p=\partial L/\partial\dot q$ | $\{q,p\}$ | $=$ mass × velocity? | quantum operator | Hermitian on |
+| Stage | coord. $q$ | canonical momentum $p=\partial \mathcal L/\partial\dot q$ | $\{q,p\}$ | $=$ mass × velocity? | quantum operator | Hermitian on |
 |---|---|---|---|---|---|---|
 | 1 | $\mathbf R_j$ | $\mathbf P_j=M_j\dot{\mathbf R}_j$ | $\delta_{jk}\delta_{\alpha\beta}$ | **yes** | $-i\hbar\nabla_{\mathbf R_j}$ | flat |
 | 1 | $\mathbf r_i$ | $\mathbf p_i=m_e\dot{\mathbf r}_i$ | $\delta_{ik}\delta_{\alpha\beta}$ | **yes** | $-i\hbar\nabla_{\mathbf r_i}$ | flat |
@@ -327,8 +327,8 @@ $\sin\theta\,d\Omega$; only the combination $\hat J_\alpha$ is (Eq. 4.27).
 
 | Object | definition | canonical? | algebra $\{\,,\}$ (classical) / $[\,,\,]$ (quantum) | quantum operator | role |
 |---|---|---|---|---|---|
-| $\boldsymbol\omega$ | $\mathsf E(\Omega)\dot{\boldsymbol\Omega}$ | **no** — quasi-*velocity* | — | (velocity, not quantized directly) | conjugate to $\mathbf J_N$ in $L$ |
-| $p_{\Omega_s}$ | $\partial L/\partial\dot\Omega_s=(\mathsf E^{\mathsf T}\mathbf J)_s$ | **yes** (true conjugate) | $\{\Omega_s,p_{\Omega_t}\}=\delta_{st}$ | $-i\hbar\partial_{\Omega_s}$ | rarely used directly |
+| $\boldsymbol\omega$ | $\mathsf E(\Omega)\dot{\boldsymbol\Omega}$ | **no** — quasi-*velocity* | — | (velocity, not quantized directly) | conjugate to $\mathbf J_N$ in $\mathcal L$ |
+| $p_{\Omega_s}$ | $\partial \mathcal L/\partial\dot\Omega_s=(\mathsf E^{\mathsf T}\mathbf J)_s$ | **yes** (true conjugate) | $\{\Omega_s,p_{\Omega_t}\}=\delta_{st}$ | $-i\hbar\partial_{\Omega_s}$ | rarely used directly |
 | $\mathbf J$ | $J_\alpha=(\mathsf E^{-1})_{s\alpha}p_{\Omega_s}$ | **no** — frame-projected | $\{J_\alpha,J_\beta\}=-\epsilon_{\alpha\beta\gamma}J_\gamma$; $[\hat J_\alpha,\hat J_\beta]=-i\hbar\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ (**anomalous**) | $-i\hbar(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ (Eq. 4.24) | total ang. mom.; $\hat J_\alpha$ Hermitian on $\sin\theta\,d\Omega$ |
 | $\mathbf J_N$ | $\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}=\mathbf J-\mathbf L_{\mathrm{elec}}$ | **no** — conjugate to quasi-vel. $\boldsymbol\omega$ | same anomalous family | $\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$ | "nuclear" ang. mom. |
 | $\boldsymbol\pi$ | $\sum_b\boldsymbol\sigma_b(Q)\,P_b$ | **no** — coord-dependent combo of $P_b$ | $[\hat P_b,\hat\pi_\alpha]=-i\hbar\,\zeta^{\alpha}_{bc}\hat P_c\ne0$ | $\sum_b\sigma_{\alpha b}\hat P_b$ | vibrational (Coriolis) ang. mom. |

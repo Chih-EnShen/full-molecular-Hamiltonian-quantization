@@ -108,13 +108,13 @@ The \emph{only} ingredients are:
 \setstage{1}
 $N_{\mathrm{nucl}}$ nuclei ($M_j,Z_je,\mathbf R_j$) and $N_{\mathrm{elec}}$ electrons ($m_e,-e,\mathbf r_i$), all in the space-fixed frame; SI units. The Lagrangian is kinetic minus potential:
 \begin{equation*}
-L = \sum_j\tfrac12 M_j\dot{\mathbf R}_j^{\,2} + \sum_i\tfrac12 m_e\dot{\mathbf r}_i^{\,2} - V(\mathbf R_j,\mathbf r_i).
+\mathcal L = \sum_j\tfrac12 M_j\dot{\mathbf R}_j^{\,2} + \sum_i\tfrac12 m_e\dot{\mathbf r}_i^{\,2} - V(\mathbf R_j,\mathbf r_i).
 \end{equation*}
-Differentiate $L$ with respect to each velocity to get the \alert{canonical momenta}:
+Differentiate $\mathcal L$ with respect to each velocity to get the \alert{canonical momenta}:
 \begin{equation*}
-\boxed{\;\mathbf{P}_j \equiv \frac{\partial L}{\partial\dot{\mathbf R}_j} = M_j\dot{\mathbf R}_j,
+\boxed{\;\mathbf{P}_j \equiv \frac{\partial \mathcal L}{\partial\dot{\mathbf R}_j} = M_j\dot{\mathbf R}_j,
 \qquad
-\mathbf{p}_i \equiv \frac{\partial L}{\partial\dot{\mathbf r}_i} = m_e\dot{\mathbf r}_i.\;}
+\mathbf{p}_i \equiv \frac{\partial \mathcal L}{\partial\dot{\mathbf r}_i} = m_e\dot{\mathbf r}_i.\;}
 \end{equation*}
 Canonical brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$, $\{r_{i\alpha},p_{j\beta}\}=\delta_{ij}\delta_{\alpha\beta}$.
 \begin{itemize}
@@ -127,9 +127,9 @@ Canonical brackets $\{R_{j\alpha},P_{k\beta}\}=\delta_{jk}\delta_{\alpha\beta}$,
 \setstage{1}
 The three-move recipe (we reuse it, less trivially, in a moment):
 \begin{enumerate}
-  \item \textbf{Define} $p_q\equiv\partial L/\partial\dot q$ for every coordinate.
+  \item \textbf{Define} $p_q\equiv\partial \mathcal L/\partial\dot q$ for every coordinate.
   \item \textbf{Invert} for every velocity as a function of the momenta.
-  \item \textbf{Assemble} $H\equiv\sum_qp_q\dot q-L$ and substitute.
+  \item \textbf{Assemble} $H\equiv\sum_qp_q\dot q-\mathcal L$ and substitute.
 \end{enumerate}
 Here step 2 is immediate, $\dot{\mathbf R}_j=\mathbf P_j/M_j$, $\dot{\mathbf r}_i=\mathbf p_i/m_e$; step 3 gives
 \begin{equation*}
@@ -204,17 +204,17 @@ Expand $\mathbf D$ in the two $\mathbf D$-dependent pieces (A.11a,b): the $\dot{
 The CoM decouples with the \emph{correct} mass $M_{\mathrm{tot}}$; the electrons carry a negative collective correction --- the mass polarization in disguise.
 \end{frame}
 
-\begin{frame}{Canonical momenta: $\partial L/\partial\dot q$, and the tricky one}
+\begin{frame}{Canonical momenta: $\partial \mathcal L/\partial\dot q$, and the tricky one}
 \setstage{1}
-With $L=T-V$ ($V$ velocity-independent), differentiate the boxed $T$:
+With $\mathcal L=T-V$ ($V$ velocity-independent), differentiate the boxed $T$:
 \begin{equation*}
-\mathbf P_{\mathrm{cm}} = \frac{\partial L}{\partial\dot{\mathbf R}_{\mathrm{cm}}} = M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}},
+\mathbf P_{\mathrm{cm}} = \frac{\partial \mathcal L}{\partial\dot{\mathbf R}_{\mathrm{cm}}} = M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}},
 \qquad
-\mathbf P'_j = \frac{\partial L}{\partial\dot{\mathbf R}'_j} = M_j\dot{\mathbf R}'_j . \tag{A.13, A.17}
+\mathbf P'_j = \frac{\partial \mathcal L}{\partial\dot{\mathbf R}'_j} = M_j\dot{\mathbf R}'_j . \tag{A.13, A.17}
 \end{equation*}
 The electrons take care: \emph{two} terms of $T$ involve $\dot{\mathbf r}'_i$ (its own kinetic term, \emph{and} the mass-polarization sum), so
 \begin{equation*}
-\boxed{\;\mathbf p'_i \equiv \frac{\partial L}{\partial\dot{\mathbf r}'_i}
+\boxed{\;\mathbf p'_i \equiv \frac{\partial \mathcal L}{\partial\dot{\mathbf r}'_i}
 = m_e\dot{\mathbf r}'_i - \frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l
 \;\ne\; m_e\dot{\mathbf r}'_i .\;} \tag{A.14}
 \end{equation*}
@@ -287,7 +287,7 @@ The BF angular velocity $\boldsymbol{\omega}$ is defined by
 Take the internal energy of Sec.~2 in \emph{velocity} form (before the Legendre transform, eq.~A.12) and body-fix it: substitute the co-rotating velocities (3.3)
 $\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)$, $\dot{\mathbf r}'_i=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)$, using $|\mathbf S\mathbf v|^2=|\mathbf v|^2$. \alert{Every particle stays in velocity form:}
 \begin{equation*}
-\boxed{\;L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\boxed{\;\mathcal L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\sum_j M_j|\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j|^2
 +\tfrac{m_e}{2}\sum_i|\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i|^2
 -\frac{m_e^2}{2M_{\mathrm{tot}}}|\boldsymbol\omega\!\times\!\bar{\mathbf r}+\dot{\bar{\mathbf r}}|^2-V\;}\tag{3.7$'$}
@@ -306,7 +306,7 @@ The vector identity (any $\mathbf a,\dot{\mathbf a},\boldsymbol\omega$)
 \end{equation*}
 applied to \emph{nuclei, electrons, and the mass-polarization term} gives
 \begin{equation*}
-\boxed{\;L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
+\boxed{\;\mathcal L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\boldsymbol\omega^{T}\underbrace{(\mathbf I_N+\mathbf I_e-\mathbf I_X)}_{\text{full inertia }\mathbf I}\boldsymbol\omega
 +\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X)
 +\tfrac12\sum_b\dot Q_b^2+T_e^{\mathrm{BF}}-T_X^{\mathrm{mp}}-V\;}\tag{3.13$'$}
@@ -316,9 +316,9 @@ applied to \emph{nuclei, electrons, and the mass-polarization term} gives
 
 \begin{frame}{Total, nuclear, and canonical electronic angular momenta}
 \setstage{2}
-Read the momenta off $L$ (3.13$'$):
+Read the momenta off $\mathcal L$ (3.13$'$):
 \begin{equation*}
-\mathbf J\equiv\frac{\partial L}{\partial\boldsymbol\omega}
+\mathbf J\equiv\frac{\partial \mathcal L}{\partial\boldsymbol\omega}
 =\underbrace{(\mathbf I_N+\mathbf I_e-\mathbf I_X)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X}_{\text{total ang.\ mom.}},
 \qquad
 \mathbf J_N\equiv\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}\ \ (\text{nuclear}). \tag{3.16, 3.15}
@@ -326,12 +326,12 @@ Read the momenta off $L$ (3.13$'$):
 The \alert{canonical electronic angular momentum} is built from the electron pair $(\bar{\mathbf r}_i,\bar{\mathbf p}_i)$:
 \begin{equation*}
 \mathbf L_{\mathrm{elec}}=\sum_i\bar{\mathbf r}_i\!\times\!\bar{\mathbf p}_i,\qquad
-\bar{\mathbf p}_i\equiv\frac{\partial L}{\partial\dot{\bar{\mathbf r}}_i}
+\bar{\mathbf p}_i\equiv\frac{\partial \mathcal L}{\partial\dot{\bar{\mathbf r}}_i}
 =m_e(\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)-\frac{m_e^2}{M_{\mathrm{tot}}}(\boldsymbol\omega\!\times\!\bar{\mathbf r}+\dot{\bar{\mathbf r}}). \tag{3.14}
 \end{equation*}
 Vibrational momentum, with the \alert{Coriolis vectors} $\boldsymbol\sigma_b$:
 \begin{equation*}
-P_b=\frac{\partial L}{\partial\dot Q_b}=\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b+\dot Q_b,\qquad
+P_b=\frac{\partial \mathcal L}{\partial\dot Q_b}=\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b+\dot Q_b,\qquad
 \boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a,\quad \boldsymbol\zeta_{ab}=\sum_j\mathbf l_{ja}\!\times\!\mathbf l_{jb}. \tag{3.17a,b}
 \end{equation*}
 \end{frame}
@@ -346,7 +346,7 @@ Substitute $\bar{\mathbf p}_i$ (3.14) into $\mathbf L_{\mathrm{elec}}=\sum_i\bar
 \boxed{\;\mathbf L_{\mathrm{elec}}=(\mathbf I_e-\mathbf I_X)\boldsymbol\omega+(\mathbf L_e-\mathbf L_X).\;}\tag{3.18}
 \end{equation*}
 \begin{block}{What this says}
-The canonical electronic angular momentum is \emph{exactly} the electron and mass-polarization inertia/Coriolis pieces of $L$ (3.13$'$). Therefore the total splits cleanly,
+The canonical electronic angular momentum is \emph{exactly} the electron and mass-polarization inertia/Coriolis pieces of $\mathcal L$ (3.13$'$). Therefore the total splits cleanly,
 \[
 \mathbf J=\underbrace{\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}}_{\mathbf J_N}+\underbrace{(\mathbf I_e-\mathbf I_X)\boldsymbol\omega+(\mathbf L_e-\mathbf L_X)}_{\mathbf L_{\mathrm{elec}}}=\mathbf J_N+\mathbf L_{\mathrm{elec}}. \tag{3.16}
 \]
@@ -355,15 +355,15 @@ The canonical electronic angular momentum is \emph{exactly} the electron and mas
 
 \begin{frame}{Proof 2: the electron sector recovers $H_e$}
 \setstage{2}
-Write the body-frame electron velocity $\mathbf w_i\equiv\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i$. The electron $+$ mass-polarization part of $L$ (3.7$'$) is
+Write the body-frame electron velocity $\mathbf w_i\equiv\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i$. The electron $+$ mass-polarization part of $\mathcal L$ (3.7$'$) is
 \begin{equation*}
-L_e^{\mathrm{vel}}=\tfrac{m_e}{2}\sum_i|\mathbf w_i|^2-\frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl|\sum_i\mathbf w_i\Bigr|^2,
+\mathcal L_e^{\mathrm{vel}}=\tfrac{m_e}{2}\sum_i|\mathbf w_i|^2-\frac{m_e^2}{2M_{\mathrm{tot}}}\Bigl|\sum_i\mathbf w_i\Bigr|^2,
 \qquad
 \bar{\mathbf p}_i=m_e\mathbf w_i-\frac{m_e^2}{M_{\mathrm{tot}}}\sum_l\mathbf w_l,
 \end{equation*}
 \alert{identical in structure to the Sec.~2 velocity form (A.12) with $\dot{\mathbf r}'_i\to\mathbf w_i$.} The same mass-matrix inversion $\mathbf A\to\mathbf A^{-1}$ (A.25--A.26) gives
 \begin{equation*}
-\boxed{\;\sum_i\bar{\mathbf p}_i\!\cdot\!\mathbf w_i-L_e^{\mathrm{vel}}
+\boxed{\;\sum_i\bar{\mathbf p}_i\!\cdot\!\mathbf w_i-\mathcal L_e^{\mathrm{vel}}
 =\sum_i\frac{\bar{\mathbf p}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf p}_i\Bigr)^{2}\equiv H_e.\;}
 \end{equation*}
 \begin{block}{Why $\boldsymbol\omega$ does not spoil it}
@@ -378,7 +378,7 @@ Combining (3.16) and (3.18), the electronic and mass-polarization inertias cance
 \boxed{\;\mathbf{J}-\mathbf{L}_{\mathrm{elec}}=\mathbf{I}_N(Q)\,\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}}.\;} \tag{3.19}
 \end{equation*}
 \begin{block}{The algebraic miracle}
-The full inertia $\mathbf I_N+\mathbf I_e-\mathbf I_X$ appeared in $L$, but $\mathbf I_e,\mathbf I_X$ drop out of the right-hand side: the surviving rotational kernel is the \emph{nuclear} inertia $\mathbf I_N$ \textbf{alone}. All electronic $+$ mass-polarization content sits in the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$, and the electron sector is the clean scalar $H_e$ (Proof 2).
+The full inertia $\mathbf I_N+\mathbf I_e-\mathbf I_X$ appeared in $\mathcal L$, but $\mathbf I_e,\mathbf I_X$ drop out of the right-hand side: the surviving rotational kernel is the \emph{nuclear} inertia $\mathbf I_N$ \textbf{alone}. All electronic $+$ mass-polarization content sits in the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$, and the electron sector is the clean scalar $H_e$ (Proof 2).
 \end{block}
 \end{frame}
 
@@ -414,37 +414,83 @@ H_{\mathrm{int}}=\;&\tfrac12\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsym
 \setstage{3}
 \section{The quantization problem}
 
-\begin{frame}{Why naive quantization fails in curvilinear coordinates}
+\begin{frame}{A worked example: one particle in spherical coordinates}
 \setstage{3}
-Label the curvilinear coordinates and write the kinetic energy as a quadratic form:
+Take a single free particle of mass $m$. Cartesian: $\mathcal L=\tfrac12 m(\dot x^2+\dot y^2+\dot z^2)$. In spherical coordinates $(r,\theta,\phi)$,
 \begin{equation*}
-\{q^A\}=\{\phi,\theta,\chi,\;Q_1,\dots,Q_f\},\quad f=3N_{\mathrm{nucl}}-6,\qquad
-T=\tfrac12\,g^{AB}(q)\,p_Ap_B. \tag{4.1, 4.3}
+\mathcal L=\tfrac12 m\bigl(\dot r^2+r^2\dot\theta^2+r^2\sin^2\theta\,\dot\phi^2\bigr).
 \end{equation*}
-Three objects control everything: the metric $g_{AB}$, its determinant $g$, and its inverse $g^{AB}$.
-\begin{alertblock}{The problem, in one dimension}
-On $L^2(w(q)\,dq)$ with a non-constant weight, integration by parts gives
-\[
-(-i\hbar\,\partial_q)^{\dagger}=-i\hbar\bigl(\partial_q+w'/w\bigr)\;\neq\;-i\hbar\,\partial_q .\tag{4.4}
-\]
-The curved measure $\sqrt{g}\,d^nq$ plays the role of $w$: naive $p_A\to-i\hbar\partial_A$ is \textbf{non-Hermitian}.
-\end{alertblock}
+Canonical momenta $p_a=\partial\mathcal L/\partial\dot q^a$:
+\begin{equation*}
+p_r=m\dot r,\qquad p_\theta=mr^2\dot\theta,\qquad p_\phi=mr^2\sin^2\theta\,\dot\phi .
+\end{equation*}
+Legendre transform $\Rightarrow$ the classical Hamiltonian
+\begin{equation*}
+\boxed{\;H=\frac{p_r^2}{2m}+\frac{p_\theta^2}{2mr^2}+\frac{p_\phi^2}{2mr^2\sin^2\theta}.\;}
+\end{equation*}
+The coordinates are \emph{curvilinear}: $p_\theta,p_\phi$ are not mass$\times$velocity, and the coefficients depend on $r,\theta$.
 \end{frame}
 
-\begin{frame}{The Podolsky / Laplace--Beltrami prescription}
+\begin{frame}{Naive quantization gives the wrong operator}
 \setstage{3}
-The kinetic operator Hermitian with respect to $\sqrt{g}\,d^nq$ \emph{by construction}:
+Substitute $p_a\to-i\hbar\,\partial_a$ into $H$:
 \begin{equation*}
-\boxed{\;\hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt{g}}\,\partial_A\!\bigl(\sqrt{g}\,g^{AB}\,\partial_B\bigr),\qquad g=\det g_{AB}.\;}\tag{4.5}
+\hat H_{\mathrm{naive}}=-\frac{\hbar^2}{2m}\Bigl[\partial_r^2+\frac{1}{r^2}\partial_\theta^2+\frac{1}{r^2\sin^2\theta}\partial_\phi^2\Bigr].
 \end{equation*}
-One integration by parts gives the manifestly symmetric (and positive) form
+But the true kinetic operator is $-\tfrac{\hbar^2}{2m}\nabla^2$, with the familiar spherical Laplacian
 \begin{equation*}
-\int\varphi^{*}\,\hat T\psi\,\sqrt{g}\,d^{n}q
-=\frac{\hbar^{2}}{2}\int(\partial_A\varphi)^{*}\,g^{AB}\,(\partial_B\psi)\,\sqrt{g}\,d^{n}q . \tag{4.6}
+\nabla^2=\underbrace{\frac{1}{r^2}\partial_r(r^2\partial_r)}_{\partial_r^2+\frac{2}{r}\partial_r}
++\underbrace{\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta)}_{\frac{1}{r^2}(\partial_\theta^2+\cot\theta\,\partial_\theta)}
++\frac{1}{r^2\sin^2\theta}\partial_\phi^2 .
 \end{equation*}
-For $g_{AB}=\delta_{AB}$ it reduces to $-\tfrac{\hbar^2}{2}\nabla^2$.
-\begin{block}{The whole program of this stage}
-Compute $g_{AB}$, $\det g$, $g^{AB}$ for the coordinates (4.1) --- \emph{explicitly} --- then expand (4.5) block by block. Hermiticity is automatic at every step.
+\alert{Naive quantization is missing the first-derivative terms $\tfrac{2}{r}\partial_r$ and $\tfrac{\cot\theta}{r^2}\partial_\theta$.} Where did they go?
+\end{frame}
+
+\begin{frame}{Why it fails: $-i\hbar\partial$ is not Hermitian on the curved measure}
+\setstage{3}
+The physical inner product carries the volume Jacobian:
+\begin{equation*}
+\langle\varphi|\psi\rangle=\int\varphi^{*}\psi\;\underbrace{r^2\sin\theta}_{\text{Jacobian}}\,dr\,d\theta\,d\phi .
+\end{equation*}
+Is $\hat p_r=-i\hbar\partial_r$ Hermitian here? Integrate by parts in $r$ (boundary terms vanish):
+\begin{equation*}
+\int\varphi^{*}(-i\hbar\partial_r\psi)\,r^2\,dr
+=\int(-i\hbar\partial_r\varphi)^{*}\psi\,r^2\,dr
+-i\hbar\int\varphi^{*}\psi\,\underbrace{(\partial_r r^2)}_{=\,(2/r)\,r^2}dr,
+\end{equation*}
+so
+\begin{equation*}
+\boxed{\;\hat p_r^{\dagger}=-i\hbar\Bigl(\partial_r+\frac{2}{r}\Bigr)\neq\hat p_r.\;}
+\end{equation*}
+Not Hermitian $\Rightarrow$ $\hat p_r^{\,2}$ built this way isn't either $\Rightarrow$ no guaranteed real spectrum. The naive recipe \alert{ignored the measure}. (Same for $\theta$: the $\cot\theta$ term.)
+\end{frame}
+
+\begin{frame}{The Podolsky / Laplace--Beltrami rule}
+\setstage{3}
+Cure: read the kinetic energy as a quadratic form, $T=\tfrac12 g_{ab}(q)\dot q^a\dot q^b=\tfrac12 g^{ab}(q)\,p_ap_b$, which \emph{defines} the metric $g_{ab}$ and the measure $\sqrt g\,d^nq$. The operator Hermitian on $L^2(\sqrt g\,d^nq)$ \emph{by construction} is
+\begin{equation*}
+\boxed{\;\hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt g}\,\partial_a\!\bigl(\sqrt g\,g^{ab}\,\partial_b\bigr),\qquad g=\det g_{ab}.\;}\tag{4.5}
+\end{equation*}
+One integration by parts gives the manifestly symmetric, positive form
+\begin{equation*}
+\int\varphi^{*}\hat T\psi\,\sqrt g\,d^nq=\frac{\hbar^2}{2}\int(\partial_a\varphi)^{*}g^{ab}(\partial_b\psi)\,\sqrt g\,d^nq . \tag{4.6}
+\end{equation*}
+The $\sqrt g$ factors are exactly the measure the naive recipe forgot; for flat Cartesian $g_{ab}=m\delta_{ab}$ it is $-\tfrac{\hbar^2}{2m}\nabla^2$.
+\end{frame}
+
+\begin{frame}{Podolsky recovers the correct Hamiltonian}
+\setstage{3}
+For the spherical particle, $\mathcal L$ gives $g_{ab}=\mathrm{diag}(m,\,mr^2,\,mr^2\sin^2\theta)$, so
+\begin{equation*}
+\sqrt g=m^{3/2}r^2\sin\theta,\qquad g^{ab}=\mathrm{diag}\Bigl(\tfrac1m,\ \tfrac1{mr^2},\ \tfrac1{mr^2\sin^2\theta}\Bigr).
+\end{equation*}
+Insert into (4.5); the constant $m^{3/2}$ cancels between $\sqrt g$ and $1/\sqrt g$:
+\begin{equation*}
+\hat T=-\frac{\hbar^2}{2m}\Bigl[\frac{1}{r^2}\partial_r(r^2\partial_r)+\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta)+\frac{1}{r^2\sin^2\theta}\partial_\phi^2\Bigr]=-\frac{\hbar^2}{2m}\nabla^2. \ \checkmark
+\end{equation*}
+The $\tfrac2r\partial_r$ and $\cot\theta\,\partial_\theta$ are \alert{restored automatically} --- by the measure, not by hand.
+\begin{block}{The molecule is the same story}
+Curvilinear $\{q^A\}=\{\phi,\theta,\chi,Q_1,\dots,Q_f\}$, $T=\tfrac12 g^{AB}p_Ap_B$, curved measure $\sqrt g\,d^nq$. We now build the three objects --- metric $g_{AB}$, determinant $g$, inverse $g^{AB}$ --- explicitly, then apply (4.5). \emph{Next section.}
 \end{block}
 \end{frame}
 
