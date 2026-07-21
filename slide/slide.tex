@@ -295,7 +295,7 @@ $\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{
 with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$. The potential is now manifestly $\mathbf S$-independent (3.8). We carry the electrons in velocity form all the way --- $\mathbf I_e$, $\mathbf I_X$ and all.
 \end{frame}
 
-\begin{frame}{The vibrational term $\dot{\bar{\mathbf R}}_j\to\dot Q_b$, and the kinetic pieces}
+\begin{frame}{The vibrational term: $\dot{\bar{\mathbf R}}_j\to\dot Q_b$}
 \setstage{2}
 Expanding each square $|\boldsymbol\omega\!\times\!\mathbf a+\dot{\mathbf a}|^2$ leaves a pure-velocity (\alert{vibrational}) piece $|\dot{\mathbf a}|^2$. For the nuclei it collapses cleanly: the mode vectors are \emph{constant} [$\partial\bar{\mathbf R}_j/\partial Q_b=\mathbf l_{jb}/\sqrt{M_j}$ from (3.1a)], so
 \begin{equation*}
@@ -307,14 +307,7 @@ The $M_j$ cancels and the orthonormality $\sum_j\mathbf l_{jb}\!\cdot\!\mathbf l
 =\tfrac12\sum_{b,c}\Bigl(\underbrace{\textstyle\sum_j\mathbf l_{jb}\!\cdot\!\mathbf l_{jc}}_{=\,\delta_{bc}}\Bigr)\dot Q_b\dot Q_c
 =\tfrac12\sum_b\dot Q_b^2 .\;}
 \end{equation*}
-\alert{The vibrational metric is the identity --- no Wilson $G$-matrix.}
-\begin{block}{The electron/mass-polarization kinetic pieces \& nuclear Coriolis vector (used in (3.13$'$))}
-\begin{equation*}
-T_e^{\mathrm{BF}}=\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2,\qquad
-T_X^{\mathrm{mp}}=\frac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2,\qquad
-\mathbf L_N^{\mathrm{vib}}=\sum_j M_j\,\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j .
-\end{equation*}
-\end{block}
+\alert{The vibrational metric is the identity --- no Wilson $G$-matrix.} The electron kinetic and mass-polarization pieces stay in velocity form; every symbol is collected on the next slide.
 \end{frame}
 
 \begin{frame}{Expand every squared term $\Rightarrow$ the full inertia}
@@ -333,7 +326,7 @@ applied to \emph{nuclei, electrons, and the mass-polarization term} gives
 +\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X)
 +\tfrac12\sum_b\dot Q_b^2+T_e^{\mathrm{BF}}-T_X^{\mathrm{mp}}-V\;}\tag{3.13$'$}
 \end{equation*}
-\footnotesize with $\mathbf I_N=\sum_jM_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^{T})$, $\mathbf I_e=m_e\sum_i(\bar r_i^2\mathbb 1-\bar{\mathbf r}_i\bar{\mathbf r}_i^{T})$, $\mathbf I_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb 1-\bar{\mathbf r}\bar{\mathbf r}^{T})$ (3.9,3.10); $\mathbf L_e=m_e\sum_i\bar{\mathbf r}_i\!\times\!\dot{\bar{\mathbf r}}_i$, $\mathbf L_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}\bar{\mathbf r}\!\times\!\dot{\bar{\mathbf r}}$ (3.11).\normalsize
+\scriptsize\textbf{Definitions.} \emph{Inertia} (3.9,3.10): $\mathbf I_N=\sum_jM_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^{T})$, $\mathbf I_e=m_e\sum_i(\bar r_i^2\mathbb 1-\bar{\mathbf r}_i\bar{\mathbf r}_i^{T})$, $\mathbf I_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb 1-\bar{\mathbf r}\bar{\mathbf r}^{T})$. \emph{Angular momenta} (3.11): $\mathbf L_N^{\mathrm{vib}}=\sum_jM_j\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j$, $\mathbf L_e=m_e\sum_i\bar{\mathbf r}_i\!\times\!\dot{\bar{\mathbf r}}_i$, $\mathbf L_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}\bar{\mathbf r}\!\times\!\dot{\bar{\mathbf r}}$. \emph{Kinetic pieces} (3.12): $T_e^{\mathrm{BF}}=\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2$, $T_X^{\mathrm{mp}}=\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2$ (with $\tfrac12\sum_b\dot Q_b^2=T_{\mathrm{vib}}^{N}$ from the previous slide).\normalsize
 \end{frame}
 
 \begin{frame}{Total, nuclear, and canonical electronic angular momenta}
