@@ -658,84 +658,137 @@ The Watson reciprocal inertia $\boldsymbol\mu$ --- introduced classically by inv
 \end{frame}
 
 % ==================================================================
-\section{Coordinate-native quantization}
+\section{Quantizing rotation \& Coriolis coupling}
 
-\begin{frame}{$\hat J_\alpha$: defined, not postulated}
+\begin{frame}{Why the $\hat J_\alpha$ look unlike the usual angular momentum}
 \setstage{3}
-The expansion of (4.5) keeps producing $(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$. Name it:
+The rotational operators below differ from the $\hat L$ of introductory QM for \emph{three} reasons:
+\begin{enumerate}\setlength{\itemsep}{2pt}
+\item \textbf{Three angles, not two.} A rigid body needs $(\phi,\theta,\chi)$, so besides $\partial_\phi,\partial_\theta$ there is a third generator $\hat J_3=-i\hbar\partial_\chi$, and the three mix.
+\item \textbf{Body-fixed, not space-fixed.} They are components along the \emph{molecule's} axes, $\hat J_\alpha^{\mathrm{BF}}=S_{\beta\alpha}(\Omega)\hat J_\beta^{\mathrm{SF}}$; since $\mathbf S$ depends on the angles, their commutator carries the \alert{anomalous sign} $[\hat J_\alpha,\hat J_\beta]=-i\hbar\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ --- which we \emph{never use}.
+\item \textbf{Convention-dependent form.} The explicit trig coefficients are fixed by our $zyz$ choice $\mathbf S=R_z(\phi)R_y(\theta)R_z(\chi)$; another convention relabels them ($zyz$ is itself standard --- Wigner, Zare).
+\end{enumerate}
+\centering\itshape Nothing is postulated --- the operators fall out of the Laplace--Beltrami expansion next.
+\end{frame}
+
+\begin{frame}{Laplace--Beltrami on the rotational block $\Rightarrow$ $\hat J_\alpha$}
+\setstage{3}
+Put the measure $\sqrt g=\sin\theta\sqrt\gamma$ and the rotational inverse-metric block $g^{\Omega\Omega}_{st}=(\mathsf E^{-1})_{s\alpha}\mu_{\alpha\beta}(\mathsf E^{-1})_{t\beta}$ into the Podolsky/LB operator (4.5). Since $\mu,\sqrt\gamma$ depend on $Q$ only, they pass through $\partial_\Omega$:
 \begin{equation*}
-\boxed{\;
-\hat J_\alpha\equiv-i\hbar\sum_s(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}:\quad
+\hat T_{\mathrm{rot}}=-\frac{\hbar^2}{2}\,\mu_{\alpha\beta}\,\frac{1}{\sin\theta}\,\partial_s\!\bigl(\sin\theta\,(\mathsf E^{-1})_{s\alpha}\,(\mathsf E^{-1})_{t\beta}\,\partial_t\bigr).
+\end{equation*}
+The combination $(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ appears twice --- \alert{name it}:
+\begin{equation*}
+\boxed{\;\hat J_\alpha\equiv-i\hbar\!\sum_s(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}:\ 
 \begin{aligned}
-\hat J_1&=-i\hbar\bigl[-\tfrac{\cos\chi}{\sin\theta}\partial_\phi+\sin\chi\,\partial_\theta+\tfrac{\cos\theta\cos\chi}{\sin\theta}\partial_\chi\bigr],\\
-\hat J_2&=-i\hbar\bigl[\ \ \tfrac{\sin\chi}{\sin\theta}\partial_\phi+\cos\chi\,\partial_\theta-\tfrac{\cos\theta\sin\chi}{\sin\theta}\partial_\chi\bigr],\\
-\hat J_3&=-i\hbar\,\partial_\chi .
+\hat J_1&=-i\hbar[-\tfrac{\cos\chi}{\sin\theta}\partial_\phi+\sin\chi\,\partial_\theta+\tfrac{\cos\theta\cos\chi}{\sin\theta}\partial_\chi],\\
+\hat J_2&=-i\hbar[\ \tfrac{\sin\chi}{\sin\theta}\partial_\phi+\cos\chi\,\partial_\theta-\tfrac{\cos\theta\sin\chi}{\sin\theta}\partial_\chi],\\
+\hat J_3&=-i\hbar\,\partial_\chi ,
 \end{aligned}\;}\tag{4.24}
 \end{equation*}
-\begin{alertblock}{The logic}
-(4.24) is a \emph{definition} --- shorthand for three explicit combinations of Euler-angle derivatives. We will \textbf{never} compute a commutator $[\hat J_\alpha,\hat J_\beta]$ or use any angular-momentum algebra.
-\end{alertblock}
-\footnotesize Classical correspondence: $\tfrac12 p_Ag^{AB}p_B=\tfrac12\mathbf J^{T}\boldsymbol\mu\mathbf J-\mathbf J^{T}\boldsymbol\mu\boldsymbol\pi+\tfrac12\boldsymbol\pi^{T}\boldsymbol\mu\boldsymbol\pi+\tfrac12\sum_bP_b^2$ --- exactly the nuclear kernel of (3.22). (4.25)
+read row-by-row off $\mathsf E^{-1}$ (4.12). One leftover term $\partial_s(\sin\theta\,\mathsf E^{-1})$ remains --- next.
 \end{frame}
 
-\begin{frame}{The divergence identity: the workhorse of this section}
+\begin{frame}{The divergence identity makes it clean}
 \setstage{3}
-The weighted divergence of each column of $\mathsf E^{-1}$ vanishes --- computed term by term from (4.12):
+Expanding the outer derivative gives the clean double-derivative \emph{plus} a first-order remainder:
+\begin{equation*}
+\hat T_{\mathrm{rot}}=\tfrac12\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta
+-\tfrac{\hbar^2}{2}\mu_{\alpha\beta}\underbrace{\Bigl[\tfrac{1}{\sin\theta}\partial_s\!\bigl(\sin\theta(\mathsf E^{-1})_{s\alpha}\bigr)\Bigr]}_{\text{divergence (4.26)}}(\mathsf E^{-1})_{t\beta}\partial_t .
+\end{equation*}
+The divergence vanishes term by term:
 \begin{align*}
-\alpha=1:\ \ &\partial_\phi(-\cos\chi)+\partial_\theta(\sin\theta\sin\chi)+\partial_\chi(\cos\theta\cos\chi)=0+\cos\theta\sin\chi-\cos\theta\sin\chi=0,\\
-\alpha=2:\ \ &\partial_\phi(\sin\chi)+\partial_\theta(\sin\theta\cos\chi)+\partial_\chi(-\cos\theta\sin\chi)=0+\cos\theta\cos\chi-\cos\theta\cos\chi=0,\\
-\alpha=3:\ \ &\partial_\chi(\sin\theta)=0. \tag{4.26}
+\alpha{=}1:&\ \partial_\phi(-\cos\chi)+\partial_\theta(\sin\theta\sin\chi)+\partial_\chi(\cos\theta\cos\chi)=0,\\
+\alpha{=}2:&\ \partial_\phi(\sin\chi)+\partial_\theta(\sin\theta\cos\chi)+\partial_\chi(-\cos\theta\sin\chi)=0,\quad \alpha{=}3:\ \partial_\chi\sin\theta=0.
 \end{align*}
-Hence each $\hat J_\alpha$ is \textbf{Hermitian on the Haar measure} $\sin\theta\,d\Omega$ by one integration by parts --- \emph{no symmetrization needed} (4.27).
-\begin{alertblock}{This is the replacement}
-(4.26) is the coordinate-level fact that replaces every appeal to angular-momentum algebra: the vector fields generating body-frame rotations are divergence-free with respect to the Haar measure.
+\begin{alertblock}{Why the rotation block quantizes so cleanly (for the advanced reader)}
+Podolsky's rule \emph{should} spawn $\partial\sqrt g$ and $\partial g^{\Omega\Omega}$ first-order terms --- but they collapse into this one divergence, zero because the rotation generators are divergence-free on $\sin\theta\,d\Omega$. Hence $\hat T_{\mathrm{rot}}=\tfrac12\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta$, Hermitian, \alert{no pseudopotential} (4.29).
 \end{alertblock}
 \end{frame}
 
-\begin{frame}{The Podolsky operator, block by block}
+\begin{frame}{The Coriolis (rotation--vibration) block --- also clean}
 \setstage{3}
-Insert (4.21)--(4.22) into (4.5) and split into rotational, Coriolis, vibrational blocks (4.28):
-\begin{itemize}
-  \item \textbf{Rotational:} $\mu,\sqrt\gamma$ pass through $\partial_\Omega$; the divergence identity (4.26) kills the extra term:
-  \[
-  \hat T_{\mathrm{rot}}=\tfrac12\sum_{\alpha\beta}\mu_{\alpha\beta}(Q)\,\hat J_\alpha\hat J_\beta
-  \qquad\text{--- Hermitian as written, \alert{no extra potential}.}\tag{4.29}
-  \]
-  \footnotesize (``A rigid rotor has no pseudopotential'' --- verified by three derivative computations, not by an algebra.)\normalsize
-  \item \textbf{Coriolis:} the two groups are adjoints of each other on the measure (4.21) $\Rightarrow$ Hermitian sum, automatically (4.30).
-  \item \textbf{Vibrational:} $g^{QQ}=\mathbb 1+\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma$; the curved factor $\sqrt\gamma$ makes the bare $\hat P_b=-i\hbar\partial_{Q_b}$ non-Hermitian --- first-order remainders $\propto\partial_{Q_b}\ln\gamma$ appear (4.31). \alert{Removing them is the job of the rescaling.}
-\end{itemize}
+The off-diagonal blocks $g^{\Omega Q}=-\mathsf E^{-1}\boldsymbol\mu\boldsymbol\sigma$ give the cross term (4.30):
+\begin{equation*}
+\hat T_{\mathrm{Cor}}=-\tfrac12\Bigl[\hat J_\alpha\,\mu_{\alpha\beta}\,\hat\pi_\beta
++\tfrac{1}{\sqrt\gamma}\,\hat P_b\,\sqrt\gamma\;\sigma_{\alpha b}\mu_{\alpha\beta}\,\hat J_\beta\Bigr],\qquad \hat\pi_\alpha=\textstyle\sum_b\sigma_{\alpha b}(Q)\hat P_b .
+\end{equation*}
+The two groups are \alert{adjoints of each other} on the measure (4.21) --- the $\gamma^{\pm1/2}$ are exactly what integration by parts over $\sqrt\gamma\,dQ$ produces --- so their sum is Hermitian \emph{automatically}, with no residue.
+\begin{block}{Section result}
+Rotation (4.29) and Coriolis (4.30) quantize with \textbf{no} pseudopotential --- the divergence identity and the adjoint-pair structure do all the work. The flat-measure rescaling of the next section leaves both untouched (giving the symmetric $-\tfrac12(\hat J\mu\hat\pi+\hat\pi\mu\hat J)$, 4.35). \alert{Every pseudopotential comes from the vibrational block.}
+\end{block}
 \end{frame}
 
-\begin{frame}{Rescaling to the flat measure, step by step}
-\setstage{3}
-Absorb the shape factor into the wavefunction: $\psi_W\equiv\gamma^{1/4}\psi$, so $|\psi|^2\sqrt g\,dq=|\psi_W|^2d\mu_W$ (4.32). Conjugate the vibrational block by $\gamma^{1/4}$ (one product rule per line):
-\begin{align*}
-\partial_{Q_b}(\gamma^{-1/4}\psi_W)&=\gamma^{-1/4}\bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\psi_W\bigr],\\
-\gamma^{1/2}\partial_{Q_b}(\gamma^{-1/4}\psi_W)&=\gamma^{1/4}\bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\psi_W\bigr],\\
-\partial_{Q_b}\bigl(\gamma^{1/4}[\cdots]\bigr)&=\gamma^{1/4}\bigl[\partial_{Q_b}^2\psi_W-\tfrac{1}{16}(\partial_{Q_b}\!\ln\gamma)^2\psi_W-\tfrac14(\partial_{Q_b}^2\ln\gamma)\psi_W\bigr]. \tag{4.33}
-\end{align*}
-The cross terms cancel; what survives is the bare $\tfrac12\sum_b\hat P_b^2$ plus a \emph{multiplicative} residue $U_{\mathrm{vib}}$ (4.34).
-\vspace{0.5ex}
+\section{The vibrational block \& the Watson pseudopotential}
 
-The Coriolis block: the induced $\pm\tfrac{i\hbar}{4}(\partial_{Q_b}\ln\gamma)$ terms are equal and opposite $\Rightarrow$ they cancel, leaving the symmetric $-\tfrac12(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta)$ with \alert{no residue} (4.35).
+\begin{frame}{The vibrational block is different}
+\setstage{3}
+The vibrational inverse-metric block is $g^{QQ}=\mathbb 1+\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma$; the LB operator on the curved measure $\sqrt\gamma$ is
+\begin{equation*}
+\hat T_{\mathrm{vib}}=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt\gamma}\,\partial_{Q_b}\!\bigl(\sqrt\gamma\,g^{QQ}_{bc}\,\partial_{Q_c}\bigr).
+\end{equation*}
+Expand the $\delta_{bc}$ part by one product rule:
+\begin{equation*}
+-\tfrac{\hbar^2}{2}\tfrac{1}{\sqrt\gamma}\partial_{Q_b}\!\bigl(\sqrt\gamma\,\partial_{Q_b}\psi\bigr)=\tfrac12\hat P_b^2\psi
+\underbrace{-\tfrac{\hbar^2}{2}\bigl(\tfrac12\partial_{Q_b}\!\ln\gamma\bigr)\partial_{Q_b}\psi}_{\text{first-order remainder}} .
+\end{equation*}
+\alert{Unlike rotation, this remainder does not vanish}: $\partial_{Q_b}\ln\gamma\ne0$ because $\gamma=\det\mathbf I'(Q)$ genuinely depends on the shape, and the bare $\hat P_b$ is \emph{not} Hermitian on $\sqrt\gamma\,dQ$. How to handle it?
+\end{frame}
+
+\begin{frame}{Warm-up: the radial part of the spherical Laplacian}
+\setstage{3}
+Read the radial coordinate as an effective one-body \emph{vibration} (a diatomic bond). Its Laplace--Beltrami operator, on the curved measure $r^2\,dr$, is
+\begin{equation*}
+\hat T_r=-\frac{\hbar^2}{2m}\frac{1}{r^2}\partial_r(r^2\partial_r),\qquad \int|R|^2\,r^2\,dr=1 .
+\end{equation*}
+But vibrational wavefunctions are conventionally normalized on a \emph{flat} measure. Rescale $u=rR$ (i.e.\ $\psi\to g^{1/4}\psi$, $\sqrt g\propto r^2$) so $\int|u|^2\,dr=1$:
+\begin{equation*}
+\boxed{\;\hat T_r\ \xrightarrow{\ u=rR\ }\ -\frac{\hbar^2}{2m}\frac{d^2}{dr^2}\ \text{ on the flat measure } dr .\;}
+\end{equation*}
+The awkward $\tfrac{2}{r}\partial_r$ is gone --- absorbed into the rescaling. \emph{This} move is what, in general, leaves a pseudopotential behind.
+\end{frame}
+
+\begin{frame}{Two schemes: Laplace--Beltrami vs Podolsky}
+\setstage{3}
+The \emph{same} operator, in two representations:
+\begin{center}\small
+\begin{tabular}{@{}p{0.44\textwidth}|p{0.46\textwidth}@{}}
+\textbf{Laplace--Beltrami} & \textbf{Podolsky (flat measure)}\\[2pt]
+wavefn on curved $\sqrt g\,d^nq$ & $\psi_W=g^{1/4}\psi$ on flat $d^nq$\\[2pt]
+$-\tfrac{\hbar^2}{2\sqrt g}\partial(\sqrt g\,g^{ij}\partial)$ & $\tfrac12\hat p_i g^{ij}\hat p_j+U$\\[2pt]
+no explicit potential & extra $c$-number $U=$ \alert{pseudopotential}
+\end{tabular}
+\end{center}
+Related by conjugation with $g^{1/4}$; $U$ is the \alert{bookkeeping cost of the flat measure}.
+\begin{alertblock}{Radial case: $U=0$}
+For $\gamma\propto r^2$ the residual cancels ($u=rR$ is exact) --- like the rigid rotor. A genuine shape-dependent $\gamma(Q)$ does \alert{not} cancel: that is where the Watson potential is born.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Rescaling the molecular vibrational block}
+\setstage{3}
+Same move with $\gamma=\det\mathbf I'(Q)$: absorb the shape factor, $\psi_W=\gamma^{1/4}\psi$, so the vibrational measure is flat, $\prod_b dQ_b$ (normal-mode space treated as flat). Conjugating $\hat T_{\mathrm{vib}}$ (one product rule per line):
+\begin{align*}
+\partial_{Q_b}(\gamma^{-1/4}\psi_W)&=\gamma^{-1/4}[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\psi_W],\\
+\partial_{Q_b}\bigl(\gamma^{1/4}[\cdots]\bigr)&=\gamma^{1/4}[\partial_{Q_b}^2\psi_W-\tfrac1{16}(\partial_{Q_b}\!\ln\gamma)^2\psi_W-\tfrac14(\partial_{Q_b}^2\ln\gamma)\psi_W].
+\end{align*}
+The cross terms cancel; the bare $\tfrac12\sum_b\hat P_b^2$ survives \emph{plus} a multiplicative residue
+\begin{equation*}
+U_{\mathrm{vib}}=\frac{\hbar^2}{8}\sum_b\Bigl[\partial_{Q_b}^2\ln\gamma+\tfrac14(\partial_{Q_b}\!\ln\gamma)^2\Bigr]\quad(+\,U_{\mathrm{Cor}}\text{ from the }\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma\text{ dressing}).
+\end{equation*}
+\alert{Now the residue is nonzero} --- the promised pseudopotential.
 \end{frame}
 
 \begin{frame}{Collapse to the Watson trace}
 \setstage{3}
-The total residue $U_{\mathrm{vib}}+U_{\mathrm{Cor}}$ collapses through two exact $Q$-calculus identities. \textbf{Jacobi:}
-\begin{equation*}
-\partial_{Q_b}\!\ln\gamma=\operatorname{tr}(\boldsymbol\mu\,\partial_{Q_b}\mathbf I'),\qquad
-\partial_{Q_b}\boldsymbol\mu=-\boldsymbol\mu(\partial_{Q_b}\mathbf I')\boldsymbol\mu. \tag{4.36}
-\end{equation*}
-\textbf{Watson's closed form (4.37):} $\mathbf I'=A\,(\mathbf I^{e})^{-1}A$ with $A=\mathbf I^{e}+\tfrac12\sum_b a^{b}Q_b$ and \emph{constant} inertia derivatives $a^{b}$, so every derivative of $\gamma,\boldsymbol\mu$ reduces to constants. The gradient terms cancel; the Eckart sum rules fix the remainder:
+The residue $U_{\mathrm{vib}}+U_{\mathrm{Cor}}$ collapses through two exact $Q$-calculus identities. \textbf{Jacobi:} $\partial_{Q_b}\!\ln\gamma=\operatorname{tr}(\boldsymbol\mu\,\partial_{Q_b}\mathbf I')$. \textbf{Watson's closed form (4.37):} $\mathbf I'=A(\mathbf I^{e})^{-1}A$ with $A=\mathbf I^{e}+\tfrac12\sum_b a^{b}Q_b$, so every derivative reduces to constants; the Eckart sum rules fix the remainder:
 \begin{equation*}
 \boxed{\;\hat U(Q)=-\frac{\hbar^2}{8}\sum_{\alpha=1}^{3}\mu_{\alpha\alpha}(Q).\;}\tag{4.38}
 \end{equation*}
 \begin{itemize}
-  \item\footnotesize A pure $c$-number from the \emph{measure} --- kernel ordering never generates one.
-  \item\footnotesize The electrons do not modify it ($\gamma,\boldsymbol\mu$ depend on $Q$ alone; electronic Jacobian flat).
-  \item\footnotesize The collapse is special to \emph{rectilinear} normal coordinates (the closed form (4.37)).
+\item\footnotesize A pure $c$-number from the \emph{measure} --- kernel ordering never makes one.
+\item\footnotesize Electrons don't modify it ($\gamma,\boldsymbol\mu$ depend on $Q$ alone).
+\item\footnotesize Special to \emph{rectilinear} normal coordinates (Watson's closed form).
 \end{itemize}
 \end{frame}
 
