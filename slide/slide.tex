@@ -397,35 +397,33 @@ Write the body-frame electron velocity $\mathbf w_i\equiv\boldsymbol\omega\!\tim
 
 \begin{frame}{The key identity}
 \setstage{2}
-Combining (3.16) and (3.18), the electronic and mass-polarization inertias cancel between $\mathbf J$ and $\mathbf L_{\mathrm{elec}}$:
+\small
+From the full angular momentum $\mathbf J=\partial\mathcal L/\partial\boldsymbol\omega=(\mathbf I_N{+}\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}{+}\mathbf L_e{-}\mathbf L_X$ and the electronic one $\mathbf L_{\mathrm{elec}}=(\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega+(\mathbf L_e{-}\mathbf L_X)$ (Proof 1, 3.18), subtract: the electronic and mass-polarization pieces \alert{cancel exactly}, leaving a purely \emph{nuclear} right side --- rotational kernel $\mathbf I_N$ alone, all electronic content carried by the shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$:
 \begin{equation*}
 \boxed{\;\mathbf{J}-\mathbf{L}_{\mathrm{elec}}=\mathbf{I}_N(Q)\,\boldsymbol{\omega}+\mathbf{L}_N^{\mathrm{vib}}.\;} \tag{3.19}
 \end{equation*}
-% \begin{block}{The algebraic miracle}
-% The full inertia $\mathbf I_N+\mathbf I_e-\mathbf I_X$ appeared in $\mathcal L$, but $\mathbf I_e,\mathbf I_X$ drop out of the right-hand side: the surviving rotational kernel is the \emph{nuclear} inertia $\mathbf I_N$ \textbf{alone}. All electronic $+$ mass-polarization content sits in the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$, and the electron sector is the clean scalar $H_e$ (Proof 2).
-% \end{block}
-\end{frame}
-
-\begin{frame}{Watson reciprocal inertia}
-\setstage{2}
-\footnotesize
-To invert (3.19) for $\boldsymbol\omega$, rewrite the velocity-form $\mathbf L_N^{\mathrm{vib}}$ in canonical variables. First make the \alert{Coriolis vector} explicit: $\partial\bar{\mathbf R}_j/\partial Q_b=\mathbf l_{jb}/\sqrt{M_j}$ (3.1a), and inserting $\bar{\mathbf R}_j=\bar{\mathbf R}_j^{\mathrm{eq}}+\tfrac1{\sqrt{M_j}}\sum_a\mathbf l_{ja}Q_a$ the \emph{rotational Eckart condition} $\sum_j\sqrt{M_j}\,\bar{\mathbf R}_j^{\mathrm{eq}}\!\times\!\mathbf l_{jb}=0$ kills the equilibrium term:
+To invert (3.19) for $\boldsymbol\omega$ we must write $\mathbf L_N^{\mathrm{vib}}$ in canonical variables --- first the \alert{Coriolis vector} explicitly. Using $\partial\bar{\mathbf R}_j/\partial Q_b=\mathbf l_{jb}/\sqrt{M_j}$ (3.1a) and $\bar{\mathbf R}_j=\bar{\mathbf R}_j^{\mathrm{eq}}+\tfrac1{\sqrt{M_j}}\sum_a\mathbf l_{ja}Q_a$, the \emph{rotational Eckart condition} $\sum_j\sqrt{M_j}\,\bar{\mathbf R}_j^{\mathrm{eq}}\!\times\!\mathbf l_{jb}=0$ kills the equilibrium term:
 \begin{equation*}
 \boldsymbol\sigma_b=\sum_j M_j\bar{\mathbf R}_j\!\times\!\tfrac{\partial\bar{\mathbf R}_j}{\partial Q_b}
 =\sum_j\sqrt{M_j}\,\bar{\mathbf R}_j\!\times\!\mathbf l_{jb}
 =\sum_a\boldsymbol\zeta_{ab}Q_a,\qquad \boldsymbol\zeta_{ab}=\sum_j\mathbf l_{ja}\!\times\!\mathbf l_{jb}\ \ (\text{const}). \tag{3.17a}
 \end{equation*}
-Then $\dot{\bar{\mathbf R}}_j=\sum_b\tfrac{\partial\bar{\mathbf R}_j}{\partial Q_b}\dot Q_b$ gives $\mathbf L_N^{\mathrm{vib}}=\sum_j M_j\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j=\sum_b\boldsymbol\sigma_b\dot Q_b$; eliminate $\dot Q_b=P_b-\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b$ (3.17b) [using $\boldsymbol\sigma_b(\boldsymbol\sigma_b\!\cdot\!\boldsymbol\omega)=\boldsymbol\sigma_b\boldsymbol\sigma_b^{\mathsf T}\boldsymbol\omega$]:
+\end{frame}
+
+\begin{frame}{Watson reciprocal inertia}
+\setstage{2}
+\small
+With $\dot{\bar{\mathbf R}}_j=\sum_b\tfrac{\partial\bar{\mathbf R}_j}{\partial Q_b}\dot Q_b$, the velocity-form angular momentum is $\mathbf L_N^{\mathrm{vib}}=\sum_j M_j\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j=\sum_b\boldsymbol\sigma_b\dot Q_b$. Now eliminate $\dot Q_b=P_b-\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b$ (3.17b), using $\boldsymbol\sigma_b(\boldsymbol\sigma_b\!\cdot\!\boldsymbol\omega)=\boldsymbol\sigma_b\boldsymbol\sigma_b^{\mathsf T}\boldsymbol\omega$:
 \begin{equation*}
 \mathbf L_N^{\mathrm{vib}}=\sum_b\boldsymbol\sigma_b\bigl(P_b-\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b\bigr)=\boldsymbol\pi-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T}\boldsymbol\omega,\qquad
 \boldsymbol\pi\equiv\sum_b\boldsymbol\sigma_bP_b,\ \ \boldsymbol\sigma\boldsymbol\sigma^{\mathsf T}\equiv\sum_b\boldsymbol\sigma_b\boldsymbol\sigma_b^{\mathsf T}. \tag{3.20a}
 \end{equation*}
-Then (3.19) reads $\mathbf J-\mathbf L_{\mathrm{elec}}=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})\boldsymbol\omega+\boldsymbol\pi$, so
+Substitute into the key identity (3.19), $\mathbf J-\mathbf L_{\mathrm{elec}}=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})\boldsymbol\omega+\boldsymbol\pi$, and invert for $\boldsymbol\omega$:
 \begin{equation*}
 \boxed{\;\boldsymbol{\omega}=\boldsymbol{\mu}\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr),\qquad
 \boldsymbol{\mu}\equiv(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})^{-1}.\;}\tag{3.20}
 \end{equation*}
-$\boldsymbol\mu$ is the \alert{Watson reciprocal-inertia tensor}, $\boldsymbol\pi$ the field-free vibrational angular momentum --- built from \emph{nuclear} quantities only.
+$\boldsymbol\mu$ is the \alert{Watson reciprocal-inertia tensor}, $\boldsymbol\pi$ the field-free vibrational angular momentum. The whole rotation--vibration coupling is now carried by $\boldsymbol\mu$ and the shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}-\boldsymbol\pi$ --- \emph{nuclear} quantities only, no Wilson $G$-matrix.
 \end{frame}
 
 \begin{frame}{The exact classical molecular Hamiltonian}
