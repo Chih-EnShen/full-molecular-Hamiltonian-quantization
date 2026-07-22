@@ -253,7 +253,7 @@ Both internal families share the reference point $\mathbf R_{\mathrm{ncm}}$, so 
 +\underbrace{\sum_j\frac{\mathbf{P}_j^{'2}}{2M_j}+\sum_i\frac{\mathbf{p}_i^{'2}}{2m_e}
 +\frac{1}{2M_N}\Bigl(\sum_i\mathbf{p}'_i\Bigr)^{\!2}+V(\mathbf R'_j,\mathbf r'_i)}_{\textstyle H_{\mathrm{int}}\ (2.13)}.\;} \tag{2.12 $\equiv$ A.23}
 \end{equation*}
-\footnotesize Exact for any $\mathbf P_{\mathrm{cm}}$: no rest frame, no boost, no cross-coupling --- agrees with the paper's generating-function route (Sec.\ 2).\normalsize
+% \footnotesize Exact for any $\mathbf P_{\mathrm{cm}}$: no rest frame, no boost, no cross-coupling --- agrees with the paper's generating-function route (Sec.\ 2).\normalsize
 \centering
 \end{frame}
 
@@ -277,21 +277,22 @@ The BF angular velocity $\boldsymbol{\omega}$ is defined by
 (\mathbf{S}^{T}\dot{\mathbf{S}}) \mathbf v = \boldsymbol{\omega} \times \mathbf v
 \end{equation*}
 \begin{itemize}
-  \item try to differentiate $\mathbf{S}^{T}\mathbf{S} = 0$
+  \item Try to differentiate $\mathbf{S}^{T}\mathbf{S} = 0$, you will get $\mathbf{S}^{T}\dot{\mathbf{S}}$ is antisymmetric,
+  \\ so it can be written as a cross product with some vector $\boldsymbol{\omega}$. 
 \end{itemize}
 \end{frame}
 
 \begin{frame}{The velocity-form Lagrangian --- everything, electrons included}
 \setstage{2}
-Take the internal energy of Sec.~2 in \emph{velocity} form (before the Legendre transform, eq.~A.12) and body-fix it: substitute the co-rotating velocities (3.3)
-$\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)$, $\dot{\mathbf r}'_i=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)$, using $|\mathbf S\mathbf v|^2=|\mathbf v|^2$. \alert{Every particle stays in velocity form:}
+Substitute the co-rotating velocities (3.3)
+$\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)$, $\dot{\mathbf r}'_i=\mathbf S(\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)$ to Lagrangian (A.12) and use $\mathbf S^{T}\mathbf S=\mathbb 1$ to get the BF velocity form:
 \begin{equation*}
 \boxed{\;\mathcal L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 +\tfrac12\sum_j M_j|\boldsymbol\omega\!\times\!\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j|^2
 +\tfrac{m_e}{2}\sum_i|\boldsymbol\omega\!\times\!\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i|^2
 -\frac{m_e^2}{2M_{\mathrm{tot}}}|\boldsymbol\omega\!\times\!\bar{\mathbf r}+\dot{\bar{\mathbf r}}|^2-V\;}\tag{3.7$'$}
 \end{equation*}
-with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$. The potential is now manifestly $\mathbf S$-independent (3.8). We carry the electrons in velocity form all the way --- $\mathbf I_e$, $\mathbf I_X$ and all.
+with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$. The potential is now manifestly $\mathbf S$-independent.
 \end{frame}
 
 \begin{frame}{The vibrational term: $\dot{\bar{\mathbf R}}_j\to\dot Q_b$}
@@ -306,7 +307,7 @@ The $M_j$ cancels and the orthonormality $\sum_j\mathbf l_{jb}\!\cdot\!\mathbf l
 =\tfrac12\sum_{b,c}\Bigl(\underbrace{\textstyle\sum_j\mathbf l_{jb}\!\cdot\!\mathbf l_{jc}}_{=\,\delta_{bc}}\Bigr)\dot Q_b\dot Q_c
 =\tfrac12\sum_b\dot Q_b^2 .\;}
 \end{equation*}
-\alert{The vibrational metric is the identity --- no Wilson $G$-matrix.} The electron kinetic and mass-polarization pieces stay in velocity form; every symbol is collected on the next slide.
+% \alert{The vibrational metric is the identity --- no Wilson $G$-matrix.} The electron kinetic and mass-polarization pieces stay in velocity form; every symbol is collected on the next slide.
 \end{frame}
 
 \begin{frame}{Expand every squared term $\Rightarrow$ the full inertia}
@@ -318,6 +319,7 @@ The vector identity (any $\mathbf a,\dot{\mathbf a},\boldsymbol\omega$)
 +\underbrace{m\,\boldsymbol{\omega}\!\cdot\!(\mathbf{a}\!\times\!\dot{\mathbf{a}})}_{\text{Coriolis}}
 +\underbrace{\tfrac{m}{2}|\dot{\mathbf{a}}|^{2}}_{\text{vibrational}} \tag{3.9c}
 \end{equation*}
+\vspace{-6pt}
 applied to \emph{nuclei, electrons, and the mass-polarization term} gives
 \begin{equation*}
 \boxed{\;\mathcal L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
@@ -325,7 +327,15 @@ applied to \emph{nuclei, electrons, and the mass-polarization term} gives
 +\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X)
 +\tfrac12\sum_b\dot Q_b^2+T_e^{\mathrm{BF}}-T_X^{\mathrm{mp}}-V\;}\tag{3.13$'$}
 \end{equation*}
-\scriptsize\textbf{Definitions.} \emph{Inertia} (3.9,3.10): $\mathbf I_N=\sum_jM_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^{T})$, $\mathbf I_e=m_e\sum_i(\bar r_i^2\mathbb 1-\bar{\mathbf r}_i\bar{\mathbf r}_i^{T})$, $\mathbf I_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb 1-\bar{\mathbf r}\bar{\mathbf r}^{T})$. \emph{Angular momenta} (3.11): $\mathbf L_N^{\mathrm{vib}}=\sum_jM_j\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j$, $\mathbf L_e=m_e\sum_i\bar{\mathbf r}_i\!\times\!\dot{\bar{\mathbf r}}_i$, $\mathbf L_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}\bar{\mathbf r}\!\times\!\dot{\bar{\mathbf r}}$. \emph{Kinetic pieces} (3.12): $T_e^{\mathrm{BF}}=\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2$, $T_X^{\mathrm{mp}}=\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2$ (with $\tfrac12\sum_b\dot Q_b^2=T_{\mathrm{vib}}^{N}$ from the previous slide).\normalsize
+\vspace{-4pt}
+\begin{block}{Definitions}
+{\scriptsize\setlength{\arraycolsep}{2pt}
+\begin{tabular}{@{}r@{\;\;}p{0.80\textwidth}@{}}
+\emph{Inertia} & $\mathbf I_N=\sum_jM_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^{T})$,\ \ $\mathbf I_e=m_e\sum_i(\bar r_i^2\mathbb 1-\bar{\mathbf r}_i\bar{\mathbf r}_i^{T})$,\ \ $\mathbf I_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb 1-\bar{\mathbf r}\bar{\mathbf r}^{T})$ \\[1pt]
+\emph{Ang.\ mom.} & $\mathbf L_N^{\mathrm{vib}}=\sum_jM_j\bar{\mathbf R}_j\!\times\!\dot{\bar{\mathbf R}}_j$,\ \ $\mathbf L_e=m_e\sum_i\bar{\mathbf r}_i\!\times\!\dot{\bar{\mathbf r}}_i$,\ \ $\mathbf L_X=\tfrac{m_e^2}{M_{\mathrm{tot}}}\bar{\mathbf r}\!\times\!\dot{\bar{\mathbf r}}$ \\[1pt]
+\emph{Kinetic} & $T_e^{\mathrm{BF}}=\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2$,\ \ $T_X^{\mathrm{mp}}=\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2$,\ \ $T_{\mathrm{vib}}^{N}=\tfrac12\sum_b\dot Q_b^2$ \\
+\end{tabular}}
+\end{block}
 \end{frame}
 
 \begin{frame}{Total, nuclear, and canonical electronic angular momenta}
