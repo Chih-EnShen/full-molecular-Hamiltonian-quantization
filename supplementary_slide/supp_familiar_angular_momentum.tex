@@ -1,0 +1,116 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+% --- math + notation (match the main deck) ---
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bbold}
+
+\usetheme{metropolis}
+\metroset{block=fill,numbering=fraction,progressbar=foot}
+
+\title{Recovering the familiar angular momentum operators}
+\subtitle{The two-angle limit of the body-fixed framework}
+\author{Presenter: Chih-En Shen \\ Advisor: Liang-Yan Hsu}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% ==================================================================
+\begin{frame}{Why a supplement?}
+In the main deck the body-fixed operators
+\begin{equation*}
+\hat J_\alpha=-i\hbar\sum_s(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}\qquad(\phi,\theta,\chi)\tag{4.24}
+\end{equation*}
+look unlike the $\hat L$ of introductory QM --- three Euler angles, body-fixed (anomalous sign), and the $zyz$-fixed trig coefficients.
+\begin{block}{Claim of this supplement}
+Choose the \emph{familiar} setting --- a single orientation described by \alert{two} angles $(\theta,\phi)$, i.e.\ the $zyz$ convention with the third angle $\chi$ dropped --- and the whole machinery collapses to the textbook operators
+\[
+\hat L_z=-i\hbar\,\partial_\phi,\quad \hat L_x,\ \hat L_y,\quad \hat L^2 .
+\]
+We derive them in full below.
+\end{block}
+\end{frame}
+
+% ==================================================================
+\begin{frame}{The two-angle setting: a point on a sphere / linear rotor}
+A point mass (or a linear/axially symmetric body) has \emph{no} orientation about its own axis, so the third Euler angle $\chi$ is redundant: two angles $(\theta,\phi)$ suffice. In the $zyz$ convention with $\chi=0$,
+\begin{equation*}
+\mathbf S(\phi,\theta)=R_z(\phi)\,R_y(\theta),\qquad
+\hat{\mathbf n}(\theta,\phi)=\mathbf S(\phi,\theta)\,\hat{\mathbf z}
+=\begin{pmatrix}\sin\theta\cos\phi\\ \sin\theta\sin\phi\\ \cos\theta\end{pmatrix},
+\end{equation*}
+--- exactly the spherical-polar direction. The configuration space is the unit sphere $S^2$, with the rotationally invariant measure $\sin\theta\,d\theta\,d\phi$ (the two-angle version of the deck's $\sin\theta\,d\phi\,d\theta\,d\chi$).
+\begin{center}
+\itshape Goal: get the angular momentum operators on functions $\psi(\theta,\phi)$, in full.
+\end{center}
+\end{frame}
+
+% ==================================================================
+\begin{frame}{Angular momentum as $\mathbf r\times\hat{\mathbf p}$ in spherical coordinates}
+Start from the definition $\hat{\mathbf L}=\mathbf r\times\hat{\mathbf p}=-i\hbar\,\mathbf r\times\nabla$, and write the gradient in the spherical orthonormal frame:
+\begin{equation*}
+\nabla=\hat{\mathbf r}\,\partial_r+\hat{\boldsymbol\theta}\,\tfrac1r\partial_\theta+\hat{\boldsymbol\phi}\,\tfrac{1}{r\sin\theta}\partial_\phi,
+\qquad \mathbf r=r\,\hat{\mathbf r}.
+\end{equation*}
+Then, since $\hat{\mathbf r}\times\hat{\mathbf r}=0$,
+\begin{equation*}
+\mathbf r\times\nabla
+= r\,\hat{\mathbf r}\times\Bigl(\hat{\boldsymbol\theta}\,\tfrac1r\partial_\theta+\hat{\boldsymbol\phi}\,\tfrac{1}{r\sin\theta}\partial_\phi\Bigr)
+=(\hat{\mathbf r}\times\hat{\boldsymbol\theta})\,\partial_\theta+(\hat{\mathbf r}\times\hat{\boldsymbol\phi})\,\tfrac{1}{\sin\theta}\partial_\phi .
+\end{equation*}
+With $\hat{\mathbf r}\times\hat{\boldsymbol\theta}=\hat{\boldsymbol\phi}$ and $\hat{\mathbf r}\times\hat{\boldsymbol\phi}=-\hat{\boldsymbol\theta}$,
+\begin{equation*}
+\boxed{\;\hat{\mathbf L}=-i\hbar\Bigl(\hat{\boldsymbol\phi}\,\partial_\theta-\hat{\boldsymbol\theta}\,\tfrac{1}{\sin\theta}\,\partial_\phi\Bigr).\;}
+\end{equation*}
+No radial derivative survives --- angular momentum is purely angular.
+\end{frame}
+
+% ==================================================================
+\begin{frame}{Project onto the space-fixed axes}
+The spherical unit vectors in Cartesian components are
+\begin{equation*}
+\hat{\boldsymbol\theta}=(\cos\theta\cos\phi,\ \cos\theta\sin\phi,\ -\sin\theta),\qquad
+\hat{\boldsymbol\phi}=(-\sin\phi,\ \cos\phi,\ 0).
+\end{equation*}
+Dotting $\hat{\mathbf L}=-i\hbar(\hat{\boldsymbol\phi}\,\partial_\theta-\hat{\boldsymbol\theta}\,\tfrac{1}{\sin\theta}\partial_\phi)$ with $\hat{\mathbf z}$ (then $\hat{\mathbf x},\hat{\mathbf y}$):
+\begin{equation*}
+\hat L_z=-i\hbar\Bigl(\underbrace{(\hat{\boldsymbol\phi})_z}_{0}\,\partial_\theta-\underbrace{(\hat{\boldsymbol\theta})_z}_{-\sin\theta}\tfrac{1}{\sin\theta}\partial_\phi\Bigr)=\boxed{-i\hbar\,\partial_\phi}
+\end{equation*}
+\begin{align*}
+\hat L_x&=-i\hbar\bigl[(-\sin\phi)\partial_\theta-(\cos\theta\cos\phi)\tfrac{1}{\sin\theta}\partial_\phi\bigr]=\ \ i\hbar\bigl(\sin\phi\,\partial_\theta+\cot\theta\cos\phi\,\partial_\phi\bigr),\\
+\hat L_y&=-i\hbar\bigl[(\cos\phi)\partial_\theta-(\cos\theta\sin\phi)\tfrac{1}{\sin\theta}\partial_\phi\bigr]=\ \ i\hbar\bigl(-\cos\phi\,\partial_\theta+\cot\theta\sin\phi\,\partial_\phi\bigr).
+\end{align*}
+\centering These are exactly the orbital angular momentum operators of introductory QM.
+\end{frame}
+
+% ==================================================================
+\begin{frame}{Ladder operators and the Casimir $\hat L^2$}
+Combining the two, the $e^{\pm i\phi}$ structure emerges (using $\cos\phi\pm i\sin\phi=e^{\pm i\phi}$):
+\begin{equation*}
+\hat L_\pm\equiv\hat L_x\pm i\hat L_y=\hbar\,e^{\pm i\phi}\bigl(\pm\partial_\theta+i\cot\theta\,\partial_\phi\bigr).
+\end{equation*}
+The Casimir $\hat L^2=\hat L_z^2+\tfrac12(\hat L_+\hat L_-+\hat L_-\hat L_+)$ collapses to
+\begin{equation*}
+\boxed{\;\hat L^2=-\hbar^2\Bigl[\frac{1}{\sin\theta}\partial_\theta\bigl(\sin\theta\,\partial_\theta\bigr)+\frac{1}{\sin^2\theta}\partial_\phi^2\Bigr]\;}
+\end{equation*}
+--- precisely the \alert{Laplace--Beltrami operator on the unit sphere} (the angular part of $\nabla^2$), Hermitian on $\sin\theta\,d\theta\,d\phi$. Its eigenfunctions are the spherical harmonics,
+\begin{equation*}
+\hat L^2 Y_l^m=\hbar^2 l(l+1)\,Y_l^m,\qquad \hat L_z Y_l^m=\hbar m\,Y_l^m .
+\end{equation*}
+\end{frame}
+
+% ==================================================================
+\begin{frame}{Connection back to the main deck}
+\small
+Everything here is the $\chi$-free special case of the general framework:
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item \textbf{Same convention.} $\mathbf S=R_z(\phi)R_y(\theta)R_z(\chi)$ with $\chi$ dropped is $R_z(\phi)R_y(\theta)$ --- the standard spherical-polar parametrization. Choosing it is what makes the operators come out familiar.
+\item \textbf{Same clean rotational block.} $\hat L^2$ is the rotational Laplace--Beltrami operator on $\sin\theta\,d\theta\,d\phi$, Hermitian with \emph{no} pseudopotential --- the two-angle instance of the deck's rigid-rotor result $\tfrac12\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta$.
+\item \textbf{Same $1/\sin\theta$.} The ``unusual'' coefficients already appear here in $\hat L_x,\hat L_y$; they are the coordinate singularity at the poles, not an artifact.
+\item \textbf{Normal vs anomalous.} These $\hat L_\alpha$ are \emph{space-fixed} (a point particle has no body frame), so $[\hat L_\alpha,\hat L_\beta]=+i\hbar\epsilon_{\alpha\beta\gamma}\hat L_\gamma$ --- the ordinary sign. The anomalous sign of the deck's $\hat J_\alpha$ appears only for genuinely \emph{body-fixed} components (three angles).
+\end{itemize}
+\centering\itshape The familiar operators are the special case; the general $\hat J_\alpha$ (4.24) are their asymmetric-top generalization.
+\end{frame}
+
+\end{document}

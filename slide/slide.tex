@@ -423,7 +423,7 @@ Substitute into the key identity (3.19), $\mathbf J-\mathbf L_{\mathrm{elec}}=(\
 \boxed{\;\boldsymbol{\omega}=\boldsymbol{\mu}\bigl(\mathbf{J}-\mathbf{L}_{\mathrm{elec}}-\boldsymbol{\pi}\bigr),\qquad
 \boldsymbol{\mu}\equiv(\mathbf{I}_N-\boldsymbol{\sigma}\boldsymbol{\sigma}^{\mathsf T})^{-1}.\;}\tag{3.20}
 \end{equation*}
-$\boldsymbol\mu$ is the \alert{Watson reciprocal-inertia tensor}, $\boldsymbol\pi$ the field-free vibrational angular momentum. The whole rotation--vibration coupling is now carried by $\boldsymbol\mu$ and the shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}-\boldsymbol\pi$ --- \emph{nuclear} quantities only, no Wilson $G$-matrix.
+$\boldsymbol\mu$ is the \alert{Watson reciprocal-inertia tensor}, $\boldsymbol\pi$ the field-free vibrational angular momentum.
 \end{frame}
 
 \begin{frame}{The exact classical molecular Hamiltonian}
@@ -470,11 +470,11 @@ The inner product needs a rule for ``how much volume'' each point carries --- th
 \end{equation*}
 Normalization is always against this measure: $\int|\psi|^2\,w\,d^nq=1$. We write the space as $L^2(w\,d^nq)$.
 \begin{alertblock}{Why it matters here}
-\alert{Hermiticity depends on the measure.} On a curved measure $-i\hbar\partial$ is \emph{not} Hermitian (next slides show this for $w=r^2\sin\theta$). Getting the operator right on the correct measure is exactly the quantization problem --- and its cure is the Podolsky rule. For the molecule the measure will be $\sqrt g\,d^nq$ (later reshaped to the flat $d\mu_W$).
+\alert{Hermiticity depends on the measure.} On a curved measure $-i\hbar\partial$ is \emph{not} Hermitian (next slides show this for $w=r^2\sin\theta$). Getting the operator right on the correct measure is exactly the quantization problem --- and its cure is the Podolsky rule.
 \end{alertblock}
 \end{frame}
 
-\begin{frame}{A worked example: one particle in spherical coordinates}
+\begin{frame}{A worked example: a free particle in spherical coordinates}
 \setstage{3}
 Take a single free particle of mass $m$. Cartesian: $\mathcal L=\tfrac12 m(\dot x^2+\dot y^2+\dot z^2)$. In spherical coordinates $(r,\theta,\phi)$,
 \begin{equation*}
@@ -488,7 +488,7 @@ Legendre transform $\Rightarrow$ the classical Hamiltonian
 \begin{equation*}
 \boxed{\;H=\frac{p_r^2}{2m}+\frac{p_\theta^2}{2mr^2}+\frac{p_\phi^2}{2mr^2\sin^2\theta}.\;}
 \end{equation*}
-The coordinates are \emph{curvilinear}: $p_\theta,p_\phi$ are not mass$\times$velocity, and the coefficients depend on $r,\theta$.
+The coordinates are \emph{curvilinear}.
 \end{frame}
 
 \begin{frame}{Naive quantization gives the wrong operator}
@@ -503,7 +503,7 @@ But the true kinetic operator is $-\tfrac{\hbar^2}{2m}\nabla^2$, with the famili
 +\underbrace{\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta)}_{\frac{1}{r^2}(\partial_\theta^2+\cot\theta\,\partial_\theta)}
 +\frac{1}{r^2\sin^2\theta}\partial_\phi^2 .
 \end{equation*}
-\alert{Naive quantization is missing the first-derivative terms $\tfrac{2}{r}\partial_r$ and $\tfrac{\cot\theta}{r^2}\partial_\theta$.} Where did they go?
+\alert{Naive quantization is missing the first-derivative terms $\tfrac{2}{r}\partial_r$ and $\tfrac{\cot\theta}{r^2}\partial_\theta$.}
 \end{frame}
 
 \begin{frame}{Why it fails: $-i\hbar\partial$ is not Hermitian on the curved measure}
@@ -531,11 +531,11 @@ Cure: read the kinetic energy as a quadratic form, $T=\tfrac12 g_{ab}(q)\dot q^a
 \begin{equation*}
 \boxed{\;\hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt g}\,\partial_a\!\bigl(\sqrt g\,g^{ab}\,\partial_b\bigr),\qquad g=\det g_{ab}.\;}\tag{4.5}
 \end{equation*}
-One integration by parts gives the manifestly symmetric, positive form
-\begin{equation*}
-\int\varphi^{*}\hat T\psi\,\sqrt g\,d^nq=\frac{\hbar^2}{2}\int(\partial_a\varphi)^{*}g^{ab}(\partial_b\psi)\,\sqrt g\,d^nq . \tag{4.6}
-\end{equation*}
-The $\sqrt g$ factors are exactly the measure the naive recipe forgot; for flat Cartesian $g_{ab}=m\delta_{ab}$ it is $-\tfrac{\hbar^2}{2m}\nabla^2$.
+% One integration by parts gives the manifestly symmetric, positive form
+% \begin{equation*}
+% \int\varphi^{*}\hat T\psi\,\sqrt g\,d^nq=\frac{\hbar^2}{2}\int(\partial_a\varphi)^{*}g^{ab}(\partial_b\psi)\,\sqrt g\,d^nq . \tag{4.6}
+% \end{equation*}
+% The $\sqrt g$ factors are exactly the measure the naive recipe forgot; for flat Cartesian $g_{ab}=m\delta_{ab}$ it is $-\tfrac{\hbar^2}{2m}\nabla^2$.
 \end{frame}
 
 \begin{frame}{Podolsky recovers the correct Hamiltonian}
@@ -548,10 +548,10 @@ Insert into (4.5); the constant $m^{3/2}$ cancels between $\sqrt g$ and $1/\sqrt
 \begin{equation*}
 \hat T=-\frac{\hbar^2}{2m}\Bigl[\frac{1}{r^2}\partial_r(r^2\partial_r)+\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta)+\frac{1}{r^2\sin^2\theta}\partial_\phi^2\Bigr]=-\frac{\hbar^2}{2m}\nabla^2. \ \checkmark
 \end{equation*}
-The $\tfrac2r\partial_r$ and $\cot\theta\,\partial_\theta$ are \alert{restored automatically} --- by the measure, not by hand.
-\begin{block}{The molecule is the same story}
-Curvilinear $\{q^A\}=\{\phi,\theta,\chi,Q_1,\dots,Q_f\}$, $T=\tfrac12 g^{AB}p_Ap_B$, curved measure $\sqrt g\,d^nq$. We now build the three objects --- metric $g_{AB}$, determinant $g$, inverse $g^{AB}$ --- explicitly, then apply (4.5). \emph{Next section.}
-\end{block}
+The $\tfrac2r\partial_r$ and $\cot\theta\,\partial_\theta$ are \alert{restored automatically}.
+% \begin{block}{The molecule is the same story}
+% Curvilinear $\{q^A\}=\{\phi,\theta,\chi,Q_1,\dots,Q_f\}$, $T=\tfrac12 g^{AB}p_Ap_B$, curved measure $\sqrt g\,d^nq$. We now build the three objects --- metric $g_{AB}$, determinant $g$, inverse $g^{AB}$ --- explicitly, then apply (4.5). \emph{Next section.}
+% \end{block}
 \end{frame}
 
 \begin{frame}{Recipe: Podolsky / Laplace--Beltrami quantization}
@@ -562,23 +562,22 @@ Curvilinear $\{q^A\}=\{\phi,\theta,\chi,Q_1,\dots,Q_f\}$, $T=\tfrac12 g^{AB}p_Ap
 \textbf{General recipe} --- curvilinear $\{q^i\}$:
 \begin{enumerate}\setlength{\itemsep}{0pt}
 \item \textbf{Metric} $g_{ij}$: read off $T=\tfrac12 g_{ij}\dot q^i\dot q^j$, or $g_{ij}=\sum_a m_a\,(\partial\mathbf r_a/\partial q^i)\!\cdot\!(\partial\mathbf r_a/\partial q^j)$.
-\item \textbf{Determinant \& measure}: $g=\det g_{ij}$ $\Rightarrow$ Hilbert space $L^2(\sqrt g\,d^nq)$.
+\item \textbf{Determinant}: $g=\det g_{ij}$
 \item \textbf{Inverse} $g^{ij}=(g_{ij})^{-1}$.
-\item \textbf{Podolsky operator} (Hermitian on $L^2(\sqrt g\,d^nq)$ by construction):
+\item \textbf{Podolsky operator} (Hermitian on $L^2(\sqrt g\,d^nq)$):
 \[ \hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt g}\,\partial_i\!\bigl(\sqrt g\,g^{ij}\partial_j\bigr); \]
-$V$ and coordinate functions $\to$ multiplication.
-\item \textbf{(Optional) rescale} $\psi\to g^{1/4}\psi$ to a flatter measure; leftover $c$-number $=$ \alert{pseudopotential}.
+% \item \textbf{(Optional) rescale} $\psi\to g^{1/4}\psi$ to a flatter measure; leftover $c$-number $=$ \alert{pseudopotential}.
 \end{enumerate}
 \end{column}
 \begin{column}{0.42\textwidth}
 \footnotesize
-\begin{block}{Instance: free particle in $(r,\theta,\phi)$}
+\begin{block}{Instance: a free particle in $(r,\theta,\phi)$}
 \begin{enumerate}\setlength{\itemsep}{1pt}
-\item $g_{ij}=\mathrm{diag}(m,\,mr^2,\,mr^2\sin^2\theta)$
-\item $\sqrt g=m^{3/2}r^2\sin\theta$
-\item $g^{ij}$: reciprocals of $g_{ii}$
+\item $g_{ij} = \mathrm{diag}(m,\,mr^2,\,mr^2\sin^2\theta)$
+\item $\sqrt g = m^{3/2}r^2\sin\theta$
+\item $g^{ij} = \mathrm{diag}(1/m,\,1/(mr^2),\,1/(mr^2\sin^2\theta))$
 \item $\hat T=-\dfrac{\hbar^2}{2m}\nabla^2$ \checkmark
-\item flat $\Rightarrow$ no pseudopotential
+% \item flat $\Rightarrow$ no pseudopotential
 \end{enumerate}
 \end{block}
 {\scriptsize Molecule (next): metric (4.15) $\to$ measure (4.21) $\to$ inverse (4.22) $\to$ Podolsky $\to$ Watson $\hat U$.}
@@ -600,7 +599,7 @@ with
 \begin{equation*}
 \det\mathsf E=-\sin\theta . \tag{4.11}
 \end{equation*}
-\footnotesize The $1/\sin\theta$ entries are the Euler coordinate singularity at the poles; they are compensated by $|\det\mathsf E|=\sin\theta$ in the volume element. \alert{(4.10)--(4.12) are the only Euler-angle facts used from here on.}
+% \footnotesize The $1/\sin\theta$ entries are the Euler coordinate singularity at the poles; they are compensated by $|\det\mathsf E|=\sin\theta$ in the volume element. \alert{(4.10)--(4.12) are the only Euler-angle facts used from here on.}
 \end{frame}
 
 \begin{frame}{The ro-vibrational metric tensor}
@@ -614,29 +613,29 @@ The classical BF kinetic energy $2T_{\mathrm{rv}}=\boldsymbol\omega^{T}\mathbf I
 \end{pmatrix}\;}\tag{4.15}
 \end{equation*}
 \begin{itemize}
-  \item Euler--Euler block: inertia pulled back through the kinematic matrix.
-  \item Euler--mode block: Coriolis coupling $\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a$ (constant $\boldsymbol\zeta$'s).
-  \item mode--mode block: \emph{identity} --- the gift of mass-weighted rectilinear normal coordinates.
+  \item Euler--Euler block: rotational inertia.
+  \item Euler--mode block: Coriolis coupling $\boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a$.
+  \item mode--mode block: \emph{identity}.
 \end{itemize}
-Every entry is an explicit function of $(\theta,\chi,Q)$.
+% Every entry is an explicit function of $(\theta,\chi,Q)$.
 \end{frame}
 
-\begin{frame}{Electrons: flat, constant, decoupled from the measure}
-\setstage{3}
-Including electron velocities, the full mass matrix has a \emph{constant} electron block $\mathsf D$. Eliminating it (Schur complement $=$ completing the square) removes all $\boldsymbol\omega$-dependence:
-\begin{equation*}
-\mathsf C\mathsf D^{-1}\mathsf C^{\mathsf T}=\mathbf I_e-\mathbf I_X
-\;\Longrightarrow\;
-\det\mathsf M=\underbrace{\det\mathsf D}_{\text{const}}\cdot\det\!\begin{pmatrix}\mathbf I_N&\boldsymbol\sigma\\ \boldsymbol\sigma^{\mathsf T}&\mathbb 1_f\end{pmatrix} \tag{4.17}
-\end{equation*}
---- the same $\mathbf I_e/\mathbf I_X$ cancellation as the classical cross-check of \S\,3.6.
-\begin{itemize}
-  \item Electron measure is the flat $\prod_i d^3\bar{\mathbf r}_i$; $\hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}$ is Hermitian on it.
-  \item $\hat L_{\mathrm{elec},\alpha}$ is Hermitian \emph{without symmetrization}: its vector field is divergence-free,
-  $\sum_{i\gamma}\partial_{\bar r_{i\gamma}}(\epsilon_{\alpha\beta\gamma}\bar r_{i\beta})=0$ (4.18).
-\end{itemize}
-\alert{The entire quantization problem lives in the ro-vibrational sector}; electrons enter only via the flat kinetic operator and the shift $\hat J_\alpha\to\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$.
-\end{frame}
+% \begin{frame}{Electrons: flat, constant, decoupled from the measure}
+% \setstage{3}
+% Including electron velocities, the full mass matrix has a \emph{constant} electron block $\mathsf D$. Eliminating it (Schur complement $=$ completing the square) removes all $\boldsymbol\omega$-dependence:
+% \begin{equation*}
+% \mathsf C\mathsf D^{-1}\mathsf C^{\mathsf T}=\mathbf I_e-\mathbf I_X
+% \;\Longrightarrow\;
+% \det\mathsf M=\underbrace{\det\mathsf D}_{\text{const}}\cdot\det\!\begin{pmatrix}\mathbf I_N&\boldsymbol\sigma\\ \boldsymbol\sigma^{\mathsf T}&\mathbb 1_f\end{pmatrix} \tag{4.17}
+% \end{equation*}
+% --- the same $\mathbf I_e/\mathbf I_X$ cancellation as the classical cross-check of \S\,3.6.
+% \begin{itemize}
+%   \item Electron measure is the flat $\prod_i d^3\bar{\mathbf r}_i$; $\hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}$ is Hermitian on it.
+%   \item $\hat L_{\mathrm{elec},\alpha}$ is Hermitian \emph{without symmetrization}: its vector field is divergence-free,
+%   $\sum_{i\gamma}\partial_{\bar r_{i\gamma}}(\epsilon_{\alpha\beta\gamma}\bar r_{i\beta})=0$ (4.18).
+% \end{itemize}
+% \alert{The entire quantization problem lives in the ro-vibrational sector}; electrons enter only via the flat kinetic operator and the shift $\hat J_\alpha\to\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$.
+% \end{frame}
 
 \begin{frame}{Determinant and volume element}
 \setstage{3}
@@ -650,13 +649,13 @@ Block row reduction gives $\det\bigl(\begin{smallmatrix}\mathsf a&\mathsf b\\ \m
 The determinant is governed by $\mathbf I'=\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T}$ --- \emph{not} the bare $\mathbf I_N$: the Coriolis coupling reduces the rotational determinant. It is the same $\mathbf I'$ whose inverse $\boldsymbol\mu$ is the classical rotational kernel (3.20).
 \end{block}
 \begin{equation*}
-\sqrt{g}\,d^{\,3+f}q=\underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Haar measure on }SO(3)}\cdot\underbrace{\sqrt{\gamma(Q)}\,\textstyle\prod_bdQ_b}_{\text{rot.--vib.\ Jacobian}}\cdot\underbrace{\textstyle\prod_id^3\bar{\mathbf r}_i}_{\text{flat}} \tag{4.21}
+\sqrt{g}\,d^{\,3+f}q=\underbrace{\sin\theta\,d\phi\,d\theta\,d\chi}_{\text{Euler-angle measure}}\cdot\underbrace{\sqrt{\gamma(Q)}\,\textstyle\prod_bdQ_b}_{\text{normal-mode measure}}\cdot\underbrace{\textstyle\prod_id^3\bar{\mathbf r}_i}_{\text{electron measure}} \tag{4.21}
 \end{equation*}
 \end{frame}
 
 \begin{frame}{The inverse metric}
 \setstage{3}
-Claim, then \emph{verify} by block multiplication using only $\boldsymbol\mu\mathbf I'=\mathbb 1$ [(4.23)]:
+The inverse metric tensor is written as:
 \begin{equation*}
 \boxed{\;g^{AB}=
 \begin{pmatrix}
@@ -665,29 +664,30 @@ Claim, then \emph{verify} by block multiplication using only $\boldsymbol\mu\mat
 \end{pmatrix},
 \qquad \boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T})^{-1}.\;}\tag{4.22}
 \end{equation*}
-\begin{block}{Two inversions, one computation}
-The Watson reciprocal inertia $\boldsymbol\mu$ --- introduced classically by inverting the momentum--velocity relation (3.20) --- reappears as the geometric inverse of the metric.
-\end{block}
-\footnotesize e.g.\ top-left: $\mathsf E^{T}\mathbf I_N\mathsf E\cdot\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T}-\mathsf E^{T}\boldsymbol\sigma\cdot\boldsymbol\sigma^{T}\boldsymbol\mu\mathsf E^{-T}=\mathsf E^{T}(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T})\boldsymbol\mu\mathsf E^{-T}=\mathbb 1_3$. $\checkmark$
+% \begin{block}{Two inversions, one computation}
+% The Watson reciprocal inertia $\boldsymbol\mu$ --- introduced classically by inverting the momentum--velocity relation (3.20) --- reappears as the geometric inverse of the metric.
+% \end{block}
+% \footnotesize e.g.\ top-left: $\mathsf E^{T}\mathbf I_N\mathsf E\cdot\mathsf E^{-1}\boldsymbol\mu\mathsf E^{-T}-\mathsf E^{T}\boldsymbol\sigma\cdot\boldsymbol\sigma^{T}\boldsymbol\mu\mathsf E^{-T}=\mathsf E^{T}(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T})\boldsymbol\mu\mathsf E^{-T}=\mathbb 1_3$. $\checkmark$
+\footnotesize you can verify by block multiplication that $g_{AB}g^{BC}=\delta_A^C$.
 \end{frame}
 
 % ==================================================================
 \section{Quantizing rotation \& Coriolis coupling}
 
-\begin{frame}{Why the $\hat J_\alpha$ look unlike the usual angular momentum}
-\setstage{3}
-The rotational operators below differ from the $\hat L$ of introductory QM for \emph{three} reasons:
-\begin{enumerate}\setlength{\itemsep}{2pt}
-\item \textbf{Three angles, not two.} A rigid body needs $(\phi,\theta,\chi)$, so besides $\partial_\phi,\partial_\theta$ there is a third generator $\hat J_3=-i\hbar\partial_\chi$, and the three mix.
-\item \textbf{Body-fixed, not space-fixed.} They are components along the \emph{molecule's} axes, $\hat J_\alpha^{\mathrm{BF}}=S_{\beta\alpha}(\Omega)\hat J_\beta^{\mathrm{SF}}$; since $\mathbf S$ depends on the angles, their commutator carries the \alert{anomalous sign} $[\hat J_\alpha,\hat J_\beta]=-i\hbar\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ --- which we \emph{never use}.
-\item \textbf{Convention-dependent form.} The explicit trig coefficients are fixed by our $zyz$ choice $\mathbf S=R_z(\phi)R_y(\theta)R_z(\chi)$; another convention relabels them ($zyz$ is itself standard --- Wigner, Zare).
-\end{enumerate}
-\centering\itshape Nothing is postulated --- the operators fall out of the Laplace--Beltrami expansion next.
-\end{frame}
+% \begin{frame}{Why the $\hat J_\alpha$ look unlike the usual angular momentum}
+% \setstage{3}
+% The rotational operators below differ from the $\hat L$ of introductory QM for \emph{three} reasons:
+% \begin{enumerate}\setlength{\itemsep}{2pt}
+% \item \textbf{Three angles, not two.} A rigid body needs $(\phi,\theta,\chi)$, so besides $\partial_\phi,\partial_\theta$ there is a third generator $\hat J_3=-i\hbar\partial_\chi$, and the three mix.
+% \item \textbf{Body-fixed, not space-fixed.} They are components along the \emph{molecule's} axes, $\hat J_\alpha^{\mathrm{BF}}=S_{\beta\alpha}(\Omega)\hat J_\beta^{\mathrm{SF}}$; since $\mathbf S$ depends on the angles, their commutator carries the \alert{anomalous sign} $[\hat J_\alpha,\hat J_\beta]=-i\hbar\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ --- which we \emph{never use}.
+% \item \textbf{Convention-dependent form.} The explicit trig coefficients are fixed by our $zyz$ choice $\mathbf S=R_z(\phi)R_y(\theta)R_z(\chi)$; another convention relabels them ($zyz$ is itself standard --- Wigner, Zare).
+% \end{enumerate}
+% \centering\itshape Nothing is postulated --- the operators fall out of the Laplace--Beltrami expansion next.
+% \end{frame}
 
 \begin{frame}{Laplace--Beltrami on the rotational block $\Rightarrow$ $\hat J_\alpha$}
 \setstage{3}
-Put the measure $\sqrt g=\sin\theta\sqrt\gamma$ and the rotational inverse-metric block $g^{\Omega\Omega}_{st}=(\mathsf E^{-1})_{s\alpha}\mu_{\alpha\beta}(\mathsf E^{-1})_{t\beta}$ into the Podolsky/LB operator (4.5). Since $\mu,\sqrt\gamma$ depend on $Q$ only, they pass through $\partial_\Omega$:
+Put the measure $\sqrt g=\sin\theta\sqrt\gamma$ and the rotational inverse-metric block $g^{\Omega\Omega}_{st}=(\mathsf E^{-1})_{s\alpha}\mu_{\alpha\beta}(\mathsf E^{-1})_{t\beta}$ into the Podolsky/LB operator (4.5). % Since $\mu,\sqrt\gamma$ depend on $Q$ only, they pass through $\partial_\Omega$:
 \begin{equation*}
 \hat T_{\mathrm{rot}}=-\frac{\hbar^2}{2}\,\mu_{\alpha\beta}\,\frac{1}{\sin\theta}\,\partial_s\!\bigl(\sin\theta\,(\mathsf E^{-1})_{s\alpha}\,(\mathsf E^{-1})_{t\beta}\,\partial_t\bigr).
 \end{equation*}
@@ -700,7 +700,7 @@ The combination $(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ appears twice --
 \hat J_3&=-i\hbar\,\partial_\chi ,
 \end{aligned}\;}\tag{4.24}
 \end{equation*}
-read row-by-row off $\mathsf E^{-1}$ (4.12). One leftover term $\partial_s(\sin\theta\,\mathsf E^{-1})$ remains --- next.
+% read row-by-row off $\mathsf E^{-1}$ (4.12). One leftover term $\partial_s(\sin\theta\,\mathsf E^{-1})$ remains --- next.
 \end{frame}
 
 \begin{frame}{The divergence identity makes it clean}
@@ -713,11 +713,12 @@ Expanding the outer derivative gives the clean double-derivative \emph{plus} a f
 The divergence vanishes term by term:
 \begin{align*}
 \alpha{=}1:&\ \partial_\phi(-\cos\chi)+\partial_\theta(\sin\theta\sin\chi)+\partial_\chi(\cos\theta\cos\chi)=0,\\
-\alpha{=}2:&\ \partial_\phi(\sin\chi)+\partial_\theta(\sin\theta\cos\chi)+\partial_\chi(-\cos\theta\sin\chi)=0,\quad \alpha{=}3:\ \partial_\chi\sin\theta=0.
+\alpha{=}2:&\ \partial_\phi(\sin\chi)+\partial_\theta(\sin\theta\cos\chi)+\partial_\chi(-\cos\theta\sin\chi)=0,\\
+\alpha{=}3:&\ \partial_\chi\sin\theta=0.
 \end{align*}
-\begin{alertblock}{Why the rotation block quantizes so cleanly (for the advanced reader)}
-Podolsky's rule \emph{should} spawn $\partial\sqrt g$ and $\partial g^{\Omega\Omega}$ first-order terms --- but they collapse into this one divergence, zero because the rotation generators are divergence-free on $\sin\theta\,d\Omega$. Hence $\hat T_{\mathrm{rot}}=\tfrac12\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta$, Hermitian, \alert{no pseudopotential} (4.29).
-\end{alertblock}
+% \begin{alertblock}{Why the rotation block quantizes so cleanly (for the advanced reader)}
+% Podolsky's rule \emph{should} spawn $\partial\sqrt g$ and $\partial g^{\Omega\Omega}$ first-order terms --- but they collapse into this one divergence, zero because the rotation generators are divergence-free on $\sin\theta\,d\Omega$. Hence $\hat T_{\mathrm{rot}}=\tfrac12\mu_{\alpha\beta}\hat J_\alpha\hat J_\beta$, Hermitian, \alert{no pseudopotential} (4.29).
+% \end{alertblock}
 \end{frame}
 
 \begin{frame}{The Coriolis (rotation--vibration) block --- also clean}
@@ -728,9 +729,9 @@ The off-diagonal blocks $g^{\Omega Q}=-\mathsf E^{-1}\boldsymbol\mu\boldsymbol\s
 +\tfrac{1}{\sqrt\gamma}\,\hat P_b\,\sqrt\gamma\;\sigma_{\alpha b}\mu_{\alpha\beta}\,\hat J_\beta\Bigr],\qquad \hat\pi_\alpha=\textstyle\sum_b\sigma_{\alpha b}(Q)\hat P_b .
 \end{equation*}
 The two groups are \alert{adjoints of each other} on the measure (4.21) --- the $\gamma^{\pm1/2}$ are exactly what integration by parts over $\sqrt\gamma\,dQ$ produces --- so their sum is Hermitian \emph{automatically}, with no residue.
-\begin{block}{Section result}
-Rotation (4.29) and Coriolis (4.30) quantize with \textbf{no} pseudopotential --- the divergence identity and the adjoint-pair structure do all the work. The flat-measure rescaling of the next section leaves both untouched (giving the symmetric $-\tfrac12(\hat J\mu\hat\pi+\hat\pi\mu\hat J)$, 4.35). \alert{Every pseudopotential comes from the vibrational block.}
-\end{block}
+% \begin{block}{Section result}
+% Rotation (4.29) and Coriolis (4.30) quantize with \textbf{no} pseudopotential --- the divergence identity and the adjoint-pair structure do all the work. The flat-measure rescaling of the next section leaves both untouched (giving the symmetric $-\tfrac12(\hat J\mu\hat\pi+\hat\pi\mu\hat J)$, 4.35). \alert{Every pseudopotential comes from the vibrational block.}
+% \end{block}
 \end{frame}
 
 \section{The vibrational block \& the Watson pseudopotential}
