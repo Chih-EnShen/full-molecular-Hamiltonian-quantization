@@ -65,30 +65,26 @@ We build the \alert{exact} non-relativistic molecular Hamiltonian in four stages
 
 \begin{frame}{The foundational literature}
 \setstage{0}
-The exact rotation--vibration Hamiltonian rests on three key contributions:
-\begin{itemize}
-  \item[\textbf{Van Vleck}] --- body-fixed angular momentum and the anomalous commutation sign:
+\textbf{Van Vleck}
   \begin{itemize}\footnotesize
     \item[] Phys.\ Rev.\ \textbf{32}, 250 (1928)
     \item[] Phys.\ Rev.\ \textbf{47}, 487 (1935)
   \end{itemize}
-  \item[\textbf{E.\,B.\ Wilson}] --- normal coordinates, the Coriolis coupling, and the $G$-matrix formalism:
+\textbf{E.\,B.\ Wilson}
   \begin{itemize}\footnotesize
     \item[] J.\ Chem.\ Phys.\ \textbf{4}, 260--268 (1936)
     \item[] J.\ Chem.\ Phys.\ \textbf{4}, 313--316 (1936)
     \item[] J.\ Chem.\ Phys.\ \textbf{5}, 617--620 (1937)
   \end{itemize}
-  \item[\textbf{Watson}] --- simplification of the kinetic energy operator and the pseudopotential $-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$:
+\textbf{Watson}
   \begin{itemize}\footnotesize
     \item[] Mol.\ Phys.\ \textbf{15}, 479--490 (1968)
   \end{itemize}
-\end{itemize}
-\centering\itshape We reconstruct their results from a single principle --- flat-space quantization on a curvilinear chart.
 \end{frame}
 
 \begin{frame}{Recap: the Born--Oppenheimer (BO) approximation}
 \setstage{0}
-Electrons are $\sim\!10^3$--$10^4\times$ lighter than nuclei ($m_e\ll M_j$), so they respond \alert{instantaneously} to nuclear motion. This licenses an \emph{adiabatic} separation:
+Electrons are $\sim\!10^3$--$10^4\times$ lighter than nuclei ($m_e\ll M_j$), so they respond \alert{instantaneously} to nuclear motion.
 \begin{enumerate}
   \item Freeze the nuclei at positions $\{\mathbf R_j\}$; solve the electronic problem $\hat H_{\mathrm{elec}}(\mathbf r;\mathbf R)\,\psi_{\mathrm{elec}}(\mathbf r;\mathbf R)=E_{\mathrm{elec}}(\mathbf R)\,\psi_{\mathrm{elec}}(\mathbf r;\mathbf R)$.
   \item $E_{\mathrm{elec}}(\mathbf R)$, as $\mathbf R$ varies, is the \alert{potential energy surface (PES)} the nuclei move on.
@@ -97,7 +93,6 @@ Electrons are $\sim\!10^3$--$10^4\times$ lighter than nuclei ($m_e\ll M_j$), so 
   \Bigl[\sum_j\frac{\hat{\mathbf P}_j^2}{2M_j}+E_{\mathrm{elec}}(\mathbf R)\Bigr]\chi(\mathbf R)=E\,\chi(\mathbf R).
   \end{equation*}
 \end{enumerate}
-\centering\itshape This is the picture from every undergrad quantum-chemistry course: electrons first, nuclei second.
 \end{frame}
 
 \begin{frame}{What BO leaves open}
@@ -107,14 +102,10 @@ Electrons are $\sim\!10^3$--$10^4\times$ lighter than nuclei ($m_e\ll M_j$), so 
 \begin{equation*}
 \underbrace{3}_{\text{translation}}+\underbrace{3}_{\text{rotation}}+\underbrace{(3N_{\mathrm{nucl}}-6)}_{\text{vibration}} = 3N_{\mathrm{nucl}} .
 \end{equation*}
-\begin{block}{The undergrad shortcut}
-Translation drops out trivially; rotation and vibration are then bolted on \emph{separately} --- rigid rotor $\times$ harmonic oscillator --- as if independent.
-\end{block}
 \pause
 \begin{alertblock}{The catch}
 Rotation and vibration are \emph{not} independent (Coriolis coupling, centrifugal distortion), and together their natural coordinates are \emph{curvilinear} --- where naive quantization is not even Hermitian.
 \end{alertblock}
-\centering\itshape This talk derives the \alert{exact} $\hat H_{\mathrm{rve}}$: translation, rotation, vibration, \emph{and} electrons together --- no PES, no BO, until the very end.
 \end{frame}
 
 \begin{frame}{Why is the molecular Hamiltonian non-trivial?}
