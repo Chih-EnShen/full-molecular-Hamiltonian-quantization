@@ -63,13 +63,67 @@ We build the \alert{exact} non-relativistic molecular Hamiltonian in four stages
 % ==================================================================
 \section{Motivation}
 
+\begin{frame}{The foundational literature}
+\setstage{0}
+The exact rotation--vibration Hamiltonian rests on three key contributions:
+\begin{itemize}
+  \item[\textbf{Van Vleck}] --- body-fixed angular momentum and the anomalous commutation sign:
+  \begin{itemize}\footnotesize
+    \item[] Phys.\ Rev.\ \textbf{32}, 250 (1928)
+    \item[] Phys.\ Rev.\ \textbf{47}, 487 (1935)
+  \end{itemize}
+  \item[\textbf{E.\,B.\ Wilson}] --- normal coordinates, the Coriolis coupling, and the $G$-matrix formalism:
+  \begin{itemize}\footnotesize
+    \item[] J.\ Chem.\ Phys.\ \textbf{4}, 260--268 (1936)
+    \item[] J.\ Chem.\ Phys.\ \textbf{4}, 313--316 (1936)
+    \item[] J.\ Chem.\ Phys.\ \textbf{5}, 617--620 (1937)
+  \end{itemize}
+  \item[\textbf{Watson}] --- simplification of the kinetic energy operator and the pseudopotential $-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$:
+  \begin{itemize}\footnotesize
+    \item[] Mol.\ Phys.\ \textbf{15}, 479--490 (1968)
+  \end{itemize}
+\end{itemize}
+\centering\itshape We reconstruct their results from a single principle --- flat-space quantization on a curvilinear chart.
+\end{frame}
+
+\begin{frame}{Recap: the Born--Oppenheimer (BO) approximation}
+\setstage{0}
+Electrons are $\sim\!10^3$--$10^4\times$ lighter than nuclei ($m_e\ll M_j$), so they respond \alert{instantaneously} to nuclear motion. This licenses an \emph{adiabatic} separation:
+\begin{enumerate}
+  \item Freeze the nuclei at positions $\{\mathbf R_j\}$; solve the electronic problem $\hat H_{\mathrm{elec}}(\mathbf r;\mathbf R)\,\psi_{\mathrm{elec}}(\mathbf r;\mathbf R)=E_{\mathrm{elec}}(\mathbf R)\,\psi_{\mathrm{elec}}(\mathbf r;\mathbf R)$.
+  \item $E_{\mathrm{elec}}(\mathbf R)$, as $\mathbf R$ varies, is the \alert{potential energy surface (PES)} the nuclei move on.
+  \item The nuclei then obey their own Schr\"odinger equation on that surface:
+  \begin{equation*}
+  \Bigl[\sum_j\frac{\hat{\mathbf P}_j^2}{2M_j}+E_{\mathrm{elec}}(\mathbf R)\Bigr]\chi(\mathbf R)=E\,\chi(\mathbf R).
+  \end{equation*}
+\end{enumerate}
+\centering\itshape This is the picture from every undergrad quantum-chemistry course: electrons first, nuclei second.
+\end{frame}
+
+\begin{frame}{What BO leaves open}
+\setstage{0}
+\footnotesize
+\alert{BO only separates \emph{electrons} from \emph{nuclei}} --- it says nothing about the \emph{nuclear} motion itself. $E_{\mathrm{elec}}(\mathbf R)$ still depends on all $3N_{\mathrm{nucl}}$ nuclear coordinates, physically split as
+\begin{equation*}
+\underbrace{3}_{\text{translation}}+\underbrace{3}_{\text{rotation}}+\underbrace{(3N_{\mathrm{nucl}}-6)}_{\text{vibration}} = 3N_{\mathrm{nucl}} .
+\end{equation*}
+\begin{block}{The undergrad shortcut}
+Translation drops out trivially; rotation and vibration are then bolted on \emph{separately} --- rigid rotor $\times$ harmonic oscillator --- as if independent.
+\end{block}
+\pause
+\begin{alertblock}{The catch}
+Rotation and vibration are \emph{not} independent (Coriolis coupling, centrifugal distortion), and together their natural coordinates are \emph{curvilinear} --- where naive quantization is not even Hermitian.
+\end{alertblock}
+\centering\itshape This talk derives the \alert{exact} $\hat H_{\mathrm{rve}}$: translation, rotation, vibration, \emph{and} electrons together --- no PES, no BO, until the very end.
+\end{frame}
+
 \begin{frame}{Why is the molecular Hamiltonian non-trivial?}
 \setstage{0}
 The lab Hamiltonian couples \emph{all} particles through the Coulomb potential:
 \[
 H=\sum_j\frac{\mathbf P_j^2}{2M_j}+\sum_i\frac{\mathbf p_i^2}{2m_e}+V .
 \]
-To do molecular physics we want to separate
+To do molecular physics we want to separate translation (center of mass, \alert{COM}), rotation, vibration, and electronic motion:
 \[
 \underbrace{\text{translation}}_{\text{COM}}\;\big|\;\underbrace{\text{rotation}}_{\text{Euler angles }\Omega}\;\big|\;\underbrace{\text{vibration}}_{\text{normal coords }Q}\;\big|\;\underbrace{\text{electrons}}_{\bar{\mathbf r}_i}.
 \]
@@ -234,7 +288,7 @@ Solve for $\dot{\mathbf r}'_i$:
 
 \begin{frame}{Legendre transform: kinetic energy in momentum form}
 \setstage{1}
-CoM and nuclear terms are immediate: $\tfrac12M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2=\mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}$, $\tfrac12M_j\dot{\mathbf R}_j^{'2}=\mathbf P_j^{'2}/2M_j$. Substituting (A.16) into the electron sector (A.19, A.20) and collecting the $\bigl(\sum_l\mathbf p'_l\bigr)^2$ coefficients,
+CoM and nuclear terms are immediate: $\tfrac12M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2=\mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}$, $\tfrac12M_j\dot{\mathbf R}_j^{'2}=\mathbf P_j^{'2}/2M_j$. Substituting (A.16) into the electron sector (A.12) and collecting the $\bigl(\sum_l\mathbf p'_l\bigr)^2$ coefficients,
 \begin{equation*}
 \frac{1}{M_N}+\frac{N_{\mathrm{elec}}m_e-M_{\mathrm{tot}}}{2M_N^2} = \frac{1}{M_N}-\frac{M_N}{2M_N^2} = +\frac{1}{2M_N} . \tag{A.21}
 \end{equation*}
@@ -527,7 +581,7 @@ Not Hermitian $\Rightarrow$ $\hat p_r^{\,2}$ built this way isn't either $\Right
 
 \begin{frame}{The Podolsky / Laplace--Beltrami rule}
 \setstage{3}
-Cure: read the kinetic energy as a quadratic form, $T=\tfrac12 g_{ab}(q)\dot q^a\dot q^b=\tfrac12 g^{ab}(q)\,p_ap_b$, which \emph{defines} the metric $g_{ab}$ and the measure $\sqrt g\,d^nq$. The operator Hermitian on $L^2(\sqrt g\,d^nq)$ \emph{by construction} is
+Cure: read the kinetic energy as a quadratic form, $T=\tfrac12 g_{ab}(q)\dot q^a\dot q^b=\tfrac12 g^{ab}(q)\,p_ap_b$, which \emph{defines} the metric $g_{ab}$ and the measure $\sqrt g\,d^nq$. The operator Hermitian on $L^2(\sqrt g\,d^nq)$ \emph{by construction} is the Laplace--Beltrami (\alert{LB}) operator:
 \begin{equation*}
 \boxed{\;\hat T=-\frac{\hbar^2}{2}\,\frac{1}{\sqrt g}\,\partial_a\!\bigl(\sqrt g\,g^{ab}\,\partial_b\bigr),\qquad g=\det g_{ab}.\;}\tag{4.5}
 \end{equation*}
@@ -726,18 +780,18 @@ The divergence vanishes term by term:
 \small
 Two representations of the \emph{same} vibrational operator, differing only in where the shape Jacobian $\sqrt\gamma$ ($\gamma=\det\mathbf I'(Q)$) sits:
 \begin{center}
-\begin{tabular}{@{}p{0.43\textwidth}|p{0.49\textwidth}@{}}
-\textbf{Laplace--Beltrami} & \textbf{Podolsky (flat measure)}\\[1pt]
-$\psi$ on curved $\sqrt\gamma\,\prod_b dQ_b$ & $\psi_W=\gamma^{1/4}\psi$ on flat $\prod_b dQ_b$\\[1pt]
-$-\tfrac{\hbar^2}{2}\tfrac{1}{\sqrt\gamma}\partial_b(\sqrt\gamma\,g^{QQ}_{bc}\partial_c)$ & $\tfrac12\hat P_b\,g^{QQ}_{bc}\,\hat P_c+\hat U$\\[1pt]
-no explicit potential & $c$-number $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ \alert{(Watson)}
+\begin{tabular}{@{}l|p{0.35\textwidth}|p{0.35\textwidth}@{}}
+ & \textbf{Laplace--Beltrami} & \textbf{Podolsky (flat measure)}\\[1pt]
+\hline
+Wavefn. & $\psi$ & $\psi_W=\gamma^{1/4}\psi$\\[3pt]
+Measure & $\sqrt\gamma\,\prod_b dQ_b$ & $\prod_b dQ_b$ (flat)\\[3pt]
+Operator & $\hat{O}$ & $\hat O_W = \gamma^{1/4}\hat O\gamma^{-1/4}$\\
 \end{tabular}
 \end{center}
-They are conjugate, $\hat O_W=\gamma^{1/4}\hat O\gamma^{-1/4}$ --- \alert{$\psi_W$ is not a new state}, just $\psi$ reweighted to integrate flat --- so every matrix element is unchanged ($dQ{\equiv}\prod_b dQ_b$):
+$\psi_W$ is just $\psi$ reweighted to integrate under flat measure. ($dQ\equiv\prod_b dQ_b$)
 \begin{equation*}
 \boxed{\;\int\psi^{*}\hat O\,\psi\,\sqrt\gamma\,dQ=\int\psi_W^{*}\,\hat O_W\,\psi_W\,dQ\;}
 \end{equation*}
-the norm is the $\hat O{=}\mathbb 1$ case, $\int|\psi|^2\sqrt\gamma\,dQ=\int|\psi_W|^2 dQ$. So $\hat U$ (the \alert{cost of flattening the measure}) is nonzero because $\gamma(Q)$ varies with shape --- $\hat U{=}0$ only for constant $\gamma$ (e.g.\ rigid rotor).
 \end{frame}
 
 \begin{frame}{The Coriolis (rotation--vibration) block}
@@ -747,11 +801,18 @@ The off-diagonal blocks $g^{\Omega Q}=-\mathsf E^{-1}\boldsymbol\mu\boldsymbol\s
 \hat T_{\mathrm{Cor}}=-\tfrac12\Bigl[\hat J_\alpha\,\mu_{\alpha\beta}\,\hat\pi_\beta
 +\tfrac{1}{\sqrt\gamma}\,\hat P_b\,\sqrt\gamma\;\sigma_{\alpha b}\mu_{\alpha\beta}\,\hat J_\beta\Bigr],\qquad \hat\pi_\alpha=\textstyle\sum_b\sigma_{\alpha b}(Q)\hat P_b .
 \end{equation*}
+% Explicitly, pulling out of each derivative only the factors inert under \emph{that} derivative's variable:
+% \begin{equation*}
+% \hat T_{\mathrm{Cor}}=-\tfrac{\hbar^2}{2}\mu_{\alpha\beta}\sigma_{\beta b}\tfrac{1}{\sin\theta}\partial_s\bigl(\sin\theta(\mathsf E^{-1})_{s\alpha}\partial_{Q_b}\bigr)
+% +\tfrac{\hbar^2}{2}\mu_{\alpha\beta}(\mathsf E^{-1})_{s\beta}\tfrac{1}{\sqrt\gamma}\partial_{Q_b}\bigl(\sqrt\gamma\,\sigma_{\alpha b}\,\partial_s\bigr).
+% \end{equation*}
+\alert{$\sqrt\gamma$ survives only in the second term}.%: $\mu,\sigma,\gamma$ are $Q$-only and cancel against $1/\sqrt g$ under $\partial_{\Omega_s}$; under $\partial_{Q_b}$ they are the differentiated factors, leaving the Hermitizing weight $\tfrac{1}{\sqrt\gamma}\partial_{Q_b}(\sqrt\gamma\,\cdots)$.
+
 The two groups are \alert{adjoints of each other} on the measure (4.21) --- the $\gamma^{\pm1/2}$ are exactly what integration by parts over $\sqrt\gamma\,dQ$ produces --- so their sum is Hermitian \emph{automatically}, with no residue.
 
 Pass to the flat measure $\psi_W=\gamma^{1/4}\psi$: the two groups' rescaling produces $\pm\tfrac{i\hbar}{4}\,\partial_{Q_b}\!\ln\gamma$ pieces that \alert{cancel} ($\boldsymbol\mu$ symmetric, $\partial_{Q_b}\sigma_{\alpha b}=\zeta^{\alpha}_{bb}=0$), leaving the manifestly symmetric form:
 \begin{equation*}
-\hat T_{\mathrm{Cor}}\ \xrightarrow{\ \psi_W=\gamma^{1/4}\psi\ }\ -\tfrac12\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr),\qquad \hat P_b=-i\hbar\partial_{Q_b}\ (\text{flat}). \tag{4.35}
+\hat T_{\mathrm{Cor}}\ \xrightarrow{\ \psi_W=\gamma^{1/4}\psi\ }\ -\tfrac12\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr). \tag{4.35}
 \end{equation*}
 % Every pseudopotential comes instead from the vibrational block (next).
 % \begin{block}{Section result}
@@ -777,29 +838,31 @@ Expand the $\delta_{bc}$ part by one product rule:
 
 \begin{frame}{Rescaling the molecular vibrational block}
 \setstage{3}
-Same move with $\gamma=\det\mathbf I'(Q)$: absorb the shape factor, $\psi_W=\gamma^{1/4}\psi$, so the vibrational measure is flat, $\prod_b dQ_b$ (normal-mode space treated as flat). Conjugating $\hat T_{\mathrm{vib}}$ (one product rule per line):
+\footnotesize
+Same move with $\gamma=\det\mathbf I'(Q)$: absorb the shape factor, $\psi_W=\gamma^{1/4}\psi$, so the vibrational measure is flat, $\prod_b dQ_b$ (normal-mode space treated as flat). Expand the derivatives:
 \begin{align*}
-\partial_{Q_b}(\gamma^{-1/4}\psi_W)&=\gamma^{-1/4}[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\psi_W],\\
-\partial_{Q_b}\bigl(\gamma^{1/4}[\cdots]\bigr)&=\gamma^{1/4}[\partial_{Q_b}^2\psi_W-\tfrac1{16}(\partial_{Q_b}\!\ln\gamma)^2\psi_W-\tfrac14(\partial_{Q_b}^2\ln\gamma)\psi_W].
+\partial_{Q_b}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{-1/4}\Bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\,\psi_W\Bigr],\\
+\gamma^{1/2}\,\partial_{Q_b}\!\bigl(\gamma^{-1/4}\psi_W\bigr)&=\gamma^{1/4}\Bigl[\partial_{Q_b}\psi_W-\tfrac14(\partial_{Q_b}\!\ln\gamma)\,\psi_W\Bigr],\\
+\partial_{Q_b}\Bigl(\gamma^{1/4}\bigl[\,\cdots\,\bigr]\Bigr)&=\gamma^{1/4}\Bigl[\partial_{Q_b}^{2}\psi_W-\tfrac{1}{16}(\partial_{Q_b}\!\ln\gamma)^{2}\,\psi_W-\tfrac14(\partial_{Q_b}^{2}\ln\gamma)\,\psi_W\Bigr],
 \end{align*}
-The cross terms cancel; the bare $\tfrac12\sum_b\hat P_b^2$ survives \emph{plus} a multiplicative residue
+The Waston pseudopotential emerges:
 \begin{equation*}
-U_{\mathrm{vib}}=\frac{\hbar^2}{8}\sum_b\Bigl[\partial_{Q_b}^2\ln\gamma+\tfrac14(\partial_{Q_b}\!\ln\gamma)^2\Bigr]\quad(+\,U_{\mathrm{Cor}}\text{ from the }\boldsymbol\sigma^{\mathsf T}\boldsymbol\mu\boldsymbol\sigma\text{ dressing}).
+U=\frac{\hbar^2}{8}\sum_b\Bigl[\partial_{Q_b}^2\ln\gamma+\tfrac14(\partial_{Q_b}\!\ln\gamma)^2\Bigr]\;+\;(\text{dressing piece, same block}).
 \end{equation*}
-\alert{Now the residue is nonzero} --- the promised pseudopotential.
 \end{frame}
 
 \begin{frame}{Collapse to the Watson trace}
 \setstage{3}
-The residue $U_{\mathrm{vib}}+U_{\mathrm{Cor}}$ collapses through two exact $Q$-calculus identities. \textbf{Jacobi:} $\partial_{Q_b}\!\ln\gamma=\operatorname{tr}(\boldsymbol\mu\,\partial_{Q_b}\mathbf I')$. \textbf{Watson's closed form (4.37):} $\mathbf I'=A(\mathbf I^{e})^{-1}A$ with $A=\mathbf I^{e}+\tfrac12\sum_b a^{b}Q_b$, so every derivative reduces to constants; the Eckart sum rules fix the remainder:
+By the following two identities --- \textbf{Jacobi:} $\partial_{Q_b}\!\ln\gamma=\operatorname{tr}(\boldsymbol\mu\,\partial_{Q_b}\mathbf I')$, and \textbf{Watson's closed form (4.37):} $\mathbf I'=A(\mathbf I^{\mathrm{eq}})^{-1}A$ with $A=\mathbf I^{\mathrm{eq}}+\tfrac12\sum_b a^{b}Q_b$ --- where $\mathbf I^{\mathrm{eq}}\equiv\mathbf I_N(0)$ is the \alert{equilibrium} nuclear inertia tensor and $a^{b}\equiv(\partial\mathbf I_N/\partial Q_b)|_{Q=0}$ its \emph{constant} derivative along mode $b$, every derivative reduces to constants.
+The final result is the \emph{Watson pseudopotential}:
 \begin{equation*}
 \boxed{\;\hat U(Q)=-\frac{\hbar^2}{8}\sum_{\alpha=1}^{3}\mu_{\alpha\alpha}(Q).\;}\tag{4.38}
 \end{equation*}
-\begin{itemize}
-\item\footnotesize A pure $c$-number from the \emph{measure} --- kernel ordering never makes one.
-\item\footnotesize Electrons don't modify it ($\gamma,\boldsymbol\mu$ depend on $Q$ alone).
-\item\footnotesize Special to \emph{rectilinear} normal coordinates (Watson's closed form).
-\end{itemize}
+% \begin{itemize}
+% \item\footnotesize A pure $c$-number from the \emph{measure} --- kernel ordering never makes one.
+% \item\footnotesize Electrons don't modify it ($\gamma,\boldsymbol\mu$ depend on $Q$ alone).
+% \item\footnotesize Special to \emph{rectilinear} normal coordinates (Watson's closed form).
+% \end{itemize}
 \end{frame}
 
 % ==================================================================
@@ -866,7 +929,7 @@ H&=\frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\frac{\mathbf P_j^{
 \begin{frame}{Lagrangians \& Hamiltonians: stages 3--4}
 \setstage{4}
 \footnotesize
-\textbf{3. Body-fixed (Eckart) Cartesian} --- electrons in velocity form:
+\textbf{3. Body-fixed (Eckart) Cartesian}:
 \begin{align*}
 \mathcal L=\tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
 &+\tfrac12\boldsymbol\omega^{T}(\mathbf I_N{+}\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega
@@ -875,7 +938,7 @@ H&=\frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\frac{\mathbf P_j^{
 H=\frac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}
 &+\sum_j\frac{\bar{\mathbf P}_j^{\,2}}{2M_j}+\sum_i\frac{\bar{\mathbf p}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf p}_i\Bigr)^2+V .
 \end{align*}
-\textbf{4. Normal-mode} (Watson): $\mathcal L$ as in stage 3 with $\tfrac12\sum_j M_j|\dot{\bar{\mathbf R}}_j|^2\to\tfrac12\sum_b\dot Q_b^2$; the canonical Hamiltonian is
+\textbf{4. Normal-mode}:
 \begin{equation*}
 H_{\mathrm{int}}=\tfrac12(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)^{T}\boldsymbol\mu(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)+\tfrac12\sum_b P_b^2+\sum_i\frac{\bar{\mathbf p}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf p}_i\Bigr)^2+V_{NN}{+}V_{Ne}{+}V_{ee} .
 \end{equation*}
