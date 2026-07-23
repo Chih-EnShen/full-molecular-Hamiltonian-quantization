@@ -721,7 +721,26 @@ The divergence vanishes term by term:
 % \end{alertblock}
 \end{frame}
 
-\begin{frame}{The Coriolis (rotation--vibration) block --- also clean}
+\begin{frame}{Two schemes: Laplace--Beltrami vs Podolsky}
+\setstage{3}
+\small
+Two representations of the \emph{same} vibrational operator, differing only in where the shape Jacobian $\sqrt\gamma$ ($\gamma=\det\mathbf I'(Q)$) sits:
+\begin{center}
+\begin{tabular}{@{}p{0.43\textwidth}|p{0.49\textwidth}@{}}
+\textbf{Laplace--Beltrami} & \textbf{Podolsky (flat measure)}\\[1pt]
+$\psi$ on curved $\sqrt\gamma\,\prod_b dQ_b$ & $\psi_W=\gamma^{1/4}\psi$ on flat $\prod_b dQ_b$\\[1pt]
+$-\tfrac{\hbar^2}{2}\tfrac{1}{\sqrt\gamma}\partial_b(\sqrt\gamma\,g^{QQ}_{bc}\partial_c)$ & $\tfrac12\hat P_b\,g^{QQ}_{bc}\,\hat P_c+\hat U$\\[1pt]
+no explicit potential & $c$-number $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ \alert{(Watson)}
+\end{tabular}
+\end{center}
+They are conjugate, $\hat O_W=\gamma^{1/4}\hat O\gamma^{-1/4}$ --- \alert{$\psi_W$ is not a new state}, just $\psi$ reweighted to integrate flat --- so every matrix element is unchanged ($dQ{\equiv}\prod_b dQ_b$):
+\begin{equation*}
+\boxed{\;\int\psi^{*}\hat O\,\psi\,\sqrt\gamma\,dQ=\int\psi_W^{*}\,\hat O_W\,\psi_W\,dQ\;}
+\end{equation*}
+the norm is the $\hat O{=}\mathbb 1$ case, $\int|\psi|^2\sqrt\gamma\,dQ=\int|\psi_W|^2 dQ$. So $\hat U$ (the \alert{cost of flattening the measure}) is nonzero because $\gamma(Q)$ varies with shape --- $\hat U{=}0$ only for constant $\gamma$ (e.g.\ rigid rotor).
+\end{frame}
+
+\begin{frame}{The Coriolis (rotation--vibration) block}
 \setstage{3}
 The off-diagonal blocks $g^{\Omega Q}=-\mathsf E^{-1}\boldsymbol\mu\boldsymbol\sigma$ give the cross term (4.30):
 \begin{equation*}
@@ -729,6 +748,12 @@ The off-diagonal blocks $g^{\Omega Q}=-\mathsf E^{-1}\boldsymbol\mu\boldsymbol\s
 +\tfrac{1}{\sqrt\gamma}\,\hat P_b\,\sqrt\gamma\;\sigma_{\alpha b}\mu_{\alpha\beta}\,\hat J_\beta\Bigr],\qquad \hat\pi_\alpha=\textstyle\sum_b\sigma_{\alpha b}(Q)\hat P_b .
 \end{equation*}
 The two groups are \alert{adjoints of each other} on the measure (4.21) --- the $\gamma^{\pm1/2}$ are exactly what integration by parts over $\sqrt\gamma\,dQ$ produces --- so their sum is Hermitian \emph{automatically}, with no residue.
+
+Pass to the flat measure $\psi_W=\gamma^{1/4}\psi$: the two groups' rescaling produces $\pm\tfrac{i\hbar}{4}\,\partial_{Q_b}\!\ln\gamma$ pieces that \alert{cancel} ($\boldsymbol\mu$ symmetric, $\partial_{Q_b}\sigma_{\alpha b}=\zeta^{\alpha}_{bb}=0$), leaving the manifestly symmetric form:
+\begin{equation*}
+\hat T_{\mathrm{Cor}}\ \xrightarrow{\ \psi_W=\gamma^{1/4}\psi\ }\ -\tfrac12\bigl(\hat J_\alpha\mu_{\alpha\beta}\hat\pi_\beta+\hat\pi_\alpha\mu_{\alpha\beta}\hat J_\beta\bigr),\qquad \hat P_b=-i\hbar\partial_{Q_b}\ (\text{flat}). \tag{4.35}
+\end{equation*}
+% Every pseudopotential comes instead from the vibrational block (next).
 % \begin{block}{Section result}
 % Rotation (4.29) and Coriolis (4.30) quantize with \textbf{no} pseudopotential --- the divergence identity and the adjoint-pair structure do all the work. The flat-measure rescaling of the next section leaves both untouched (giving the symmetric $-\tfrac12(\hat J\mu\hat\pi+\hat\pi\mu\hat J)$, 4.35). \alert{Every pseudopotential comes from the vibrational block.}
 % \end{block}
@@ -747,37 +772,7 @@ Expand the $\delta_{bc}$ part by one product rule:
 -\tfrac{\hbar^2}{2}\tfrac{1}{\sqrt\gamma}\partial_{Q_b}\!\bigl(\sqrt\gamma\,\partial_{Q_b}\psi\bigr)=\tfrac12\hat P_b^2\psi
 \underbrace{-\tfrac{\hbar^2}{2}\bigl(\tfrac12\partial_{Q_b}\!\ln\gamma\bigr)\partial_{Q_b}\psi}_{\text{first-order remainder}} .
 \end{equation*}
-\alert{Unlike rotation, this remainder does not vanish}: $\partial_{Q_b}\ln\gamma\ne0$ because $\gamma=\det\mathbf I'(Q)$ genuinely depends on the shape, and the bare $\hat P_b$ is \emph{not} Hermitian on $\sqrt\gamma\,dQ$. How to handle it?
-\end{frame}
-
-\begin{frame}{Warm-up: the radial part of the spherical Laplacian}
-\setstage{3}
-Read the radial coordinate as an effective one-body \emph{vibration} (a diatomic bond). Its Laplace--Beltrami operator, on the curved measure $r^2\,dr$, is
-\begin{equation*}
-\hat T_r=-\frac{\hbar^2}{2m}\frac{1}{r^2}\partial_r(r^2\partial_r),\qquad \int|R|^2\,r^2\,dr=1 .
-\end{equation*}
-But vibrational wavefunctions are conventionally normalized on a \emph{flat} measure. Rescale $u=rR$ (i.e.\ $\psi\to g^{1/4}\psi$, $\sqrt g\propto r^2$) so $\int|u|^2\,dr=1$:
-\begin{equation*}
-\boxed{\;\hat T_r\ \xrightarrow{\ u=rR\ }\ -\frac{\hbar^2}{2m}\frac{d^2}{dr^2}\ \text{ on the flat measure } dr .\;}
-\end{equation*}
-The awkward $\tfrac{2}{r}\partial_r$ is gone --- absorbed into the rescaling. \emph{This} move is what, in general, leaves a pseudopotential behind.
-\end{frame}
-
-\begin{frame}{Two schemes: Laplace--Beltrami vs Podolsky}
-\setstage{3}
-The \emph{same} operator, in two representations:
-\begin{center}\small
-\begin{tabular}{@{}p{0.44\textwidth}|p{0.46\textwidth}@{}}
-\textbf{Laplace--Beltrami} & \textbf{Podolsky (flat measure)}\\[2pt]
-wavefn on curved $\sqrt g\,d^nq$ & $\psi_W=g^{1/4}\psi$ on flat $d^nq$\\[2pt]
-$-\tfrac{\hbar^2}{2\sqrt g}\partial(\sqrt g\,g^{ij}\partial)$ & $\tfrac12\hat p_i g^{ij}\hat p_j+U$\\[2pt]
-no explicit potential & extra $c$-number $U=$ \alert{pseudopotential}
-\end{tabular}
-\end{center}
-Related by conjugation with $g^{1/4}$; $U$ is the \alert{bookkeeping cost of the flat measure}.
-\begin{alertblock}{Radial case: $U=0$}
-For $\gamma\propto r^2$ the residual cancels ($u=rR$ is exact) --- like the rigid rotor. A genuine shape-dependent $\gamma(Q)$ does \alert{not} cancel: that is where the Watson potential is born.
-\end{alertblock}
+\alert{Unlike rot.-vib. block, this remainder does not vanish}: $\partial_{Q_b}\ln\gamma\ne0$ because $\gamma=\det\mathbf I'(Q)$ genuinely depends on the shape, and the bare $\hat P_b$ is \emph{not} Hermitian on $\sqrt\gamma\,dQ$. How to handle it?
 \end{frame}
 
 \begin{frame}{Rescaling the molecular vibrational block}
@@ -815,26 +810,26 @@ The residue $U_{\mathrm{vib}}+U_{\mathrm{Cor}}$ collapses through two exact $Q$-
 \setstage{4}
 In BF Cartesian electron coordinates $\hat{\bar{\mathbf p}}_i=-i\hbar\nabla_{\bar{\mathbf r}_i}$ is already Hermitian on the flat measure, so the electron + mass-polarization piece quantizes directly:
 \begin{equation*}
-\hat T_e=\sum_i\frac{\hat{\bar{\mathbf p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf p}}_i\Bigr)^{2}
-=\sum_i\frac{\hat{\bar{\mathbf p}}_i^{\,2}}{2\mu_e}+\frac{1}{M_N}\sum_{i<l}\hat{\bar{\mathbf p}}_i\!\cdot\!\hat{\bar{\mathbf p}}_l. \tag{4.39, 4.40}
+\hat T_e=\sum_i\frac{\hat{\bar{\mathbf p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf p}}_i\Bigr)^{2} \tag{4.39}
+% =\sum_i\frac{\hat{\bar{\mathbf p}}_i^{\,2}}{2\mu_e}+\frac{1}{M_N}\sum_{i<l}\hat{\bar{\mathbf p}}_i\!\cdot\!\hat{\bar{\mathbf p}}_l. \tag{4.39, 4.40}
 \end{equation*}
-The diagonal part renormalizes the electron mass, $\tfrac1{m_e}+\tfrac1{M_N}=\tfrac1{\mu_e}$; the off-diagonal two-electron term is the mass polarization \emph{sensu stricto} (nuclear recoil).
+% The diagonal part renormalizes the electron mass, $\tfrac1{m_e}+\tfrac1{M_N}=\tfrac1{\mu_e}$. the off-diagonal two-electron term is the mass polarization \emph{sensu stricto} (nuclear recoil).
 \end{frame}
 
 \begin{frame}{The exact non-relativistic molecular Hamiltonian}
 \setstage{4}
-Collecting the flat-measure blocks --- rotational (4.29), Coriolis (4.35), vibrational, pseudopotential (4.38), electronic (4.39), and the shift $\hat J_\alpha\to\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$:
+Collecting the flat-measure blocks --- rotational (4.29), Coriolis (4.35), vibrational, pseudopotential (4.38), electronic (4.39):
 \begin{equation*}
 \boxed{
 \begin{aligned}
-\hat H_{\mathrm{int}}=\;&\tfrac12\!\sum_{\alpha\beta}\bigl(\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}-\hat\pi_\alpha\bigr)\mu_{\alpha\beta}(Q)\bigl(\hat J_\beta-\hat L_{\mathrm{elec},\beta}-\hat\pi_\beta\bigr) &&\text{\footnotesize rotation--vibration--electron}\\[-1pt]
+\hat H_{\mathrm{int}}=\;&\tfrac12\!\sum_{\alpha\beta}\bigl(\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}-\hat\pi_\alpha\bigr)\mu_{\alpha\beta}(Q)\bigl(\hat J_\beta-\hat L_{\mathrm{elec},\beta}-\hat\pi_\beta\bigr) &&\text{\footnotesize rot.--vib.--elec.}\\[-1pt]
 &+\tfrac12\!\sum_b\hat P_b^2 &&\text{\footnotesize vibration}\\[-1pt]
 &+\sum_i\frac{\hat{\bar{\mathbf p}}_i^{\,2}}{2m_e}+\frac{1}{2M_N}\Bigl(\sum_i\hat{\bar{\mathbf p}}_i\Bigr)^{2} &&\text{\footnotesize electrons + mass pol.}\\[-1pt]
 &-\frac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}(Q) &&\text{\footnotesize Watson pseudopotential}\\[-1pt]
 &+V_{NN}+V_{Ne}+V_{ee} &&\text{\footnotesize Coulomb}
 \end{aligned}}\tag{4.41}
 \end{equation*}
-\centering\footnotesize on $L^2(d\mu_W)$, $d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$. Every operator is an explicit differential operator, Hermitian by integration by parts.
+\centering\footnotesize on $L^2(d\mu_W)$, $d\mu_W=\sin\theta\,d\phi d\theta d\chi\prod_b dQ_b\prod_i d^3\bar{\mathbf r}_i$. % Every operator is an explicit differential operator, Hermitian by integration by parts.
 \end{frame}
 
 
@@ -844,9 +839,9 @@ Collecting the flat-measure blocks --- rotational (4.29), Coriolis (4.35), vibra
 \begin{frame}{The journey, in four stages}
 \setstage{4}
 \begin{enumerate}
-  \item[\textbf{1.}] \alert{Classical}: lab $H$ (1.1) $\to$ one mixed mass-centered point transformation $\to$ $H$ (2.12): COM exactly split for any $\mathbf P_{\mathrm{cm}}$, mass polarization included --- no boost, no rest frame.
-  \item[\textbf{2.}] \alert{Body-Fixed}: velocity-form Lagrangian ($\mathbf I_N+\mathbf I_e-\mathbf I_X$) $\to$ key identity $\mathbf J-\mathbf L_{\mathrm{elec}}=\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}$ ($\mathbf I_e,\mathbf I_X$ cancel) $\to$ classical $H_{\mathrm{int}}$ (3.22) with Watson $\boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})^{-1}$.
-  \item[\textbf{3.}] \alert{Quantize}, coordinate-natively: metric (4.15) $\to$ measure (4.21) $\to$ inverse (4.22) $\to$ Podolsky blocks $\to$ $\gamma^{1/4}$ rescaling $\to$ Watson $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ (4.38). Hermiticity by integration by parts $+$ divergence identity (4.26) --- \alert{no angular-momentum algebra}.
+  \item[\textbf{1.}] \alert{Classical}: lab-frame $H$ (1.1) $\to$ one mixed mass-centered point transformation $\to$ $H$ (2.12): COM exactly split for any $\mathbf P_{\mathrm{cm}}$, mass polarization included.
+  \item[\textbf{2.}] \alert{Body-Fixed}: velocity-form Lagrangian ($\mathbf I_N+\mathbf I_e-\mathbf I_X$) $\to$ $\mathbf J-\mathbf L_{\mathrm{elec}}=\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}$ ($\mathbf I_e,\mathbf I_X$ cancel) $\to$ classical $H_{\mathrm{int}}$ (3.22) with Watson $\boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})^{-1}$.
+  \item[\textbf{3.}] \alert{Quantize}, coordinate-natively: metric (4.15) $\to$ measure (4.21) $\to$ inverse (4.22) $\to$ Podolsky blocks $\to$ $\gamma^{1/4}$ rescaling $\to$ Watson $\hat U=-\tfrac{\hbar^2}{8}\sum_\alpha\mu_{\alpha\alpha}$ (4.38).
   \item[\textbf{4.}] \alert{Quantum $\hat H$}: the exact non-relativistic $\hat H_{\mathrm{int}}$ (4.41).
 \end{enumerate}
 \end{frame}
@@ -887,22 +882,20 @@ H_{\mathrm{int}}=\tfrac12(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi
 \centering\footnotesize CoM decouples throughout ($\mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}$); quantizing stage~4 gives $\hat H_{\mathrm{int}}$ (4.41).
 \end{frame}
 
-
-\begin{frame}{What we did --- and did not --- assume}
-\setstage{4}
-$\hat H_{\mathrm{int}}$ (4.41) is \alert{exact}. The only inputs were:
-\begin{itemize}
-  \item non-relativistic dynamics;
-  \item the Eckart frame (a convention);
-  \item $3N_{\mathrm{nucl}}-6$ normal coordinates (an exact parametrization).
-\end{itemize}
-\vspace{0.5ex}
-No Born--Oppenheimer, no clamped nuclei, no neglect of mass polarization, no harmonic assumption --- and \alert{no anomalous commutator as input}.
-
-\end{frame}
+% \begin{frame}{What we did --- and did not --- assume}
+% \setstage{4}
+% $\hat H_{\mathrm{int}}$ (4.41) is \alert{exact}. The only inputs were:
+% \begin{itemize}
+%   \item non-relativistic dynamics;
+%   \item the Eckart frame (a convention);
+%   \item $3N_{\mathrm{nucl}}-6$ normal coordinates (an exact parametrization).
+% \end{itemize}
+% \vspace{0.5ex}
+% No Born--Oppenheimer, no clamped nuclei, no neglect of mass polarization, no harmonic assumption --- and \alert{no anomalous commutator as input}.
+% \end{frame}
 
 \begin{frame}[standout]
-The full molecular Hamiltonian: \\ exact, quantized coordinate-natively, \\ and ready to approximate.
+The full molecular Hamiltonian is exact, quantized in curvilinear coordiantes.
 \end{frame}
 
 \end{document}
