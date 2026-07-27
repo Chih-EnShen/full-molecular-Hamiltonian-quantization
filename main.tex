@@ -13,6 +13,18 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 \usepackage{bbold}
+\usepackage{upgreek}    % upright lowercase Greek for matrices (matches slide.tex)
+
+% --- notation convention (aligned with slide.tex) -----------------------------
+%   scalar : light italic
+%   vector : bold                (\mathbf Latin, \boldsymbol Greek)
+%   matrix : light & upright     (\mathsf Latin, upright Greek below)
+% Coriolis quantities sigma_b (=\boldsymbol\sigma_b) and zeta_{ab} are VECTORS
+% (bold); only the bare 3xf array \Msig is the Coriolis matrix. Component forms
+% (mu_{ab}, g_{ab}, ...) stay italic. Dense Appendix-B algebra matrices
+% (A, S, a^b, E^b, V[.]) keep the conventional plain-italic form.
+\newcommand{\Mmu}{\upmu}        % Watson reciprocal-inertia matrix
+\newcommand{\Msig}{\upsigma}    % Coriolis coupling matrix (columns sigma_b are vectors)
 
 \colorlet{LightGray}{White!90!Periwinkle}
 \colorlet{LightOrange}{Orange!15}

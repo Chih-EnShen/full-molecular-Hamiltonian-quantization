@@ -111,7 +111,7 @@ which you can check *is* Hermitian on the measure $r\,dr$.
 **This is the whole content of the Podolsky prescription.** In the molecular
 problem, the coordinates (Euler angles, normal coordinates) are curvilinear
 like $(r,\theta)$, and the Jacobian of the coordinate change is
-$\sin\theta\,\sqrt{\det \mathbf I'(Q)}$ (Eq. 4.4) instead of $r$. Podolsky's
+$\sin\theta\,\sqrt{\det \mathsf I'(Q)}$ (Eq. 4.4) instead of $r$. Podolsky's
 formula (Eq. 4.3) is nothing more than "build the kinetic operator so that it
 is Hermitian on the *correct* measure," done once and for all in any
 coordinates. When you then rescale the wavefunction to get rid of the
@@ -125,7 +125,7 @@ So there are **two separate jobs**, and it pays never to confuse them:
 
 | Job | Tool | Output |
 |---|---|---|
-| Make the operator Hermitian on the curved measure | Podolsky / rescaling $\psi_W = (\det\mathbf I')^{1/4}\psi$ | Watson pseudopotential $\hat U(Q)$ |
+| Make the operator Hermitian on the curved measure | Podolsky / rescaling $\psi_W = (\det\mathsf I')^{1/4}\psi$ | Watson pseudopotential $\hat U(Q)$ |
 | Order the non-commuting factors inside $\hat A\,\mu\,\hat A$ | commutator algebra (Appendix B) | Hermitian operators, **no** extra $c$-number |
 
 The decomposition you asked about lives entirely in the **second** job. Let's
@@ -352,7 +352,7 @@ ordering (job 2). Clean division of labour, as promised.
 - **Body-fixed (BF) frame:** axes glued to the molecule; their orientation
   relative to the lab is given by the Euler angles
   $\Omega = (\phi,\theta,\chi)$, packaged in the rotation matrix
-  $\mathbf S(\Omega)$ ($\det \mathbf S = 1$, $\mathbf S^{-1} = \mathbf S^{\mathsf T}$).
+  $\mathsf S(\Omega)$ ($\det \mathsf S = 1$, $\mathsf S^{-1} = \mathsf S^{\mathsf T}$).
 
 The total angular momentum is one physical observable; the two sets of
 components are related by projection (Eq. 4.6):
@@ -367,7 +367,7 @@ Here is the **crucial observation**, and the entire origin of the anomaly:
 > $S_{\beta\alpha}(\Omega)$ is a *function* of those same Euler angles.
 > So $\hat J^{\rm BF}$ is a product of two objects that **do not commute
 > with each other.** When you commute two $\hat J^{\rm BF}$'s, you must
-> differentiate the $\mathbf S$'s too — and those extra terms overwhelm and
+> differentiate the $\mathsf S$'s too — and those extra terms overwhelm and
 > flip the normal algebra.
 
 ### 5.2 The two ingredients
@@ -380,7 +380,7 @@ $$
 = +i\hbar\,\epsilon_{\gamma\delta\lambda}\,\hat J_\lambda^{\rm SF} .
 $$
 
-**Ingredient 2 — how $\hat J^{\rm SF}$ acts on $\mathbf S$.** Angular momentum
+**Ingredient 2 — how $\hat J^{\rm SF}$ acts on $\mathsf S$.** Angular momentum
 generates rotations: for any *vector* observable $\hat V_\delta$ (SF
 components), $[\hat J_\gamma^{\rm SF}, \hat V_\delta] = i\hbar\,
 \epsilon_{\gamma\delta\lambda}\hat V_\lambda$. Now fix the BF index $\beta$ of
@@ -392,12 +392,12 @@ $$
 = i\hbar\,\epsilon_{\gamma\delta\lambda}\, S_{\lambda\beta} .
 $$
 
-The rotation acts on the **SF index** ($\delta$) of $\mathbf S$; the BF index
+The rotation acts on the **SF index** ($\delta$) of $\mathsf S$; the BF index
 $\beta$ is a spectator.
 
 We'll also need two small technical facts:
 
-- **(a)** Because $\det\mathbf S = 1$, three direction cosines contract to a
+- **(a)** Because $\det\mathsf S = 1$, three direction cosines contract to a
   single epsilon:
   $\epsilon_{\gamma\delta\lambda}S_{\gamma\alpha}S_{\delta\beta}S_{\lambda\nu}
   = \epsilon_{\alpha\beta\nu}$. (This is just the statement "the determinant
@@ -409,18 +409,18 @@ We'll also need two small technical facts:
 ### 5.3 The computation, every step
 
 Write $\hat J \equiv \hat J^{\rm SF}$ for brevity. Expand using the product
-rule for commutators, $[\hat A\hat B, \hat C\hat D]$ with the $\mathbf S$'s
+rule for commutators, $[\hat A\hat B, \hat C\hat D]$ with the $\mathsf S$'s
 being commuting functions:
 
 $$
 [\hat J_\alpha^{\rm BF}, \hat J_\beta^{\rm BF}]
 = [S_{\gamma\alpha}\hat J_\gamma,\; S_{\delta\beta}\hat J_\delta]
 = \underbrace{S_{\gamma\alpha}S_{\delta\beta}\,[\hat J_\gamma,\hat J_\delta]}_{\text{(A) bare SF algebra}}
-+ \underbrace{S_{\gamma\alpha}\,[\hat J_\gamma, S_{\delta\beta}]\,\hat J_\delta}_{\text{(B) }\hat J\text{ hits the right }\mathbf S}
-- \underbrace{S_{\delta\beta}\,[\hat J_\delta, S_{\gamma\alpha}]\,\hat J_\gamma}_{\text{(C) }\hat J\text{ hits the left }\mathbf S} .
++ \underbrace{S_{\gamma\alpha}\,[\hat J_\gamma, S_{\delta\beta}]\,\hat J_\delta}_{\text{(B) }\hat J\text{ hits the right }\mathsf S}
+- \underbrace{S_{\delta\beta}\,[\hat J_\delta, S_{\gamma\alpha}]\,\hat J_\gamma}_{\text{(C) }\hat J\text{ hits the left }\mathsf S} .
 $$
 
-(If terms (B) and (C) were absent — if $\mathbf S$ were a constant matrix —
+(If terms (B) and (C) were absent — if $\mathsf S$ were a constant matrix —
 you'd get the normal algebra back. They are not absent.)
 
 Insert the two ingredients. All three terms acquire a common factor
@@ -468,7 +468,7 @@ $$
 $$
 
 **Bookkeeping of the sign:** the bare SF algebra (A) contributed $+1$ unit of
-$\epsilon$; the two derivative-of-$\mathbf S$ terms (B) and (C) contributed
+$\epsilon$; the two derivative-of-$\mathsf S$ terms (B) and (C) contributed
 $-1$ each. Total $+1-1-1 = -1$. The anomaly is literally "the frame turns
 under you twice as hard as the operator algebra turns."
 
@@ -490,7 +490,7 @@ under you twice as hard as the operator algebra turns."
 
 1. **Same Casimir:** $\sum_\alpha (\hat J^{\rm BF}_\alpha)^2 =
    \sum_\alpha (\hat J^{\rm SF}_\alpha)^2 = \hat{\mathbf J}^2$ (use
-   orthogonality of $\mathbf S$). Same total angular momentum, same spectrum
+   orthogonality of $\mathsf S$). Same total angular momentum, same spectrum
    $\hbar^2 J(J+1)$.
 2. **Ladder operators swap roles:** with the anomalous sign,
    $\hat J^{\rm BF}_1 \pm i\hat J^{\rm BF}_2$ *lower/raise* the BF projection
@@ -506,7 +506,7 @@ under you twice as hard as the operator algebra turns."
 The electronic angular momentum is built **directly in the BF frame** from BF
 electron coordinates and momenta,
 $\hat L_\alpha = \sum_i (\bar{\mathbf r}_i \times \hat{\bar{\mathbf p}}_i)_\alpha$.
-No $\mathbf S(\Omega)$ factor appears — nothing to differentiate — so the
+No $\mathsf S(\Omega)$ factor appears — nothing to differentiate — so the
 ordinary $\hat x\hat p$ algebra gives the normal sign
 $[\hat L_\alpha,\hat L_\beta] = +i\hbar\,\epsilon_{\alpha\beta\gamma}\hat L_\gamma$.
 The anomaly is a property of *how you obtained the components* (projection

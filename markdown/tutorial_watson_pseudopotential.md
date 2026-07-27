@@ -10,8 +10,8 @@ U \;=\; \frac{\hbar^{2}}{8}\Bigl[
 \partial_b\bigl(g^{QQ}_{bc}\,\partial_c\ln\gamma\bigr)
 +\tfrac14\,g^{QQ}_{bc}\,(\partial_b\ln\gamma)(\partial_c\ln\gamma)\Bigr],
 \qquad
-\gamma=\det\mathbf I',\quad
-g^{QQ}=\mathbb 1+\boldsymbol\sigma^{T}\boldsymbol\mu\boldsymbol\sigma,
+\gamma=\det\mathsf I',\quad
+g^{QQ}=\mathbb 1+\mathrm{\sigma}^{T}\mathrm{\mu}\mathrm{\sigma},
 $$
 
 and this pile — second derivatives of $\ln\det$, squares of first derivatives,
@@ -27,11 +27,11 @@ the word *miracle* until you see the proof:
 
 - **Miracle 1 (all derivatives become constants).** The Eckart conditions
   force the modified inertia into Watson's exact closed form
-  $\mathbf I'=A\,(\mathbf I^{e})^{-1}A$ with $A$ *linear* in $Q$ — so every
-  derivative of $\gamma$ and $\boldsymbol\mu$ reduces to constant matrices.
+  $\mathsf I'=A\,(\mathsf I^{e})^{-1}A$ with $A$ *linear* in $Q$ — so every
+  derivative of $\gamma$ and $\mathrm{\mu}$ reduces to constant matrices.
 - **Miracle 2 (the assembly telescopes).** When the five groups of $U$ are
   evaluated with the Eckart *sum rules*, every complicated term cancels
-  pairwise, and the sole survivor is $-\operatorname{tr}\boldsymbol\mu$.
+  pairwise, and the sole survivor is $-\operatorname{tr}\mathrm{\mu}$.
 
 The plan:
 
@@ -57,11 +57,11 @@ geometry, no group theory.
 | $\mathbf e_j=\sqrt{M_j}\,\bar{\mathbf R}^{\rm eq}_j$ | mass-weighted equilibrium positions |
 | $\mathbf u_j(Q)=\mathbf e_j+\sum_b\mathbf l_{jb}Q_b$ | mass-weighted positions at shape $Q$ |
 | $\mathbf l_{jb}$ | Eckart mode vectors: orthonormal, $\perp$ translations and rotations |
-| $\mathbf I_N(Q)$, $\boldsymbol\sigma(Q)$, $\mathbf I'=\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{T}$ | inertia, Coriolis vectors, modified inertia |
-| $\boldsymbol\mu=(\mathbf I')^{-1}$, $\gamma=\det\mathbf I'$ | reciprocal inertia; shape Jacobian |
-| $S=\sum_j\mathbf e_j\mathbf e_j^{T}$, $\mathbf I^{e}=(\operatorname{tr}S)\mathbb 1-S$, $\boldsymbol\mu^{e}=(\mathbf I^{e})^{-1}$ | equilibrium constants |
-| $a^{b}=\partial\mathbf I_N/\partial Q_b\big|_{Q=0}$ | **constant** inertia derivatives |
-| $A(Q)=\mathbf I^{e}+\tfrac12\sum_b a^{b}Q_b$ | Watson's linear matrix |
+| $\mathsf I_N(Q)$, $\mathrm{\sigma}(Q)$, $\mathsf I'=\mathsf I_N-\mathrm{\sigma}\mathrm{\sigma}^{T}$ | inertia, Coriolis vectors, modified inertia |
+| $\mathrm{\mu}=(\mathsf I')^{-1}$, $\gamma=\det\mathsf I'$ | reciprocal inertia; shape Jacobian |
+| $S=\sum_j\mathbf e_j\mathbf e_j^{T}$, $\mathsf I^{e}=(\operatorname{tr}S)\mathbb 1-S$, $\mathrm{\mu}^{e}=(\mathsf I^{e})^{-1}$ | equilibrium constants |
+| $a^{b}=\partial\mathsf I_N/\partial Q_b\big|_{Q=0}$ | **constant** inertia derivatives |
+| $A(Q)=\mathsf I^{e}+\tfrac12\sum_b a^{b}Q_b$ | Watson's linear matrix |
 | $\Lambda_b=\partial_b\ln\gamma$ | log-derivative of the Jacobian |
 
 ---
@@ -102,7 +102,7 @@ $$
 **This is the entire mechanism.** The flat-measure operator is the naive one
 *plus a multiplicative leftover* built from derivatives of $\ln w$. In the
 molecule, $w=\sqrt\gamma$ per mode and there are $f$ modes plus the Coriolis
-dressing $\boldsymbol\sigma^T\boldsymbol\mu\boldsymbol\sigma$; substituting
+dressing $\mathrm{\sigma}^T\mathrm{\mu}\mathrm{\sigma}$; substituting
 $w=\gamma^{1/2}$ above gives exactly the paper's per-mode residue
 $\frac{\hbar^2}{8}[\partial_b^2\ln\gamma+\tfrac14(\partial_b\ln\gamma)^2]$
 of Eq. (4.34). Nothing about *this* step is special to molecules. The magic
@@ -121,19 +121,19 @@ $v_\alpha\equiv\sum_c\sigma_{\alpha c}\Lambda_c$, the result is Eq. (B.20):
 $$
 \frac{8}{\hbar^{2}}\,U
 =\underbrace{\sum_b\Bigl[\partial_b\Lambda_b+\tfrac14\Lambda_b^2\Bigr]}_{N_{0}\ \text{(identity)}}
-+\underbrace{\sigma_{\alpha b}(\partial_b\boldsymbol\mu)_{\alpha\beta}v_\beta}_{N_{1}}
++\underbrace{\sigma_{\alpha b}(\partial_b\mathrm{\mu})_{\alpha\beta}v_\beta}_{N_{1}}
 +\underbrace{\sigma_{\alpha b}\mu_{\alpha\beta}\zeta^{\beta}_{bc}\Lambda_c}_{N_{2}}
 +\underbrace{G_{bc}\,\partial_b\Lambda_c}_{N_{3}}
-+\underbrace{\tfrac14\,\mathbf v^{T}\boldsymbol\mu\mathbf v}_{N_{4}} .
++\underbrace{\tfrac14\,\mathbf v^{T}\mathrm{\mu}\mathbf v}_{N_{4}} .
 $$
 
-Our job: evaluate all five and show the sum is $-\operatorname{tr}\boldsymbol\mu$.
-Everything hinges on being able to *compute* $\Lambda_b=\partial_b\ln\det\mathbf I'$
+Our job: evaluate all five and show the sum is $-\operatorname{tr}\mathrm{\mu}$.
+Everything hinges on being able to *compute* $\Lambda_b=\partial_b\ln\det\mathsf I'$
 — which brings us to the first miracle.
 
 ---
 
-## 3. Miracle 1: Watson's closed form $\mathbf I'=A\,\boldsymbol\mu^{e}A$
+## 3. Miracle 1: Watson's closed form $\mathsf I'=A\,\mathrm{\mu}^{e}A$
 
 ### 3.1 The Eckart-symmetry lemma (two lines)
 
@@ -203,12 +203,12 @@ $$
 - the translation part: dies (fact *(i)*);
 - the rotation part: each side is an "$\epsilon\,\mathbf l\,\mathbf e$"
   contraction $=\tfrac12a$ (fact *(ii)*), leaving
-  $-\tfrac14(a^{b}\boldsymbol\mu^{e}a^{c})_{\alpha\beta}$.
+  $-\tfrac14(a^{b}\mathrm{\mu}^{e}a^{c})_{\alpha\beta}$.
 
 $$
 \boxed{\;\sum_d\zeta^{\alpha}_{bd}\zeta^{\beta}_{cd}
 =\delta_{\alpha\beta}\delta_{bc}-\sum_jl_{jb,\beta}l_{jc,\alpha}
--\tfrac14\bigl(a^{b}\boldsymbol\mu^{e}a^{c}\bigr)_{\alpha\beta}\;}
+-\tfrac14\bigl(a^{b}\mathrm{\mu}^{e}a^{c}\bigr)_{\alpha\beta}\;}
 \qquad\text{— Eq. (B.26).}
 $$
 
@@ -218,38 +218,38 @@ with fact *(ii)*.
 
 ### 3.3 The closed form
 
-Expand $\mathbf I_N$ and $\boldsymbol\sigma\boldsymbol\sigma^{T}$ exactly —
+Expand $\mathsf I_N$ and $\mathrm{\sigma}\mathrm{\sigma}^{T}$ exactly —
 both are just quadratic polynomials in $Q$ [Eq. (B.31)]:
 
 $$
-\mathbf I_{N}
-=\mathbf I^{e}+\sum_ba^{b}Q_b
+\mathsf I_{N}
+=\mathsf I^{e}+\sum_ba^{b}Q_b
 +\sum_{bc}Q_bQ_c\Bigl[\delta_{bc}\mathbb 1-\textstyle\sum_j\mathbf l_{jb}\mathbf l_{jc}^{T}\Bigr],
 \qquad
-\boldsymbol\sigma\boldsymbol\sigma^{T}
+\mathrm{\sigma}\mathrm{\sigma}^{T}
 =\sum_{bc}Q_bQ_c\,\textstyle\sum_d\boldsymbol\zeta_{bd}\boldsymbol\zeta_{cd}^{T} .
 $$
 
 Subtract, and insert the boxed $\zeta\zeta$ rule: the $\delta_{bc}\mathbb 1$
 terms cancel, the two $\sum_j\mathbf l\,\mathbf l^{T}$ terms cancel under the
 $b\leftrightarrow c$ symmetrization that $Q_bQ_c$ enforces, and the *only*
-survivor at quadratic order is $\tfrac14a^{b}\boldsymbol\mu^{e}a^{c}$ — which
-is precisely the quadratic term of $A\boldsymbol\mu^{e}A$. Matching the
+survivor at quadratic order is $\tfrac14a^{b}\mathrm{\mu}^{e}a^{c}$ — which
+is precisely the quadratic term of $A\mathrm{\mu}^{e}A$. Matching the
 constant and linear orders is immediate. Hence, **exactly, to all orders**:
 
 $$
-\boxed{\;\mathbf I'(Q)=A(Q)\,\boldsymbol\mu^{e}\,A(Q),
-\qquad A(Q)=\mathbf I^{e}+\tfrac12\sum_ba^{b}Q_b\;}
+\boxed{\;\mathsf I'(Q)=A(Q)\,\mathrm{\mu}^{e}\,A(Q),
+\qquad A(Q)=\mathsf I^{e}+\tfrac12\sum_ba^{b}Q_b\;}
 \qquad\text{— Eq. (4.37).}
 $$
 
 Corollaries you get for free (check each by multiplying out; all used later):
 
 $$
-\boldsymbol\mu=A^{-1}\mathbf I^{e}A^{-1},\qquad
-A\boldsymbol\mu A=\mathbf I^{e},\qquad
-\boldsymbol\mu A\boldsymbol\mu^{e}=A^{-1},\qquad
-\gamma=\frac{(\det A)^{2}}{\det\mathbf I^{e}} .
+\mathrm{\mu}=A^{-1}\mathsf I^{e}A^{-1},\qquad
+A\mathrm{\mu} A=\mathsf I^{e},\qquad
+\mathrm{\mu} A\mathrm{\mu}^{e}=A^{-1},\qquad
+\gamma=\frac{(\det A)^{2}}{\det\mathsf I^{e}} .
 $$
 
 ---
@@ -264,7 +264,7 @@ $$
 \partial_b\ln\det M=\operatorname{tr}\bigl(M^{-1}\,\partial_bM\bigr).
 $$
 
-Apply it to $\gamma=(\det A)^2/\det\mathbf I^{e}$, with
+Apply it to $\gamma=(\det A)^2/\det\mathsf I^{e}$, with
 $\partial_bA=\tfrac12a^{b}$ *constant*:
 
 $$
@@ -277,8 +277,8 @@ $$
 
 using $\partial_c A^{-1}=-A^{-1}(\partial_cA)A^{-1}$ (differentiate
 $A^{-1}A=\mathbb 1$). **This is Miracle 1 in action:** $\Lambda_b$, its
-derivatives, $\partial_b\boldsymbol\mu=-\tfrac12(B^{b}\boldsymbol\mu
-+\boldsymbol\mu B^{bT})$ — every derivative in the five groups is now an
+derivatives, $\partial_b\mathrm{\mu}=-\tfrac12(B^{b}\mathrm{\mu}
++\mathrm{\mu} B^{bT})$ — every derivative in the five groups is now an
 algebraic expression in the constant matrices $a^{b}$ and the linear matrix
 $A(Q)$. No derivative remains to be taken.
 
@@ -296,13 +296,13 @@ $\kappa_\gamma\equiv\epsilon_{\gamma\sigma\tau}(SA^{-1})_{\sigma\tau}$
 
 | Rule | Statement | Where proven |
 |---|---|---|
-| $aa$ | $\sum_ba^{b}\otimes a^{b}=[\text{terms in }S,\mathbb 1]-V[S]\boldsymbol\mu^{e}V[S]$ | (B.28) |
-| $\sigma a$ | $\sum_b\sigma_{\alpha b}a^{b}=V[A]^{\alpha}+(A\boldsymbol\mu^{e})_{\alpha\varepsilon}V[S]^{\varepsilon}$ | (B.29) |
-| $\sigma\zeta$ | $\sum_b\sigma_{\alpha b}\zeta^{\beta}_{bc}=\sum_ju_{j\beta}l_{jc,\alpha}-\delta_{\alpha\beta}(s_c{+}Q_c)+\tfrac12(A\boldsymbol\mu^{e}a^{c})_{\alpha\beta}$ | (B.30) |
-| auxiliaries | $\sum_cs_ca^{c}=2\mathbf I^{e}$, $\ \sum_c(s_c{+}Q_c)\Lambda_c=6$ | (B.39) |
+| $aa$ | $\sum_ba^{b}\otimes a^{b}=[\text{terms in }S,\mathbb 1]-V[S]\mathrm{\mu}^{e}V[S]$ | (B.28) |
+| $\sigma a$ | $\sum_b\sigma_{\alpha b}a^{b}=V[A]^{\alpha}+(A\mathrm{\mu}^{e})_{\alpha\varepsilon}V[S]^{\varepsilon}$ | (B.29) |
+| $\sigma\zeta$ | $\sum_b\sigma_{\alpha b}\zeta^{\beta}_{bc}=\sum_ju_{j\beta}l_{jc,\alpha}-\delta_{\alpha\beta}(s_c{+}Q_c)+\tfrac12(A\mathrm{\mu}^{e}a^{c})_{\alpha\beta}$ | (B.30) |
+| auxiliaries | $\sum_cs_ca^{c}=2\mathsf I^{e}$, $\ \sum_c(s_c{+}Q_c)\Lambda_c=6$ | (B.39) |
 
 Note the pattern: the rotational corrections only ever produce $\tfrac12a$,
-$A$, $S$, and $\boldsymbol\mu^{e}$ — the same four constant objects, over and
+$A$, $S$, and $\mathrm{\mu}^{e}$ — the same four constant objects, over and
 over. That is why the assembly below has any chance of closing.
 
 ---
@@ -311,8 +311,8 @@ over. That is why the assembly below has any chance of closing.
 
 Using §4 and the toolbox (full algebra: Appendix §B.6, Steps 5–10). Write
 $t_1=\operatorname{tr}A^{-1}$, and remember
-$\operatorname{tr}\boldsymbol\mu
-=\operatorname{tr}(A^{-2}\mathbf I^{e})
+$\operatorname{tr}\mathrm{\mu}
+=\operatorname{tr}(A^{-2}\mathsf I^{e})
 =\operatorname{tr}S\operatorname{tr}A^{-2}-\operatorname{tr}(A^{-2}S)$.
 
 - **$N_0$** [(B.35)]: contract the $aa$ rule twice with $A^{-1}$:
@@ -320,24 +320,24 @@ $\operatorname{tr}\boldsymbol\mu
   N_0=\operatorname{tr}S\bigl[t_1^{2}-2\operatorname{tr}A^{-2}\bigr]
   +4\operatorname{tr}(A^{-2}S)-3\,t_1\operatorname{tr}(A^{-1}S)
   +\tfrac12\mu^{e}_{\gamma\delta}\operatorname{tr}\bigl(A^{-1}V[S]^{\gamma}A^{-1}V[S]^{\delta}\bigr)
-  -\boldsymbol\kappa^{T}\boldsymbol\mu^{e}\boldsymbol\kappa .
+  -\boldsymbol\kappa^{T}\mathrm{\mu}^{e}\boldsymbol\kappa .
   $$
 - **$N_1=0$** [(B.36)]: a pretty lemma — the vector fields
-  $(\boldsymbol\mu\boldsymbol\sigma)_{\alpha b}$ are **divergence-free** on
-  mode space, $\sum_b\partial_b(\boldsymbol\mu\boldsymbol\sigma)_{\alpha b}=0$.
+  $(\mathrm{\mu}\mathrm{\sigma})_{\alpha b}$ are **divergence-free** on
+  mode space, $\sum_b\partial_b(\mathrm{\mu}\mathrm{\sigma})_{\alpha b}=0$.
   (Proof: apply the $\sigma a$ rule; every piece is an $\epsilon$-contraction
-  of a *symmetric* matrix — e.g. $S\boldsymbol\mu^{e}$ is symmetric because
-  $S$ and $\boldsymbol\mu^{e}$ are both functions of $S$ — plus a pair
+  of a *symmetric* matrix — e.g. $S\mathrm{\mu}^{e}$ is symmetric because
+  $S$ and $\mathrm{\mu}^{e}$ are both functions of $S$ — plus a pair
   $\pm\kappa$ that cancels.)
 - **$N_4$** [(B.37)]: the $\sigma a$ rule gives
-  $v_\alpha=2(A\boldsymbol\mu^{e}\boldsymbol\kappa)_\alpha$, and with
-  $A\boldsymbol\mu A=\mathbf I^{e}$,
+  $v_\alpha=2(A\mathrm{\mu}^{e}\boldsymbol\kappa)_\alpha$, and with
+  $A\mathrm{\mu} A=\mathsf I^{e}$,
   $$
-  N_4=\tfrac14\mathbf v^{T}\boldsymbol\mu\mathbf v
-  =\boldsymbol\kappa^{T}\boldsymbol\mu^{e}\boldsymbol\kappa .
+  N_4=\tfrac14\mathbf v^{T}\mathrm{\mu}\mathbf v
+  =\boldsymbol\kappa^{T}\mathrm{\mu}^{e}\boldsymbol\kappa .
   $$
 - **$N_3$** [(B.38)]: with $W_\alpha\equiv\sum_b\sigma_{\alpha b}a^{b}$
-  ($\sigma a$ rule) and $\boldsymbol\mu A\boldsymbol\mu^{e}=A^{-1}$,
+  ($\sigma a$ rule) and $\mathrm{\mu} A\mathrm{\mu}^{e}=A^{-1}$,
   $$
   N_3=-\tfrac12\mu_{\alpha\beta}\operatorname{tr}\bigl(A^{-1}V[A]^{\alpha}A^{-1}V[A]^{\beta}\bigr)
   -A^{-1}_{\alpha\varepsilon}\operatorname{tr}\bigl(A^{-1}V[A]^{\alpha}A^{-1}V[S]^{\varepsilon}\bigr)
@@ -346,9 +346,9 @@ $\operatorname{tr}\boldsymbol\mu
 - **$N_2$** [(B.41)]: the $\sigma\zeta$ rule plus the auxiliaries (this is
   where the mysterious clean number $\sum_c(s_c+Q_c)\Lambda_c=6$ earns its keep):
   $$
-  N_2=\operatorname{tr}A\bigl[t_1\operatorname{tr}\boldsymbol\mu
-  -\operatorname{tr}(A^{-1}\boldsymbol\mu)\bigr]
-  -2\,t_1\operatorname{tr}(A^{-1}S)-4\operatorname{tr}\boldsymbol\mu
+  N_2=\operatorname{tr}A\bigl[t_1\operatorname{tr}\mathrm{\mu}
+  -\operatorname{tr}(A^{-1}\mathrm{\mu})\bigr]
+  -2\,t_1\operatorname{tr}(A^{-1}S)-4\operatorname{tr}\mathrm{\mu}
   +2\operatorname{tr}(A^{-2}S).
   $$
 
@@ -358,8 +358,8 @@ $\epsilon\epsilon$-pair identity [(B.42)] and $A^{-1}A=\mathbb 1$, to
 
 $$
 \mu_{\alpha\beta}\operatorname{tr}(A^{-1}V[A]^{\alpha}A^{-1}V[A]^{\beta})
-=2\operatorname{tr}A\bigl[t_1\operatorname{tr}\boldsymbol\mu-\operatorname{tr}(A^{-1}\boldsymbol\mu)\bigr]
--6\operatorname{tr}\boldsymbol\mu-2t_1\bigl[\operatorname{tr}S\,t_1-\operatorname{tr}(A^{-1}S)\bigr],
+=2\operatorname{tr}A\bigl[t_1\operatorname{tr}\mathrm{\mu}-\operatorname{tr}(A^{-1}\mathrm{\mu})\bigr]
+-6\operatorname{tr}\mathrm{\mu}-2t_1\bigl[\operatorname{tr}S\,t_1-\operatorname{tr}(A^{-1}S)\bigr],
 $$
 $$
 A^{-1}_{\alpha\varepsilon}\operatorname{tr}(A^{-1}V[A]^{\alpha}A^{-1}V[S]^{\varepsilon})
@@ -376,12 +376,12 @@ ugly objects:
 
 | ugly object | appears in | cancels against |
 |---|---|---|
-| $\boldsymbol\kappa^{T}\boldsymbol\mu^{e}\boldsymbol\kappa$ | $N_0$ (with $-$) | $N_4$ (with $+$) |
+| $\boldsymbol\kappa^{T}\mathrm{\mu}^{e}\boldsymbol\kappa$ | $N_0$ (with $-$) | $N_4$ (with $+$) |
 | $\mu^{e}\text{-weighted }V[S]V[S]$ traces | $N_0$ (with $+\tfrac12$) | $N_3$ (with $-\tfrac12$) |
-| $\operatorname{tr}A\,[t_1\operatorname{tr}\boldsymbol\mu-\operatorname{tr}(A^{-1}\boldsymbol\mu)]$ | $N_2$ (with $+$) | $-\tfrac12\times$(B.43) inside $N_3$ (with $-$) |
+| $\operatorname{tr}A\,[t_1\operatorname{tr}\mathrm{\mu}-\operatorname{tr}(A^{-1}\mathrm{\mu})]$ | $N_2$ (with $+$) | $-\tfrac12\times$(B.43) inside $N_3$ (with $-$) |
 
 Everything that could still remember the fine structure of the molecule —
-the equilibrium reciprocal inertia $\boldsymbol\mu^{e}$, the antisymmetry
+the equilibrium reciprocal inertia $\mathrm{\mu}^{e}$, the antisymmetry
 vector $\boldsymbol\kappa$, the trace of $A$ itself — is now gone. What is
 left is a handful of ordinary traces; collect their coefficients:
 
@@ -391,12 +391,12 @@ left is a handful of ordinary traces; collect their coefficients:
 | $\operatorname{tr}S\operatorname{tr}A^{-2}$ | $-2$ | $0$ | $0$ | $+2$ | $0$ |
 | $\operatorname{tr}(A^{-2}S)$ | $+4$ | $+2$ | $0$ | $-6$ | $0$ |
 | $t_1\operatorname{tr}(A^{-1}S)$ | $-3$ | $-2$ | $-1$ | $+6$ | $0$ |
-| $\operatorname{tr}\boldsymbol\mu$ | $0$ | $-4$ | $+3$ | $0$ | $\mathbf{-1}$ |
+| $\operatorname{tr}\mathrm{\mu}$ | $0$ | $-4$ | $+3$ | $0$ | $\mathbf{-1}$ |
 
 Four columns of coefficients, four zeros, one survivor:
 
 $$
-\frac{8}{\hbar^{2}}\,U=-\operatorname{tr}\boldsymbol\mu
+\frac{8}{\hbar^{2}}\,U=-\operatorname{tr}\mathrm{\mu}
 \qquad\Longrightarrow\qquad
 \boxed{\;U=-\frac{\hbar^{2}}{8}\sum_{\alpha}\mu_{\alpha\alpha}(Q).\;}
 $$
@@ -423,7 +423,7 @@ Eckart normal coordinates.
 
 The script below builds a bent triatomic (H$_2$O-like masses), constructs
 Eckart-compliant mode vectors, picks a random shape $Q$, evaluates the residue
-(B.19) by finite differences, and compares with $-\operatorname{tr}\boldsymbol\mu$.
+(B.19) by finite differences, and compares with $-\operatorname{tr}\mathrm{\mu}$.
 It also verifies Watson's closed form to machine precision. Expected output:
 the first two numbers agree to $\sim10^{-5}$ (finite-difference noise), the
 closed-form error is $\sim10^{-16}$.
@@ -531,38 +531,38 @@ $E^{b}$ (§3.1) — the seed of the closed form. Orthonormality of the
 $\mathbf l_b$'s gives the $\delta_{bc}$'s. All three are used; none is
 optional.
 
-**Q: Is the closed form $\mathbf I'=A\boldsymbol\mu^{e}A$ an expansion?**
-No — $\mathbf I'$ is exactly quadratic in $Q$ (inertia of points moving
-linearly), and $A\boldsymbol\mu^{e}A$ is exactly quadratic too; §3.3 matches
+**Q: Is the closed form $\mathsf I'=A\mathrm{\mu}^{e}A$ an expansion?**
+No — $\mathsf I'$ is exactly quadratic in $Q$ (inertia of points moving
+linearly), and $A\mathrm{\mu}^{e}A$ is exactly quadratic too; §3.3 matches
 all three orders exactly. It holds at arbitrarily large $Q$ (as long as $A$
 stays invertible).
 
 **Q: Why does $U$ come out negative (an attractive well)?**
-$\operatorname{tr}\boldsymbol\mu=\sum_\alpha 1/I'_\alpha$-like is positive,
+$\operatorname{tr}\mathrm{\mu}=\sum_\alpha 1/I'_\alpha$-like is positive,
 so $U<0$ everywhere; it is larger where the moments of inertia are small
 (light, compact molecules). For H$_2$O it is of order $-10\,{\rm cm}^{-1}$ —
 small but spectroscopically visible.
 
 **Q: The five groups contain $\operatorname{tr}A$, $\boldsymbol\kappa$,
-$\boldsymbol\mu^{e}$… why must they cancel?**
-Because the answer they add up to, $-\operatorname{tr}\boldsymbol\mu$, doesn't
+$\mathrm{\mu}^{e}$… why must they cancel?**
+Because the answer they add up to, $-\operatorname{tr}\mathrm{\mu}$, doesn't
 contain them — but that is hindsight. The honest statement: the cancellations
 are consequences of the *same* completeness relation that generated the terms
 in the first place. The Eckart frame doesn't just simplify the classical
 Hamiltonian; it fine-tunes the quantum residue too.
 
 **Q: What if I use curvilinear internal coordinates (bond lengths, angles)?**
-Then $\mathbf I'$ is no longer $A\boldsymbol\mu^{e}A$ with linear $A$,
+Then $\mathsf I'$ is no longer $A\mathrm{\mu}^{e}A$ with linear $A$,
 Miracle 1 fails, and the residue does *not* collapse to a trace — extra
 pseudopotential terms survive. Watson's clean result is a special property of
 rectilinear normal coordinates.
 
 **Q: One-sentence summary?**
 The reweighting residue looks like an arbitrary function of the shape, but the
-Eckart conditions force $\det\mathbf I'=(\det A)^2/\det\mathbf I^{e}$ with $A$
+Eckart conditions force $\det\mathsf I'=(\det A)^2/\det\mathsf I^{e}$ with $A$
 linear in $Q$, so every derivative becomes a constant matrix, and the
 completeness sum rules make all the complicated terms cancel in pairs —
-leaving exactly $-\frac{\hbar^2}{8}\operatorname{tr}\boldsymbol\mu$.
+leaving exactly $-\frac{\hbar^2}{8}\operatorname{tr}\mathrm{\mu}$.
 
 ---
 

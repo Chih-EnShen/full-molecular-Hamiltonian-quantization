@@ -43,7 +43,7 @@ The plan (fully self-contained — you never need the paper open):
 | $\hat\pi_\alpha=\sum_b\sigma_{\alpha b}(Q)\,\hat P_b$ | vibrational angular momentum | $Q$ only |
 | $\sigma_{\alpha b}=\sum_a\zeta^{\alpha}_{ab}Q_a$ | Coriolis vectors, **linear** in $Q$, constant $\zeta$'s | multiplication |
 | $\mu_{\alpha\beta}(Q)$ | Watson reciprocal inertia, real **symmetric** | multiplication |
-| $\gamma(Q)=\det\mathbf I'$ | shape part of the Jacobian | multiplication |
+| $\gamma(Q)=\det\mathsf I'$ | shape part of the Jacobian | multiplication |
 | $\sqrt g=\sin\theta\,\sqrt{\gamma}$ | full Jacobian / volume weight, Eq. (4.21) | — |
 
 Greek indices $\alpha,\beta\in\{1,2,3\}$, mode indices $b,c\in\{1,\dots,f\}$;
@@ -139,7 +139,7 @@ $$
 
 The index pair $(A,B)$ runs over Euler angles and modes; the **cross (Coriolis)
 block** consists of the mixed terms, with the off-diagonal inverse-metric
-blocks $g^{\Omega Q}_{sb}=-(\mathsf E^{-1}\boldsymbol\mu\boldsymbol\sigma)_{sb}$
+blocks $g^{\Omega Q}_{sb}=-(\mathsf E^{-1}\mathrm{\mu}\mathrm{\sigma})_{sb}$
 and its transpose [Eq. (4.22)]:
 
 $$
@@ -161,9 +161,9 @@ $$
 \text{group 1}
 = +\frac{\hbar^{2}}{2}\,\frac{1}{\sin\theta}\,
 \partial_{\Omega_s}\Bigl[\sin\theta\,(\mathsf E^{-1})_{s\alpha}\Bigr]\,
-(\boldsymbol\mu\boldsymbol\sigma)_{\alpha b}\,\partial_{Q_b}
+(\mathrm{\mu}\mathrm{\sigma})_{\alpha b}\,\partial_{Q_b}
 \;+\;\frac{\hbar^{2}}{2}\,(\mathsf E^{-1})_{s\alpha}\,
-(\boldsymbol\mu\boldsymbol\sigma)_{\alpha b}\,\partial_{\Omega_s}\partial_{Q_b}.
+(\mathrm{\mu}\mathrm{\sigma})_{\alpha b}\,\partial_{\Omega_s}\partial_{Q_b}.
 $$
 
 (The overall sign flipped because $g^{\Omega Q}$ carries a minus.) Now the
@@ -199,7 +199,7 @@ $$
 
 Now the roles reverse: $\partial_{Q_b}$ ignores $\sin\theta$ and
 $\mathsf E^{-1}$ (they are $\Omega$-functions, and they pass through) but
-**acts** on $\sqrt\gamma$, $\boldsymbol\sigma$, and $\boldsymbol\mu$. The
+**acts** on $\sqrt\gamma$, $\mathrm{\sigma}$, and $\mathrm{\mu}$. The
 $\sin\theta$ cancels against the prefactor, but the $\sqrt\gamma$ does *not* —
 it is trapped inside the derivative:
 
@@ -306,8 +306,8 @@ the same operator** — one enters with $-\frac{i\hbar}{8}$, the other with
 $+\frac{i\hbar}{8}$:
 
 $$
--\frac{i\hbar}{8}\,\hat J_\alpha(\boldsymbol\mu\boldsymbol\sigma\,\partial\ln\gamma)_\alpha
-+\frac{i\hbar}{8}\,\hat J_\alpha(\boldsymbol\mu\boldsymbol\sigma\,\partial\ln\gamma)_\alpha
+-\frac{i\hbar}{8}\,\hat J_\alpha(\mathrm{\mu}\mathrm{\sigma}\,\partial\ln\gamma)_\alpha
++\frac{i\hbar}{8}\,\hat J_\alpha(\mathrm{\mu}\mathrm{\sigma}\,\partial\ln\gamma)_\alpha
 = 0 .
 $$
 
@@ -355,8 +355,8 @@ Eq. (4.35); the algebra above is that line unpacked.
 
 A second, slicker way to see the whole result is the Podolsky sandwich
 [Eq. (4.32′)]: the Coriolis part of the sandwich is
-$-\tfrac12\gamma^{-1/4}\bigl[\hat J\gamma^{1/2}(\boldsymbol\mu\boldsymbol\sigma)\hat P
-+\hat P\gamma^{1/2}(\boldsymbol\sigma^{T}\boldsymbol\mu)\hat J\bigr]\gamma^{-1/4}$,
+$-\tfrac12\gamma^{-1/4}\bigl[\hat J\gamma^{1/2}(\mathrm{\mu}\mathrm{\sigma})\hat P
++\hat P\gamma^{1/2}(\mathrm{\sigma}^{T}\mathrm{\mu})\hat J\bigr]\gamma^{-1/4}$,
 which is of the form $\hat X+\hat X^\dagger$ *on the Watson measure* — you can
 read off Hermiticity before doing any algebra, and the computation of
 Section 4 above is just the normal-ordering of this sandwich.
@@ -377,7 +377,7 @@ $\sigma_{\alpha b}$ trade places under the $b$-sum. Without it,
 $\hat\pi^\dagger\neq\hat\pi$ on the flat mode measure and the bookkeeping
 would need explicit symmetrization.
 
-**Q: Does the cancellation depend on the specific $\gamma=\det\mathbf I'$ or
+**Q: Does the cancellation depend on the specific $\gamma=\det\mathsf I'$ or
 the Eckart conditions?**
 No — Section 4 works for *any* positive weight $\gamma(Q)$ and any
 $\sigma_{\alpha b}(Q)$ with $\sum_b\partial_b\sigma_{\alpha b}=0$. The Eckart

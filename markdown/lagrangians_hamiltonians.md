@@ -93,11 +93,11 @@ $$
 
 ## 3. Body-fixed (Eckart) Cartesian coordinates
 
-**Coordinates.** $\mathbf R_{\mathrm{cm}}$; Euler angles $\Omega=(\phi,\theta,\chi)$ defining the frame rotation $\mathbf S(\Omega)$; body-fixed Cartesian positions for nuclei **and** electrons:
+**Coordinates.** $\mathbf R_{\mathrm{cm}}$; Euler angles $\Omega=(\phi,\theta,\chi)$ defining the frame rotation $\mathsf S(\Omega)$; body-fixed Cartesian positions for nuclei **and** electrons:
 
 $$
-\mathbf R'_j=\mathbf S(\Omega)\,\bar{\mathbf R}_j,\qquad
-\mathbf r'_i=\mathbf S(\Omega)\,\bar{\mathbf r}_i,\qquad
+\mathbf R'_j=\mathsf S(\Omega)\,\bar{\mathbf R}_j,\qquad
+\mathbf r'_i=\mathsf S(\Omega)\,\bar{\mathbf r}_i,\qquad
 \boldsymbol\omega=\mathsf E(\Omega)\,\dot{\boldsymbol\Omega}.
 $$
 
@@ -112,7 +112,7 @@ $$
 
 with velocity versions $\sum_j M_j\dot{\bar{\mathbf R}}_j=0$, $\sum_j M_j\bar{\mathbf R}_j^{\mathrm{eq}}\times\dot{\bar{\mathbf R}}_j=0$, and momentum dual $\sum_j\bar{\mathbf P}_j=0$. Electrons unconstrained.
 
-**Lagrangian (velocity form).** Rotations preserve norms, so substituting $\dot{\mathbf R}'_j=\mathbf S(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)$, $\dot{\mathbf r}'_i=\mathbf S(\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)$ into the stage-2 Lagrangian:
+**Lagrangian (velocity form).** Rotations preserve norms, so substituting $\dot{\mathbf R}'_j=\mathsf S(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)$, $\dot{\mathbf r}'_i=\mathsf S(\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i)$ into the stage-2 Lagrangian:
 
 $$
 \mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
@@ -126,28 +126,28 @@ with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$; expanded via (3.9c),
 
 $$
 \mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
-+\tfrac12\,\boldsymbol\omega^{T}\bigl(\mathbf I_N+\mathbf I_e-\mathbf I_X\bigr)\boldsymbol\omega
-+\boldsymbol\omega\cdot\bigl(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X\bigr)
++\tfrac12\,\boldsymbol\omega^{T}\bigl(\mathsf I_N+\mathsf I_e-\mathsf I_X\bigr)\boldsymbol\omega
++\boldsymbol\omega\cdot\bigl(\mathbf L_N+\mathbf L_e-\mathbf L_X\bigr)
 +\tfrac12\sum_j M_j|\dot{\bar{\mathbf R}}_j|^2
 +\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2
 -\frac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2
 -V ,
 $$
 
-where $\mathbf I_N,\mathbf L_N^{\mathrm{vib}}$ are built from the $\bar{\mathbf R}_j$ exactly as in the definitions below (stage 4), only without the $Q$-parametrization.
+where $\mathsf I_N,\mathbf L_N$ are built from the $\bar{\mathbf R}_j$ exactly as in the definitions below (stage 4), only without the $Q$-parametrization.
 
 **Momenta.** All three families are the body-fixed images of the stage-2 momenta:
 
 $$
 \bar{\mathbf P}_j=\frac{\partial \mathcal L}{\partial\dot{\bar{\mathbf R}}_j}
-=M_j\bigl(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j\bigr)=\mathbf S^{T}\mathbf P'_j ,
+=M_j\bigl(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j\bigr)=\mathsf S^{T}\mathbf P'_j ,
 \qquad
 \bar{\mathbf p}_i
 =m_e\bigl(\boldsymbol\omega\times\bar{\mathbf r}_i+\dot{\bar{\mathbf r}}_i\bigr)
--\frac{m_e^2}{M_{\mathrm{tot}}}\bigl(\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}\bigr)=\mathbf S^{T}\mathbf p'_i ,
+-\frac{m_e^2}{M_{\mathrm{tot}}}\bigl(\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}\bigr)=\mathsf S^{T}\mathbf p'_i ,
 $$
 
-and the angular momentum $\mathbf J=\partial \mathcal L/\partial\boldsymbol\omega=(\mathbf I_N+\mathbf I_e-\mathbf I_X)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X$ is **not independent**: it satisfies the identity
+and the angular momentum $\mathbf J=\partial \mathcal L/\partial\boldsymbol\omega=(\mathsf I_N+\mathsf I_e-\mathsf I_X)\boldsymbol\omega+\mathbf L_N+\mathbf L_e-\mathbf L_X$ is **not independent**: it satisfies the identity
 
 $$
 \mathbf J=\sum_j\bar{\mathbf R}_j\times\bar{\mathbf P}_j+\underbrace{\sum_i\bar{\mathbf r}_i\times\bar{\mathbf p}_i}_{\mathbf L_{\mathrm{elec}}} ,
@@ -167,20 +167,20 @@ $$
 
 *Notes.*
 
-- **Body-fixing alone changes nothing in $H$:** no $\boldsymbol\mu$, no explicit $\mathbf J$, no rotational kernel. The rotational kinetic energy is *hidden inside* the $\bar{\mathbf P}_j$ (each contains $M_j\,\boldsymbol\omega\times\bar{\mathbf R}_j$). Extracting an explicit rotation–vibration split requires parametrizing the shape — that is stage 4's job.
+- **Body-fixing alone changes nothing in $H$:** no $\mathrm{\mu}$, no explicit $\mathbf J$, no rotational kernel. The rotational kinetic energy is *hidden inside* the $\bar{\mathbf P}_j$ (each contains $M_j\,\boldsymbol\omega\times\bar{\mathbf R}_j$). Extracting an explicit rotation–vibration split requires parametrizing the shape — that is stage 4's job.
 - What body-fixing **does** buy at this stage: the potential becomes $V(\bar{\mathbf R}_j,\bar{\mathbf r}_i)$, manifestly independent of $\Omega$ [eq. (3.8)] — rotational symmetry is explicit, and the Euler angles are cyclic.
-- The identity $\mathbf J=\sum_j\bar{\mathbf R}_j\times\bar{\mathbf P}_j+\mathbf L_{\mathrm{elec}}$ is the seed of the key identity (3.19): once $\dot{\bar{\mathbf R}}_j$ is parametrized by $\dot Q_b$, its nuclear part becomes $\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}$ and inversion produces the Watson $\boldsymbol\mu$.
+- The identity $\mathbf J=\sum_j\bar{\mathbf R}_j\times\bar{\mathbf P}_j+\mathbf L_{\mathrm{elec}}$ is the seed of the key identity (3.19): once $\dot{\bar{\mathbf R}}_j$ is parametrized by $\dot Q_b$, its nuclear part becomes $\mathsf I_N\boldsymbol\omega+\mathbf L_N$ and inversion produces the Watson $\mathrm{\mu}$.
 
 ---
 
 ## 4. Normal-mode coordinates
 
-**Coordinates.** $\mathbf R_{\mathrm{cm}}$; Euler angles $\Omega=(\phi,\theta,\chi)$ fixing $\mathbf S(\Omega)$ by the Eckart conditions; normal coordinates $Q_b$ ($b=1,\dots,3N_{\mathrm{nucl}}-6$); body-fixed electron coordinates $\bar{\mathbf r}_i$:
+**Coordinates.** $\mathbf R_{\mathrm{cm}}$; Euler angles $\Omega=(\phi,\theta,\chi)$ fixing $\mathsf S(\Omega)$ by the Eckart conditions; normal coordinates $Q_b$ ($b=1,\dots,3N_{\mathrm{nucl}}-6$); body-fixed electron coordinates $\bar{\mathbf r}_i$:
 
 $$
-\mathbf R'_j=\mathbf S(\Omega)\,\bar{\mathbf R}_j(Q),\qquad
+\mathbf R'_j=\mathsf S(\Omega)\,\bar{\mathbf R}_j(Q),\qquad
 \bar{\mathbf R}_j(Q)=\bar{\mathbf R}_j^{\mathrm{eq}}+\frac{1}{\sqrt{M_j}}\sum_b\mathbf l_{jb}Q_b,\qquad
-\mathbf r'_i=\mathbf S(\Omega)\,\bar{\mathbf r}_i .
+\mathbf r'_i=\mathsf S(\Omega)\,\bar{\mathbf r}_i .
 $$
 
 The body-fixed angular velocity is $\boldsymbol\omega=\mathsf E(\Omega)\dot{\boldsymbol\Omega}$ [eqs. (3.2), (4.10)]. The Eckart/Sayvetz conditions are consumed by the chart: there are no residual constraints among $(\Omega,Q_b,\bar{\mathbf r}_i)$.
@@ -188,13 +188,13 @@ The body-fixed angular velocity is $\boldsymbol\omega=\mathsf E(\Omega)\dot{\bol
 **Ingredient definitions** [eqs. (3.9)–(3.12), (3.14), (3.17a), (3.20)], with $\bar{\mathbf r}\equiv\sum_i\bar{\mathbf r}_i$:
 
 $$
-\mathbf I_N=\sum_j M_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^T),\qquad
-\mathbf I_e=m_e\sum_i(\bar r_i^2\mathbb 1-\bar{\mathbf r}_i\bar{\mathbf r}_i^T),\qquad
-\mathbf I_X=\frac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb 1-\bar{\mathbf r}\bar{\mathbf r}^T),
+\mathsf I_N=\sum_j M_j(\bar R_j^2\mathbb 1-\bar{\mathbf R}_j\bar{\mathbf R}_j^T),\qquad
+\mathsf I_e=m_e\sum_i(\bar r_i^2\mathbb 1-\bar{\mathbf r}_i\bar{\mathbf r}_i^T),\qquad
+\mathsf I_X=\frac{m_e^2}{M_{\mathrm{tot}}}(\bar r^2\mathbb 1-\bar{\mathbf r}\bar{\mathbf r}^T),
 $$
 
 $$
-\mathbf L_N^{\mathrm{vib}}=\sum_j M_j\bar{\mathbf R}_j\times\dot{\bar{\mathbf R}}_j,\qquad
+\mathbf L_N=\sum_j M_j\bar{\mathbf R}_j\times\dot{\bar{\mathbf R}}_j,\qquad
 \mathbf L_e=m_e\sum_i\bar{\mathbf r}_i\times\dot{\bar{\mathbf r}}_i,\qquad
 \mathbf L_X=\frac{m_e^2}{M_{\mathrm{tot}}}\,\bar{\mathbf r}\times\dot{\bar{\mathbf r}},
 $$
@@ -203,7 +203,7 @@ $$
 \boldsymbol\sigma_b=\sum_a\boldsymbol\zeta_{ab}Q_a,\quad
 \boldsymbol\zeta_{ab}=\sum_j\mathbf l_{ja}\times\mathbf l_{jb},\qquad
 \boldsymbol\pi=\sum_b\boldsymbol\sigma_bP_b,\qquad
-\boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})^{-1},\qquad
+\mathrm{\mu}=(\mathsf I_N-\mathrm{\sigma}\mathrm{\sigma}^{\mathsf T})^{-1},\qquad
 \mathbf L_{\mathrm{elec}}=\sum_i\bar{\mathbf r}_i\times\bar{\mathbf p}_i .
 $$
 
@@ -221,8 +221,8 @@ or, expanded via the squared-term identity (3.9c) and eqs. (3.9d)–(3.9e):
 
 $$
 \mathcal L \;=\; \tfrac12 M_{\mathrm{tot}}|\dot{\mathbf R}_{\mathrm{cm}}|^2
-+\tfrac12\,\boldsymbol\omega^{T}\bigl(\mathbf I_N+\mathbf I_e-\mathbf I_X\bigr)\boldsymbol\omega
-+\boldsymbol\omega\cdot\bigl(\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X\bigr)
++\tfrac12\,\boldsymbol\omega^{T}\bigl(\mathsf I_N+\mathsf I_e-\mathsf I_X\bigr)\boldsymbol\omega
++\boldsymbol\omega\cdot\bigl(\mathbf L_N+\mathbf L_e-\mathbf L_X\bigr)
 +\tfrac12\sum_b\dot Q_b^2
 +\tfrac{m_e}{2}\sum_i|\dot{\bar{\mathbf r}}_i|^2
 -\frac{m_e^2}{2M_{\mathrm{tot}}}|\dot{\bar{\mathbf r}}|^2
@@ -233,7 +233,7 @@ $$
 
 $$
 \mathbf J=\frac{\partial \mathcal L}{\partial\boldsymbol\omega}
-=\bigl(\mathbf I_N+\mathbf I_e-\mathbf I_X\bigr)\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}+\mathbf L_e-\mathbf L_X ,
+=\bigl(\mathsf I_N+\mathsf I_e-\mathsf I_X\bigr)\boldsymbol\omega+\mathbf L_N+\mathbf L_e-\mathbf L_X ,
 \qquad
 P_b=\frac{\partial \mathcal L}{\partial\dot Q_b}=\dot Q_b+\boldsymbol\omega\cdot\boldsymbol\sigma_b ,
 $$
@@ -245,17 +245,17 @@ $$
 \qquad\text{[BF image of (3.5)]} .
 $$
 
-Substituting $\bar{\mathbf p}_i$ into $\mathbf L_{\mathrm{elec}}$ gives eq. (3.18), $\mathbf L_{\mathrm{elec}}=(\mathbf I_e-\mathbf I_X)\boldsymbol\omega+(\mathbf L_e-\mathbf L_X)$, whence the key identity (3.19):
+Substituting $\bar{\mathbf p}_i$ into $\mathbf L_{\mathrm{elec}}$ gives eq. (3.18), $\mathbf L_{\mathrm{elec}}=(\mathsf I_e-\mathsf I_X)\boldsymbol\omega+(\mathbf L_e-\mathbf L_X)$, whence the key identity (3.19):
 
 $$
-\mathbf J-\mathbf L_{\mathrm{elec}}=\mathbf I_N\,\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}} .
+\mathbf J-\mathbf L_{\mathrm{elec}}=\mathsf I_N\,\boldsymbol\omega+\mathbf L_N .
 $$
 
 **Hamiltonian (momentum form)** — $H=\mathbf P_{\mathrm{cm}}^2/2M_{\mathrm{tot}}+H_{\mathrm{int}}$ with $H_{\mathrm{int}}$ the Watson-form eq. (3.22):
 
 $$
 H_{\mathrm{int}} \;=\;
-\tfrac12\bigl(\mathbf J-\mathbf L_{\mathrm{elec}}-\boldsymbol\pi\bigr)^{T}\boldsymbol\mu(Q)\,\bigl(\mathbf J-\mathbf L_{\mathrm{elec}}-\boldsymbol\pi\bigr)
+\tfrac12\bigl(\mathbf J-\mathbf L_{\mathrm{elec}}-\boldsymbol\pi\bigr)^{T}\mathrm{\mu}(Q)\,\bigl(\mathbf J-\mathbf L_{\mathrm{elec}}-\boldsymbol\pi\bigr)
 \;+\;\tfrac12\sum_b P_b^2
 \;+\;\sum_i\frac{\bar{\mathbf p}_i^{\,2}}{2m_e}
 \;+\;\frac{1}{2M_N}\Bigl(\sum_i\bar{\mathbf p}_i\Bigr)^{\!2}
@@ -264,9 +264,9 @@ $$
 
 *Notes.*
 
-- **The electron inertias appear in $\mathcal L$ but cancel out of $H$.** The velocity-form rotational kernel is $\mathbf I_N+\mathbf I_e-\mathbf I_X$, yet the momentum-form kernel is the purely nuclear $\boldsymbol\mu=(\mathbf I_N-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T})^{-1}$: by (3.18)–(3.19) the entire electronic and mass-polarization content of $\mathbf J$ is absorbed into the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$ — the "algebraic miracle" of §3.6. The paper's Routhian route never lets $\mathbf I_e,\mathbf I_X$ arise in the first place; the full-Lagrangian route used here makes them appear and then cancel. Either way, the same (3.22).
+- **The electron inertias appear in $\mathcal L$ but cancel out of $H$.** The velocity-form rotational kernel is $\mathsf I_N+\mathsf I_e-\mathsf I_X$, yet the momentum-form kernel is the purely nuclear $\mathrm{\mu}=(\mathsf I_N-\mathrm{\sigma}\mathrm{\sigma}^{\mathsf T})^{-1}$: by (3.18)–(3.19) the entire electronic and mass-polarization content of $\mathbf J$ is absorbed into the kinematic shift $\mathbf J\to\mathbf J-\mathbf L_{\mathrm{elec}}$ — the "algebraic miracle" of §3.6. The paper's Routhian route never lets $\mathsf I_e,\mathsf I_X$ arise in the first place; the full-Lagrangian route used here makes them appear and then cancel. Either way, the same (3.22).
 - **The mass polarization changes appearance again:** velocity form $-\tfrac{m_e^2}{2M_{\mathrm{tot}}}|\boldsymbol\omega\times\bar{\mathbf r}+\dot{\bar{\mathbf r}}|^2$ (negative, coupled to rotation), momentum form $+\tfrac{1}{2M_N}(\sum_i\bar{\mathbf p}_i)^2$ (positive, a rotational scalar).
-- **No Wilson $G$-matrix:** the vibrational metric of rectilinear normal coordinates is the identity, so the vibrational block is the bare $\tfrac12\sum_bP_b^2$; all rotation–vibration coupling lives in $\boldsymbol\pi$ and $\boldsymbol\mu$.
+- **No Wilson $G$-matrix:** the vibrational metric of rectilinear normal coordinates is the identity, so the vibrational block is the bare $\tfrac12\sum_bP_b^2$; all rotation–vibration coupling lives in $\boldsymbol\pi$ and $\mathrm{\mu}$.
 - The CoM term is a decoupled spectator with the correct mass $M_{\mathrm{tot}}$, exactly as at stage 2.
 
 ---
@@ -277,10 +277,10 @@ $$
 |---|---|---|---|---|
 | 1. Cartesian | $\sum_j\tfrac12 M_j\dot{\mathbf R}_j^2+\sum_i\tfrac12 m_e\dot{\mathbf r}_i^2$ | $\sum_j\tfrac{\mathbf P_j^2}{2M_j}+\sum_i\tfrac{\mathbf p_i^2}{2m_e}$ | — (absent) | none |
 | 2. Mass-centered | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\sum_j\tfrac12 M_j\dot{\mathbf R}_j^{\prime 2}+\sum_i\tfrac12 m_e\dot{\mathbf r}_i^{\prime 2}-\tfrac{m_e^2}{2M_{\mathrm{tot}}}(\sum_i\dot{\mathbf r}'_i)^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\tfrac{\mathbf P_j^{\prime 2}}{2M_j}+\sum_i\tfrac{\mathbf p_i^{\prime 2}}{2m_e}+\tfrac{(\sum_i\mathbf p'_i)^2}{2M_N}$ | $-\tfrac{m_e^2}{2M_{\mathrm{tot}}}(\Sigma\dot{\mathbf r}')^2$ vs $+\tfrac{(\Sigma\mathbf p')^2}{2M_N}$ | $\sum_jM_j\mathbf R'_j=0$, $\sum_j\mathbf P'_j=0$ |
-| 3. Body-fixed Cartesian | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\tfrac12\boldsymbol\omega^T(\mathbf I_N{+}\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega+\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}{+}\mathbf L_e{-}\mathbf L_X)+\tfrac12\sum_jM_j\dot{\bar{\mathbf R}}_j^2+\tfrac{m_e}{2}\sum_i\dot{\bar{\mathbf r}}_i^2-\tfrac{m_e^2}{2M_{\mathrm{tot}}}\dot{\bar{\mathbf r}}^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\tfrac{\bar{\mathbf P}_j^2}{2M_j}+\sum_i\tfrac{\bar{\mathbf p}_i^2}{2m_e}+\tfrac{(\sum_i\bar{\mathbf p}_i)^2}{2M_N}$ | in $\mathbf I_X,\mathbf L_X,T_X^{\mathrm{mp}}$ vs $+\tfrac{(\Sigma\bar{\mathbf p})^2}{2M_N}$ | Eckart pair $\sum_jM_j\bar{\mathbf R}_j=0$, $\sum_jM_j\bar{\mathbf R}_j^{\mathrm{eq}}\!\times\!\bar{\mathbf R}_j=0$; $\sum_j\bar{\mathbf P}_j=0$; $\mathbf J=\Sigma\bar{\mathbf R}\times\bar{\mathbf P}+\mathbf L_{\mathrm{elec}}$ |
-| 4. Normal-mode | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\tfrac12\boldsymbol\omega^T(\mathbf I_N{+}\mathbf I_e{-}\mathbf I_X)\boldsymbol\omega+\boldsymbol\omega\!\cdot\!(\mathbf L_N^{\mathrm{vib}}{+}\mathbf L_e{-}\mathbf L_X)+\tfrac12\sum_b\dot Q_b^2+\tfrac{m_e}{2}\sum_i\dot{\bar{\mathbf r}}_i^2-\tfrac{m_e^2}{2M_{\mathrm{tot}}}\dot{\bar{\mathbf r}}^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\tfrac12(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)^T\boldsymbol\mu(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)+\tfrac12\sum_bP_b^2+\sum_i\tfrac{\bar{\mathbf p}_i^2}{2m_e}+\tfrac{(\sum_i\bar{\mathbf p}_i)^2}{2M_N}$ | in $\mathbf I_X,\mathbf L_X,T_X^{\mathrm{mp}}$ vs $+\tfrac{(\Sigma\bar{\mathbf p})^2}{2M_N}$ | none (Eckart conditions consumed by the chart) |
+| 3. Body-fixed Cartesian | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\tfrac12\boldsymbol\omega^T(\mathsf I_N{+}\mathsf I_e{-}\mathsf I_X)\boldsymbol\omega+\boldsymbol\omega\!\cdot\!(\mathbf L_N{+}\mathbf L_e{-}\mathbf L_X)+\tfrac12\sum_jM_j\dot{\bar{\mathbf R}}_j^2+\tfrac{m_e}{2}\sum_i\dot{\bar{\mathbf r}}_i^2-\tfrac{m_e^2}{2M_{\mathrm{tot}}}\dot{\bar{\mathbf r}}^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\sum_j\tfrac{\bar{\mathbf P}_j^2}{2M_j}+\sum_i\tfrac{\bar{\mathbf p}_i^2}{2m_e}+\tfrac{(\sum_i\bar{\mathbf p}_i)^2}{2M_N}$ | in $\mathsf I_X,\mathbf L_X,T_X^{\mathrm{mp}}$ vs $+\tfrac{(\Sigma\bar{\mathbf p})^2}{2M_N}$ | Eckart pair $\sum_jM_j\bar{\mathbf R}_j=0$, $\sum_jM_j\bar{\mathbf R}_j^{\mathrm{eq}}\!\times\!\bar{\mathbf R}_j=0$; $\sum_j\bar{\mathbf P}_j=0$; $\mathbf J=\Sigma\bar{\mathbf R}\times\bar{\mathbf P}+\mathbf L_{\mathrm{elec}}$ |
+| 4. Normal-mode | $\tfrac12 M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}^2+\tfrac12\boldsymbol\omega^T(\mathsf I_N{+}\mathsf I_e{-}\mathsf I_X)\boldsymbol\omega+\boldsymbol\omega\!\cdot\!(\mathbf L_N{+}\mathbf L_e{-}\mathbf L_X)+\tfrac12\sum_b\dot Q_b^2+\tfrac{m_e}{2}\sum_i\dot{\bar{\mathbf r}}_i^2-\tfrac{m_e^2}{2M_{\mathrm{tot}}}\dot{\bar{\mathbf r}}^2$ | $\tfrac{\mathbf P_{\mathrm{cm}}^2}{2M_{\mathrm{tot}}}+\tfrac12(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)^T\mathrm{\mu}(\mathbf J{-}\mathbf L_{\mathrm{elec}}{-}\boldsymbol\pi)+\tfrac12\sum_bP_b^2+\sum_i\tfrac{\bar{\mathbf p}_i^2}{2m_e}+\tfrac{(\sum_i\bar{\mathbf p}_i)^2}{2M_N}$ | in $\mathsf I_X,\mathbf L_X,T_X^{\mathrm{mp}}$ vs $+\tfrac{(\Sigma\bar{\mathbf p})^2}{2M_N}$ | none (Eckart conditions consumed by the chart) |
 
-The through-line of the table: the mass polarization is *absent* in Cartesian coordinates, appears as a *negative velocity-form correction* $\propto m_e^2/M_{\mathrm{tot}}$ or a *positive momentum-form term* $\propto 1/M_N$ at stage 2, and from stage 3 onward additionally entangles with rotation in velocity form (through $\mathbf I_X,\mathbf L_X$) while remaining a clean rotational scalar in momentum form — which is precisely why the paper carries the electrons in momentum form from stage 2 onward. Note also how the Hamiltonian's *form* is inert through stages 2 → 3 (body-fixing is a rotation, and the kinetic energy is a rotational scalar): the familiar Watson structure — rotational kernel $\boldsymbol\mu$, Coriolis $\boldsymbol\pi$, bare vibrational $\tfrac12\Sigma P_b^2$ — only materializes at stage 4, when the shape is parametrized and the rotation–vibration split of $\dot{\bar{\mathbf R}}_j$ becomes available.
+The through-line of the table: the mass polarization is *absent* in Cartesian coordinates, appears as a *negative velocity-form correction* $\propto m_e^2/M_{\mathrm{tot}}$ or a *positive momentum-form term* $\propto 1/M_N$ at stage 2, and from stage 3 onward additionally entangles with rotation in velocity form (through $\mathsf I_X,\mathbf L_X$) while remaining a clean rotational scalar in momentum form — which is precisely why the paper carries the electrons in momentum form from stage 2 onward. Note also how the Hamiltonian's *form* is inert through stages 2 → 3 (body-fixing is a rotation, and the kinetic energy is a rotational scalar): the familiar Watson structure — rotational kernel $\mathrm{\mu}$, Coriolis $\boldsymbol\pi$, bare vibrational $\tfrac12\Sigma P_b^2$ — only materializes at stage 4, when the shape is parametrized and the rotation–vibration split of $\dot{\bar{\mathbf R}}_j$ becomes available.
 
 ---
 
@@ -312,10 +312,10 @@ two tables below keep them apart:
 | 2 | $\mathbf R_{\mathrm{cm}}$ | $\mathbf P_{\mathrm{cm}}=M_{\mathrm{tot}}\dot{\mathbf R}_{\mathrm{cm}}$ | $\delta_{\alpha\beta}$ | **yes** (= total mom., conserved) | $-i\hbar\nabla_{\mathbf R_{\mathrm{cm}}}$ | flat |
 | 2 | $\mathbf R'_j$ | $\mathbf P'_j=M_j\dot{\mathbf R}'_j$ | $\delta_{jk}\delta_{\alpha\beta}$† | **yes** | $-i\hbar\nabla_{\mathbf R'_j}$ | flat |
 | 2 | $\mathbf r'_i$ | $\mathbf p'_i=m_e\dot{\mathbf r}'_i-\tfrac{m_e^2}{M_{\mathrm{tot}}}\sum_l\dot{\mathbf r}'_l$ | $\delta_{ik}\delta_{\alpha\beta}$ | **NO** — mass-polarization gap | $-i\hbar\nabla_{\mathbf r'_i}$ | flat |
-| 3 | $\bar{\mathbf R}_j$ | $\bar{\mathbf P}_j=M_j(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)=\mathbf S^{\mathsf T}\mathbf P'_j$ | $\delta_{jk}\delta_{\alpha\beta}$† | **yes** (transported vel.) | $-i\hbar\nabla_{\bar{\mathbf R}_j}$ | curved‡ |
+| 3 | $\bar{\mathbf R}_j$ | $\bar{\mathbf P}_j=M_j(\boldsymbol\omega\times\bar{\mathbf R}_j+\dot{\bar{\mathbf R}}_j)=\mathsf S^{\mathsf T}\mathbf P'_j$ | $\delta_{jk}\delta_{\alpha\beta}$† | **yes** (transported vel.) | $-i\hbar\nabla_{\bar{\mathbf R}_j}$ | curved‡ |
 | 3, 4 | $\Omega_s$ | $p_{\Omega_s}=(\mathsf E^{\mathsf T}\mathbf J)_s$ | $\delta_{st}$ | — (rotational; Table B) | $-i\hbar\partial_{\Omega_s}$ | **not** alone§ |
 | 4 | $Q_b$ | $P_b=\dot Q_b+\boldsymbol\omega\!\cdot\!\boldsymbol\sigma_b$ | $\delta_{bc}$ | **NO** — Coriolis gap ($\ne\dot Q_b$) | $-i\hbar\partial_{Q_b}$ | flat $dQ$ (after reweighting) |
-| 3, 4 | $\bar{\mathbf r}_i$ | $\bar{\mathbf p}_i=\mathbf S^{\mathsf T}\mathbf p'_i$ | $\delta_{ik}\delta_{\alpha\beta}$ | **NO** — inherits mass-pol. gap | $-i\hbar\nabla_{\bar{\mathbf r}_i}$ | flat $\prod d^3\bar r$ |
+| 3, 4 | $\bar{\mathbf r}_i$ | $\bar{\mathbf p}_i=\mathsf S^{\mathsf T}\mathbf p'_i$ | $\delta_{ik}\delta_{\alpha\beta}$ | **NO** — inherits mass-pol. gap | $-i\hbar\nabla_{\bar{\mathbf r}_i}$ | flat $\prod d^3\bar r$ |
 
 † on the constraint surface, with the dual gauge $\sum_j\mathbf P'_j=0$
 (resp. $\sum_j\bar{\mathbf P}_j=0$). ‡ curved measure
@@ -330,10 +330,10 @@ $\sin\theta\,d\Omega$; only the combination $\hat J_\alpha$ is (Eq. 4.27).
 | $\boldsymbol\omega$ | $\mathsf E(\Omega)\dot{\boldsymbol\Omega}$ | **no** — quasi-*velocity* | — | (velocity, not quantized directly) | conjugate to $\mathbf J_N$ in $\mathcal L$ |
 | $p_{\Omega_s}$ | $\partial \mathcal L/\partial\dot\Omega_s=(\mathsf E^{\mathsf T}\mathbf J)_s$ | **yes** (true conjugate) | $\{\Omega_s,p_{\Omega_t}\}=\delta_{st}$ | $-i\hbar\partial_{\Omega_s}$ | rarely used directly |
 | $\mathbf J$ | $J_\alpha=(\mathsf E^{-1})_{s\alpha}p_{\Omega_s}$ | **no** — frame-projected | $\{J_\alpha,J_\beta\}=-\epsilon_{\alpha\beta\gamma}J_\gamma$; $[\hat J_\alpha,\hat J_\beta]=-i\hbar\epsilon_{\alpha\beta\gamma}\hat J_\gamma$ (**anomalous**) | $-i\hbar(\mathsf E^{-1})_{s\alpha}\partial_{\Omega_s}$ (Eq. 4.24) | total ang. mom.; $\hat J_\alpha$ Hermitian on $\sin\theta\,d\Omega$ |
-| $\mathbf J_N$ | $\mathbf I_N\boldsymbol\omega+\mathbf L_N^{\mathrm{vib}}=\mathbf J-\mathbf L_{\mathrm{elec}}$ | **no** — conjugate to quasi-vel. $\boldsymbol\omega$ | same anomalous family | $\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$ | "nuclear" ang. mom. |
+| $\mathbf J_N$ | $\mathsf I_N\boldsymbol\omega+\mathbf L_N=\mathbf J-\mathbf L_{\mathrm{elec}}$ | **no** — conjugate to quasi-vel. $\boldsymbol\omega$ | same anomalous family | $\hat J_\alpha-\hat L_{\mathrm{elec},\alpha}$ | "nuclear" ang. mom. |
 | $\boldsymbol\pi$ | $\sum_b\boldsymbol\sigma_b(Q)\,P_b$ | **no** — coord-dependent combo of $P_b$ | $[\hat P_b,\hat\pi_\alpha]=-i\hbar\,\zeta^{\alpha}_{bc}\hat P_c\ne0$ | $\sum_b\sigma_{\alpha b}\hat P_b$ | vibrational (Coriolis) ang. mom. |
 | $\mathbf L_{\mathrm{elec}}$ | $\sum_i\bar{\mathbf r}_i\times\bar{\mathbf p}_i$ | derived from a **canonical** pair | $\{L_\alpha,L_\beta\}=+\epsilon_{\alpha\beta\gamma}L_\gamma$; $[\hat L_\alpha,\hat L_\beta]=+i\hbar\epsilon_{\alpha\beta\gamma}\hat L_\gamma$ (**normal**) | $-i\hbar\,\epsilon_{\alpha\beta\gamma}\sum_i\bar r_{i\beta}\partial_{\bar r_{i\gamma}}$ | the well-behaved one |
-| $\mathbf L_N^{\mathrm{vib}}$ | $\sum_jM_j\bar{\mathbf R}_j\times\dot{\bar{\mathbf R}}_j=\boldsymbol\pi-\boldsymbol\sigma\boldsymbol\sigma^{\mathsf T}\boldsymbol\omega$ | **no** — velocity-form | — | — | intermediate; eliminated in (3.20) |
+| $\mathbf L_N$ | $\sum_jM_j\bar{\mathbf R}_j\times\dot{\bar{\mathbf R}}_j=\boldsymbol\pi-\mathrm{\sigma}\mathrm{\sigma}^{\mathsf T}\boldsymbol\omega$ | **no** — velocity-form | — | — | intermediate; eliminated in (3.20) |
 
 Cross-sector (anti)commutators — each operator acts on a different coordinate
 set unless noted:
